@@ -1,0 +1,31 @@
+name: Feature request
+description: Suggest an improvement for the toolkit
+title: "[Feature]: "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: gap
+    attributes:
+      label: Problem or gap
+      description: What is missing?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed change
+    validations:
+      required: true
+  - type: dropdown
+    id: placement
+    attributes:
+      label: Where should this live?
+      options:
+        - Foundation root
+        - Overlay
+        - Template
+        - Prompt
+        - Skill
+        - Example
+        - Documentation

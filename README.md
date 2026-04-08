@@ -54,8 +54,9 @@ LEAD → ARCHITECT → BUILDER → REVIEWER → VERIFIER → FINALIZER → MEMOR
 - `core/` for rules, routing, verification, and review discipline
 - `templates/` for project bootstrap and operational consistency
 - `overlays/` for stack-specific extensions
-- `examples/` for concrete adoption patterns
+- `examples/` for concrete adoption patterns and worked examples
 - `.github/` for CI, issue templates, PR template, CODEOWNERS, and security policy
+- `.gitignore` for repository hygiene
 
 ## Quick start
 

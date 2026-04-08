@@ -6,6 +6,17 @@ All notable changes to this repository should be documented in this file.
 ### Changed
 - Reserved for upcoming changes.
 
+## [0.1.3] - 2026-04-08
+### Added
+- Production-grade prompt contracts with inputs, outputs, process, and non-goals
+- A fuller Python Service overlay with practical structure, review, and verification guidance
+- A worked end-to-end example for a Python service feature
+- Root `SECURITY.md` and mirrored `CODEOWNERS` for stronger public hygiene visibility
+
+### Changed
+- Strengthened real-world integration guidance
+- Clarified that the lifecycle source of truth is `docs/prompt-pipeline.md`
+
 ## [0.1.2] - 2026-04-08
 ### Added
 - Real `.github/` public-repo scaffolding

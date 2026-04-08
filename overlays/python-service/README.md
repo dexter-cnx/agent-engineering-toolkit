@@ -1,19 +1,61 @@
 # Python Service Overlay
 
-Use this overlay when the consuming repository is a Python service, worker, integration layer, or automation tool.
+Use this overlay when the consuming repository is a Python service, FastAPI application, worker, adapter layer, or automation system.
 
-## Adds on top of foundation
-- router/service/repository separation
-- adapter-based external integration
-- worker and job discipline
-- import, startup, and test verification expectations
+## Purpose
+This overlay adds practical guidance for Python service repositories while preserving the foundation identity.
 
-## Recommended local additions in the consuming repo
-- chosen framework conventions
-- runtime and deployment constraints
-- verification commands
-- dependency and adapter rules
+## Recommended structure
+```text
+repo/
+├─ app/
+│  ├─ routers/
+│  ├─ services/
+│  ├─ repositories/
+│  ├─ domain/
+│  ├─ adapters/
+│  └─ schemas/
+├─ tests/
+├─ scripts/
+└─ project_memory/
+```
+
+## Responsibilities
+- `routers/` handle transport concerns only
+- `services/` contain orchestration and business use-case flow
+- `repositories/` own persistence access
+- `domain/` contains core business models or business rules
+- `adapters/` isolate external providers and side effects
+- `schemas/` define request/response shapes
+
+## Verification expectations
+At minimum, the consuming repo should define commands for:
+- import sanity
+- startup sanity
+- automated tests if present
+- lint or static checks if present
+
+Example:
+```bash
+python -m pytest
+python -c "from app.main import app; print(app.title)"
+```
+
+## Review guidance
+Review should look for:
+- route handlers becoming too fat
+- services leaking framework concerns
+- repositories containing business logic
+- adapters bypassing service boundaries
+- direct external-provider usage outside adapters
+
+## Memory guidance
+Useful durable notes include:
+- provider constraints
+- API contract rules
+- retry and timeout conventions
+- background-job behavior assumptions
 
 ## Overlay rule
 This overlay extends the foundation.
-It should not redefine the foundation's identity.
+It should not redefine the foundation’s identity.

@@ -6,5 +6,6 @@
 4. Copy memory templates.
 5. Add local verification commands.
 6. Add CI checks.
-7. Run one real feature through the canonical lifecycle.
-8. Review `docs/public-repo-checklist.md` before public release.
+7. Add GitHub-facing scaffold in the consuming repo if public release readiness matters.
+8. Run one real feature through the canonical lifecycle.
+9. Review `docs/public-repo-checklist.md` before publishing.

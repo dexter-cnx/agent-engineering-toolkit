@@ -1,10 +1,18 @@
 # Project Memory
 
-This folder contains durable memory patterns for consuming projects.
+This folder stores the toolkit's own durable memory.
 
-Store:
-- decisions
+Primary files:
+- `decisions.md`
+- `known_constraints.md`
+
+Use memory to preserve:
+- durable decisions
 - constraints
-- patterns
-- known issues
-- reminders
+- approved patterns
+- reminders that should survive future runs
+
+Do not use memory for:
+- noisy logs
+- transient brainstorming
+- temporary scratch notes

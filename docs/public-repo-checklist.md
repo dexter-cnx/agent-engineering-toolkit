@@ -1,6 +1,6 @@
 # Public Repository Checklist
 
-Before publishing, verify these exact files exist and are current:
+Before publishing, verify these exact files exist and are current.
 
 ## Required root files
 - `README.md`
@@ -10,6 +10,8 @@ Before publishing, verify these exact files exist and are current:
 - `CONTRIBUTING.md`
 - `CHANGELOG.md`
 - `CODE_OF_CONDUCT.md`
+- `SECURITY.md`
+- `CODEOWNERS`
 - `.gitignore`
 
 ## Required GitHub-facing files

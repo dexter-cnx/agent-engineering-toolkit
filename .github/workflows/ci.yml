@@ -1,0 +1,39 @@
+name: Toolkit CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  structure-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check public repo files
+        run: |
+          test -f README.md
+          test -f README_TH.md
+          test -f AGENTS.md
+          test -f LICENSE
+          test -f CONTRIBUTING.md
+          test -f CHANGELOG.md
+          test -f CODE_OF_CONDUCT.md
+          test -f SECURITY.md
+          test -f .gitignore
+          test -f .github/CODEOWNERS
+          test -f .github/SECURITY.md
+          test -f .github/pull_request_template.md
+          test -f .github/ISSUE_TEMPLATE/bug_report.yml
+          test -f .github/ISSUE_TEMPLATE/feature_request.yml
+          test -f .github/ISSUE_TEMPLATE/config.yml
+          test -f docs/how-to-use.md
+          test -f docs/how-to-use_TH.md
+          test -f docs/tutorial.md
+          test -f docs/tutorial_TH.md
+          test -f docs/prompt-pipeline.md
+          test -f examples/worked_examples/python_service_feature.md
+          test -d prompts
+          test -d skills
+          test -d overlays
+          test ! -f docs/how_to_use.md
+          test ! -f docs/how_to_use_TH.md

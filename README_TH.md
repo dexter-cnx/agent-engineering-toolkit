@@ -54,8 +54,9 @@ LEAD → ARCHITECT → BUILDER → REVIEWER → VERIFIER → FINALIZER → MEMOR
 - `core/` สำหรับ rules, routing, verification และ review discipline
 - `templates/` สำหรับ bootstrap และ operational consistency
 - `overlays/` สำหรับ stack-specific extensions
-- `examples/` สำหรับ adoption patterns แบบ concrete
+- `examples/` สำหรับ adoption patterns และ worked examples
 - `.github/` สำหรับ CI, issue templates, PR template, CODEOWNERS และ security policy
+- `.gitignore` สำหรับ hygiene ของ repo
 
 ## เริ่มใช้งานเร็ว
 

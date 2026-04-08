@@ -13,9 +13,12 @@ Copy or link:
 - project-specific verification commands
 - project-specific architecture constraints
 - project-specific coding conventions
+- public-release scaffold in the consuming repo if that repo will be public
 
 ## Goal
 The consuming repo should end up with:
 - general foundation from this toolkit
 - one relevant overlay
 - local instructions for project-specific reality
+- explicit verification
+- GitHub-facing scaffold if public release readiness matters
