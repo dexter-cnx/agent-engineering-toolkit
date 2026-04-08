@@ -1,34 +1,17 @@
-# Tutorial Expansion Pack for `agent-engineering-toolkit`
+# Internal Toolkit Supreme Pack
 
-This pack is designed to be unzipped at the repository root and committed directly.
+This pack is intended for an **internal-first, high-discipline agent engineering toolkit**.
 
-## What is included
+Included:
+- strict internal onboarding docs
+- internal operating model
+- advanced AGENTS rules
+- team prompt pack
+- architecture guardrail CI
+- docs structure checks
+- prompt runner scaffolding
+- review and audit templates
 
-- New bilingual tutorial track under `docs/tutorials/`
-- Updated tutorial hubs:
-  - `docs/tutorials/index.md`
-  - `docs/tutorials/index_EN.md`
-- A stronger execution-oriented learning path:
-  1. Golden path
-  2. Agent mental model
-  3. Real workflow
-  4. Production feature build
-  5. Toolkit reuse patterns
-  6. Debugging failed agent runs
-  7. Multi-agent execution
-  8. Full Flutter example
-
-## Why these additions
-
-The repository already has reference-quality docs and platform tutorials. What it still needs is a clearer onboarding-to-execution path that helps a new adopter go from:
-
-- blank folder
-- to first successful agent-driven result
-- to repeatable production workflow
-- to debugging and team operation
-
-## Suggested commit message
-
-```text
-docs(tutorials): add guided execution track and advanced onboarding tutorials
-```
+Not included:
+- any full example app
+- any product-specific demo
