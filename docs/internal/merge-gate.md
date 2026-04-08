@@ -10,6 +10,7 @@ Before merging, verify all of the following:
 - There is a concrete verification path.
 - CI checks pass.
 - Review templates were run for non-trivial changes.
+- Internal entry docs stay inside `docs/internal/`.
 
 Recommended labels:
 - docs-only

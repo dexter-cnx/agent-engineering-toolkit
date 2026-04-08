@@ -17,10 +17,10 @@
 ## Choose Your Path
 
 ### New Project
-→ tutorials/01_getting_started
+→ [docs/tutorials/00-common-start.md](docs/tutorials/00-common-start.md)
 
 ### Existing Project
-→ tutorials/05_reuse_toolkit
+→ [docs/tutorials/05-reuse-toolkit.md](docs/tutorials/05-reuse-toolkit.md)
 
 ### Advanced (Multi-agent)
-→ tutorials/07_multi_agent
+→ [docs/tutorials/07-multi-agent-execution.md](docs/tutorials/07-multi-agent-execution.md)

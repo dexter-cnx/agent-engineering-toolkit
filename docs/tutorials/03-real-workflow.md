@@ -52,7 +52,7 @@ Read AGENTS.md first.
 Use the planning stage of the canonical lifecycle.
 
 Task:
-Add a login feature to the Flutter app.
+Add an account preferences capability to the consuming repo.
 
 Need:
 - scope breakdown
@@ -87,12 +87,12 @@ Read AGENTS.md first.
 Use the architecture stage of the canonical lifecycle.
 
 We already have the plan.
-Review the boundary for a login feature.
+Review the boundary for the account preferences capability.
 
 Decide:
-- presentation/domain/data split
-- auth abstraction boundary
-- navigation impact
+- entry/domain/data split or the equivalent layers in this repo
+- provider abstraction boundary
+- navigation or handoff impact
 - state management impact
 - testing and verification expectations
 
@@ -119,7 +119,7 @@ output ที่ควรได้:
 Read AGENTS.md first.
 Use the implementation stage of the canonical lifecycle.
 
-Implement the approved login feature.
+Implement the approved account preferences capability.
 Stay within the agreed boundaries.
 Do not add unrelated improvements.
 ```

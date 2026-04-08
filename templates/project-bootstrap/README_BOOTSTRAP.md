@@ -21,7 +21,7 @@ End up with:
 
 ## Bootstrap steps
 1. Add or reference `AGENTS.md`.
-2. Choose one overlay if relevant.
+2. Choose exactly one overlay if the stack is known; omit overlays only if the repo is intentionally stack-neutral for now.
 3. Copy the project memory templates.
 4. Add project-specific architecture rules.
 5. Add project-specific verification commands.

@@ -9,7 +9,7 @@ aliases:
 
 # เส้นทางหลัก 10 นาทีแรก
 
-ใช้โน้ตนี้เมื่อคุณอยากพิสูจน์เร็วที่สุดว่า toolkit นี้ “ใช้งานได้จริง” ไม่ใช่แค่อ่านเอกสาร
+ใช้โน้ตนี้เมื่อคุณอยากพิสูจน์เร็วที่สุดว่า toolkit นี้ใช้งานได้จริงใน repo ใหม่ โดยยังไม่ผูกกับ stack ใด stack หนึ่ง
 
 ## เป้าหมาย
 
@@ -19,16 +19,16 @@ aliases:
 - toolkit ถูกเพิ่มเข้ามาแล้ว
 - `AGENTS.md` แบบสั้นที่ใช้งานได้จริง
 - project memory ขั้นต่ำ
-- งานจริง 1 ชิ้นที่ผ่าน lifecycle ครบ
+- งานเล็ก 1 ชิ้นที่ผ่าน canonical lifecycle ครบ
 
 ## ผลลัพธ์ที่แนะนำ
 
 ถ้ายังไม่รู้จะเริ่มจากอะไร ให้เลือก outcome แบบนี้:
 
-- Flutter app skeleton 1 ตัว
-- หน้าจอเดียว
-- มี state management และ routing ชัด
-- verify ได้
+- feature slice เล็ก ๆ 1 ชิ้น
+- boundary ชัด
+- verify ได้จริง
+- ไม่ผูกกับ stack ใด stack หนึ่งตั้งแต่เริ่ม
 
 ## ขั้นตอนเร็วที่สุด
 
@@ -36,7 +36,7 @@ aliases:
 2. เพิ่ม toolkit แบบ submodule หรือ copy เข้ามา
 3. สร้าง `AGENTS.md` แบบสั้น
 4. คัดลอก `project_memory/`
-5. เลือก overlay ให้ชัด
+5. เลือก overlay ถ้า stack ของ repo ชัดแล้ว
 6. ใช้ prompt pipeline ให้ครบ 1 รอบ
 7. ขอให้ AI สร้างงานเล็ก ๆ ที่ verify ได้จริง
 
@@ -46,23 +46,23 @@ aliases:
 # AGENTS.md
 
 **Project:** Demo starter
-**Type:** Flutter app
-**Architecture:** Clean architecture with explicit presentation/domain/data boundaries
-**Target:** Android, iOS, Web
+**Type:** <project-type>
+**Architecture:** <chosen-architecture>
+**Target:** <target users>
 
 This file defines the repo-wide operating rules for all agents working in this repository.
 
 ## 1. Repository Purpose
-Build a maintainable Flutter application using the toolkit lifecycle and overlay conventions.
+<what this repo is for>
 
 ## 2. Default Tech Stack
-- Flutter
-- Dart
-- Material 3
+- <stack item 1>
+- <stack item 2>
+- <stack item 3>
 
 ## 3. Architecture Rules
-- Keep presentation, domain, and data separate
-- Do not bypass domain rules from UI
+- Keep the major boundaries explicit
+- Do not bypass domain rules from entry-layer code
 - Keep third-party integrations behind adapters
 
 ## 4. Workflow Rules
@@ -79,14 +79,13 @@ We are starting from a blank folder.
 
 Read AGENTS.md first.
 Adopt the toolkit into this repository.
-Choose the correct overlay for a small Flutter starter app.
+Choose the correct overlay only if the stack is known.
 Create only the minimum files needed for a first successful pass.
 Use the canonical lifecycle in order:
 adopt -> plan -> architecture -> implement -> review -> verify -> finalize -> memory.
 
 Goal:
-- one Flutter app
-- one home screen
+- one small feature slice
 - clear folder structure
 - one successful verification pass
 
@@ -115,6 +114,6 @@ Keep the result small but production-shaped.
 
 ให้ไปต่อที่:
 
-- [Mental model ของระบบ Agent](./02-agent-mental-model.md)
-- [Workflow ของจริงแบบ Lead → Architecture → Feature](./03-real-workflow.md)
+- [Tutorial Hub](./index.md)
+- [AGENTS.md และ prompt guide](./agents-and-prompts.md)
 - tutorial เฉพาะ stack ที่คุณจะใช้จริง

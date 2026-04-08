@@ -11,31 +11,31 @@ aliases:
 
 This tutorial shows how one real task should move through the toolkit.
 
-Example feature: **login feature for a Flutter app**
+Example feature: **account preferences capability**
 
 ## Objective
 
 The feature should include:
 
-- a login screen
+- a clear entry flow
 - a domain use case
 - a repository abstraction
 - a data source or adapter
-- state handling
-- post-login navigation
+- state handling if needed
+- handoff or navigation after save, if applicable
 - a clear verification plan
 
 ## Boundaries to settle before coding
 
-- UI must not talk directly to data sources
-- the real auth provider must sit behind an abstraction
-- token storage is an adapter concern
-- navigation logic should not be scattered
+- entry-layer code must not talk directly to data sources
+- the real provider must sit behind an abstraction
+- persistence is an adapter concern
+- handoff logic should not be scattered
 
 ## Expected output shape
 
 ```text
-presentation/
+entry/
 domain/
 data/
 ```
@@ -45,7 +45,7 @@ data/
 ### 1. Plan
 
 ```text
-Plan a production-shaped login feature for a Flutter app.
+Plan a production-shaped account preferences feature for the consuming repo.
 Need:
 - scope
 - files to create
@@ -57,14 +57,14 @@ Do not implement yet.
 ### 2. Architecture
 
 ```text
-Review the architecture boundary for the login feature.
+Review the architecture boundary for the account preferences feature.
 
 Decide:
-- presentation/domain/data responsibilities
-- auth repository abstraction
-- session persistence boundary
+- entry/domain/data responsibilities or the equivalent layers in this repo
+- repository abstraction
+- persistence boundary
 - state management responsibilities
-- route handoff after successful login
+- handoff after successful save
 
 Do not implement yet.
 ```
@@ -72,7 +72,7 @@ Do not implement yet.
 ### 3. Implement
 
 ```text
-Implement the approved login feature.
+Implement the approved account preferences feature.
 Keep boundaries explicit.
 Avoid unrelated refactors.
 ```
@@ -80,7 +80,7 @@ Avoid unrelated refactors.
 ### 4. Review
 
 ```text
-Review the implemented login feature.
+Review the implemented account preferences feature.
 Look for:
 - boundary leakage
 - inconsistent naming
@@ -92,7 +92,7 @@ Look for:
 ### 5. Verify
 
 ```text
-Produce a verification pass for the login feature.
+Produce a verification pass for the account preferences feature.
 State clearly:
 - what was checked
 - what was not checked
@@ -110,9 +110,9 @@ State clearly:
 
 ## Signs the feature is not production-shaped yet
 
-- widgets call the auth SDK directly
+- entry code calls the provider SDK directly
 - use cases touch storage directly
-- state, routing, and side effects are mixed together
+- state, handoff, and side effects are mixed together
 - there is no verification plan
 - the final summary hides limitations
 

@@ -11,31 +11,31 @@ aliases:
 
 tutorial นี้ทำให้เห็นว่างานจริง 1 ชิ้นควรถูกผลักผ่าน toolkit อย่างไร
 
-ตัวอย่าง feature: **login feature สำหรับ Flutter app**
+ตัวอย่าง feature: **account preferences capability**
 
 ## objective
 
 ต้องการ feature ที่มี:
 
-- หน้า login
+- entry flow ที่ชัด
 - use case ใน domain
 - repository abstraction
 - data source / adapter
-- state handling
-- navigation หลัง login
+- state handling ถ้าจำเป็น
+- handoff หรือ navigation หลังบันทึกสำเร็จ ถ้ามี
 - verification plan ที่ชัด
 
 ## boundary ที่ควรได้ก่อนเขียน
 
-- UI ห้ามคุยกับ data source ตรง
-- auth provider จริงต้องอยู่หลัง abstraction
-- token storage เป็น adapter concern
-- navigation logic ไม่ควรกระจายมั่ว
+- entry-layer code ห้ามคุยกับ data source ตรง
+- provider จริงต้องอยู่หลัง abstraction
+- persistence เป็น adapter concern
+- handoff logic ไม่ควรกระจายมั่ว
 
 ## output structure ที่คาดหวัง
 
 ```text
-presentation/
+entry/
 domain/
 data/
 ```
@@ -45,7 +45,7 @@ data/
 ### 1. Plan
 
 ```text
-Plan a production-shaped login feature for a Flutter app.
+Plan a production-shaped account preferences feature for the consuming repo.
 Need:
 - scope
 - files to create
@@ -57,14 +57,14 @@ Do not implement yet.
 ### 2. Architecture
 
 ```text
-Review the architecture boundary for the login feature.
+Review the architecture boundary for the account preferences feature.
 
 Decide:
-- presentation/domain/data responsibilities
-- auth repository abstraction
-- session persistence boundary
+- entry/domain/data responsibilities or the equivalent layers in this repo
+- repository abstraction
+- persistence boundary
 - state management responsibilities
-- route handoff after successful login
+- handoff after successful save
 
 Do not implement yet.
 ```
@@ -72,7 +72,7 @@ Do not implement yet.
 ### 3. Implement
 
 ```text
-Implement the approved login feature.
+Implement the approved account preferences feature.
 Keep boundaries explicit.
 Avoid unrelated refactors.
 ```
@@ -80,7 +80,7 @@ Avoid unrelated refactors.
 ### 4. Review
 
 ```text
-Review the implemented login feature.
+Review the implemented account preferences feature.
 Look for:
 - boundary leakage
 - inconsistent naming
@@ -92,7 +92,7 @@ Look for:
 ### 5. Verify
 
 ```text
-Produce a verification pass for the login feature.
+Produce a verification pass for the account preferences feature.
 State clearly:
 - what was checked
 - what was not checked
@@ -110,9 +110,9 @@ State clearly:
 
 ## สัญญาณว่า feature ยังไม่ production-shaped
 
-- widget เรียก auth SDK โดยตรง
+- entry code เรียก provider SDK โดยตรง
 - use case ไปแตะ storage เอง
-- state, routing, side effects ปนกัน
+- state, handoff, side effects ปนกัน
 - ไม่มี verification plan
 - final summary ไม่บอก limitation
 

@@ -77,6 +77,9 @@ Use the canonical lifecycle from docs/prompt-pipeline.md.
 Use the role model from docs/agent-team-system.md.
 ```
 
+### Start-here guide
+- `README_START_HERE.md` for the shortest public onboarding path
+
 ## Worked examples
 
 - Foundation-level example: `examples/worked_examples/foundation_feature_flow.md`

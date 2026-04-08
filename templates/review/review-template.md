@@ -18,6 +18,7 @@ List correctness, maintainability, architecture, or usability risks.
 - Code or artifacts inspected:
 - Docs inspected:
 - Verification evidence seen:
+- File:line references for each finding:
 
 ## Foundation / overlay check
 - Root remains stack-agnostic:
@@ -31,6 +32,7 @@ List correctness, maintainability, architecture, or usability risks.
 
 ## Blocking issues
 List anything that must change before approval.
+Include exact file:line references and the reason each issue matters.
 
 ## Non-blocking follow-ups
 List improvements that can happen later.

@@ -3,7 +3,7 @@
 Use this overlay when the consuming repository is a Python service, FastAPI application, worker, adapter layer, or automation system.
 
 ## Purpose
-This overlay adds practical guidance for Python service repositories while preserving the foundation identity.
+This overlay adds practical guidance for Python service repositories, FastAPI apps, workers, and automation services while preserving the foundation identity.
 
 ## Recommended structure
 ```text
@@ -27,6 +27,7 @@ repo/
 - `domain/` contains core business models or business rules
 - `adapters/` isolate external providers and side effects
 - `schemas/` define request/response shapes
+- keep entry handlers thin and framework-light
 
 Canonical operational rules live in `AGENTS.overlay.md`; this README is the human overview and example index.
 

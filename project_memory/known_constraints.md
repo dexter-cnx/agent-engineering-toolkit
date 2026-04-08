@@ -11,3 +11,5 @@
 - Prompt docs should prefer the stage hub (`prompts/index.md` / `prompts/index_EN.md`) before linking individual stage files.
 - Public-release checklist pages are summaries unless they explicitly mirror `scripts/check-public-repo.paths`.
 - Foundation navigation pages should remain thin and should not duplicate stack-specific AGENTS templates.
+- Root onboarding docs must stay stack-neutral.
+- Internal helper docs and team prompt packs should live under internal namespaces, not at the public root.

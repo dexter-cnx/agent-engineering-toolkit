@@ -41,3 +41,8 @@ A change is not ready until:
 - generated outputs have verification steps
 - prompts reference the right docs
 - CI passes
+
+## Internal entry points
+- `docs/internal/start-here.md`
+- `docs/internal/doc-map.md`
+- `docs/internal/AGENTS.internal.md`

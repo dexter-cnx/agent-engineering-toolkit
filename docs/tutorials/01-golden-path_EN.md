@@ -9,7 +9,7 @@ aliases:
 
 # 10-Minute Golden Path
 
-Use this note when you want to prove quickly that the toolkit works in practice, not just on paper.
+Use this note when you want to prove quickly that the toolkit works in a new repo without tying the foundation to one stack.
 
 ## Goal
 
@@ -19,16 +19,16 @@ By the end of this tutorial, you should have:
 - the toolkit added
 - a short but usable `AGENTS.md`
 - minimal project memory
-- one real task completed through the lifecycle
+- one small task completed through the lifecycle
 
 ## Recommended first outcome
 
 If you are unsure what to build first, use this target:
 
-- one Flutter app skeleton
-- one screen
-- explicit state and routing choices
+- one small feature slice
+- clear boundaries
 - something that can be verified
+- no stack assumption baked in yet
 
 ## Fastest path
 
@@ -36,7 +36,7 @@ If you are unsure what to build first, use this target:
 2. Add the toolkit by submodule or copy
 3. Create a short `AGENTS.md`
 4. copy `project_memory/`
-5. choose the overlay
+5. choose the overlay only if the stack is known
 6. run the prompt pipeline once
 7. ask the AI for one small, verifiable result
 
@@ -46,23 +46,23 @@ If you are unsure what to build first, use this target:
 # AGENTS.md
 
 **Project:** Demo starter
-**Type:** Flutter app
-**Architecture:** Clean architecture with explicit presentation/domain/data boundaries
-**Target:** Android, iOS, Web
+**Type:** <project-type>
+**Architecture:** <chosen-architecture>
+**Target:** <target users>
 
 This file defines the repo-wide operating rules for all agents working in this repository.
 
 ## 1. Repository Purpose
-Build a maintainable Flutter application using the toolkit lifecycle and overlay conventions.
+<what this repo is for>
 
 ## 2. Default Tech Stack
-- Flutter
-- Dart
-- Material 3
+- <stack item 1>
+- <stack item 2>
+- <stack item 3>
 
 ## 3. Architecture Rules
-- Keep presentation, domain, and data separate
-- Do not bypass domain rules from UI
+- Keep the major boundaries explicit
+- Do not bypass domain rules from entry-layer code
 - Keep third-party integrations behind adapters
 
 ## 4. Workflow Rules
@@ -79,14 +79,13 @@ We are starting from a blank folder.
 
 Read AGENTS.md first.
 Adopt the toolkit into this repository.
-Choose the correct overlay for a small Flutter starter app.
+Choose the correct overlay only if the stack is known.
 Create only the minimum files needed for a first successful pass.
 Use the canonical lifecycle in order:
 adopt -> plan -> architecture -> implement -> review -> verify -> finalize -> memory.
 
 Goal:
-- one Flutter app
-- one home screen
+- one small feature slice
 - clear folder structure
 - one successful verification pass
 
@@ -115,6 +114,6 @@ The first task does not need to be large. It does need these four traits:
 
 Continue with:
 
-- [Agent system mental model](./02-agent-mental-model_EN.md)
-- [Real workflow: Lead → Architecture → Feature](./03-real-workflow_EN.md)
+- [Tutorial Hub](./index_EN.md)
+- [AGENTS.md and prompt guide](./agents-and-prompts_EN.md)
 - the stack tutorial you actually plan to use

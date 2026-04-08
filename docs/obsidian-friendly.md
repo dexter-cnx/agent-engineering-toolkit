@@ -25,6 +25,7 @@ aliases:
 | `docs/agent-team-system.md` | โมเดลบทบาทของทีม AI |
 | `docs/how-to-use.md` | คู่มือใช้งาน canonical ภาษาอังกฤษ |
 | `docs/how-to-use_TH.md` | คู่มือใช้งาน canonical ภาษาไทย |
+| `README_START_HERE.md` | เส้นทาง onboarding สั้นที่สุดของ repo |
 | `docs/tutorial.md` | walkthrough แบบ step-by-step |
 | `docs/tutorial_TH.md` | walkthrough ภาษาไทย |
 | `docs/public-repo-checklist.md` | รายการตรวจ public release แบบ human-readable |
@@ -39,8 +40,9 @@ Treat this as a quick navigation map, not the canonical contract.
 1. `AGENTS.md`
 2. `docs/prompt-pipeline.md`
 3. `docs/agent-team-system.md`
-4. `docs/how-to-use.md`
-5. `docs/overlays.md`
+4. `README_START_HERE.md`
+5. `docs/how-to-use.md`
+6. `docs/overlays.md`
 
 ### Primary hubs
 
