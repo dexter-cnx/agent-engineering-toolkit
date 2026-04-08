@@ -19,6 +19,16 @@ List correctness, maintainability, architecture, or usability risks.
 - Docs inspected:
 - Verification evidence seen:
 
+## Foundation / overlay check
+- Root remains stack-agnostic:
+- Overlay boundaries respected:
+- Stack-specific assumptions contained where expected:
+
+## Public-release hygiene
+- Public checklist reviewed:
+- Required root and GitHub-facing files verified:
+- Tree manifest / release gate alignment checked:
+
 ## Blocking issues
 List anything that must change before approval.
 

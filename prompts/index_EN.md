@@ -21,3 +21,4 @@ Use this folder as the entry point for prompt workflows.
 ## Compatibility aliases
 
 The root prompt filenames still exist for backward compatibility.
+These aliases are compatibility shims only. Use the canonical files in the stage folders for actual guidance.

@@ -28,6 +28,8 @@ repo/
 - `adapters/` isolate external providers and side effects
 - `schemas/` define request/response shapes
 
+Canonical operational rules live in `AGENTS.overlay.md`; this README is the human overview and example index.
+
 ## Verification expectations
 At minimum, the consuming repo should define commands for:
 - import sanity

@@ -12,7 +12,8 @@
 ## Release gate
 A release should not be cut until:
 - `scripts/check-public-repo.sh` passes
-- the public checklist in `docs/public-repo-checklist.md` is current
+- the public checklist summary in `docs/public-repo-checklist.md` is current
+- the machine-readable gate source in `scripts/check-public-repo.paths` is current
 - any new docs, prompts, templates, or overlays are reflected in `docs/tree-manifest.txt`
 - no private repository URLs are embedded in public files
 

@@ -103,6 +103,7 @@ Use the role model from docs/agent-team-system.md.
 - `docs/real-world-integration.md` — practical usage guidance
 - `docs/repo-bootstrap.md` — applying the toolkit to a new repo
 - `docs/public-repo-checklist.md` — pre-publish checklist
+- `scripts/check-public-repo.paths` — machine-readable public-release gate source
 - `docs/release-process.md` — suggested release process
 - `docs/strict-audit-prompt.md` — strict audit prompt
 - `docs/obsidian-friendly.md` — consolidated Obsidian-friendly reference

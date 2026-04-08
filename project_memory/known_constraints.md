@@ -9,3 +9,5 @@
 - The audit workflow now has two distinct surfaces: the role-based prompt and the invocation template companion.
 - Release notes must be honest about same-day version history when multiple tags are cut on the same date.
 - Prompt docs should prefer the stage hub (`prompts/index.md` / `prompts/index_EN.md`) before linking individual stage files.
+- Public-release checklist pages are summaries unless they explicitly mirror `scripts/check-public-repo.paths`.
+- Foundation navigation pages should remain thin and should not duplicate stack-specific AGENTS templates.

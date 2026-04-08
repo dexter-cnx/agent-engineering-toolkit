@@ -7,6 +7,8 @@
 - Global state mutations must happen in the state layer, not inside pure UI components.
 - API calls must route through a service or data layer.
 
+See `README.md` for the human overview and example index.
+
 ## Verification rules
 Document and run, where possible:
 ```bash

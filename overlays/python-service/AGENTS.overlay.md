@@ -9,6 +9,8 @@ Apply these rules on top of the foundation when the consuming repo is a Python s
 - Keep persistence access in repositories.
 - Keep worker/job logic out of route handlers.
 
+See `README.md` for the human overview and example index.
+
 ## Verification rules
 Document and run, where possible:
 - import checks

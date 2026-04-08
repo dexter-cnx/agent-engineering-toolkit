@@ -7,6 +7,8 @@
 - Environment and config access must be centralized, not scattered through handlers.
 - Middleware must not own business workflows.
 
+See `README.md` for the human overview and example index.
+
 ## Verification rules
 Document and run, where possible:
 ```bash

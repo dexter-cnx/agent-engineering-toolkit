@@ -44,3 +44,13 @@
   Decision: Prompt workflows now have canonical stage hubs in `prompts/index.md` and `prompts/index_EN.md`, with stage-specific EN mirrors under each prompt subfolder.
   Why: Gives a single browseable entry point while keeping the canonical prompt files grouped by lifecycle stage.
   Consequence: New prompt documentation should link to the stage hub first and then to the exact stage file.
+
+- Date: 2026-04-08
+  Decision: `docs/public-repo-checklist.md` is the human-readable summary and `scripts/check-public-repo.paths` is the machine-readable public-release source of truth.
+  Why: The checklist and gate need a clear ownership split so they do not drift or overclaim exact coverage.
+  Consequence: Public-release edits should update the summary and the path manifest together.
+
+- Date: 2026-04-08
+  Decision: Foundation tutorial hubs and Obsidian-friendly pages should link to stack-specific examples instead of reprinting long platform templates.
+  Why: Stack-specific examples belong in overlays and stack tutorials, not in foundation navigation pages.
+  Consequence: Future updates should prefer links and short pointers over duplicated template blocks.

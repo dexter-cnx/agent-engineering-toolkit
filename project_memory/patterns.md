@@ -39,3 +39,7 @@
 - Pattern: Explain skipped lifecycle steps in overlay examples.
   When to use: when a stack-specific example intentionally compresses the lifecycle.
   When not to use: when the example already walks through every step in full.
+
+- Pattern: Link to stack-specific examples from foundation hubs instead of embedding them.
+  When to use: when a foundation doc needs to stay neutral but still help readers find the right stack-specific guidance.
+  When not to use: when the file itself is the stack-specific tutorial or overlay.
