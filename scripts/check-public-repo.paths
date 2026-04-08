@@ -23,7 +23,17 @@ docs/architecture.md
 docs/agent-team-system.md
 docs/prompt-pipeline.md
 docs/overlays.md
+docs/obsidian-friendly.md
 docs/real-world-integration.md
 docs/repo-bootstrap.md
 docs/release-process.md
 docs/strict-audit-prompt.md
+docs/tutorials/index.md
+docs/tutorials/index_EN.md
+docs/tutorials/agents-and-prompts.md
+docs/tutorials/agents-and-prompts_EN.md
+docs/tutorials/examples/index.md
+docs/tutorials/examples/index_EN.md
+prompts/index.md
+prompts/index_EN.md
+prompts/review/audit_repo.md

@@ -31,7 +31,7 @@
   Consequence: Saving an audit file now includes a manifest refresh in the same change set.
 
 - Date: 2026-04-08
-  Decision: `prompts/audit_repo.md` is the role-based audit prompt and `docs/strict-audit-prompt.md` is the invocation template companion.
+  Decision: `prompts/review/audit_repo.md` is the role-based audit prompt and `docs/strict-audit-prompt.md` is the invocation template companion.
   Why: Separates agent-facing workflow guidance from paste-ready prompt text.
   Consequence: Root docs should reference both explicitly.
 
@@ -39,3 +39,8 @@
   Decision: Public release version `1.0.4` captures the audit-prompt split fix, overlay lifecycle notes, and the honest same-day release note.
   Why: Keeps the changelog and release docs aligned with the latest public surface.
   Consequence: Release references such as `scripts/push-guide.md` should point at `v1.0.4` until the next release.
+
+- Date: 2026-04-08
+  Decision: Prompt workflows now have canonical stage hubs in `prompts/index.md` and `prompts/index_EN.md`, with stage-specific EN mirrors under each prompt subfolder.
+  Why: Gives a single browseable entry point while keeping the canonical prompt files grouped by lifecycle stage.
+  Consequence: New prompt documentation should link to the stage hub first and then to the exact stage file.

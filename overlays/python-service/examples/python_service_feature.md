@@ -4,7 +4,7 @@
 A FastAPI service needs a new endpoint to expose account preferences.
 
 ## Step 1 — Plan
-Use `prompts/plan_change.md`.
+Use `prompts/planning/plan_change.md`.
 
 Expected planning output:
 - Task: add account preferences read endpoint
@@ -12,7 +12,7 @@ Expected planning output:
 - Risks: router/service leakage, direct DB calls from router
 
 ## Step 2 — Architecture
-Use `prompts/architecture_review.md`.
+Use `prompts/design/architecture_review.md`.
 
 Proposed shape:
 - `app/routers/account_preferences.py`
@@ -25,7 +25,7 @@ Builder guardrails:
 - no response shaping inside repository
 
 ## Step 3 — Implement
-Use `prompts/implement_change.md`.
+Use `prompts/implementation/implement_change.md`.
 
 Implementation summary:
 - added router for GET endpoint
@@ -34,7 +34,7 @@ Implementation summary:
 - added schema for response model
 
 ## Step 4 — Review
-Use `prompts/review_change.md`.
+Use `prompts/review/review_change.md`.
 
 Possible findings:
 - route handler is thin
@@ -43,7 +43,7 @@ Possible findings:
 - no blocking architecture issues found
 
 ## Step 5 — Verify
-Use `prompts/verification_pass.md`.
+Use `prompts/verification/verification_pass.md`.
 
 Example evidence:
 - import check passed
@@ -55,14 +55,14 @@ Confidence:
 - Medium, because smoke checks exist but full integration coverage does not
 
 ## Step 6 — Finalize
-Use `prompts/finalize_change.md`.
+Use `prompts/finalization/finalize_change.md`.
 
 Final summary:
 - feature added with proper router/service/repository separation
 - follow-up: add integration test
 
 ## Step 7 — Memory
-Use `prompts/update_project_memory.md`.
+Use `prompts/memory/update_project_memory.md`.
 
 Store:
 - account preference endpoints must keep response shaping outside repositories

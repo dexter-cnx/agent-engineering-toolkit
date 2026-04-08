@@ -3,7 +3,7 @@
 Use this prompt to ask an AI coding tool to perform a strict final audit of the repository.
 
 Canonical companion:
-- `prompts/audit_repo.md`
+- `prompts/review/audit_repo.md`
 
 ```text
 You are auditing the repository as a production-ready public toolkit repo.

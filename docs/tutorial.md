@@ -23,6 +23,14 @@ Read these files first:
 5. `docs/overlays.md`
 6. `docs/agent-team-system.md`
 7. `docs/prompt-pipeline.md`
+8. `docs/tutorials/index.md`
+9. `docs/tutorials/agents-and-prompts.md`
+
+The tutorial hub is grouped by platform folders:
+- `docs/tutorials/flutter/`
+- `docs/tutorials/web/`
+- `docs/tutorials/services/`
+- `docs/tutorials/team/`
 
 ## Step 2 — Choose the adoption path
 Pick one:
@@ -118,7 +126,7 @@ Example memory entries:
 
 ## Step 11 — Audit
 Use the role-based audit prompt for an AI agent-style audit:
-- `prompts/audit_repo.md`
+- `prompts/review/audit_repo.md`
 
 Use the invocation template when you want a paste-ready prompt:
 - `docs/strict-audit-prompt.md`

@@ -16,6 +16,10 @@
   When to use: when one file must exist for discoverability but should not become a second source of truth.
   When not to use: for canonical prompts or docs.
 
+- Pattern: Put a stage hub in front of stage files.
+  When to use: when a workflow has several canonical steps and needs a single browseable entry point.
+  When not to use: when there is only one file or when stage ordering is irrelevant.
+
 - Pattern: Make root tutorials concrete and foundation-safe.
   When to use: when teaching first-run adoption from the foundation repository.
   When not to use: when authoring overlay-specific worked examples.

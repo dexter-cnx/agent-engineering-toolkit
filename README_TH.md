@@ -32,9 +32,11 @@ Toolkit ระดับ production สำหรับทำ AI-assisted software
 
 - source of truth ของ lifecycle: `docs/prompt-pipeline.md`
 - source of truth ของ role model: `docs/agent-team-system.md`
+- prompt hub: `prompts/index.md`
+- prompt hub (English): `prompts/index_EN.md`
 - คู่มือใช้งานหลัก: `docs/how-to-use.md`
 - tutorial: `docs/tutorial.md`
-- prompt สำหรับ audit (role-based): `prompts/audit_repo.md`
+- prompt สำหรับ audit (role-based): `prompts/review/audit_repo.md`
 - prompt สำหรับ audit (invocation template): `docs/strict-audit-prompt.md`
 
 ## มีอะไรให้ในชุดนี้
@@ -90,6 +92,10 @@ Use the role model from docs/agent-team-system.md.
 - `docs/how-to-use_TH.md` — คู่มือภาษาไทยหลัก
 - `docs/tutorial.md` — tutorial ภาษาอังกฤษ
 - `docs/tutorial_TH.md` — tutorial ภาษาไทย
+- `docs/tutorials/index.md` — tutorial hub แบบ Obsidian-friendly ที่แยกตาม platform (ภาษาไทย)
+- `docs/tutorials/index_EN.md` — tutorial hub แบบ Obsidian-friendly ที่แยกตาม platform (English)
+- `docs/tutorials/agents-and-prompts.md` — guide สำหรับ AGENTS.md และ prompt flow (ภาษาไทย)
+- `docs/tutorials/agents-and-prompts_EN.md` — guide สำหรับ AGENTS.md และ prompt flow (English)
 - `docs/architecture.md` — architecture ของ foundation vs overlay
 - `docs/agent-team-system.md` — คำอธิบายระบบ role
 - `docs/prompt-pipeline.md` — canonical lifecycle reference
@@ -99,6 +105,7 @@ Use the role model from docs/agent-team-system.md.
 - `docs/public-repo-checklist.md` — checklist ก่อน publish
 - `docs/release-process.md` — วิธีจัด release
 - `docs/strict-audit-prompt.md` — prompt สำหรับ audit แบบเข้ม
+- `docs/obsidian-friendly.md` — reference แบบ Obsidian-friendly รวมทุกอย่างไว้ในหน้าเดียว
 - `scripts/bootstrap-project-memory.sh` — helper เล็ก ๆ สำหรับ submodule และ memory templates
 
 ## License
