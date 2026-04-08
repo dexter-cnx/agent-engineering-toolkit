@@ -12,9 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Check public repo files
-        run: |
-          test -f LICENSE
-          test -f CHANGELOG.md
-          test -f CONTRIBUTING.md
-          test -f .github/pull_request_template.md
-          test -f .github/CODEOWNERS
+        run: bash scripts/check-public-repo.sh

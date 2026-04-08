@@ -1,6 +1,6 @@
 # Core Quick References
 
-This folder contains **quick-reference summaries only**.
+This folder contains **non-canonical quick-reference summaries only**.
 
 Canonical sources live elsewhere:
 - lifecycle: `docs/prompt-pipeline.md`
