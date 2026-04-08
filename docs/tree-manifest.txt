@@ -126,7 +126,6 @@ docs/tutorials/08-full-example-flutter_EN.md
 docs/tutorials/agents-and-prompts.md
 docs/tutorials/agents-and-prompts_EN.md
 docs/tutorials/examples
-docs/tutorials/examples/flutter
 docs/tutorials/examples/index.md
 docs/tutorials/examples/index_EN.md
 docs/tutorials/examples/patterns
@@ -150,7 +149,6 @@ docs/tutorials/examples/templates/index_EN.md
 docs/tutorials/examples/templates/web
 docs/tutorials/examples/templates/web/design-md-web-frontend-template.md
 docs/tutorials/examples/templates/web/design-md-web-frontend-template_EN.md
-docs/tutorials/examples/web
 docs/tutorials/flutter
 docs/tutorials/flutter/how-to-integrate-design-md-to-existing-project-and-new-project-in-flutter.md
 docs/tutorials/flutter/how-to-integrate-design-md-to-existing-project-and-new-project-in-flutter_EN.md
