@@ -23,3 +23,7 @@
 - Pattern: Surface optional helpers in the top-level docs.
   When to use: when a script is useful but intentionally limited in scope.
   When not to use: when the script would create a false sense of automation.
+
+- Pattern: Refresh the tree manifest whenever an audit file is added.
+  When to use: after saving a new audit artifact under `audits/`.
+  When not to use: only for files that are not part of the authoritative tree snapshot.

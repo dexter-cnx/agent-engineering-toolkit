@@ -6,3 +6,4 @@
 - The audit prompt has one canonical source: `docs/strict-audit-prompt.md`.
 - Workflow summary files should stay short pointers when `docs/tutorial.md` carries the full walkthrough.
 - Entry-point docs should keep the bootstrap helper discoverable without implying it replaces the full bootstrap flow.
+- The authoritative tree manifest must be kept in sync with newly saved audit files.
