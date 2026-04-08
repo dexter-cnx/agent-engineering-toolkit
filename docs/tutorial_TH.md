@@ -1,138 +1,42 @@
-# Tutorial (ภาษาไทย) — คู่มือสอนใช้งานแบบ Step-by-Step
-
-tutorial นี้แสดงตัวอย่างการใช้งานครั้งแรกแบบครบวงจรหนึ่งรอบ
+# Tutorial
 
 ## เป้าหมาย
-เมื่อจบคู่มือนี้ คุณควรจะ:
-- เลือก overlay ได้ถูก
-- พางานผ่าน canonical lifecycle ได้
-- ไม่เอา rule เฉพาะ stack ไปปนใน foundation
-- บันทึก memory ที่เป็น durable note ได้
 
-## Scenario
-repo ที่ consume toolkit ต้องเพิ่ม capability สำหรับ account preferences
+เรียนรู้การใช้ foundation ร่วมกับ Mobile Flutter overlay โดยไม่ทำให้ repository นี้กลายเป็น Flutter-only toolkit
 
-ให้ใช้ toolkit เป็นโครงหลักของ workflow แล้วเลือก overlay ใน repo ที่จะใช้งานจริง
+## ขั้นตอนที่ 1: เริ่มจาก foundation
 
-## Step 1 — อ่านชุดไฟล์ขั้นต่ำ
-อ่านไฟล์เหล่านี้ก่อน:
-1. `README.md`
-2. `AGENTS.md`
-3. `docs/how-to-use.md`
-4. `docs/architecture.md`
-5. `docs/overlays.md`
-6. `docs/agent-team-system.md`
-7. `docs/prompt-pipeline.md`
-8. `docs/tutorials/index.md`
-9. `docs/tutorials/agents-and-prompts.md`
+อ่าน:
+- `AGENTS.md`
+- `docs/prompt-pipeline.md`
+- `docs/agent-team-system.md`
 
-tutorial hub ถูกแยกเป็น platform folders ดังนี้:
-- `docs/tutorials/flutter/`
-- `docs/tutorials/web/`
-- `docs/tutorials/services/`
-- `docs/tutorials/team/`
+## ขั้นตอนที่ 2: เข้า Flutter overlay
 
-## Step 2 — เลือกวิธี adopt
-เลือกหนึ่งแบบ:
-- toolkit repo กลาง
-- submodule ในโปรเจกต์จริง
-- คัดลอกเฉพาะบางไฟล์
-
-ถ้าเป็น repo จริง วิธีที่พบบ่อยคือ:
-```bash
-git submodule add <toolkit-repo-url> toolkit
-```
-
-## Step 3 — เลือก overlay
-อ่าน overlay ที่ตรงกับ repo:
+อ่าน:
 - `overlays/mobile-flutter/README.md`
-- `overlays/backend-node/README.md`
-- `overlays/web-frontend/README.md`
-- `overlays/python-service/README.md`
+- `overlays/mobile-flutter/AGENTS.overlay.md`
 
-ถ้าไม่มีอันไหนตรง ให้คง foundation ไว้และเก็บ rule เฉพาะ stack ไว้ใน consuming repo
+## ขั้นตอนที่ 3: เลือกชุด skill
 
-## Step 4 — วางแผน
-รูปแบบ output ของ planning ควรมี:
-- restatement ของ task: เพิ่ม account preferences capability
-- facts: repo นี้ใช้ toolkit เป็น foundation
-- assumptions: stack จะชัดหลังเลือก overlay
-- constraints: root ต้อง stack-agnostic
-- risks: boundary leak, ownership ไม่ชัด, verification ไม่พอ
-- next prompt: architecture review
+ตัวอย่าง:
+- login flow: `flutter-auth`, `flutter-storage`, `flutter-networking`
+- map flow: `flutter-permissions`, `flutter-geolocation`, `flutter-maps`
+- release flow: `flutter-build-flavors`, `flutter-web-deployment`, `flutter-ci-cd-mobile`
 
-## Step 5 — กำหนดโครงสร้าง
-architecture output ควรบอก layer ให้ชัด
+## ขั้นตอนที่ 4: ใช้ skill หนึ่งตัวแบบครบวงจร
 
-ตัวอย่างโครงสร้างสำหรับ consuming repo:
-- transport layer: route, handler หรือ controller
-- orchestration layer: service หรือ use-case
-- persistence layer: repository หรือ data-access
-- adapter layer: boundary ของ external provider
+สำหรับ skill ที่เลือก:
+1. อ่าน `README.md`
+2. อ่าน `skill.md`
+3. เริ่มจาก `prompts/add_*.md`
+4. ปรับ `templates/*.template.md`
+5. ตรวจด้วย `checklists/`
+6. เทียบกับ `examples/`
 
-Builder guardrails:
-- อย่าใส่ business rule ไว้ใน transport code
-- อย่าเรียก external provider ตรงจากโมดูลที่ไม่เกี่ยว
-- อย่าให้ repository ทำ response shaping
+## ขั้นตอนที่ 5: ตรวจและบันทึก
 
-## Step 6 — Implement
-builder แก้ artifact ใน consuming repo
-
-ตัวอย่าง implementation note:
-- files changed: transport, service, repository และ adapter layers
-- deviations: เฉพาะที่ architecture review อนุมัติ
-
-## Step 7 — Review
-reviewer ต้องแยก strengths กับปัญหาให้ชัด
-
-ตัวอย่างผล review:
-- strength: handler บางและชัด
-- blocking issue: repository มี business logic
-- non-blocking issue: ยังไม่มี example coverage
-- architecture fit: ผ่านได้ก็ต่อเมื่อแก้ blocking issue แล้ว
-
-## Step 8 — Verify
-verification ต้องบอกว่ารันอะไรไปจริง
-
-ตัวอย่าง checks:
-```bash
-bash scripts/check-public-repo.sh
-```
-
-ถ้าคุณกำลังเช็ก toolkit repository นี้ ให้รัน public-repo gate
-ใน consuming repo ให้รัน stack checks ของตัวเองด้วย เช่น lint, tests หรือ startup sanity
-
-ตัวอย่าง verification summary:
-- checks performed: public-repo gate, local tests, startup sanity
-- evidence: output ของ command และไฟล์ที่เปลี่ยน
-- remaining uncertainty: integration coverage ยังไม่ครบ
-- confidence: medium หรือ high ตาม evidence
-
-## Step 9 — Finalize
-finalizer ควรสรุปงานให้ชัด
-
-ตัวอย่าง final summary:
-- เพิ่ม account preferences capability โดยคง boundary ให้ชัด
-- review กับ verification แยกจากกัน
-- follow-up ที่เหลือ: เพิ่ม integration test 1 ตัว
-
-## Step 10 — Update memory
-เก็บเฉพาะ note ที่ durable
-
-ตัวอย่าง memory entry:
-- account preference handlers ต้องบาง
-- response shaping ต้องอยู่นอก repository
-- overlay ที่เลือกสำหรับ repo นี้คือ `<chosen-overlay>`
-
-## Step 11 — Audit
-ใช้ prompt แบบ role-based เมื่ออยากให้อีก agent ทำ audit:
-- `prompts/review/audit_repo.md`
-
-ใช้ invocation template เมื่ออยากได้ prompt แบบ paste ได้ทันที:
-- `docs/strict-audit-prompt.md`
-
-## helper เสริม
-ถ้าอยากมี helper สำหรับ bootstrap memory templates ให้ใช้ script นี้:
-```bash
-bash scripts/bootstrap-project-memory.sh
-```
+ก่อน push:
+- ตรวจว่าทุกไฟล์ที่เอกสารอ้างถึงมีอยู่จริง
+- ตรวจว่า overlay catalog ตรงกับ skill ที่มีจริง
+- อย่าใช้ชื่อ skill ที่ lock กับ provider มากเกินไป

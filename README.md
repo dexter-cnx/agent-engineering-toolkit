@@ -12,22 +12,6 @@ This repository is a foundation toolkit that can be reused across:
 
 It is intentionally not tied to mobile. Mobile is treated as an overlay, not the default identity of the toolkit.
 
-## Why this repository exists
-
-Most AI coding setups stop at “generate code from a prompt”.
-
-This toolkit goes further by providing:
-- a reusable operating model
-- a canonical prompt pipeline
-- an agent team model
-- reusable narrow skills
-- templates for project adoption
-- overlays for stack-specific specialization
-- documentation discipline for long-term maintainability
-- public-repo hygiene for open collaboration
-
-This repository is the foundation layer. Project-specific rules belong in overlays or in consuming repositories.
-
 ## Canonical references
 
 - Lifecycle source of truth: `docs/prompt-pipeline.md`
@@ -36,74 +20,67 @@ This repository is the foundation layer. Project-specific rules belong in overla
 - Prompt hub (English): `prompts/index_EN.md`
 - Adoption guide: `docs/how-to-use.md`
 - Tutorial: `docs/tutorial.md`
-- Audit prompt (role-based): `prompts/review/audit_repo.md`
-- Audit prompt (invocation template): `docs/strict-audit-prompt.md`
+- Overlay strategy: `docs/overlays.md`
 
-## What is included
+## Mobile Flutter overlay status
 
-- `AGENTS.md` for governance and expectations
-- `docs/` for usage, architecture, adoption, release, and tutorial guidance
-- `prompts/` for stage-oriented workflows
-- `agent_team/` for role definitions
-- `skills/` for focused reusable capabilities
-- `core/` for rules, routing, verification, and review discipline
-- `templates/` for project bootstrap and operational consistency
-- `overlays/` for stack-specific extensions
-- `examples/` for concrete adoption patterns and worked examples
-- `.github/` for CI, issue templates, PR template, CODEOWNERS, and security policy
-- `.gitignore` for repository hygiene
+The mobile Flutter overlay now includes a structured catalog of 23 reusable capability skills under `overlays/mobile-flutter/skills/`.
 
-## Quick start
+### Mobile Flutter skill groups
 
-### Start here
-- `README_START_HERE.md` for the shortest public onboarding path
-- `docs/how-to-use.md` for the canonical adoption guide
-- `docs/tutorial.md` for a step-by-step walkthrough
-- `scripts/bootstrap-project-memory.sh` for the optional bootstrap helper
+#### Core
+- `flutter-auth`
+- `flutter-permissions`
+- `flutter-geolocation`
+- `flutter-maps`
+- `flutter-storage`
+- `flutter-networking`
+- `flutter-deep-link`
+- `flutter-push-notifications`
+- `flutter-i18n-l10n`
 
-### Use with AI tooling
-Start with:
+#### Product
+- `flutter-analytics`
+- `flutter-crash-reporting`
+- `flutter-feature-flags`
+- `flutter-offline-first`
+- `flutter-remote-config`
 
-```text
-Follow AGENTS.md strictly.
-Use the canonical lifecycle from docs/prompt-pipeline.md.
-Use the role model from docs/agent-team-system.md.
-```
+#### Release
+- `flutter-web-deployment`
+- `flutter-build-flavors`
+- `flutter-app-signing-release`
+- `flutter-ci-cd-mobile`
 
-### Start-here guide
-- `README_START_HERE.md` for the shortest public onboarding path
+#### Device
+- `flutter-camera-media`
+- `flutter-file-upload-download`
+- `flutter-biometric-auth`
+- `flutter-background-tasks`
+- `flutter-contacts-sharing`
 
-## Worked examples
+## Start here
 
-- Foundation-level example: `examples/worked_examples/foundation_feature_flow.md`
-- Overlay examples:
-  - `overlays/mobile-flutter/examples/worked_example.md`
-  - `overlays/backend-node/examples/worked_example.md`
-  - `overlays/web-frontend/examples/worked_example.md`
-  - `overlays/python-service/examples/python_service_feature.md`
+- `README_START_HERE.md`
+- `docs/how-to-use.md`
+- `docs/tutorial.md`
+- `overlays/mobile-flutter/README.md`
+- `overlays/mobile-flutter/skills/index.md`
 
 ## Documentation
 
-- `docs/how-to-use.md` — canonical English guide
-- `docs/how-to-use_TH.md` — canonical Thai guide
-- `docs/tutorial.md` — English tutorial
-- `docs/tutorial_TH.md` — Thai tutorial
-- `docs/tutorials/index.md` — Obsidian-friendly tutorial hub (Thai)
-- `docs/tutorials/index_EN.md` — Obsidian-friendly English mirror
-- `docs/tutorials/agents-and-prompts.md` — AGENTS.md and prompt guide (Thai)
-- `docs/tutorials/agents-and-prompts_EN.md` — AGENTS.md and prompt guide (English)
-- `docs/architecture.md` — foundation vs overlay architecture
-- `docs/agent-team-system.md` — role system guidance
-- `docs/prompt-pipeline.md` — canonical lifecycle reference
-- `docs/overlays.md` — specialization strategy
-- `docs/real-world-integration.md` — practical usage guidance
-- `docs/repo-bootstrap.md` — applying the toolkit to a new repo
-- `docs/public-repo-checklist.md` — pre-publish checklist
-- `scripts/check-public-repo.paths` — machine-readable public-release gate source
-- `docs/release-process.md` — suggested release process
-- `docs/strict-audit-prompt.md` — strict audit prompt
-- `docs/obsidian-friendly.md` — consolidated Obsidian-friendly reference
-- `scripts/bootstrap-project-memory.sh` — small helper for submodule plus memory-template bootstrap
+- `docs/how-to-use.md`
+- `docs/how-to-use_TH.md`
+- `docs/tutorial.md`
+- `docs/tutorial_TH.md`
+- `docs/tutorials/index.md`
+- `docs/tutorials/index_EN.md`
+- `docs/overlays.md`
+
+## Worked examples
+
+- `examples/worked_examples/foundation_feature_flow.md`
+- `overlays/mobile-flutter/examples/worked_example.md`
 
 ## License
 
