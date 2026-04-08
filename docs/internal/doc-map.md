@@ -21,5 +21,5 @@
 - `prompts/internal/teams/reviewer_internal.md`
 
 ## If you are auditing the repo
-- `prompts/review/internal_release_gate.md`
+- `prompts/internal/review/internal_release_gate.md`
 - `audits/internal-scorecard.md`

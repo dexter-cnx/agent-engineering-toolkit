@@ -55,6 +55,8 @@ audits/codex_2026-04-08_14-48-34.md
 audits/codex_2026-04-08_16-40-11.md
 audits/codex_2026-04-08_16-58-44.md
 audits/codex_2026-04-08_18-09-04.md
+audits/codex_2026-04-08_18-37-22.md
+audits/codex_2026-04-08_18-47-11.md
 audits/internal-scorecard.md
 core
 core/README.md
@@ -252,6 +254,8 @@ prompts/implementation/index_EN.md
 prompts/index.md
 prompts/index_EN.md
 prompts/internal
+prompts/internal/review
+prompts/internal/review/internal_release_gate.md
 prompts/internal/teams
 prompts/internal/teams/architect_internal.md
 prompts/internal/teams/implementer_internal.md
@@ -275,7 +279,6 @@ prompts/review
 prompts/review/audit_repo.md
 prompts/review/index.md
 prompts/review/index_EN.md
-prompts/review/internal_release_gate.md
 prompts/review/review_change.md
 prompts/review_change.md
 prompts/scaffold_overlay.md

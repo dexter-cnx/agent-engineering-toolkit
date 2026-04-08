@@ -52,7 +52,7 @@ cp toolkit/templates/project_memory/patterns.md project_memory/patterns.md
 - สร้าง `project_memory/`
 - คัดลอก `templates/project_memory/*`
 - สร้าง `AGENTS.md`
-- ตัดสินใจว่า overlay ไหนควรอยู่ใน repo นี้
+- ตัดสินใจว่า overlay ไหนควรอยู่ใน repo นี้ ถ้า stack ของ repo ชัดเจนแล้ว
 
 ## prompts ที่ควรใช้
 
@@ -100,9 +100,8 @@ prompt เหล่านี้จะใช้บ่อยใน tutorial ชุ
 
 ถ้ารู้ platform แล้ว ให้เลือกทิศทางนี้:
 
-- Flutter: `mobile-flutter` overlay
-- Web frontend: `web-frontend` overlay
-- Services: `backend-node` หรือ `python-service` overlay
+- เลือก overlay ที่ตรงกับ stack นั้นจาก [docs/overlays.md](../overlays.md)
+- ถ้ายังไม่ชัดเจน ให้เริ่ม foundation-only แล้วค่อยเพิ่ม overlay ทีหลังเมื่อ stack ตกผลึก
 
 อ่านตัวอย่างและ prompt flow เพิ่มเติมได้ที่ [AGENTS.md และ prompt guide](./agents-and-prompts.md)
 

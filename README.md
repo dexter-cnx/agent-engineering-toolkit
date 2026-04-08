@@ -55,18 +55,11 @@ This repository is the foundation layer. Project-specific rules belong in overla
 
 ## Quick start
 
-### Use as its own repository
-Push this repo directly and maintain it as the canonical toolkit.
-
-### Use as a submodule
-```bash
-git submodule add <toolkit-repo-url> toolkit
-```
-
-### Optional bootstrap helper
-```bash
-bash scripts/bootstrap-project-memory.sh
-```
+### Start here
+- `README_START_HERE.md` for the shortest public onboarding path
+- `docs/how-to-use.md` for the canonical adoption guide
+- `docs/tutorial.md` for a step-by-step walkthrough
+- `scripts/bootstrap-project-memory.sh` for the optional bootstrap helper
 
 ### Use with AI tooling
 Start with:
@@ -95,8 +88,8 @@ Use the role model from docs/agent-team-system.md.
 - `docs/how-to-use_TH.md` — canonical Thai guide
 - `docs/tutorial.md` — English tutorial
 - `docs/tutorial_TH.md` — Thai tutorial
-- `docs/tutorials/index.md` — Obsidian-friendly tutorial hub grouped by platform (Thai)
-- `docs/tutorials/index_EN.md` — Obsidian-friendly tutorial hub grouped by platform (English)
+- `docs/tutorials/index.md` — Obsidian-friendly tutorial hub (Thai)
+- `docs/tutorials/index_EN.md` — Obsidian-friendly English mirror
 - `docs/tutorials/agents-and-prompts.md` — AGENTS.md and prompt guide (Thai)
 - `docs/tutorials/agents-and-prompts_EN.md` — AGENTS.md and prompt guide (English)
 - `docs/architecture.md` — foundation vs overlay architecture

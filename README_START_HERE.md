@@ -1,11 +1,11 @@
 # 🚀 Start Here (Golden Path)
 
 ## 10-Minute Quick Start
-1. Clone repo
-2. Add AGENTS.md to your project
-3. Run Lead Prompt
-4. Run Architecture Prompt
-5. Run Feature Prompt
+1. Clone the repo.
+2. Add `AGENTS.md` to your project.
+3. Read [docs/prompt-pipeline.md](docs/prompt-pipeline.md) and [docs/agent-team-system.md](docs/agent-team-system.md).
+4. Run [prompts/adoption/adopt_toolkit_in_repo.md](prompts/adoption/adopt_toolkit_in_repo.md).
+5. Run [prompts/planning/plan_change.md](prompts/planning/plan_change.md), [prompts/design/architecture_review.md](prompts/design/architecture_review.md), and [prompts/implementation/implement_change.md](prompts/implementation/implement_change.md).
 
 ✅ Expected Output:
 - Structured project

@@ -52,7 +52,7 @@ If the toolkit checkout is already available locally, you can also use the helpe
 - create `project_memory/`
 - copy `templates/project_memory/*`
 - create `AGENTS.md`
-- decide which overlay belongs here
+- decide which overlay belongs here if the stack is already clear
 
 ## Prompts to Use
 
@@ -100,9 +100,8 @@ At minimum, it should include:
 
 If you already know the platform, choose this direction:
 
-- Flutter: `mobile-flutter` overlay
-- Web frontend: `web-frontend` overlay
-- Services: `backend-node` or `python-service` overlay
+- Pick the overlay that matches the stack from [docs/overlays.md](../overlays.md).
+- If the stack is not clear yet, start foundation-only and add an overlay later after the stack is confirmed.
 
 Read more in [the AGENTS.md and prompt guide](./agents-and-prompts_EN.md).
 
