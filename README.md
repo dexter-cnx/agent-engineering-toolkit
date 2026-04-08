@@ -13,84 +13,46 @@ This repository is designed as a **foundation toolkit** that can be reused acros
 It is intentionally **not tied to mobile**.  
 Mobile is treated as an **overlay**, not the default identity of the toolkit.
 
----
-
 ## Why this repository exists
 
-Most AI coding setups stop at "generate code from a prompt".
+Most AI coding setups stop at “generate code from a prompt”.
 
-This toolkit aims higher:
-
-- enforce structured workflows
-- separate planning, architecture, implementation, review, verification, and memory
-- make outputs more deterministic
-- keep knowledge reusable across repositories
-- support multiple AI surfaces such as Codex CLI, Claude Code, OpenClaw, and future agents
+This toolkit goes further by providing:
+- a reusable operating model
+- a stage-based prompt pipeline
+- an agent team model
+- reusable narrow skills
+- templates for project adoption
+- overlays for stack-specific specialization
+- documentation discipline for long-term maintainability
 
 This repository is the **foundation layer**.  
-Project-specific rules belong in overlays or consuming repositories.
+Project-specific rules belong in overlays or in consuming repositories.
 
----
-
-## Core operating model
-
-The default lifecycle is:
+## Core lifecycle
 
 ```text
 PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
 ```
 
-The default team model is:
+## Default team model
 
 ```text
 LEAD → ARCHITECT → BUILDER → REVIEWER → VERIFIER → FINALIZER → MEMORY
 ```
 
----
-
 ## What is included
 
-### Governance
-- `AGENTS.md`
-- reusable operating rules
-- architecture and verification expectations
-
-### Prompt pipeline
-- planning prompts
-- architecture prompts
-- implementation prompts
-- review prompts
-- verification prompts
-- finalization prompts
-- memory update prompts
-
-### Skill system
-- reusable narrow capabilities
-- audit-focused and architecture-focused building blocks
-- skill router and risk model guidance
-
-### Templates
-- project bootstrap templates
-- runbook templates
-- project memory templates
-- review templates
-- verification templates
-
-### Overlays
-- `mobile-flutter`
-- `backend-node`
-- `web-frontend`
-- `python-service`
-
-### Examples
-- example prompts
-- example workflows
-- example integration guidance
-
-### CI
-- lightweight validation workflow for this toolkit repository
-
----
+- `AGENTS.md` for governance and expectations
+- `docs/` for detailed usage and architecture guidance
+- `prompts/` for stage-oriented workflows
+- `agent_team/` for role definitions
+- `skills/` for focused reusable capabilities
+- `core/` for rules, routing, verification, and review discipline
+- `templates/` for project bootstrap and operational consistency
+- `overlays/` for stack-specific extensions
+- `examples/` for concrete adoption patterns
+- `.github/` for public-repo hygiene and CI
 
 ## Repository structure
 
@@ -99,6 +61,10 @@ agent-engineering-toolkit/
 ├─ AGENTS.md
 ├─ README.md
 ├─ README_TH.md
+├─ LICENSE
+├─ CONTRIBUTING.md
+├─ CHANGELOG.md
+├─ CODE_OF_CONDUCT.md
 ├─ docs/
 ├─ prompts/
 ├─ agent_team/
@@ -109,22 +75,20 @@ agent-engineering-toolkit/
 ├─ examples/
 ├─ project_memory/
 ├─ scripts/
-└─ .github/workflows/
+└─ .github/
 ```
-
----
 
 ## Quick start
 
-### 1) Use as a standalone toolkit repo
-Clone and push as its own repository.
+### Use as its own repository
+Push this repo directly and maintain it as the canonical toolkit.
 
-### 2) Use as a submodule in another repo
+### Use as a submodule
 ```bash
 git submodule add <toolkit-repo-url> toolkit
 ```
 
-### 3) Use with an AI coding surface
+### Use with AI tooling
 Start with:
 
 ```text
@@ -133,96 +97,30 @@ Use the full pipeline:
 PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
 ```
 
----
-
-## Typical use cases
-
-### Use case 1: foundation for a mobile toolkit
-Use this repo as the base, then apply:
-- `overlays/mobile-flutter`
-- Flutter-specific project rules
-- Flutter-specific verification
-- Flutter-specific prompts
-
-### Use case 2: backend platform
-Use:
-- `overlays/backend-node` or `overlays/python-service`
-- API and service architecture rules
-- adapter-based integration guidance
-
-### Use case 3: web product
-Use:
-- `overlays/web-frontend`
-- frontend design system rules
-- operator dashboard conventions
-
-### Use case 4: internal engineering platform
-Use:
-- the full team model
-- skill router
-- runbook templates
-- memory system
-- verification gates
-
----
-
-## Recommended adoption sequence
-
-### Phase 1 — Foundation adoption
-Adopt:
-- `AGENTS.md`
-- prompt pipeline
-- project memory
-- repo audit and architecture review skills
-
-### Phase 2 — Team workflow
-Adopt:
-- lead/architect/builder/reviewer/verifier roles
-- runbooks
-- verification gate
-- review templates
-
-### Phase 3 — Overlay specialization
-Add:
-- mobile/backend/web/python overlay
-- repo-specific instructions
-- project-specific verification and CI
-
-### Phase 4 — Platform integration
-Integrate with:
-- Codex CLI
-- Claude Code Agent Teams
-- OpenClaw gateway
-- CI/CD pipelines
-- internal dashboards
-
----
-
 ## Documentation
 
 - `README_TH.md` — Thai overview
 - `docs/how-to-use.md` — detailed English guide
 - `docs/how-to-use_TH.md` — detailed Thai guide
-- `docs/architecture.md` — architecture model
-- `docs/agent-team-system.md` — detailed team model
-- `docs/prompt-pipeline.md` — prompt flow and usage
-- `docs/overlays.md` — overlay strategy
-- `docs/real-world-integration.md` — practical integration
-- `docs/repo-bootstrap.md` — how to apply toolkit to a new repository
-- `docs/roadmap.md` — future evolution
+- `docs/architecture.md` — foundation vs overlay architecture
+- `docs/agent-team-system.md` — role system guidance
+- `docs/prompt-pipeline.md` — prompt flow
+- `docs/overlays.md` — specialization strategy
+- `docs/real-world-integration.md` — practical usage guidance
+- `docs/repo-bootstrap.md` — applying the toolkit to a new repo
+- `docs/public-repo-checklist.md` — pre-publish checklist
+- `docs/release-process.md` — suggested release process
+- `docs/codex-review-prompt.md` — strict Codex review prompt
 
----
+## Public release notes
 
-## Publishing checklist
-
-Before pushing publicly, update:
-- repository URL references
-- author metadata
-- license
-- organization-specific wording if needed
-
----
+Before publishing broadly:
+- confirm your preferred license choice
+- review `CODEOWNERS`
+- review issue/discussion URLs
+- skim both README files for organization-specific wording
+- run the CI workflow
 
 ## License
 
-Add your preferred license before publishing.
+MIT
