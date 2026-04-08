@@ -128,6 +128,11 @@ Recommended path:
 6. Add project-specific CI
 7. Run one real feature through the full lifecycle
 
+Optional helper:
+```bash
+bash scripts/bootstrap-project-memory.sh
+```
+
 ## 9. Project memory guidance
 
 Project memory should store:
@@ -156,6 +161,8 @@ Verification should state clearly:
 - what was checked
 - how it was checked
 - what remains uncertain
+
+For a strict audit of the toolkit repo itself, use `docs/strict-audit-prompt.md`.
 
 ## 11. Common mistakes
 - putting Flutter or Node assumptions into the root

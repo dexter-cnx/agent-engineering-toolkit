@@ -19,3 +19,7 @@
 - Pattern: Make root tutorials concrete and foundation-safe.
   When to use: when teaching first-run adoption from the foundation repository.
   When not to use: when authoring overlay-specific worked examples.
+
+- Pattern: Surface optional helpers in the top-level docs.
+  When to use: when a script is useful but intentionally limited in scope.
+  When not to use: when the script would create a false sense of automation.

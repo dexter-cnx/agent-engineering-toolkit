@@ -43,6 +43,9 @@ A project is considered bootstrapped when:
 - memory files exist
 - CI exists or a temporary manual verification process is documented
 
+## Optional helper
+If you want a small helper that only adds the toolkit submodule and copies the memory templates, use `scripts/bootstrap-project-memory.sh`.
+
 ## Important note
 Keep stack-specific rules in overlays and project-specific rules in the consuming repo.
 Only move material back into the foundation if it is broadly reusable.

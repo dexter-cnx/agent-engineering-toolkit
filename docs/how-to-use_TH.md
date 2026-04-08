@@ -145,6 +145,11 @@ overlay มีไว้ต่อยอด foundation ไม่ใช่เขี
 6. เพิ่ม project-specific CI
 7. ลองรัน feature จริงหนึ่งอันผ่าน lifecycle เต็ม
 
+helper เสริม:
+```bash
+bash scripts/bootstrap-project-memory.sh
+```
+
 ## 10. project memory ที่ดี
 
 project memory ควรเก็บ:
@@ -168,6 +173,8 @@ verification ต้องบอกชัดว่า:
 - เช็กอะไร
 - เช็กอย่างไร
 - อะไรยังไม่แน่ใจ
+
+ถ้าจะ audit toolkit repository นี้แบบเข้ม ให้ใช้ `docs/strict-audit-prompt.md`
 
 ## 12. ความผิดพลาดที่เจอบ่อย
 - เอา assumption ของ Flutter หรือ Node ไปใส่ใน root

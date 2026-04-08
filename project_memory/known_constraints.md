@@ -5,3 +5,4 @@
 - Review and verification must remain distinct concepts in examples and templates.
 - The audit prompt has one canonical source: `docs/strict-audit-prompt.md`.
 - Workflow summary files should stay short pointers when `docs/tutorial.md` carries the full walkthrough.
+- Entry-point docs should keep the bootstrap helper discoverable without implying it replaces the full bootstrap flow.

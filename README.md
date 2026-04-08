@@ -34,6 +34,7 @@ This repository is the foundation layer. Project-specific rules belong in overla
 - Role model source of truth: `docs/agent-team-system.md`
 - Adoption guide: `docs/how-to-use.md`
 - Tutorial: `docs/tutorial.md`
+- Audit prompt: `docs/strict-audit-prompt.md` (compatibility alias: `prompts/audit_repo.md`)
 
 ## What is included
 
@@ -57,6 +58,11 @@ Push this repo directly and maintain it as the canonical toolkit.
 ### Use as a submodule
 ```bash
 git submodule add <toolkit-repo-url> toolkit
+```
+
+### Optional bootstrap helper
+```bash
+bash scripts/bootstrap-project-memory.sh
 ```
 
 ### Use with AI tooling
@@ -92,6 +98,7 @@ Use the role model from docs/agent-team-system.md.
 - `docs/public-repo-checklist.md` — pre-publish checklist
 - `docs/release-process.md` — suggested release process
 - `docs/strict-audit-prompt.md` — strict audit prompt
+- `scripts/bootstrap-project-memory.sh` — small helper for submodule plus memory-template bootstrap
 
 ## License
 
