@@ -16,6 +16,9 @@ Copy or link:
 - project-specific coding conventions
 - public-release scaffold in the consuming repo if that repo will be public
 
+## Optional helper
+Use `scripts/bootstrap-project-memory.sh` if you want a small helper that adds the toolkit submodule and copies the memory templates.
+
 ## Goal
 The consuming repo should end up with:
 - general foundation from this toolkit

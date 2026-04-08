@@ -2,6 +2,9 @@
 
 Use this prompt to ask an AI coding tool to perform a strict final audit of the repository.
 
+Canonical alias:
+- `prompts/audit_repo.md`
+
 ```text
 You are auditing the repository as a production-ready public toolkit repo.
 

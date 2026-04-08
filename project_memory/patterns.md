@@ -11,3 +11,11 @@
 - Pattern: Distinguish review from verification.
   When to use: in all substantial feature or refactor work.
   When not to use: only for trivial, purely editorial changes.
+
+- Pattern: Keep compatibility aliases thin.
+  When to use: when one file must exist for discoverability but should not become a second source of truth.
+  When not to use: for canonical prompts or docs.
+
+- Pattern: Make root tutorials concrete and foundation-safe.
+  When to use: when teaching first-run adoption from the foundation repository.
+  When not to use: when authoring overlay-specific worked examples.

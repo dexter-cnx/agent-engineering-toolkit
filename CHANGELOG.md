@@ -7,6 +7,9 @@ All notable changes to this repository should be documented in this file.
 ## [Unreleased]
 ### Changed
 - Reserved for upcoming changes.
+- Refreshed the canonical tree manifest and removed audit-prompt duplication by making `prompts/audit_repo.md` a compatibility alias.
+- Expanded the tutorial into a concrete end-to-end walkthrough and shortened overlapping workflow summaries.
+- Renamed the adoption bootstrap helper to match its actual scope: `scripts/bootstrap-project-memory.sh`.
 
 ## [1.0.3] - 2026-04-08
 ### Added

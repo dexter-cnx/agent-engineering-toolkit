@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 set -euo pipefail
 
 TARGET=${1:-.}
@@ -20,5 +21,6 @@ cp "$TARGET/toolkit/templates/project_memory/decisions.md" "$TARGET/project_memo
 cp "$TARGET/toolkit/templates/project_memory/known_constraints.md" "$TARGET/project_memory/known_constraints.md"
 cp "$TARGET/toolkit/templates/project_memory/patterns.md" "$TARGET/project_memory/patterns.md"
 
-echo "Templates copied to $TARGET/project_memory/"
-echo "Next: choose an overlay and add project-specific verification commands."
+echo "Copied project memory templates."
+echo "This helper only bootstraps memory templates after adding the toolkit submodule."
+echo "Next steps: add AGENTS.md, choose an overlay, and define verification commands in the consuming repo."
