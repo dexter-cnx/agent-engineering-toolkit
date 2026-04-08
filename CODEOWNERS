@@ -1,4 +1,4 @@
-# Canonical CODEOWNERS file lives at `.github/CODEOWNERS`.
-# This root file mirrors the same ownership for repository visibility.
+# Canonical CODEOWNERS file: `.github/CODEOWNERS`
+# This root file exists for repository visibility only.
 
 * @dexter-cnx

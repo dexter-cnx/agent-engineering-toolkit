@@ -6,6 +6,18 @@ All notable changes to this repository should be documented in this file.
 ### Changed
 - Reserved for upcoming changes.
 
+## [1.0.0] - 2026-04-08
+### Added
+- Final public-release scaffold and aligned release checks
+- Stack-neutral foundation worked example
+- Python-specific worked example moved under the Python overlay
+- Distilled canonical references for lifecycle and role model
+
+### Changed
+- Reduced lifecycle duplication across foundation docs and examples
+- Normalized root visibility files to point at canonical GitHub-facing governance files
+- Tightened `repo-audit` scope toward release and adoption readiness
+
 ## [0.1.3] - 2026-04-08
 ### Added
 - Production-grade prompt contracts with inputs, outputs, process, and non-goals

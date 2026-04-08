@@ -1,26 +1,33 @@
 # Repo Audit
 
 ## Purpose
-Audit repository structure, clarity, coupling, documentation gaps, and workflow discipline.
+Audit repository-level readiness, structure, documentation, and public-release hygiene.
 
 ## When to use
-- Pre-release review
-- Adoption readiness checks
-- Foundation-vs-overlay checks
+- pre-release review
+- adoption readiness checks
+- foundation-vs-overlay checks
+- repo-wide consistency review
 
 ## When not to use
-- Single small file review only
+- narrow architecture-only review
+- single-bug diagnosis
+- final verification of one feature only
 
 ## Inputs
-- Repository tree
-- Core docs
-- Key templates and examples
+- repository tree
+- core docs
+- templates
+- examples
+- public-repo files
 
 ## Outputs
-- Issues grouped by severity
-- File-by-file notes
-- Recommended edits
+- issues grouped by severity
+- file-by-file notes
+- recommended edits
+- release-readiness assessment
 
 ## Non-goals
-- Automatic fixing
-- Detailed code generation
+- replacing `architecture-review` for narrow structure analysis
+- replacing `verification-pass` for evidence-based completion checks
+- rewriting the whole repository automatically

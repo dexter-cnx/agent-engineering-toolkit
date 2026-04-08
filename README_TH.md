@@ -18,7 +18,7 @@ Toolkit ระดับ production สำหรับทำ AI-assisted software
 
 แต่ toolkit นี้ตั้งใจยกระดับให้เป็น:
 - operating model ที่ใช้ซ้ำได้
-- prompt pipeline แบบเป็น stage
+- canonical prompt pipeline
 - agent team model
 - skill แบบ reusable และเฉพาะทาง
 - template สำหรับ bootstrap โปรเจกต์
@@ -28,21 +28,12 @@ Toolkit ระดับ production สำหรับทำ AI-assisted software
 
 รีโปนี้คือ foundation layer ส่วน rule ที่เฉพาะกับ project ควรไปอยู่ใน overlay หรือ repo ที่ consume toolkit นี้
 
-## lifecycle หลัก
+## Canonical references
 
-canonical lifecycle ถูกกำหนดไว้ใน `docs/prompt-pipeline.md`
-
-short form คือ:
-
-```text
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
-```
-
-## team model หลัก
-
-```text
-LEAD → ARCHITECT → BUILDER → REVIEWER → VERIFIER → FINALIZER → MEMORY
-```
+- source of truth ของ lifecycle: `docs/prompt-pipeline.md`
+- source of truth ของ role model: `docs/agent-team-system.md`
+- คู่มือใช้งานหลัก: `docs/how-to-use.md`
+- tutorial: `docs/tutorial.md`
 
 ## มีอะไรให้ในชุดนี้
 
@@ -74,7 +65,13 @@ git submodule add <toolkit-repo-url> toolkit
 ```text
 Follow AGENTS.md strictly.
 Use the canonical lifecycle from docs/prompt-pipeline.md.
+Use the role model from docs/agent-team-system.md.
 ```
+
+## Worked examples
+
+- ตัวอย่างระดับ foundation: `examples/worked_examples/foundation_feature_flow.md`
+- ตัวอย่างของ Python overlay: `overlays/python-service/examples/python_service_feature.md`
 
 ## เอกสาร
 

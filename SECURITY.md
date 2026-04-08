@@ -1,5 +1,6 @@
 # Security Policy
 
-For security-sensitive reports, please do not open a public issue.
+Canonical security policy: `.github/SECURITY.md`
 
-Use a private GitHub security advisory or the maintainer's private contact channel.
+This root file exists for repository visibility.
+For the authoritative policy, read `.github/SECURITY.md`.

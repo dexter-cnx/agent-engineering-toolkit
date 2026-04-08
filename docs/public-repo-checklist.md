@@ -22,19 +22,25 @@ Before publishing, verify these exact files exist and are current.
 - `.github/ISSUE_TEMPLATE/feature_request.yml`
 - `.github/ISSUE_TEMPLATE/config.yml`
 - `.github/workflows/ci.yml`
+- `.github/workflows/release-check.yml`
 
-## Required docs
+## Required adoption docs
 - `docs/how-to-use.md`
 - `docs/how-to-use_TH.md`
 - `docs/tutorial.md`
 - `docs/tutorial_TH.md`
 - `docs/architecture.md`
+- `docs/agent-team-system.md`
 - `docs/prompt-pipeline.md`
 - `docs/overlays.md`
+- `docs/real-world-integration.md`
+- `docs/repo-bootstrap.md`
+- `docs/release-process.md`
+- `docs/codex-review-prompt.md`
 
 ## Final checks
 - Root remains stack-agnostic.
 - Overlays contain stack-specific guidance.
+- Foundation worked examples remain stack-neutral.
 - No private repository URLs are hardcoded in scripts or docs.
-- README does not overstate what the repository includes.
 - CI passes.

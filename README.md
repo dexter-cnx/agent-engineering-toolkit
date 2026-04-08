@@ -18,7 +18,7 @@ Most AI coding setups stop at “generate code from a prompt”.
 
 This toolkit goes further by providing:
 - a reusable operating model
-- a stage-based prompt pipeline
+- a canonical prompt pipeline
 - an agent team model
 - reusable narrow skills
 - templates for project adoption
@@ -28,21 +28,12 @@ This toolkit goes further by providing:
 
 This repository is the foundation layer. Project-specific rules belong in overlays or in consuming repositories.
 
-## Core lifecycle
+## Canonical references
 
-The canonical lifecycle lives in `docs/prompt-pipeline.md`.
-
-Short form:
-
-```text
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
-```
-
-## Default team model
-
-```text
-LEAD → ARCHITECT → BUILDER → REVIEWER → VERIFIER → FINALIZER → MEMORY
-```
+- Lifecycle source of truth: `docs/prompt-pipeline.md`
+- Role model source of truth: `docs/agent-team-system.md`
+- Adoption guide: `docs/how-to-use.md`
+- Tutorial: `docs/tutorial.md`
 
 ## What is included
 
@@ -74,7 +65,13 @@ Start with:
 ```text
 Follow AGENTS.md strictly.
 Use the canonical lifecycle from docs/prompt-pipeline.md.
+Use the role model from docs/agent-team-system.md.
 ```
+
+## Worked examples
+
+- Foundation-level example: `examples/worked_examples/foundation_feature_flow.md`
+- Python overlay example: `overlays/python-service/examples/python_service_feature.md`
 
 ## Documentation
 
