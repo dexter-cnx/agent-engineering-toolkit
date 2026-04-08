@@ -16,7 +16,6 @@
 .gitignore
 AGENTS.md
 CHANGELOG.md
-CODEOWNERS
 CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 LICENSE
@@ -49,7 +48,6 @@ core/verification/verification-baseline.md
 docs
 docs/agent-team-system.md
 docs/architecture.md
-docs/codex-review-prompt.md
 docs/how-to-use.md
 docs/how-to-use_TH.md
 docs/overlays.md
@@ -57,11 +55,13 @@ docs/prompt-pipeline.md
 docs/public-repo-checklist.md
 docs/real-world-integration.md
 docs/release-process.md
+docs/strict-audit-prompt.md
 docs/releases
 docs/releases/release-v0.1.0.md
 docs/releases/release-v0.1.2.md
 docs/releases/release-v0.1.3.md
 docs/releases/release-v1.0.1.md
+docs/releases/release-v1.0.3.md
 docs/repo-bootstrap.md
 docs/roadmap.md
 docs/tree-manifest.txt
@@ -116,7 +116,6 @@ prompts/update_project_memory.md
 prompts/verification_pass.md
 scripts
 scripts/adopt-in-project.sh
-scripts/codex-final-review-prompt.txt
 scripts/check-public-repo.paths
 scripts/check-public-repo.sh
 scripts/push-guide.md

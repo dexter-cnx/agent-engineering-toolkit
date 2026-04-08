@@ -91,7 +91,7 @@ Use the role model from docs/agent-team-system.md.
 - `docs/repo-bootstrap.md` — applying the toolkit to a new repo
 - `docs/public-repo-checklist.md` — pre-publish checklist
 - `docs/release-process.md` — suggested release process
-- `docs/codex-review-prompt.md` — strict Codex review prompt
+- `docs/strict-audit-prompt.md` — strict audit prompt
 
 ## License
 

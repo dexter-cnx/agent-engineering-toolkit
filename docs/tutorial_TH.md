@@ -69,8 +69,7 @@ git submodule add <toolkit-repo-url> toolkit
 
 ## Part 9 — ใช้ AI audit
 ใช้:
-- `docs/codex-review-prompt.md`
-- `scripts/codex-final-review-prompt.txt`
+- `docs/strict-audit-prompt.md`
 
 ## Part 10 — ทำซ้ำและพัฒนาให้ mature
 หลังผ่านงานจริงหลายรอบ:

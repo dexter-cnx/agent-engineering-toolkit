@@ -1,3 +1,0 @@
-See `docs/codex-review-prompt.md` for the canonical audit prompt.
-
-This file is kept as a lightweight pointer for older workflows.

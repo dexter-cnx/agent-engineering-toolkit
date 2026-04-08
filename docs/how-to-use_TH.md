@@ -84,7 +84,7 @@ extension ที่เฉพาะ stack
 ### `templates/`
 template สำหรับ bootstrap, review, verification และ memory
 
-## 6. วิธีใช้กับ Codex
+## 6. วิธีใช้กับ AI tools
 
 คำสั่งเริ่มต้นที่แนะนำ:
 
@@ -96,7 +96,7 @@ Do not introduce stack-specific assumptions into the foundation layer.
 ```
 
 ลำดับที่แนะนำ:
-1. ให้ Codex อ่าน `AGENTS.md`
+1. ให้เครื่องมือ AI อ่าน `AGENTS.md`
 2. ให้มันอ่าน:
    - `docs/how-to-use.md`
    - `docs/architecture.md`

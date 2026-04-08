@@ -6,7 +6,6 @@ CONTRIBUTING.md
 CHANGELOG.md
 CODE_OF_CONDUCT.md
 SECURITY.md
-CODEOWNERS
 .gitignore
 .github/CODEOWNERS
 .github/SECURITY.md
@@ -27,4 +26,4 @@ docs/overlays.md
 docs/real-world-integration.md
 docs/repo-bootstrap.md
 docs/release-process.md
-docs/codex-review-prompt.md
+docs/strict-audit-prompt.md

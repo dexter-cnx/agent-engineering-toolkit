@@ -69,8 +69,7 @@ Refine:
 
 ## Part 9 — Use an AI assistant to audit
 Use:
-- `docs/codex-review-prompt.md`
-- `scripts/codex-final-review-prompt.txt`
+- `docs/strict-audit-prompt.md`
 
 ## Part 10 — Repeat and mature
 After several real runs:

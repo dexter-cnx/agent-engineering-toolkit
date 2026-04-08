@@ -6,6 +6,7 @@ Copy or link:
 - `templates/project-bootstrap/README_BOOTSTRAP.md`
 - `templates/project_memory/decisions.md`
 - `templates/project_memory/known_constraints.md`
+- `templates/project_memory/patterns.md`
 - one overlay if relevant
 
 ## Then add

@@ -1,10 +1,11 @@
 # Backend Node Overlay Rules
 
 ## Boundary rules
-- Keep stack entry concerns in the stack entry layer.
-- Keep business rules out of presentation/transport glue.
-- Isolate external providers and side effects.
-- Keep project-specific rules in the consuming repo.
+- Route handlers must stay thin and delegate orchestration.
+- Services must not import Express, Fastify, or request/response types.
+- Repositories must not mix persistence with validation or transport concerns.
+- Environment and config access must be centralized, not scattered through handlers.
+- Middleware must not own business workflows.
 
 ## Verification rules
 Document and run, where possible:

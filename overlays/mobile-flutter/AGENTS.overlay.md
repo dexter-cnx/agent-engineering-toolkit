@@ -1,10 +1,11 @@
 # Mobile Flutter Overlay Rules
 
 ## Boundary rules
-- Keep stack entry concerns in the stack entry layer.
-- Keep business rules out of presentation/transport glue.
-- Isolate external providers and side effects.
-- Keep project-specific rules in the consuming repo.
+- Presentation widgets must not contain business logic.
+- Use cases and domain code must not import Flutter widgets.
+- State management layers must not call external APIs directly.
+- Navigation logic must stay out of widget trees and into dedicated routers or coordinators.
+- Repository interfaces must not leak Flutter-specific types into domain contracts.
 
 ## Verification rules
 Document and run, where possible:

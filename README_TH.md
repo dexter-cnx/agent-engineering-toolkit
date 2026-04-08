@@ -91,7 +91,7 @@ Use the role model from docs/agent-team-system.md.
 - `docs/repo-bootstrap.md` — วิธีเอา toolkit ไปเริ่ม repo ใหม่
 - `docs/public-repo-checklist.md` — checklist ก่อน publish
 - `docs/release-process.md` — วิธีจัด release
-- `docs/codex-review-prompt.md` — prompt สำหรับให้ Codex ตรวจทานแบบเข้ม
+- `docs/strict-audit-prompt.md` — prompt สำหรับ audit แบบเข้ม
 
 ## License
 

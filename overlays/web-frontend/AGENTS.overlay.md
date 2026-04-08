@@ -1,10 +1,11 @@
 # Web Frontend Overlay Rules
 
 ## Boundary rules
-- Keep stack entry concerns in the stack entry layer.
-- Keep business rules out of presentation/transport glue.
-- Isolate external providers and side effects.
-- Keep project-specific rules in the consuming repo.
+- Page components must not contain reusable business logic.
+- Presentational components must not fetch data directly.
+- Shared design-system primitives must stay free of feature logic.
+- Global state mutations must happen in the state layer, not inside pure UI components.
+- API calls must route through a service or data layer.
 
 ## Verification rules
 Document and run, where possible:

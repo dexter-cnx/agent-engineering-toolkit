@@ -2,7 +2,13 @@
 set -euo pipefail
 
 TARGET=${1:-.}
-TOOLKIT_URL=${2:-"<your-toolkit-repo-url>"}
+TOOLKIT_URL=${2:-}
+
+if [ -z "$TOOLKIT_URL" ]; then
+  echo "Error: provide the toolkit repo URL as the second argument." >&2
+  echo "Usage: $0 [target-dir] <toolkit-repo-url>" >&2
+  exit 1
+fi
 
 echo "Adding toolkit as submodule at $TARGET/toolkit..."
 git submodule add "$TOOLKIT_URL" "$TARGET/toolkit"

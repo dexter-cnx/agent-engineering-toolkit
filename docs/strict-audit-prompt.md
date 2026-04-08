@@ -1,8 +1,6 @@
-# Codex Review Prompt
+# Strict Audit Prompt
 
-This is the canonical strict audit prompt for the toolkit.
-
-Use this prompt to ask Codex to perform a strict final audit of the repository.
+Use this prompt to ask an AI coding tool to perform a strict final audit of the repository.
 
 ```text
 You are auditing the repository as a production-ready public toolkit repo.

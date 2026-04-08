@@ -13,3 +13,6 @@ This repository mainly contains:
 - scripts
 - CI configuration
 - repository conventions
+
+## Disclosure timeline
+We aim to acknowledge receipt within 72 hours and provide an initial remediation timeline within 7 days.

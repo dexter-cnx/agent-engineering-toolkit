@@ -13,7 +13,6 @@ The machine-readable source for the automation lives in `scripts/check-public-re
 - `CHANGELOG.md`
 - `CODE_OF_CONDUCT.md`
 - `SECURITY.md`
-- `CODEOWNERS`
 - `.gitignore`
 
 ## Required GitHub-facing files
@@ -38,7 +37,7 @@ The machine-readable source for the automation lives in `scripts/check-public-re
 - `docs/real-world-integration.md`
 - `docs/repo-bootstrap.md`
 - `docs/release-process.md`
-- `docs/codex-review-prompt.md`
+- `docs/strict-audit-prompt.md`
 
 ## Final checks
 - Root remains stack-agnostic.
