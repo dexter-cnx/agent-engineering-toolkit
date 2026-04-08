@@ -16,11 +16,39 @@ aliases:
 
 - [เริ่มจากโฟลเดอร์เปล่า](./00-common-start.md)
 - [AGENTS.md และ prompt guide](./agents-and-prompts.md)
+- [เส้นทางหลัก 10 นาทีแรก](./01-golden-path.md)
+- [Mental model ของระบบ Agent](./02-agent-mental-model.md)
+- [Workflow ของจริงแบบ Lead → Architecture → Feature](./03-real-workflow.md)
+- [วิธีสร้าง feature แบบ production](./04-build-production-feature.md)
+- [วิธี reuse toolkit](./05-reuse-toolkit.md)
+- [วิธี debug agent run ที่พัง](./06-debugging-agent-runs.md)
+- [วิธีใช้ multi-agent execution](./07-multi-agent-execution.md)
+- [ตัวอย่างเต็ม: Flutter project](./08-full-example-flutter.md)
 - [Start from Blank Folder](./00-common-start_EN.md)
 - [AGENTS.md and prompt guide](./agents-and-prompts_EN.md)
-- tutorial files ถูกแยกเป็น platform folders: `flutter/`, `web/`, `services/`, และ `team/`
-- [วิธีใช้ Team Agents](./team/how-to-use-team-agents.md)
-- [How to Use Team Agents](./team/how-to-use-team-agents_EN.md)
+- [10-minute golden path](./01-golden-path_EN.md)
+- [Agent system mental model](./02-agent-mental-model_EN.md)
+- [Real workflow: Lead → Architecture → Feature](./03-real-workflow_EN.md)
+- [Build a production feature](./04-build-production-feature_EN.md)
+- [Reuse toolkit patterns](./05-reuse-toolkit_EN.md)
+- [Debug failed agent runs](./06-debugging-agent-runs_EN.md)
+- [Multi-agent execution](./07-multi-agent-execution_EN.md)
+- [Full example: Flutter project](./08-full-example-flutter_EN.md)
+
+## Core Execution Path
+
+ชุดนี้คือ tutorial track ใหม่ที่เน้น **ลงมือทำจริง** มากกว่า reference อ่านเล่น
+
+| ลำดับ | Tutorial | เป้าหมาย |
+| --- | --- | --- |
+| 1 | [เส้นทางหลัก 10 นาทีแรก](./01-golden-path.md) | ให้ user ได้ first success เร็วที่สุด |
+| 2 | [Mental model ของระบบ Agent](./02-agent-mental-model.md) | แก้ความสับสนว่า agent, prompt, skill, overlay ต่างกันอย่างไร |
+| 3 | [Workflow ของจริงแบบ Lead → Architecture → Feature](./03-real-workflow.md) | ทำให้ลำดับการสั่งงาน predictable |
+| 4 | [วิธีสร้าง feature แบบ production](./04-build-production-feature.md) | สาธิตการทำงานเป็นงานจริง 1 ชิ้น |
+| 5 | [วิธี reuse toolkit](./05-reuse-toolkit.md) | ชี้ทางเลือก submodule, copy, foundation repo |
+| 6 | [วิธี debug agent run ที่พัง](./06-debugging-agent-runs.md) | รับมือ hallucination, scope drift, broken verification |
+| 7 | [วิธีใช้ multi-agent execution](./07-multi-agent-execution.md) | ใช้ agent team แบบมี boundary ชัด |
+| 8 | [ตัวอย่างเต็ม: Flutter project](./08-full-example-flutter.md) | เชื่อมทุกอย่างเป็น workflow เดียว |
 
 ## Agent Team
 
@@ -62,15 +90,12 @@ aliases:
 
 ทุก tutorial ใช้รูปแบบเดียวกัน:
 
-1. เริ่มจากโฟลเดอร์เปล่า
-2. อ่าน `AGENTS.md` และ prompt guide ก่อนเริ่ม
-3. ดูตัวอย่าง `AGENTS.md` และ prompt ที่อยู่ในหน้า tutorial นั้น
-4. เพิ่ม toolkit และ project memory
-5. เลือก overlay ที่ถูกต้อง
-6. ใช้ canonical prompts ตามลำดับ
-7. เลือก skill เฉพาะตอนที่ตรงกับงานจริง
-8. verify ด้วยคำสั่งที่ตรง stack
-9. บันทึก decision ที่ควรจำลง project memory
+1. เริ่มจากเป้าหมายให้ชัด
+2. อ่าน boundary และ canonical docs ก่อนลงมือ
+3. ใช้ prompt pipeline ตามลำดับ
+4. verify ก่อน finalize
+5. อัปเดต project memory เฉพาะ decision ที่ควรจำจริง
+6. แยก foundation, overlay, และ project-specific concerns ออกจากกันเสมอ
 
 ## Canonical references
 
