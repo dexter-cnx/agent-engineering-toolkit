@@ -175,8 +175,9 @@ verification ต้องบอกชัดว่า:
 - อะไรยังไม่แน่ใจ
 
 ถ้าจะ audit toolkit repository นี้แบบเข้ม:
-- ใช้ `prompts/audit_repo.md` เมื่ออยากได้ prompt แบบ role-based
+- ใช้ `prompts/review/audit_repo.md` เมื่ออยากได้ prompt แบบ role-based
 - ใช้ `docs/strict-audit-prompt.md` เมื่ออยากได้ invocation template แบบ paste ได้ทันที
+- ใช้ `prompts/index.md` หรือ `prompts/index_EN.md` เพื่อไล่ดู stage ของ prompt ก่อน
 
 ## 12. ความผิดพลาดที่เจอบ่อย
 - เอา assumption ของ Flutter หรือ Node ไปใส่ใน root

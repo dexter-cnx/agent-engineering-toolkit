@@ -10,6 +10,10 @@ List the checks that were actually performed.
 ## Evidence
 List commands, outputs, screenshots, files, or reasoning evidence used.
 
+## Identity checks
+- Foundation vs overlay boundary checked:
+- Public-release hygiene checked if relevant:
+
 ## Results
 State the outcome of each check.
 

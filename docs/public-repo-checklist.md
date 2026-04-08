@@ -1,8 +1,8 @@
 # Public Repository Checklist
 
-Before publishing, verify these exact files exist and are current.
-The release-check workflow and CI helper mirror this list exactly.
-The machine-readable source for the automation lives in `scripts/check-public-repo.paths`.
+Before publishing, verify these files exist and are current.
+This page is a human-readable summary of the public-release contract.
+The exact machine-readable source for the automation lives in `scripts/check-public-repo.paths`.
 
 ## Required root files
 - `README.md`
@@ -38,6 +38,18 @@ The machine-readable source for the automation lives in `scripts/check-public-re
 - `docs/repo-bootstrap.md`
 - `docs/release-process.md`
 - `docs/strict-audit-prompt.md`
+
+## Additional index files checked by automation
+- `docs/obsidian-friendly.md`
+- `docs/tutorials/index.md`
+- `docs/tutorials/index_EN.md`
+- `docs/tutorials/agents-and-prompts.md`
+- `docs/tutorials/agents-and-prompts_EN.md`
+- `docs/tutorials/examples/index.md`
+- `docs/tutorials/examples/index_EN.md`
+- `prompts/index.md`
+- `prompts/index_EN.md`
+- `prompts/review/audit_repo.md`
 
 ## Final checks
 - Root remains stack-agnostic.

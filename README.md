@@ -32,9 +32,11 @@ This repository is the foundation layer. Project-specific rules belong in overla
 
 - Lifecycle source of truth: `docs/prompt-pipeline.md`
 - Role model source of truth: `docs/agent-team-system.md`
+- Prompt hub: `prompts/index.md`
+- Prompt hub (English): `prompts/index_EN.md`
 - Adoption guide: `docs/how-to-use.md`
 - Tutorial: `docs/tutorial.md`
-- Audit prompt (role-based): `prompts/audit_repo.md`
+- Audit prompt (role-based): `prompts/review/audit_repo.md`
 - Audit prompt (invocation template): `docs/strict-audit-prompt.md`
 
 ## What is included
@@ -90,6 +92,10 @@ Use the role model from docs/agent-team-system.md.
 - `docs/how-to-use_TH.md` — canonical Thai guide
 - `docs/tutorial.md` — English tutorial
 - `docs/tutorial_TH.md` — Thai tutorial
+- `docs/tutorials/index.md` — Obsidian-friendly tutorial hub grouped by platform (Thai)
+- `docs/tutorials/index_EN.md` — Obsidian-friendly tutorial hub grouped by platform (English)
+- `docs/tutorials/agents-and-prompts.md` — AGENTS.md and prompt guide (Thai)
+- `docs/tutorials/agents-and-prompts_EN.md` — AGENTS.md and prompt guide (English)
 - `docs/architecture.md` — foundation vs overlay architecture
 - `docs/agent-team-system.md` — role system guidance
 - `docs/prompt-pipeline.md` — canonical lifecycle reference
@@ -97,8 +103,10 @@ Use the role model from docs/agent-team-system.md.
 - `docs/real-world-integration.md` — practical usage guidance
 - `docs/repo-bootstrap.md` — applying the toolkit to a new repo
 - `docs/public-repo-checklist.md` — pre-publish checklist
+- `scripts/check-public-repo.paths` — machine-readable public-release gate source
 - `docs/release-process.md` — suggested release process
 - `docs/strict-audit-prompt.md` — strict audit prompt
+- `docs/obsidian-friendly.md` — consolidated Obsidian-friendly reference
 - `scripts/bootstrap-project-memory.sh` — small helper for submodule plus memory-template bootstrap
 
 ## License

@@ -6,7 +6,7 @@ A repository wants to add a new "account preferences" capability, but the founda
 This example demonstrates how to use the toolkit lifecycle **before** choosing a stack-specific overlay.
 
 ## Step 1 — Plan
-Use `prompts/plan_change.md`.
+Use `prompts/planning/plan_change.md`.
 
 Expected output:
 - precise task restatement
@@ -21,7 +21,7 @@ Example conclusion:
 - a stack-specific overlay will be chosen by the consuming repo, not by the foundation
 
 ## Step 2 — Architecture
-Use `prompts/architecture_review.md`.
+Use `prompts/design/architecture_review.md`.
 
 Expected output:
 - affected boundaries
@@ -34,7 +34,7 @@ Foundation-safe architecture statement:
 - let the consuming repo map those responsibilities into stack-specific files and modules
 
 ## Step 3 — Implement
-Use `prompts/implement_change.md`.
+Use `prompts/implementation/implement_change.md`.
 
 Expected output:
 - artifacts changed in the consuming repo
@@ -42,7 +42,7 @@ Expected output:
 - notes for review
 
 ## Step 4 — Review
-Use `prompts/review_change.md`.
+Use `prompts/review/review_change.md`.
 
 Expected output:
 - strengths
@@ -51,7 +51,7 @@ Expected output:
 - architecture fit assessment
 
 ## Step 5 — Verify
-Use `prompts/verification_pass.md`.
+Use `prompts/verification/verification_pass.md`.
 
 Expected output:
 - checks performed
@@ -60,7 +60,7 @@ Expected output:
 - confidence level
 
 ## Step 6 — Finalize
-Use `prompts/finalize_change.md`.
+Use `prompts/finalization/finalize_change.md`.
 
 Expected output:
 - final summary
@@ -69,7 +69,7 @@ Expected output:
 - memory-update handoff
 
 ## Step 7 — Memory
-Use `prompts/update_project_memory.md`.
+Use `prompts/memory/update_project_memory.md`.
 
 Store only durable notes such as:
 - boundary decisions

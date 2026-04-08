@@ -14,13 +14,27 @@ This is the canonical source of truth for the toolkit lifecycle.
 
 ## Prompt mapping
 
-1. `prompts/plan_change.md`
-2. `prompts/architecture_review.md`
-3. `prompts/implement_change.md`
-4. `prompts/review_change.md`
-5. `prompts/verification_pass.md`
-6. `prompts/finalize_change.md`
-7. `prompts/update_project_memory.md`
+1. `prompts/planning/plan_change.md`
+2. `prompts/design/architecture_review.md`
+3. `prompts/implementation/implement_change.md`
+4. `prompts/review/review_change.md`
+5. `prompts/verification/verification_pass.md`
+6. `prompts/finalization/finalize_change.md`
+7. `prompts/memory/update_project_memory.md`
+
+## Canonical prompt folders
+
+- `prompts/adoption/`
+- `prompts/planning/`
+- `prompts/design/`
+- `prompts/implementation/`
+- `prompts/review/`
+- `prompts/verification/`
+- `prompts/finalization/`
+- `prompts/memory/`
+- `prompts/investigation/`
+
+Root-level prompt filenames remain available as compatibility aliases.
 
 ## Usage notes
 - Not every task needs every prompt.

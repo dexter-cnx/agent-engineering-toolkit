@@ -16,11 +16,6 @@
   Consequence: Underscore duplicates should not be reintroduced.
 
 - Date: 2026-04-08
-  Decision: `prompts/audit_repo.md` is a compatibility alias, not a second canonical audit prompt.
-  Why: Prevents duplicated audit guidance from drifting over time.
-  Consequence: `docs/strict-audit-prompt.md` remains the single canonical audit source.
-
-- Date: 2026-04-08
   Decision: `scripts/bootstrap-project-memory.sh` is the small helper for submodule addition plus memory-template copying only.
   Why: Keeps the script name honest about its limited scope.
   Consequence: AGENTS setup, overlay choice, and verification commands remain manual steps in the consuming repo.
@@ -36,7 +31,7 @@
   Consequence: Saving an audit file now includes a manifest refresh in the same change set.
 
 - Date: 2026-04-08
-  Decision: `prompts/audit_repo.md` is the role-based audit prompt and `docs/strict-audit-prompt.md` is the invocation template companion.
+  Decision: `prompts/review/audit_repo.md` is the role-based audit prompt and `docs/strict-audit-prompt.md` is the invocation template companion.
   Why: Separates agent-facing workflow guidance from paste-ready prompt text.
   Consequence: Root docs should reference both explicitly.
 
@@ -44,3 +39,18 @@
   Decision: Public release version `1.0.4` captures the audit-prompt split fix, overlay lifecycle notes, and the honest same-day release note.
   Why: Keeps the changelog and release docs aligned with the latest public surface.
   Consequence: Release references such as `scripts/push-guide.md` should point at `v1.0.4` until the next release.
+
+- Date: 2026-04-08
+  Decision: Prompt workflows now have canonical stage hubs in `prompts/index.md` and `prompts/index_EN.md`, with stage-specific EN mirrors under each prompt subfolder.
+  Why: Gives a single browseable entry point while keeping the canonical prompt files grouped by lifecycle stage.
+  Consequence: New prompt documentation should link to the stage hub first and then to the exact stage file.
+
+- Date: 2026-04-08
+  Decision: `docs/public-repo-checklist.md` is the human-readable summary and `scripts/check-public-repo.paths` is the machine-readable public-release source of truth.
+  Why: The checklist and gate need a clear ownership split so they do not drift or overclaim exact coverage.
+  Consequence: Public-release edits should update the summary and the path manifest together.
+
+- Date: 2026-04-08
+  Decision: Foundation tutorial hubs and Obsidian-friendly pages should link to stack-specific examples instead of reprinting long platform templates.
+  Why: Stack-specific examples belong in overlays and stack tutorials, not in foundation navigation pages.
+  Consequence: Future updates should prefer links and short pointers over duplicated template blocks.

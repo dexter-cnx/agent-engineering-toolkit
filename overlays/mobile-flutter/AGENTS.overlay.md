@@ -7,6 +7,8 @@
 - Navigation logic must stay out of widget trees and into dedicated routers or coordinators.
 - Repository interfaces must not leak Flutter-specific types into domain contracts.
 
+See `README.md` for the human overview and example index.
+
 ## Verification rules
 Document and run, where possible:
 ```bash

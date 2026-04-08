@@ -21,6 +21,8 @@ repo/
 - external integrations stay behind service or adapter boundaries
 - project memory captures recurring stack-specific conventions
 
+Canonical operational rules live in `AGENTS.overlay.md`; this README is the human overview and example index.
+
 ## Verification examples
 ```bash
 flutter analyze

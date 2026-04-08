@@ -3,7 +3,7 @@
 Use this prompt to ask an AI coding tool to perform a strict final audit of the repository.
 
 Canonical companion:
-- `prompts/audit_repo.md`
+- `prompts/review/audit_repo.md`
 
 ```text
 You are auditing the repository as a production-ready public toolkit repo.
@@ -19,9 +19,17 @@ Audit goals:
    - README_TH.md
    - AGENTS.md
    - docs/*
+   - core/*
+   - agent_team/*
+   - project_memory/*
+   - prompts/*
+   - skills/*
    - overlays/*
    - templates/*
    - examples/*
+   - .github/*
+   - scripts/*
+   - docs/tree-manifest.txt
 2. Detect any leakage of mobile-, Flutter-, Node-, or Python-specific assumptions into the foundation layer.
 3. Review whether the prompt pipeline is coherent and non-duplicative.
 4. Review whether agent_team roles are clearly separated and useful.
@@ -38,6 +46,7 @@ Audit goals:
    - issue templates
    - SECURITY.md
    - CI workflows
+   - release-check scripts and path manifests
 9. Identify vague wording, duplicated docs, missing examples, missing adoption guidance, and any weak spots for public release.
 10. Propose concrete fixes, with file-by-file recommendations.
 
