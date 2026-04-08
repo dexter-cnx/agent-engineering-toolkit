@@ -1,7 +1,21 @@
 # Web Frontend Overlay Rules
 
-Add these on top of the foundation when relevant:
-- separate data access from reusable UI
-- keep design system usage consistent
-- avoid hidden page-level coupling
-- define verification commands for lint/test/build
+## Boundary rules
+- Page components must not contain reusable business logic.
+- Presentational components must not fetch data directly.
+- Shared design-system primitives must stay free of feature logic.
+- Global state mutations must happen in the state layer, not inside pure UI components.
+- API calls must route through a service or data layer.
+
+## Verification rules
+Document and run, where possible:
+```bash
+npm run lint
+npm run build
+```
+
+## Review rules
+Reject changes when:
+- page logic spread into reusable components
+- design-system drift
+- hidden data fetching inside unrelated UI primitives

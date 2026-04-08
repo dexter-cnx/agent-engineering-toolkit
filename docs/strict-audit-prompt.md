@@ -1,3 +1,11 @@
+# Strict Audit Prompt
+
+Use this prompt to ask an AI coding tool to perform a strict final audit of the repository.
+
+Canonical companion:
+- `prompts/audit_repo.md`
+
+```text
 You are auditing the repository as a production-ready public toolkit repo.
 
 Repository identity:
@@ -20,7 +28,16 @@ Audit goals:
 5. Review whether skills are narrow, reusable, and non-overlapping.
 6. Review whether templates are practical for real project adoption.
 7. Review whether overlays are well-scoped extensions instead of identity rewrites.
-8. Review whether public repo hygiene is complete.
+8. Review whether public repo hygiene is complete:
+   - LICENSE
+   - CONTRIBUTING.md
+   - CHANGELOG.md
+   - CODE_OF_CONDUCT.md
+   - CODEOWNERS
+   - PR template
+   - issue templates
+   - SECURITY.md
+   - CI workflows
 9. Identify vague wording, duplicated docs, missing examples, missing adoption guidance, and any weak spots for public release.
 10. Propose concrete fixes, with file-by-file recommendations.
 
@@ -34,3 +51,11 @@ Required output format:
 - Public repo readiness assessment
 - Recommended exact edits
 - Final verdict: ready / almost ready / not ready
+
+Rules:
+- Be strict.
+- Do not praise without evidence.
+- Call out inconsistencies directly.
+- Prefer concrete edits over abstract advice.
+- If something is missing, say exactly which file should be added or changed.
+```

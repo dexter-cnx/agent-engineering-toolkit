@@ -1,0 +1,24 @@
+name: Toolkit CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  structure-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check public repo files
+        run: |
+          bash scripts/check-public-repo.sh
+          test -d prompts
+          test -d skills
+          test -d overlays
+          for overlay_dir in overlays/*; do
+            if [ -d "$overlay_dir" ]; then
+              test -d "$overlay_dir/examples"
+            fi
+          done
+          test ! -f docs/how_to_use.md
+          test ! -f docs/how_to_use_TH.md

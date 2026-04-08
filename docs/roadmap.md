@@ -1,25 +1,21 @@
 # Roadmap
 
-## Current
-- foundation governance
-- prompt pipeline
-- agent team model
-- skill library
-- overlays
-- templates
-- examples
-- docs
+## In progress / known gaps
+1. Bring all overlays to the same operational depth as `python-service`
+2. Further reduce overlap between workflow examples and worked examples
+3. Keep release checks aligned with the documented public checklist
 
-## Next
-- richer overlay packs
-- stricter audit mode
-- deeper verification templates
-- runtime-specific integration packs
-- MCP and gateway usage guides
+## Near-term priorities
+1. Expand mobile-flutter worked example
+2. Expand backend-node worked example
+3. Expand web-frontend worked example
+4. Refine agent team standalone files or consolidate them further
 
 ## Later
-- platform-oriented orchestration layer
-- artifact generation packs
-- risk scoring automation
-- skill routing automation
-- dashboard and execution telemetry
+- richer execution telemetry examples
+- optional platform-oriented orchestration companion docs
+- deeper contributor onboarding artifacts
+
+## Speculative
+- automated manifest refresh
+- optional packaging helpers for submodule consumers

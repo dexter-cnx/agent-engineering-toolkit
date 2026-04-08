@@ -1,26 +1,21 @@
 # AGENTS.md
 
 ## Repository identity
-This repository is a **domain-agnostic engineering toolkit**.  
-It is not a mobile-only starter.  
+This repository is a **domain-agnostic engineering toolkit**.
+It is not a mobile-only starter.
 Mobile belongs in overlays, not in root assumptions.
 
-## Mandatory execution lifecycle
-Every meaningful task should respect this flow:
+## Canonical references
+- Lifecycle: `docs/prompt-pipeline.md`
+- Role model: `docs/agent-team-system.md`
 
-1. PLAN
-2. DESIGN
-3. IMPLEMENT
-4. REVIEW
-5. VERIFY
-6. FINALIZE
-7. MEMORY UPDATE
+## Mandatory execution lifecycle
+Use the canonical lifecycle from `docs/prompt-pipeline.md` for meaningful work.
 
 Do not skip phases unless the task is truly trivial and non-structural.
 
 ## Mandatory output structure
 When producing substantial work, prefer this output order:
-
 - Assumptions
 - Plan
 - Architecture / structure
@@ -31,17 +26,7 @@ When producing substantial work, prefer this output order:
 - Memory update
 
 ## Team model
-The default team model is:
-
-- LEAD
-- ARCHITECT
-- BUILDER
-- REVIEWER
-- VERIFIER
-- FINALIZER
-- MEMORY
-
-Each role should remain narrow and explicit.
+Use the role model defined in `docs/agent-team-system.md`.
 
 ## Hard rules
 - Do not implement before understanding the task.
@@ -76,12 +61,7 @@ At minimum:
 
 ## Overlay rules
 Foundation stays general.
-Specialization goes into:
-- overlays/mobile-flutter
-- overlays/backend-node
-- overlays/web-frontend
-- overlays/python-service
-or project-specific consuming repositories.
+Specialization goes into overlays or project-specific consuming repositories.
 
 ## Memory expectations
 Project memory is not optional decoration.

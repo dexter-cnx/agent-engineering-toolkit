@@ -1,200 +1,130 @@
 # Tutorial (English) — Step-by-Step Training Guide
 
-This tutorial teaches a new user how to use the toolkit from zero.
+This tutorial shows one concrete first run from start to finish.
 
----
-
-## Tutorial goal
-
+## Goal
 By the end of this tutorial, you should be able to:
-- understand the repository structure
-- use the toolkit in a real repo
-- choose an overlay
-- run one feature through the full lifecycle
-- update project memory correctly
+- choose the right overlay
+- move a request through the canonical lifecycle
+- keep stack-specific rules out of the foundation
+- write a durable memory note after the work is done
 
----
+## Scenario
+A consuming repository wants to add an account preferences capability.
 
-## Part 1 — Read the minimum set
+Use the foundation toolkit as the workflow spine, then select the appropriate overlay in the consuming repo.
 
-Before doing anything else, read these files in order:
-
+## Step 1 — Read the minimum set
+Read these files first:
 1. `README.md`
 2. `AGENTS.md`
-3. `docs/how_to_use.md`
+3. `docs/how-to-use.md`
 4. `docs/architecture.md`
 5. `docs/overlays.md`
 6. `docs/agent-team-system.md`
 7. `docs/prompt-pipeline.md`
 
-This gives you:
-- repository identity
-- workflow understanding
-- overlay strategy
-- role model
-- prompt flow
+## Step 2 — Choose the adoption path
+Pick one:
+- central toolkit repo
+- submodule in a real project
+- copy selected files
 
----
-
-## Part 2 — Decide how you will adopt the toolkit
-
-Choose one:
-
-### Option A — keep it as a central toolkit repo
-Good for teams with multiple projects.
-
-### Option B — add it as a submodule
-Good for real projects that should consume the toolkit directly.
-
-### Option C — copy selected files
-Good for smaller teams or lighter setups.
-
-For this tutorial, assume Option B.
-
----
-
-## Part 3 — Add toolkit to a real repo
-
-Inside your real project:
-
+For a real repo, the most common path is:
 ```bash
 git submodule add <toolkit-repo-url> toolkit
 ```
 
-Then commit the submodule change.
+## Step 3 — Choose an overlay
+Read the overlay that matches the consuming repo:
+- `overlays/mobile-flutter/README.md`
+- `overlays/backend-node/README.md`
+- `overlays/web-frontend/README.md`
+- `overlays/python-service/README.md`
 
----
+If none fit, stay foundation-only and keep stack-specific rules in the consuming repo.
 
-## Part 4 — Choose an overlay
+## Step 4 — Plan the change
+Run the planning prompt with this output shape:
+- task restatement: add account preferences capability
+- facts: the repository is adopting the toolkit as a foundation
+- assumptions: the stack is known only after overlay selection
+- constraints: root stays stack-agnostic
+- risks: boundary leakage, vague ownership, missing verification
+- next prompt: architecture review
 
-Look inside `overlays/`.
+## Step 5 — Define the structure
+Architecture output should name the layers clearly.
 
-Pick one:
-- `mobile-flutter`
-- `backend-node`
-- `web-frontend`
-- `python-service`
+Example structure for a consuming repo:
+- transport layer: route, handler, or controller file
+- orchestration layer: service or use-case file
+- persistence layer: repository or data-access file
+- adapter layer: external provider boundary
 
-For example:
-- if the real repo is Flutter → choose `mobile-flutter`
-- if the repo is FastAPI → choose `python-service`
+Builder guardrails:
+- do not put business rules in transport code
+- do not call external providers directly from unrelated modules
+- keep response shaping out of repositories
 
-Read:
-- the overlay `README.md`
-- the overlay `AGENTS.overlay.md`
+## Step 6 — Implement
+The builder changes the consuming repo artifacts.
 
----
+Expected implementation notes:
+- files changed: transport, service, repository, and adapter layers
+- deviations: only if the architecture review approved them
 
-## Part 5 — Bootstrap the real repo
+## Step 7 — Review
+The reviewer should separate strengths from problems.
 
-Copy or adapt:
-- `AGENTS.md`
-- `templates/project-bootstrap/README_BOOTSTRAP.md`
-- `templates/project_memory/decisions.md`
-- `templates/project_memory/known_constraints.md`
-- `templates/project_memory/patterns.md`
+Example review outcome:
+- strength: handlers stay thin
+- blocking issue: repository contains business logic
+- non-blocking issue: example coverage is missing
+- architecture fit: acceptable only after the blocking issue is fixed
 
-Then add:
-- project-specific verification commands
-- project-specific CI
-- project-specific architecture constraints
+## Step 8 — Verify
+Verification must name the checks that were actually run.
 
-Important:
-Keep project-specific rules in the consuming repo.
+Example checks:
+```bash
+bash scripts/check-public-repo.sh
+```
 
-Do not push them back into the foundation unless they are broadly reusable.
+If you are checking this toolkit repository, run the public-repo gate.
+In a consuming repo, run the local stack checks too, such as lint, tests, or startup sanity.
 
----
+Example verification summary:
+- checks performed: public-repo gate, local tests, startup sanity
+- evidence: command output and changed files
+- remaining uncertainty: integration coverage is not yet complete
+- confidence: medium or high, depending on the evidence
 
-## Part 6 — Run one real feature
+## Step 9 — Finalize
+The finalizer should package the result clearly.
 
-Example feature:
-“Add profile settings page”
+Example final summary:
+- account preferences capability was added with clear boundaries
+- review and verification stayed distinct
+- remaining follow-up: add one integration test
 
-Use the prompts in this order:
+## Step 10 — Update memory
+Record only durable notes.
 
-1. `prompts/plan_change.md`
-2. `prompts/architecture_review.md`
-3. `prompts/implement_change.md`
-4. `prompts/review_change.md`
-5. `prompts/verification_pass.md`
-6. `prompts/finalize_change.md`
-7. `prompts/update_project_memory.md`
+Example memory entries:
+- account preference handlers must stay thin
+- response shaping belongs outside repositories
+- the chosen overlay for this repo is `<chosen-overlay>`
 
-You can do this:
-- manually
-- through Codex
-- through Claude Code
-- through another orchestration system
+## Step 11 — Audit
+Use the role-based audit prompt for an AI agent-style audit:
+- `prompts/audit_repo.md`
 
----
+Use the invocation template when you want a paste-ready prompt:
+- `docs/strict-audit-prompt.md`
 
-## Part 7 — Evaluate the output
-
-After the run, ask:
-
-### Planning quality
-- Were assumptions explicit?
-- Was scope clear?
-- Were risks named?
-
-### Architecture quality
-- Were boundaries clear?
-- Was coupling reduced?
-- Was the proposed structure sensible?
-
-### Implementation quality
-- Was the change aligned with the plan?
-- Was readability preserved?
-
-### Review quality
-- Did the review say anything meaningful?
-- Did it identify risk?
-
-### Verification quality
-- Were checks real?
-- Was uncertainty stated honestly?
-
-### Memory quality
-- Were durable decisions actually captured?
-
----
-
-## Part 8 — Improve based on what you learn
-
-After one real feature, refine:
-- local repo rules
-- overlay wording
-- project memory structure
-- verification commands
-- review expectations
-
-This is important:
-The toolkit should evolve through real usage, not only theory.
-
----
-
-## Part 9 — Use Codex to audit the toolkit or the consuming repo
-
-Use:
-- `docs/codex-review-prompt.md`
-- `scripts/codex-final-review-prompt.txt`
-
-Ask Codex to:
-- detect foundation vs overlay leakage
-- find duplicated docs
-- find weak prompt stages
-- identify missing files or weak adoption guidance
-
----
-
-## Part 10 — Repeat and mature
-
-After several real runs:
-- tighten your overlay
-- improve your verification expectations
-- clarify your memory format
-- update examples based on real usage
-- remove anything vague or redundant
-
-That is how the toolkit becomes production-grade in practice.
+## Optional helper
+If you want a local bootstrap helper, use the script that copies project memory templates and adds the submodule:
+```bash
+bash scripts/bootstrap-project-memory.sh
+```

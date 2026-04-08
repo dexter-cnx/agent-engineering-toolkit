@@ -1,11 +1,13 @@
-# Skill Router
+# Skill Router (Quick Reference)
 
-Choose skills based on the task:
+Canonical source for the routing skill contract:
+- `skills/skill-router/README.md`
 
+Use this reminder table only:
 - repo structure problem → repo-audit
 - architecture drift → architecture-review
 - safe cleanup → safe-refactor
-- suspicious dependency change → dependency-review
-- documentation mismatch → docs-update
+- dependency risk → dependency-review
+- docs mismatch → docs-update
 - unclear failure → bug-investigation
-- final confidence pass → verification-pass
+- confidence pass → verification-pass

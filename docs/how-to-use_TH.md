@@ -1,276 +1,186 @@
 # วิธีใช้งาน (ภาษาไทย)
 
-คู่มือนี้อธิบายวิธีใช้ `agent-engineering-toolkit` กับโปรเจกต์จริง
+นี่คือคู่มือใช้งานหลักภาษาไทยของ `agent-engineering-toolkit`
+
+เอกสารนี้อธิบาย:
+- toolkit นี้คืออะไร
+- จะนำไปใช้กับ repo จริงอย่างไร
+- จะใช้กับ AI coding tools อย่างไร
+- จะใช้ overlays อย่างไร
+- จะดูแล project memory อย่างไร
+- จะ review และ verify งานให้ดีอย่างไร
 
 ## 1. toolkit นี้คืออะไร
 
-รีโปนี้คือ operating system สำหรับการทำ AI-assisted engineering
+toolkit นี้ไม่ใช่แค่ prompt pack และไม่ใช่แค่ `AGENTS.md`
 
-ให้มองว่าเป็นชุดของ:
+มันคือ operating layer ที่ใช้ซ้ำได้สำหรับ AI-assisted engineering ซึ่งประกอบด้วย:
 - governance
-- execution flow
+- workflow
 - prompts
 - roles
 - skills
 - templates
 - overlays
-- กฎการดูแลเอกสาร
+- วินัยด้านเอกสาร
+- วินัยด้าน memory
 
-มันไม่ใช่ app starter สำเร็จรูปในตัวเอง  
-แต่มันคือ layer ที่ช่วยให้คุณสร้างและดูแล repo อื่นอย่างสม่ำเสมอ
+## 2. mental model
 
----
+ให้คิดว่า toolkit นี้มี 5 ชั้น:
+- Governance
+- Orchestration
+- Capability
+- Specialization
+- Continuity
 
-## 2. รูปแบบการนำไปใช้ที่แนะนำ
+ควรใช้ `AGENTS.md`, `core/*`, `prompts/*`, `skills/*`, `overlays/*` และ `project_memory/*` ร่วมกันเป็นระบบ
 
-### แบบ A — ใช้เป็น reference repo แยกเดี่ยว
-เหมาะเมื่อ:
-- อยากเรียนรู้ระบบก่อน
-- อยากมีที่เก็บ prompts และ rules กลาง
-- อยากแชร์ toolkit ให้ทั้งทีม
+## 3. lifecycle หลัก
 
-### แบบ B — ใช้เป็น Git submodule
-เหมาะเมื่อ:
-- อยากให้แต่ละโปรเจกต์ดึง toolkit ไปใช้ตรง ๆ
-- อยากให้ overlays และ templates อยู่ใน repo ปลายทาง
-- อยากอัปเดตจาก toolkit กลางได้
+ให้ถือ `docs/prompt-pipeline.md` เป็นแหล่งอ้างอิงเดียวของ lifecycle
 
-ตัวอย่าง:
+ใช้ไฟล์นั้นเป็น source of truth สำหรับ:
+- ลำดับ lifecycle
+- stage ต่าง ๆ
+- การ map ไปยัง prompts
+
+## 4. รูปแบบการนำไปใช้
+
+### แบบ A — toolkit repo กลาง
+เหมาะเมื่ออยากมี canonical toolkit repository ใช้ร่วมกันหลายโปรเจกต์
+
+### แบบ B — Git submodule
+เหมาะเมื่ออยากให้แต่ละโปรเจกต์ consume toolkit ตรง ๆ
+
 ```bash
 git submodule add <toolkit-repo-url> toolkit
 ```
 
-### แบบ C — คัดลอกเฉพาะบางไฟล์เข้าโปรเจกต์
-เหมาะเมื่อ:
-- ทีมยังไม่พร้อมใช้ submodule
-- โปรเจกต์ต้องการ setup เบากว่า
-- ต้องการแค่ AGENTS.md, prompts และ templates
+### แบบ C — คัดลอกเฉพาะบางไฟล์
+เหมาะเมื่อทีมยังไม่พร้อมใช้ submodule และต้องการแค่ governance, prompts หรือ templates
 
----
+## 5. โฟลเดอร์หลัก
 
-## 3. lifecycle หลัก
+### `AGENTS.md`
+root contract ที่บอก AI ว่า:
+- repo นี้คืออะไร
+- ต้องเดิน lifecycle แบบไหน
+- อะไรที่ห้าม assume
+- ควรคิดเรื่อง boundary, docs, verification และ memory อย่างไร
 
-lifecycle ที่แนะนำคือ:
+### `prompts/`
+stage-oriented prompts
 
-```text
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
-```
+### `agent_team/`
+role definitions สำหรับ lead, architect, builder, reviewer, verifier, finalizer และ memory
 
-### PLAN
-ทำความเข้าใจ scope, constraint, assumption และ risk
+### `skills/`
+capability แบบแคบและ reusable ที่มี contract ชัดเจน
 
-### DESIGN
-กำหนด architecture, boundary, flow หรือแนวทางโครงสร้าง
+### `overlays/`
+extension ที่เฉพาะ stack
 
-### IMPLEMENT
-ลงมือทำหลังจาก plan และ design ชัดเจนแล้ว
+### `templates/`
+template สำหรับ bootstrap, review, verification และ memory
 
-### REVIEW
-ตรวจ correctness, structure, clarity และ maintainability
+## 6. วิธีใช้กับ AI tools
 
-### VERIFY
-ยืนยันด้วย check, test, smoke path หรือ manual validation
-
-### FINALIZE
-เก็บความเรียบร้อยของ wording, docs, naming และความพร้อมใช้งาน
-
-### MEMORY
-อัปเดตความรู้ถาวรที่ควรรักษาไว้ข้าม run
-
----
-
-## 4. team model เริ่มต้น
-
-toolkit นี้ตั้งสมมติฐาน role ไว้ดังนี้:
-
-### LEAD
-ดูแลการแตกงาน, การวางกรอบโจทย์, ลำดับงาน และการประสานงาน
-
-### ARCHITECT
-ดูแลโครงสร้าง, boundary, interface และความเสี่ยงด้าน design
-
-### BUILDER
-รับผิดชอบ implementation ให้ตรงกับ plan/design
-
-### REVIEWER
-รับผิดชอบ critique, correctness review, structure review และ maintainability review
-
-### VERIFIER
-รับผิดชอบ validation และระดับความมั่นใจของผลลัพธ์
-
-### FINALIZER
-รับผิดชอบการเก็บงานสุดท้าย, shaping output และความพร้อมสำหรับ release
-
-### MEMORY
-รับผิดชอบ durable notes และ continuity ของระบบ
-
----
-
-## 5. โฟลเดอร์แต่ละส่วนเอาไว้ทำอะไร
-
-## `prompts/`
-prompt ทั่วไปสำหรับแต่ละ stage
-
-## `agent_team/`
-คำอธิบาย role และ role-specific prompt patterns
-
-## `skills/`
-capability แบบแคบและเรียกใช้ซ้ำได้ เช่น:
-- repo audit
-- architecture review
-- safe refactor
-- dependency review
-- docs update
-- bug investigation
-- verification pass
-- risk scoring
-- skill routing
-
-## `core/`
-วัสดุ framework กลาง:
-- rules
-- routing
-- verification
-- review discipline
-- architecture discipline
-
-## `templates/`
-ไฟล์ template สำหรับคัดลอกเข้า repo จริง:
-- AGENTS starter
-- memory files
-- runbooks
-- review templates
-- verification templates
-
-## `overlays/`
-pack สำหรับ specialization ทับบน foundation
-
-## `examples/`
-ตัวอย่างการใช้งานจริงและ sample prompts
-
-## `project_memory/`
-โครงสร้างพื้นฐานสำหรับเก็บ decisions และ constraints
-
----
-
-## 6. วิธีใช้ toolkit กับ AI coding tools
-
-### Codex CLI
-ใช้คำสั่งตั้งต้นประมาณนี้:
+คำสั่งเริ่มต้นที่แนะนำ:
 
 ```text
 Follow AGENTS.md strictly.
-Use the full lifecycle:
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
-Prefer reusable toolkit prompts and templates when relevant.
+Use the canonical lifecycle from docs/prompt-pipeline.md.
+Use prompts and skills from the toolkit when relevant.
+Do not introduce stack-specific assumptions into the foundation layer.
 ```
 
-### Claude Code
-ใช้แนว role-driven:
-- ให้ LEAD วางกรอบงาน
-- ให้ ARCHITECT กำหนดโครงสร้าง
-- ให้ BUILDER ลงมือทำ
-- ให้ REVIEWER ตรวจ
-- ให้ VERIFIER validate
-- ให้ FINALIZER เก็บงาน
-- ให้ MEMORY บันทึกบริบทถาวร
+ลำดับที่แนะนำ:
+1. ให้เครื่องมือ AI อ่าน `AGENTS.md`
+2. ให้มันอ่าน:
+   - `docs/how-to-use.md`
+   - `docs/architecture.md`
+   - `docs/overlays.md`
+   - `docs/prompt-pipeline.md`
+3. ให้มันเลือก overlay ที่ถูกต้อง ถ้าเป็น consuming project
+4. ให้มันทำงานผ่าน lifecycle
+5. ให้มันอัปเดต memory เมื่อมี durable decision
 
-### OpenClaw
-ใช้ toolkit นี้เป็นแหล่ง rules/prompt กลาง แล้ว map model roles ไปยัง:
-- planning
-- coding
-- review
-- verification
+## 7. วิธีใช้กับ Claude Code
 
----
+ลำดับที่แนะนำ:
+1. LEAD วางกรอบงาน
+2. ARCHITECT วางโครงสร้าง
+3. BUILDER ลงมือทำ
+4. REVIEWER ตรวจ
+5. VERIFIER validate
+6. FINALIZER เก็บงาน
+7. MEMORY บันทึก durable notes
 
-## 7. กลยุทธ์ overlay
+## 8. วิธีเลือก overlay
 
-foundation ควรเป็น general  
-อย่าเอาสมมติฐาน Flutter-only หรือ Node-only ไปปนใน root rules
+### `mobile-flutter`
+สำหรับ Flutter applications
 
-ให้เก็บสิ่งที่เฉพาะ stack ไว้ใน overlays
+### `backend-node`
+สำหรับ Node-based API หรือ backend services
 
-### `overlays/mobile-flutter`
-ใช้เมื่อโปรเจกต์เป็น mobile/Flutter
+### `web-frontend`
+สำหรับ web repos ที่ UI หนัก
 
-### `overlays/backend-node`
-ใช้เมื่อโปรเจกต์เป็น Node/Nest/Express/backend service
+### `python-service`
+สำหรับ Python services, workers, automation tools หรือ integration layers
 
-### `overlays/web-frontend`
-ใช้เมื่อโปรเจกต์เป็น frontend/UI/product surface
+กฎสำคัญ:
+overlay มีไว้ต่อยอด foundation ไม่ใช่เขียนทับ identity ของ foundation
 
-### `overlays/python-service`
-ใช้เมื่อโปรเจกต์เป็น Python/FastAPI/service/integration automation
+## 9. วิธี bootstrap repo ใหม่
 
----
+แนวทางที่แนะนำ:
+1. เพิ่ม toolkit เป็น submodule หรือคัดลอกไฟล์ที่เลือก
+2. เพิ่มหรืออ้างอิง `AGENTS.md`
+3. คัดลอกไฟล์ project memory templates
+4. เลือก overlay ที่เหมาะหนึ่งตัว
+5. เพิ่ม project-specific verification commands
+6. เพิ่ม project-specific CI
+7. ลองรัน feature จริงหนึ่งอันผ่าน lifecycle เต็ม
 
-## 8. วิธี bootstrap repo ใหม่
+helper เสริม:
+```bash
+bash scripts/bootstrap-project-memory.sh
+```
 
-minimal bootstrap ที่แนะนำ:
-1. copy หรือลิงก์ `AGENTS.md`
-2. copy `templates/project-bootstrap/README_BOOTSTRAP.md`
-3. copy `templates/project_memory/*`
-4. เลือก overlay ถ้าจำเป็น
-5. เพิ่มกฎ verification ของ repo นั้น
-6. เพิ่ม CI ของ project นั้น
+## 10. project memory ที่ดี
 
----
+project memory ควรเก็บ:
+- durable decisions
+- approved patterns
+- known constraints
+- recurring pitfalls
+- future reminders
 
-## 9. workflow ตัวอย่างกับ feature จริง
+## 11. review และ verification
 
-ตัวอย่าง: "เพิ่มหน้าตั้งค่า billing"
+review ที่ดีควรตรวจ:
+- correctness
+- clarity
+- maintainability
+- architecture fit
+- verification evidence
+- doc alignment
 
-### Step 1
-ใช้ `prompts/plan_change.md`
+verification ต้องบอกชัดว่า:
+- เช็กอะไร
+- เช็กอย่างไร
+- อะไรยังไม่แน่ใจ
 
-### Step 2
-ใช้ `prompts/architecture_review.md`
+ถ้าจะ audit toolkit repository นี้แบบเข้ม:
+- ใช้ `prompts/audit_repo.md` เมื่ออยากได้ prompt แบบ role-based
+- ใช้ `docs/strict-audit-prompt.md` เมื่ออยากได้ invocation template แบบ paste ได้ทันที
 
-### Step 3
-ใช้ `prompts/implement_change.md`
-
-### Step 4
-ใช้ `prompts/review_change.md`
-
-### Step 5
-ใช้ `prompts/verification_pass.md`
-
-### Step 6
-ใช้ `prompts/finalize_change.md`
-
-### Step 7
-อัปเดต `project_memory/decisions.md` หรือ `project_memory/known_constraints.md`
-
----
-
-## 10. วิธีเตรียมก่อน push public
-
-ก่อน push ควร:
-- เปลี่ยน URL placeholder
-- เพิ่ม author/license
-- เปลี่ยนชื่อไฟล์ที่เฉพาะองค์กรถ้าจำเป็น
-- ตัดสินใจว่าจะเก็บ overlay ทั้งหมดไว้ repo เดียว หรือแยกบางส่วนออกไป
-
----
-
-## 11. สิ่งที่รีโปนี้ไม่ได้ทำให้อัตโนมัติ
-
-toolkit นี้ไม่ได้ทำให้อัตโนมัติ:
-- รันโมเดลให้
-- มี hosted orchestration ให้ทันที
-- แทน CI/CD
-- แทน project-specific rules
-- แทนวิจารณญาณด้าน engineering
-
-สิ่งที่มันให้คือ **โครงสร้าง** ที่ทำให้คุณต่อยอดสิ่งพวกนี้ได้ดี
-
----
-
-## 12. next step หลัง push
-
-- เพิ่ม license ที่ต้องการ
-- เพิ่ม branding ของคุณถ้าต้องการ
-- เอารีโปนี้ไปเป็น submodule ในโปรเจกต์จริงสักหนึ่งตัว
-- ทดสอบ feature workflow แบบ end-to-end หนึ่งรอบ
-- ปรับ overlays ตาม usage จริง
+## 12. ความผิดพลาดที่เจอบ่อย
+- เอา assumption ของ Flutter หรือ Node ไปใส่ใน root
+- ใช้ prompts โดยไม่อ่าน `AGENTS.md`
+- ข้าม memory update หลังมี decision สำคัญ
+- ทำเหมือน review กับ verification คืออย่างเดียวกัน
+- ปล่อยให้ overlays เขียนทับ identity ของ foundation

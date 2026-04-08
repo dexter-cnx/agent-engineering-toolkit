@@ -1,202 +1,130 @@
 # Tutorial (ภาษาไทย) — คู่มือสอนใช้งานแบบ Step-by-Step
 
-tutorial นี้สอนผู้ใช้ใหม่ให้ใช้ toolkit นี้ตั้งแต่ศูนย์
+tutorial นี้แสดงตัวอย่างการใช้งานครั้งแรกแบบครบวงจรหนึ่งรอบ
 
----
-
-## เป้าหมายของ tutorial
-
+## เป้าหมาย
 เมื่อจบคู่มือนี้ คุณควรจะ:
-- เข้าใจโครงสร้าง repo
-- ใช้ toolkit กับ repo จริงได้
-- เลือก overlay เป็น
-- รัน feature หนึ่งอันผ่าน lifecycle เต็มได้
-- อัปเดต project memory ได้ถูกต้อง
+- เลือก overlay ได้ถูก
+- พางานผ่าน canonical lifecycle ได้
+- ไม่เอา rule เฉพาะ stack ไปปนใน foundation
+- บันทึก memory ที่เป็น durable note ได้
 
----
+## Scenario
+repo ที่ consume toolkit ต้องเพิ่ม capability สำหรับ account preferences
 
-## Part 1 — อ่านไฟล์ขั้นต่ำก่อน
+ให้ใช้ toolkit เป็นโครงหลักของ workflow แล้วเลือก overlay ใน repo ที่จะใช้งานจริง
 
-ก่อนทำอย่างอื่น ให้อ่านไฟล์เหล่านี้ตามลำดับ:
-
+## Step 1 — อ่านชุดไฟล์ขั้นต่ำ
+อ่านไฟล์เหล่านี้ก่อน:
 1. `README.md`
 2. `AGENTS.md`
-3. `docs/how_to_use.md`
+3. `docs/how-to-use.md`
 4. `docs/architecture.md`
 5. `docs/overlays.md`
 6. `docs/agent-team-system.md`
 7. `docs/prompt-pipeline.md`
 
-สิ่งที่คุณจะได้:
-- เข้าใจ identity ของ repo
-- เข้าใจ workflow
-- เข้าใจกลยุทธ์ overlay
-- เข้าใจ role model
-- เข้าใจ flow ของ prompt
-
----
-
-## Part 2 — ตัดสินใจว่าจะ adopt toolkit แบบไหน
-
+## Step 2 — เลือกวิธี adopt
 เลือกหนึ่งแบบ:
+- toolkit repo กลาง
+- submodule ในโปรเจกต์จริง
+- คัดลอกเฉพาะบางไฟล์
 
-### Option A — ใช้เป็น toolkit repo กลาง
-เหมาะกับทีมที่มีหลายโปรเจกต์
-
-### Option B — เอาไปเป็น submodule
-เหมาะกับโปรเจกต์จริงที่ต้อง consume toolkit ตรง ๆ
-
-### Option C — คัดลอกเฉพาะบางไฟล์
-เหมาะกับทีมเล็กหรือ setup เบา
-
-สำหรับ tutorial นี้ ให้สมมติว่าใช้ Option B
-
----
-
-## Part 3 — เพิ่ม toolkit เข้า repo จริง
-
-ในโปรเจกต์จริงของคุณ:
-
+ถ้าเป็น repo จริง วิธีที่พบบ่อยคือ:
 ```bash
 git submodule add <toolkit-repo-url> toolkit
 ```
 
-จากนั้น commit การเพิ่ม submodule
+## Step 3 — เลือก overlay
+อ่าน overlay ที่ตรงกับ repo:
+- `overlays/mobile-flutter/README.md`
+- `overlays/backend-node/README.md`
+- `overlays/web-frontend/README.md`
+- `overlays/python-service/README.md`
 
----
+ถ้าไม่มีอันไหนตรง ให้คง foundation ไว้และเก็บ rule เฉพาะ stack ไว้ใน consuming repo
 
-## Part 4 — เลือก overlay
+## Step 4 — วางแผน
+รูปแบบ output ของ planning ควรมี:
+- restatement ของ task: เพิ่ม account preferences capability
+- facts: repo นี้ใช้ toolkit เป็น foundation
+- assumptions: stack จะชัดหลังเลือก overlay
+- constraints: root ต้อง stack-agnostic
+- risks: boundary leak, ownership ไม่ชัด, verification ไม่พอ
+- next prompt: architecture review
 
-เข้าไปดูใน `overlays/`
+## Step 5 — กำหนดโครงสร้าง
+architecture output ควรบอก layer ให้ชัด
 
-เลือกหนึ่งตัว:
-- `mobile-flutter`
-- `backend-node`
-- `web-frontend`
-- `python-service`
+ตัวอย่างโครงสร้างสำหรับ consuming repo:
+- transport layer: route, handler หรือ controller
+- orchestration layer: service หรือ use-case
+- persistence layer: repository หรือ data-access
+- adapter layer: boundary ของ external provider
 
-ตัวอย่าง:
-- ถ้า repo จริงเป็น Flutter → เลือก `mobile-flutter`
-- ถ้า repo เป็น FastAPI → เลือก `python-service`
+Builder guardrails:
+- อย่าใส่ business rule ไว้ใน transport code
+- อย่าเรียก external provider ตรงจากโมดูลที่ไม่เกี่ยว
+- อย่าให้ repository ทำ response shaping
 
-อ่าน:
-- `README.md` ของ overlay
-- `AGENTS.overlay.md` ของ overlay
+## Step 6 — Implement
+builder แก้ artifact ใน consuming repo
 
----
+ตัวอย่าง implementation note:
+- files changed: transport, service, repository และ adapter layers
+- deviations: เฉพาะที่ architecture review อนุมัติ
 
-## Part 5 — bootstrap repo จริง
+## Step 7 — Review
+reviewer ต้องแยก strengths กับปัญหาให้ชัด
 
-คัดลอกหรือดัดแปลง:
-- `AGENTS.md`
-- `templates/project-bootstrap/README_BOOTSTRAP.md`
-- `templates/project_memory/decisions.md`
-- `templates/project_memory/known_constraints.md`
-- `templates/project_memory/patterns.md`
+ตัวอย่างผล review:
+- strength: handler บางและชัด
+- blocking issue: repository มี business logic
+- non-blocking issue: ยังไม่มี example coverage
+- architecture fit: ผ่านได้ก็ต่อเมื่อแก้ blocking issue แล้ว
 
-จากนั้นเพิ่ม:
-- project-specific verification commands
-- project-specific CI
-- project-specific architecture constraints
+## Step 8 — Verify
+verification ต้องบอกว่ารันอะไรไปจริง
 
-กฎสำคัญ:
-กติกาที่เฉพาะ project ให้อยู่ใน consuming repo
+ตัวอย่าง checks:
+```bash
+bash scripts/check-public-repo.sh
+```
 
-อย่าเอากลับมายัดใน foundation ถ้ามันไม่ได้ reusable กว้างพอ
+ถ้าคุณกำลังเช็ก toolkit repository นี้ ให้รัน public-repo gate
+ใน consuming repo ให้รัน stack checks ของตัวเองด้วย เช่น lint, tests หรือ startup sanity
 
----
+ตัวอย่าง verification summary:
+- checks performed: public-repo gate, local tests, startup sanity
+- evidence: output ของ command และไฟล์ที่เปลี่ยน
+- remaining uncertainty: integration coverage ยังไม่ครบ
+- confidence: medium หรือ high ตาม evidence
 
-## Part 6 — ลองรัน feature จริงหนึ่งอัน
+## Step 9 — Finalize
+finalizer ควรสรุปงานให้ชัด
 
-ตัวอย่าง feature:
-“เพิ่มหน้า profile settings”
+ตัวอย่าง final summary:
+- เพิ่ม account preferences capability โดยคง boundary ให้ชัด
+- review กับ verification แยกจากกัน
+- follow-up ที่เหลือ: เพิ่ม integration test 1 ตัว
 
-ใช้ prompts ตามลำดับนี้:
+## Step 10 — Update memory
+เก็บเฉพาะ note ที่ durable
 
-1. `prompts/plan_change.md`
-2. `prompts/architecture_review.md`
-3. `prompts/implement_change.md`
-4. `prompts/review_change.md`
-5. `prompts/verification_pass.md`
-6. `prompts/finalize_change.md`
-7. `prompts/update_project_memory.md`
+ตัวอย่าง memory entry:
+- account preference handlers ต้องบาง
+- response shaping ต้องอยู่นอก repository
+- overlay ที่เลือกสำหรับ repo นี้คือ `<chosen-overlay>`
 
-คุณจะทำแบบ:
-- manual
-- ผ่าน Codex
-- ผ่าน Claude Code
-- ผ่าน orchestration system อื่น
+## Step 11 — Audit
+ใช้ prompt แบบ role-based เมื่ออยากให้อีก agent ทำ audit:
+- `prompts/audit_repo.md`
 
-ก็ได้
+ใช้ invocation template เมื่ออยากได้ prompt แบบ paste ได้ทันที:
+- `docs/strict-audit-prompt.md`
 
----
-
-## Part 7 — ประเมิน output
-
-หลังรันเสร็จ ให้ถามว่า:
-
-### คุณภาพของ planning
-- assumptions explicit ไหม?
-- scope ชัดไหม?
-- risk ถูกเรียกชื่อไหม?
-
-### คุณภาพของ architecture
-- boundary ชัดไหม?
-- coupling ลดลงไหม?
-- โครงสร้างที่เสนอ sensible ไหม?
-
-### คุณภาพของ implementation
-- change ตรงกับ plan ไหม?
-- readability ยังดีไหม?
-
-### คุณภาพของ review
-- review พูดอะไรที่มีความหมายไหม?
-- ระบุ risk ได้ไหม?
-
-### คุณภาพของ verification
-- checks เป็นของจริงไหม?
-- uncertainty ถูกบอกอย่างซื่อตรงไหม?
-
-### คุณภาพของ memory
-- durable decisions ถูกเก็บจริงไหม?
-
----
-
-## Part 8 — ปรับปรุงจากสิ่งที่เรียนรู้
-
-หลังจากลอง feature จริงหนึ่งอัน ให้ปรับ:
-- local repo rules
-- wording ของ overlay
-- โครงสร้าง project memory
-- verification commands
-- ความคาดหวังของ review
-
-จุดนี้สำคัญ:
-toolkit จะโตจากการใช้งานจริง ไม่ใช่จากทฤษฎีอย่างเดียว
-
----
-
-## Part 9 — ใช้ Codex ตรวจ toolkit หรือ consuming repo
-
-ใช้:
-- `docs/codex-review-prompt.md`
-- `scripts/codex-final-review-prompt.txt`
-
-สั่ง Codex ให้:
-- หา foundation vs overlay leakage
-- หา docs ที่ซ้ำหรือฟุ้ง
-- หาจุดที่ prompt stages อ่อน
-- หาไฟล์ที่ยังขาดหรือ adoption guidance ที่ยังไม่พอ
-
----
-
-## Part 10 — ทำซ้ำและพัฒนาให้ mature
-
-หลังผ่านงานจริงหลายรอบ:
-- ทำ overlay ให้คมขึ้น
-- ทำ verification expectations ให้ชัดขึ้น
-- ปรับ memory format ให้ดีขึ้น
-- update examples ตามสิ่งที่ใช้จริง
-- ตัดสิ่งที่ vague หรือซ้ำซ้อนออก
-
-นี่คือวิธีที่ทำให้ toolkit นี้ mature ในโลกจริง
+## helper เสริม
+ถ้าอยากมี helper สำหรับ bootstrap memory templates ให้ใช้ script นี้:
+```bash
+bash scripts/bootstrap-project-memory.sh
+```

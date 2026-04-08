@@ -1,9 +1,10 @@
 # Feature Workflow Example
 
-1. Lead frames the task.
-2. Architect defines structure.
-3. Builder implements.
-4. Reviewer critiques.
-5. Verifier checks.
-6. Finalizer packages the result.
-7. Memory stores durable notes.
+This is a short pointer, not the main walkthrough.
+
+Canonical references:
+- `examples/worked_examples/foundation_feature_flow.md`
+- `docs/tutorial.md`
+
+Use this file only as a reminder that the workflow should move through:
+LEAD -> ARCHITECT -> BUILDER -> REVIEWER -> VERIFIER -> FINALIZER -> MEMORY.

@@ -1,12 +1,9 @@
 # Agent Team
 
-This folder defines the default role model for the toolkit.
+This folder contains **non-canonical quick references only**.
 
-Recommended order:
-1. lead
-2. architect
-3. builder
-4. reviewer
-5. verifier
-6. finalizer
-7. memory
+Canonical source:
+- `docs/agent-team-system.md`
+
+Use the files here as lightweight reminders, not as source of truth.
+If a quick reference and the canonical doc ever disagree, follow `docs/agent-team-system.md`.

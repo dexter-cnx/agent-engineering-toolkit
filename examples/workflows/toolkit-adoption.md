@@ -1,8 +1,17 @@
 # Toolkit Adoption Example
 
-1. Add toolkit as submodule.
-2. Copy AGENTS.md or reference it.
-3. Choose one overlay.
-4. Add project memory files.
-5. Add local verification commands.
-6. Run one real feature through the full lifecycle.
+This is a short pointer, not the canonical adoption guide.
+
+Canonical references:
+- `docs/how-to-use.md`
+- `docs/repo-bootstrap.md`
+- `docs/tutorial.md`
+
+Use this file as a compact reminder:
+1. Add the toolkit.
+2. Read `AGENTS.md`.
+3. Pick one overlay if needed.
+4. Copy the memory templates.
+5. Add local verification and CI.
+6. Run one real feature through the lifecycle.
+7. Check `docs/public-repo-checklist.md` before publishing.

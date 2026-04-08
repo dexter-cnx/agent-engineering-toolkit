@@ -1,4 +1,6 @@
-# Output Contract
+# Output Contract (Quick Reference)
+
+Canonical source: `AGENTS.md`
 
 Preferred output sequence:
 - assumptions

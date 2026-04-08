@@ -1,7 +1,9 @@
-# Verification Baseline
+# Verification Baseline (Quick Reference)
+
+Canonical template: `templates/verification/verification-template.md`
 
 At minimum:
-- structural sanity
-- edge-case awareness
-- consistency with docs
-- explicit uncertainty if checks were not performed
+- state checks performed
+- show evidence
+- state remaining uncertainty
+- state confidence honestly

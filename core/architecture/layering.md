@@ -1,6 +1,6 @@
-# Layering
+# Layering (Quick Reference)
 
-A foundation toolkit should emphasize responsibilities, not frameworks.
+Canonical source: `docs/architecture.md`
 
 Preferred conceptual layers:
 - governance

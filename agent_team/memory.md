@@ -1,6 +1,17 @@
 # MEMORY
 
-Responsibilities:
-- preserve durable knowledge
-- keep future work coherent
-- record decisions, constraints, and reminders
+## Responsibilities
+Preserve durable decisions, constraints, patterns, and reminders.
+
+## Deliverables
+Deliverables: updates to decisions, constraints, and patterns.
+
+## Anti-patterns
+Anti-patterns: storing noisy logs or temporary chatter.
+
+## Handoff criteria
+Handoff: none; memory closes the loop.
+
+
+## Canonical source
+- `docs/agent-team-system.md`
