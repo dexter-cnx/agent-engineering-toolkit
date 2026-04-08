@@ -1,5 +1,8 @@
 # Worked Example — Flutter Feature
 
+> This example highlights the key overlay-specific stages.
+> Steps 3 (Implement) and 6 (Finalize) follow the foundation patterns in `docs/tutorial.md`.
+
 ## Scenario
 Add a profile preferences screen that lets a user toggle notifications and update display settings.
 

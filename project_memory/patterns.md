@@ -27,3 +27,11 @@
 - Pattern: Refresh the tree manifest whenever an audit file is added.
   When to use: after saving a new audit artifact under `audits/`.
   When not to use: only for files that are not part of the authoritative tree snapshot.
+
+- Pattern: Keep the audit role prompt and invocation template distinct.
+  When to use: when one file is used by agents and another is used as a paste-ready handoff.
+  When not to use: when a compatibility alias would blur responsibilities.
+
+- Pattern: Explain skipped lifecycle steps in overlay examples.
+  When to use: when a stack-specific example intentionally compresses the lifecycle.
+  When not to use: when the example already walks through every step in full.

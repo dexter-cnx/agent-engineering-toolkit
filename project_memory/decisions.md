@@ -34,3 +34,13 @@
   Decision: New audit artifacts should be added to `docs/tree-manifest.txt` immediately when saved.
   Why: Keeps the manifest truthful as the authoritative tree snapshot.
   Consequence: Saving an audit file now includes a manifest refresh in the same change set.
+
+- Date: 2026-04-08
+  Decision: `prompts/audit_repo.md` is the role-based audit prompt and `docs/strict-audit-prompt.md` is the invocation template companion.
+  Why: Separates agent-facing workflow guidance from paste-ready prompt text.
+  Consequence: Root docs should reference both explicitly.
+
+- Date: 2026-04-08
+  Decision: Public release version `1.0.4` captures the audit-prompt split fix, overlay lifecycle notes, and the honest same-day release note.
+  Why: Keeps the changelog and release docs aligned with the latest public surface.
+  Consequence: Release references such as `scripts/push-guide.md` should point at `v1.0.4` until the next release.

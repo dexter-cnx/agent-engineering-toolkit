@@ -34,7 +34,8 @@ This repository is the foundation layer. Project-specific rules belong in overla
 - Role model source of truth: `docs/agent-team-system.md`
 - Adoption guide: `docs/how-to-use.md`
 - Tutorial: `docs/tutorial.md`
-- Audit prompt: `docs/strict-audit-prompt.md` (compatibility alias: `prompts/audit_repo.md`)
+- Audit prompt (role-based): `prompts/audit_repo.md`
+- Audit prompt (invocation template): `docs/strict-audit-prompt.md`
 
 ## What is included
 

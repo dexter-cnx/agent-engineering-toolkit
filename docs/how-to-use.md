@@ -162,7 +162,9 @@ Verification should state clearly:
 - how it was checked
 - what remains uncertain
 
-For a strict audit of the toolkit repo itself, use `docs/strict-audit-prompt.md`.
+For a strict audit of the toolkit repo itself:
+- use `prompts/audit_repo.md` when you want the role-based prompt
+- use `docs/strict-audit-prompt.md` when you want the paste-ready invocation template
 
 ## 11. Common mistakes
 - putting Flutter or Node assumptions into the root

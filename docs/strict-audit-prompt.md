@@ -2,7 +2,7 @@
 
 Use this prompt to ask an AI coding tool to perform a strict final audit of the repository.
 
-Canonical alias:
+Canonical companion:
 - `prompts/audit_repo.md`
 
 ```text

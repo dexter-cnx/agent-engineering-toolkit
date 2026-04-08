@@ -34,7 +34,8 @@ Toolkit ระดับ production สำหรับทำ AI-assisted software
 - source of truth ของ role model: `docs/agent-team-system.md`
 - คู่มือใช้งานหลัก: `docs/how-to-use.md`
 - tutorial: `docs/tutorial.md`
-- prompt สำหรับ audit: `docs/strict-audit-prompt.md` (compatibility alias: `prompts/audit_repo.md`)
+- prompt สำหรับ audit (role-based): `prompts/audit_repo.md`
+- prompt สำหรับ audit (invocation template): `docs/strict-audit-prompt.md`
 
 ## มีอะไรให้ในชุดนี้
 

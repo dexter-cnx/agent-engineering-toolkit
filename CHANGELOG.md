@@ -1,15 +1,25 @@
 # Changelog
 
-> Note: Early iterations of this repository were developed in rapid succession during a single working session on 2026-04-08. The changelog below keeps only the current public release history; earlier bootstrap iterations are preserved in `docs/releases/`.
+> Note: v1.0.3 and v1.0.4 were both released on 2026-04-08 during the same working session. Earlier bootstrap iterations are preserved in `docs/releases/`.
 
 All notable changes to this repository should be documented in this file.
 
 ## [Unreleased]
 ### Changed
 - Reserved for upcoming changes.
-- Refreshed the canonical tree manifest and removed audit-prompt duplication by making `prompts/audit_repo.md` a compatibility alias.
-- Expanded the tutorial into a concrete end-to-end walkthrough and shortened overlapping workflow summaries.
-- Renamed the adoption bootstrap helper to match its actual scope: `scripts/bootstrap-project-memory.sh`.
+
+## [1.0.4] - 2026-04-08
+### Added
+- Restored `prompts/audit_repo.md` as the full role-based audit prompt.
+- Added a human-facing strict audit invocation template in `docs/strict-audit-prompt.md`.
+- Added explicit notes to the three non-Python overlay worked examples about skipped lifecycle steps.
+- Added a dedicated release note for v1.0.4.
+
+### Changed
+- Clarified README and how-to-use references for the role-based audit prompt versus the invocation template.
+- Expanded the tutorial to include an explicit audit step.
+- Restored the changelog note to reflect same-day release history honestly.
+- Kept the bootstrap helper name aligned with its limited scope.
 
 ## [1.0.3] - 2026-04-08
 ### Added

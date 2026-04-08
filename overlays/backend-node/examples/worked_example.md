@@ -1,5 +1,8 @@
 # Worked Example — Node Service Feature
 
+> This example highlights the key overlay-specific stages.
+> Steps 3 (Implement) and 6 (Finalize) follow the foundation patterns in `docs/tutorial.md`.
+
 ## Scenario
 Add a user preferences endpoint that reads and updates notification settings.
 

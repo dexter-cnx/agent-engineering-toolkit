@@ -116,6 +116,13 @@ Example memory entries:
 - response shaping belongs outside repositories
 - the chosen overlay for this repo is `<chosen-overlay>`
 
+## Step 11 — Audit
+Use the role-based audit prompt for an AI agent-style audit:
+- `prompts/audit_repo.md`
+
+Use the invocation template when you want a paste-ready prompt:
+- `docs/strict-audit-prompt.md`
+
 ## Optional helper
 If you want a local bootstrap helper, use the script that copies project memory templates and adds the submodule:
 ```bash

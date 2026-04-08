@@ -1,5 +1,8 @@
 # Worked Example — Web Frontend Feature
 
+> This example highlights the key overlay-specific stages.
+> Steps 3 (Implement) and 6 (Finalize) follow the foundation patterns in `docs/tutorial.md`.
+
 ## Scenario
 Add a settings page that lets a user update profile visibility and notification preferences.
 

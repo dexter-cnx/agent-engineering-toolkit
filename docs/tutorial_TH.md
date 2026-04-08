@@ -116,6 +116,13 @@ finalizer ควรสรุปงานให้ชัด
 - response shaping ต้องอยู่นอก repository
 - overlay ที่เลือกสำหรับ repo นี้คือ `<chosen-overlay>`
 
+## Step 11 — Audit
+ใช้ prompt แบบ role-based เมื่ออยากให้อีก agent ทำ audit:
+- `prompts/audit_repo.md`
+
+ใช้ invocation template เมื่ออยากได้ prompt แบบ paste ได้ทันที:
+- `docs/strict-audit-prompt.md`
+
 ## helper เสริม
 ถ้าอยากมี helper สำหรับ bootstrap memory templates ให้ใช้ script นี้:
 ```bash
