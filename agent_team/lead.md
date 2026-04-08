@@ -11,3 +11,7 @@ Anti-patterns: silent architecture decisions, skipping risk framing.
 
 ## Handoff criteria
 Handoff: to ARCHITECT with clear scope and constraints.
+
+
+## Canonical source
+- `docs/agent-team-system.md`

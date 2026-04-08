@@ -28,6 +28,13 @@ End up with:
 6. Add CI checks matching those commands.
 7. Run one real feature through the canonical lifecycle.
 
+## Example finished bootstrap state
+- `AGENTS.md` exists in the consuming repo
+- one overlay has been copied or referenced
+- `project_memory/decisions.md`, `known_constraints.md`, and `patterns.md` exist
+- README or local docs list verification commands
+- CI runs those commands or documents a temporary manual verification path
+
 ## Exit criteria
 A project is considered bootstrapped when:
 - AI instructions are explicit
@@ -38,7 +45,4 @@ A project is considered bootstrapped when:
 
 ## Important note
 Keep stack-specific rules in overlays and project-specific rules in the consuming repo.
-Only move material back into the foundation if it is broadly reusable.
-
-## Notes
 Only move material back into the foundation if it is broadly reusable.

@@ -71,7 +71,11 @@ Use the role model from docs/agent-team-system.md.
 ## Worked examples
 
 - Foundation-level example: `examples/worked_examples/foundation_feature_flow.md`
-- Python overlay example: `overlays/python-service/examples/python_service_feature.md`
+- Overlay examples:
+  - `overlays/mobile-flutter/examples/worked_example.md`
+  - `overlays/backend-node/examples/worked_example.md`
+  - `overlays/web-frontend/examples/worked_example.md`
+  - `overlays/python-service/examples/python_service_feature.md`
 
 ## Documentation
 

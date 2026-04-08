@@ -11,3 +11,7 @@ Anti-patterns: implementation details without structural reasoning.
 
 ## Handoff criteria
 Handoff: to BUILDER with explicit guardrails.
+
+
+## Canonical source
+- `docs/agent-team-system.md`

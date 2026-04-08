@@ -1,5 +1,9 @@
 # Feature Workflow Example
 
+This file is a **short workflow summary**.
+Canonical worked example:
+- `examples/worked_examples/foundation_feature_flow.md`
+
 ## Scenario
 A consuming repository wants to add an account preferences capability.
 

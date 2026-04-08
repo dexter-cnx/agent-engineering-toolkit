@@ -1,5 +1,10 @@
 # Toolkit Adoption Example
 
+This file is a **short adoption checklist**.
+Canonical adoption guide:
+- `docs/how-to-use.md`
+- `docs/repo-bootstrap.md`
+
 1. Add toolkit as submodule.
 2. Read `AGENTS.md` and `docs/how-to-use.md`.
 3. Choose one overlay.

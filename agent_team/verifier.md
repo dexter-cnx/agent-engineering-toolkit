@@ -11,3 +11,7 @@ Anti-patterns: invented evidence, fake certainty.
 
 ## Handoff criteria
 Handoff: to FINALIZER with explicit confidence and uncertainty.
+
+
+## Canonical source
+- `docs/agent-team-system.md`

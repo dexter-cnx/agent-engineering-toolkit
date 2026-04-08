@@ -12,5 +12,5 @@ git init
 git branch -M main
 git remote add origin "$REMOTE_URL"
 git add .
-git commit -m "Release v1.0.1: agent-engineering-toolkit"
+git commit -m "Release: agent-engineering-toolkit"
 git push -u origin main

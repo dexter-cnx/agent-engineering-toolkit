@@ -11,3 +11,7 @@ Anti-patterns: vague approval, pretending review equals verification.
 
 ## Handoff criteria
 Handoff: to VERIFIER once blocking issues are addressed.
+
+
+## Canonical source
+- `docs/agent-team-system.md`

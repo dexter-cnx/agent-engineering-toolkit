@@ -8,6 +8,19 @@ All notable changes to this repository should be documented in this file.
 ### Changed
 - Reserved for upcoming changes.
 
+## [1.0.2] - 2026-04-08
+### Added
+- Expanded release checks to match the documented public checklist more closely
+- Overlay example listing in the root README for more balanced stack presentation
+- More explicit anti-drift markers in `agent_team/` and `core/`
+- Example finished bootstrap state in the bootstrap template
+
+### Changed
+- Fixed CI pathing for the Python overlay worked example
+- Generalized push guides and release scripts to avoid release-specific staleness
+- Clarified roadmap sections as in-progress versus longer-term
+- Marked overlapping examples as summary/checklist views instead of competing canonical artifacts
+
 ## [1.0.1] - 2026-04-08
 ### Added
 - Foundation governance via `AGENTS.md`

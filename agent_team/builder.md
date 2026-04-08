@@ -11,3 +11,7 @@ Anti-patterns: hidden architecture drift, claiming verification.
 
 ## Handoff criteria
 Handoff: to REVIEWER with review notes.
+
+
+## Canonical source
+- `docs/agent-team-system.md`

@@ -1,6 +1,6 @@
 # Core Quick References
 
-This folder contains short reference summaries only.
+This folder contains **quick-reference summaries only**.
 
 Canonical sources live elsewhere:
 - lifecycle: `docs/prompt-pipeline.md`
@@ -9,4 +9,4 @@ Canonical sources live elsewhere:
 - review and verification templates: `templates/`
 - skill contracts: `skills/`
 
-Keep files in `core/` short and link-oriented to reduce drift.
+If a quick reference and a canonical source ever disagree, follow the canonical source.

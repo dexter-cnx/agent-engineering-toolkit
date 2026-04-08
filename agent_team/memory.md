@@ -11,3 +11,7 @@ Anti-patterns: storing noisy logs or temporary chatter.
 
 ## Handoff criteria
 Handoff: none; memory closes the loop.
+
+
+## Canonical source
+- `docs/agent-team-system.md`
