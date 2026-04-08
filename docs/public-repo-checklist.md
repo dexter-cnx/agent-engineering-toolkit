@@ -1,6 +1,8 @@
 # Public Repository Checklist
 
 Before publishing, verify these exact files exist and are current.
+The release-check workflow and CI helper mirror this list exactly.
+The machine-readable source for the automation lives in `scripts/check-public-repo.paths`.
 
 ## Required root files
 - `README.md`

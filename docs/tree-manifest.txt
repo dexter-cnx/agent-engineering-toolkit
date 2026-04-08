@@ -117,6 +117,8 @@ prompts/verification_pass.md
 scripts
 scripts/adopt-in-project.sh
 scripts/codex-final-review-prompt.txt
+scripts/check-public-repo.paths
+scripts/check-public-repo.sh
 scripts/push-guide.md
 scripts/push-new-repo.sh
 skills
