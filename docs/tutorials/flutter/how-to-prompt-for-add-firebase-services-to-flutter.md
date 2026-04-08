@@ -20,6 +20,22 @@ aliases:
 - ต้องการให้ AI วาง package, adapter, auth flow, และ verification ก่อน
 - ต้องการคุม repo ให้ยังอยู่ใน clean architecture หรือ layered architecture
 
+## skill ของ Mobile Flutter overlay ที่ควรอ่านก่อน
+
+เลือก skill ให้ตรงกับ Firebase capability ที่จะเพิ่ม:
+
+- auth/session: `../../../overlays/mobile-flutter/skills/flutter-auth/skill.md`
+- data API หรือ transport boundary: `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md`
+- cache หรือ local persistence: `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md`
+- analytics: `../../../overlays/mobile-flutter/skills/flutter-analytics/skill.md`
+- crash reporting: `../../../overlays/mobile-flutter/skills/flutter-crash-reporting/skill.md`
+- push notifications: `../../../overlays/mobile-flutter/skills/flutter-push-notifications/skill.md`
+- remote config: `../../../overlays/mobile-flutter/skills/flutter-remote-config/skill.md`
+- feature flags: `../../../overlays/mobile-flutter/skills/flutter-feature-flags/skill.md`
+- deep links: `../../../overlays/mobile-flutter/skills/flutter-deep-link/skill.md`
+
+ถ้า feature ที่จะเพิ่มมีหลายส่วน ให้เปิด skill ตาม capability ที่เกี่ยวข้องก่อน แล้วค่อยใช้ prompt flow ด้านล่าง
+
 ## เริ่มจากสิ่งที่ควรมี
 
 1. มี Flutter repo อยู่แล้ว
@@ -117,4 +133,3 @@ Update the repo structure first, then list the files to modify, then verify with
 - ลืมกำหนด auth/session flow
 - ผสม package install กับ architecture decision โดยไม่แยก
 - ไม่บอก verification step
-

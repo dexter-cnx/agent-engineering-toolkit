@@ -20,6 +20,17 @@ Use this tutorial when you already have a Flutter app and want to ask AI to add 
 - You want AI to propose packages, auth flow, database access, and verification first
 - You want to keep the repo in a clean or layered architecture
 
+## Mobile Flutter overlay skills to read first
+
+If Supabase is the backend, open the skill that matches the responsibility being added:
+
+- auth/session: `../../../overlays/mobile-flutter/skills/flutter-auth/skill.md`
+- API boundary or network client: `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md`
+- cache or local persistence: `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md`
+- offline sync or queue: `../../../overlays/mobile-flutter/skills/flutter-offline-first/skill.md`
+
+If the feature adds both auth and data access, start with `flutter-auth` and `flutter-networking` first, then add the other skills as needed.
+
 ## Before You Start
 
 1. You already have a Flutter repo.
@@ -116,4 +127,3 @@ Update the repo structure first, then list the files to modify, then verify with
 - forgetting to define auth/session flow
 - mixing package installation with architecture decisions
 - skipping the verification step
-

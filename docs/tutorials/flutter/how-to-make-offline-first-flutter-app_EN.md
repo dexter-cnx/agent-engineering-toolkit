@@ -49,6 +49,12 @@ flutter pub add isar isar_flutter_libs
 - [Mobile Flutter overlay rules](../../../overlays/mobile-flutter/AGENTS.overlay.md)
 - [Mobile Flutter worked example](../../../overlays/mobile-flutter/examples/worked_example.md)
 
+## Mobile Flutter overlay skills to read
+
+- offline strategy, sync policy, queue ownership: `../../../overlays/mobile-flutter/skills/flutter-offline-first/skill.md`
+- local cache or persistence boundary: `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md`
+- API sync or retry boundary: `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md`
+
 ## AGENTS.md Example You Can Use
 
 ```md
@@ -108,13 +114,13 @@ Keep offline-first data flow and widget boundaries explicit.
 | Step | Prompt | Skill to Consider | Output |
 | --- | --- | --- | --- |
 | 1 | `prompts/adoption/adopt_toolkit_in_repo.md` | `skills/skill-router/README.md` | adoption path and overlay choice |
-| 2 | `prompts/planning/plan_change.md` | `skills/risk-scoring/README.md` | offline assumptions, risks, constraints |
-| 3 | `prompts/design/architecture_review.md` | `skills/architecture-review/README.md` | local storage, sync boundary, conflict policy |
-| 4 | `prompts/implementation/implement_change.md` | `skills/safe-refactor/README.md` | app shell, cache, sync adapter, queue boundary |
-| 5 | `prompts/review/review_change.md` | `skills/architecture-review/README.md` | leakage checks and boundary review |
-| 6 | `prompts/verification/verification_pass.md` | `skills/verification-pass/README.md` | offline evidence, remaining uncertainty |
+| 2 | `prompts/planning/plan_change.md` | `skills/risk-scoring/README.md` + `../../../overlays/mobile-flutter/skills/flutter-offline-first/skill.md` | offline assumptions, risks, constraints |
+| 3 | `prompts/design/architecture_review.md` | `skills/architecture-review/README.md` + `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md` | local storage, sync boundary, conflict policy |
+| 4 | `prompts/implementation/implement_change.md` | `skills/safe-refactor/README.md` + `../../../overlays/mobile-flutter/skills/flutter-offline-first/skill.md` + `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md` | app shell, cache, sync adapter, queue boundary |
+| 5 | `prompts/review/review_change.md` | `skills/architecture-review/README.md` + `../../../overlays/mobile-flutter/skills/flutter-offline-first/skill.md` | leakage checks and boundary review |
+| 6 | `prompts/verification/verification_pass.md` | `skills/verification-pass/README.md` + `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md` | offline evidence, remaining uncertainty |
 | 7 | `prompts/finalization/finalize_change.md` | `skills/docs-update/README.md` | final summary and follow-ups |
-| 8 | `prompts/memory/update_project_memory.md` | none | durable offline rules |
+| 8 | `prompts/memory/update_project_memory.md` | `../../../overlays/mobile-flutter/skills/flutter-offline-first/skill.md` | durable offline rules |
 
 ## Suggested Offline-First Shape
 
