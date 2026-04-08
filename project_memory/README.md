@@ -5,6 +5,7 @@ This folder stores the toolkit's own durable memory.
 Primary files:
 - `decisions.md`
 - `known_constraints.md`
+- `patterns.md`
 
 Use memory to preserve:
 - durable decisions

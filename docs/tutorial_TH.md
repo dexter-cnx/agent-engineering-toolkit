@@ -67,7 +67,7 @@ git submodule add <toolkit-repo-url> toolkit
 - verification commands
 - ความคาดหวังของ review
 
-## Part 9 — ใช้ Codex audit
+## Part 9 — ใช้ AI audit
 ใช้:
 - `docs/codex-review-prompt.md`
 - `scripts/codex-final-review-prompt.txt`

@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
-echo "Run these commands after creating a new remote repository:"
-echo "git init"
-echo "git branch -M main"
-echo "git remote add origin <your-remote-url>"
-echo "git add ."
-echo "git commit -m 'Initial release: agent-engineering-toolkit'"
-echo "git push -u origin main"
+REMOTE_URL=${1:-}
+
+if [ -z "$REMOTE_URL" ]; then
+  echo "Usage: $0 <git-remote-url>"
+  exit 1
+fi
+
+git init
+git branch -M main
+git remote add origin "$REMOTE_URL"
+git add .
+git commit -m "Release v1.0.1: agent-engineering-toolkit"
+git push -u origin main

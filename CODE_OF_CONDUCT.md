@@ -16,7 +16,7 @@ Please keep collaboration respectful, constructive, and focused on improving the
 - Repeatedly ignoring the repository's foundation-vs-overlay design
 
 ## Enforcement contact
-For conduct issues, contact the maintainer via the repository profile or private email configured for the repository.
+For conduct issues, contact the maintainer directly via GitHub profile `@dexter-cnx` or use the repository's private advisory/contact mechanism.
 
 ## Enforcement
 Repository maintainers may remove content or restrict participation if behavior harms collaboration.

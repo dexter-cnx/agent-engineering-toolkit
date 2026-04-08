@@ -36,6 +36,9 @@ A project is considered bootstrapped when:
 - memory files exist
 - CI exists or a temporary manual verification process is documented
 
+## Important note
+Keep stack-specific rules in overlays and project-specific rules in the consuming repo.
+Only move material back into the foundation if it is broadly reusable.
+
 ## Notes
-Keep project-specific rules in the consuming repo.
 Only move material back into the foundation if it is broadly reusable.

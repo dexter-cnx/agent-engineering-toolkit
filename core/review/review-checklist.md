@@ -1,7 +1,11 @@
-# Review Checklist
+# Review Checklist (Quick Reference)
 
-- Is the structure coherent?
-- Is the output readable?
-- Is there hidden coupling?
-- Is there verification evidence?
-- Are docs still accurate?
+Canonical template: `templates/review/review-template.md`
+
+Check:
+- correctness
+- readability
+- maintainability
+- architecture fit
+- verification evidence
+- doc alignment

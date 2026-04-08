@@ -1,19 +1,39 @@
 # Backend Node Overlay
 
-Use this overlay when the consuming repository is primarily a Node backend or API service.
+Use this overlay when the consuming repository is a Node backend, API service, or job processor.
 
-## Adds on top of foundation
-- controller and service separation
-- adapter and external-provider boundaries
-- API contract discipline
-- job and async handling expectations
+## Recommended structure
+```text
+repo/
+├─ src/
+│  ├─ routes/
+│  ├─ services/
+│  ├─ repositories/
+│  ├─ adapters/
+│  ├─ domain/
+│  └─ schemas/
+├─ test/
+└─ project_memory/
+```
 
-## Recommended local additions in the consuming repo
-- chosen framework conventions
-- request validation rules
-- test and build commands
-- deployment-specific constraints
+## Responsibilities
+- top-level UI or transport layer owns entry concerns only
+- business orchestration stays in a dedicated feature/service/domain layer
+- external integrations stay behind service or adapter boundaries
+- project memory captures recurring stack-specific conventions
+
+## Verification examples
+```bash
+npm run lint
+npm test
+```
+
+## Review guidance
+Reject changes when:
+- routes/controllers becoming too fat
+- services leaking transport concerns
+- direct provider calls outside adapters
 
 ## Overlay rule
 This overlay extends the foundation.
-It should not redefine the foundation's identity.
+It should not redefine the foundation identity.

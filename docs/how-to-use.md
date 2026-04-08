@@ -84,40 +84,23 @@ Stack-specific extensions layered on top of the foundation.
 ### `templates/`
 Reusable bootstrap, review, verification, and memory templates.
 
-## 6. Using with Codex
+## 6. Using with AI coding tools
 
-Start with:
-
-```text
-Follow AGENTS.md strictly.
-Use the canonical lifecycle from docs/prompt-pipeline.md.
-Use prompts and skills from the toolkit when relevant.
-Do not introduce stack-specific assumptions into the foundation layer.
-```
-
-Suggested sequence:
-1. Read `AGENTS.md`
-2. Read:
+Recommended pattern:
+1. Read `AGENTS.md`.
+2. Read the canonical docs:
    - `docs/how-to-use.md`
    - `docs/architecture.md`
    - `docs/overlays.md`
    - `docs/prompt-pipeline.md`
-3. Choose the correct overlay if this is a consuming project
-4. Execute work through the lifecycle
-5. Update memory when a durable decision is made
+   - `docs/agent-team-system.md`
+3. Choose the correct overlay if this is a consuming project.
+4. Execute work through the canonical lifecycle.
+5. Update memory when a durable decision is made.
 
-## 7. Using with Claude Code
+This same pattern applies across AI coding tools even if their interfaces differ.
 
-Recommended sequence:
-1. LEAD frames the task
-2. ARCHITECT defines the structure
-3. BUILDER implements
-4. REVIEWER critiques
-5. VERIFIER validates
-6. FINALIZER shapes the final output
-7. MEMORY stores durable notes
-
-## 8. Choosing an overlay
+## 7. Choosing an overlay
 
 ### `mobile-flutter`
 For Flutter applications.
@@ -132,9 +115,9 @@ For UI-heavy web repositories.
 For Python services, workers, automation tools, or integration layers.
 
 Important rule:
-An overlay extends the foundation. It does not rewrite the foundation’s identity.
+An overlay extends the foundation. It does not rewrite the foundation identity.
 
-## 9. Bootstrapping a new repo
+## 8. Bootstrapping a new repo
 
 Recommended path:
 1. Add the toolkit as submodule or copy selected files
@@ -145,7 +128,7 @@ Recommended path:
 6. Add project-specific CI
 7. Run one real feature through the full lifecycle
 
-## 10. Project memory guidance
+## 9. Project memory guidance
 
 Project memory should store:
 - durable decisions
@@ -159,7 +142,7 @@ Project memory should not become:
 - random observations
 - temporary scratchpad clutter
 
-## 11. Review and verification
+## 10. Review and verification
 
 A good review checks:
 - correctness
@@ -174,7 +157,7 @@ Verification should state clearly:
 - how it was checked
 - what remains uncertain
 
-## 12. Common mistakes
+## 11. Common mistakes
 - putting Flutter or Node assumptions into the root
 - using prompts without reading `AGENTS.md`
 - skipping memory updates after important decisions

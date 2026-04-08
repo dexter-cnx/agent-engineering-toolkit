@@ -1,7 +1,9 @@
-# Foundation Rules
+# Foundation Rules (Quick Reference)
 
-- stay domain-agnostic at root
-- push stack-specific assumptions into overlays
-- document meaningful workflow changes
-- prefer explicit boundaries
-- keep memory updated for durable decisions
+Canonical source: `AGENTS.md`
+
+Use this file as a short reminder only:
+- root stays stack-agnostic
+- stack-specific assumptions live in overlays
+- meaningful workflow changes require doc updates
+- durable decisions belong in project memory

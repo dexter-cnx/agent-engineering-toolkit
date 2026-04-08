@@ -1,19 +1,38 @@
 # Mobile Flutter Overlay
 
-Use this overlay when the consuming repository is primarily a Flutter application.
+Use this overlay when the consuming repository is a Flutter application or mobile-first app.
 
-## Adds on top of foundation
-- app-layer guidance
-- presentation vs domain separation
-- localization and navigation considerations
-- project-specific verification hooks such as analyze, test, and build
+## Recommended structure
+```text
+repo/
+├─ lib/
+│  ├─ presentation/
+│  ├─ domain/
+│  ├─ data/
+│  ├─ app/
+│  └─ core/
+├─ test/
+└─ project_memory/
+```
 
-## Recommended local additions in the consuming repo
-- concrete architecture rules for that app
-- state-management choice and boundaries
-- route and localization conventions
-- Flutter CI commands
+## Responsibilities
+- top-level UI or transport layer owns entry concerns only
+- business orchestration stays in a dedicated feature/service/domain layer
+- external integrations stay behind service or adapter boundaries
+- project memory captures recurring stack-specific conventions
+
+## Verification examples
+```bash
+flutter analyze
+flutter test
+```
+
+## Review guidance
+Reject changes when:
+- presentation leaking domain rules
+- data layer bypassing domain contracts
+- navigation or localization logic scattered across unrelated modules
 
 ## Overlay rule
 This overlay extends the foundation.
-It should not redefine the foundation's identity.
+It should not redefine the foundation identity.
