@@ -24,7 +24,7 @@ Owns:
 ### BUILDER
 Owns:
 - implementation
-- consistency with plan/design
+- consistency with plan and design
 - translating design into concrete artifacts
 
 ### REVIEWER
@@ -54,6 +54,18 @@ Owns:
 - decisions
 - known constraints
 - future reminders
+
+## Non-overlap notes
+
+### LEAD vs ARCHITECT
+LEAD decides framing, sequencing, and decomposition.
+ARCHITECT decides structure, boundaries, and design integrity.
+LEAD should not silently absorb architecture work on non-trivial tasks.
+
+### FINALIZER vs MEMORY
+FINALIZER packages the current deliverable.
+MEMORY preserves what future work must retain.
+FINALIZER is about present coherence; MEMORY is about future continuity.
 
 ## Why this works
 A role-separated workflow reduces:

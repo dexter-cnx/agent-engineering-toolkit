@@ -15,5 +15,8 @@ Please keep collaboration respectful, constructive, and focused on improving the
 - Bad-faith review behavior
 - Repeatedly ignoring the repository's foundation-vs-overlay design
 
+## Enforcement contact
+For conduct issues, contact the maintainer via the repository profile or private email configured for the repository.
+
 ## Enforcement
 Repository maintainers may remove content or restrict participation if behavior harms collaboration.

@@ -10,3 +10,6 @@ Recommended order:
 5. verifier
 6. finalizer
 7. memory
+
+For the detailed explanation of responsibilities and non-overlap rules, read:
+- `docs/agent-team-system.md`

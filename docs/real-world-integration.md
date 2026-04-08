@@ -1,23 +1,37 @@
 # Real-World Integration
 
-## With Codex CLI
-Use AGENTS.md as the root contract.
-Start tasks with a clear lifecycle instruction.
-Prefer using prompts in `prompts/`.
+This guide explains how the toolkit fits into real project workflows.
 
-## With Claude Code
+## 1. With Codex
+Use `AGENTS.md` as the root contract and `docs/prompt-pipeline.md` as the lifecycle source of truth.
+
+Recommended flow:
+1. Read `AGENTS.md`
+2. Read the canonical guide
+3. Choose an overlay if needed
+4. Execute a task through the lifecycle
+5. Update memory when durable decisions are made
+
+## 2. With Claude Code
 Use the role model in `agent_team/`.
-Let LEAD coordinate and ARCHITECT define structure before BUILDER executes.
+A strong default flow is:
+- LEAD frames the task
+- ARCHITECT defines structure
+- BUILDER implements
+- REVIEWER critiques
+- VERIFIER validates
+- FINALIZER packages the result
+- MEMORY stores durable notes
 
-## With OpenClaw
-Use this toolkit as the prompt/rules source.
-Map planning models and coding models separately if your runtime supports it.
+## 3. With CI/CD
+CI should validate repository structure and, in consuming repos, the project-specific verification commands.
+Do not claim work is complete if verification has not happened.
 
-## With CI/CD
-Use verification templates and project-specific scripts.
-Do not claim a change is finished when verification has not happened.
+## 4. With submodules
+This repo works well as a central toolkit consumed from real repositories.
+Keep project-specific rules in the consuming repo.
+Move something back to foundation only if it is broadly reusable.
 
-## With project submodules
-Keep this repo central.
-Consume it from project repos.
-Put project-specific instructions beside the consuming project, not back into the foundation unless they are widely reusable.
+## 5. With AI runtime diversity
+The foundation can be consumed by multiple AI coding tools.
+That is acceptable at the foundation layer because these references describe usage surfaces, not framework identity.

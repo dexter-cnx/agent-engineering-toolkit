@@ -1,15 +1,19 @@
 # Backend Node Overlay
 
-Use this when the consuming repository is primarily Node/Express/Nest/API/backend.
+Use this overlay when the consuming repository is primarily a Node backend or API service.
 
-Recommended additions:
-- service and adapter boundaries
+## Adds on top of foundation
+- controller and service separation
+- adapter and external-provider boundaries
 - API contract discipline
-- async/job handling conventions
-- integration and dependency isolation
+- job and async handling expectations
 
+## Recommended local additions in the consuming repo
+- chosen framework conventions
+- request validation rules
+- test and build commands
+- deployment-specific constraints
 
 ## Overlay rule
 This overlay extends the foundation.
 It should not redefine the foundation's identity.
-

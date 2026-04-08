@@ -3,13 +3,15 @@
 Follow AGENTS.md strictly.
 
 Task:
-Add a billing settings screen.
+Add an account preferences feature.
 
-Use this lifecycle:
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
+Use the canonical lifecycle from `docs/prompt-pipeline.md`.
 
-Also use:
-- prompts/plan_change.md
-- prompts/architecture_review.md
-- prompts/review_change.md
-- prompts/verification_pass.md
+Use these prompts in order:
+1. `prompts/plan_change.md`
+2. `prompts/architecture_review.md`
+3. `prompts/implement_change.md`
+4. `prompts/review_change.md`
+5. `prompts/verification_pass.md`
+6. `prompts/finalize_change.md`
+7. `prompts/update_project_memory.md`

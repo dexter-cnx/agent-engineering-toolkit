@@ -1,276 +1,182 @@
 # How to Use (English)
 
-This guide explains how to use `agent-engineering-toolkit` in real projects.
+This is the canonical English usage guide for `agent-engineering-toolkit`.
+
+It explains:
+- what the toolkit is
+- how to adopt it in a real repository
+- how to use it with AI coding tools
+- how to apply overlays
+- how to maintain project memory
+- how to review and verify work properly
 
 ## 1. What this toolkit is
 
-This repository is a reusable operating system for AI-assisted engineering.
+This toolkit is not just a prompt pack and not just an `AGENTS.md` file.
 
-Think of it as a package of:
+It is a reusable operating layer for AI-assisted engineering made up of:
 - governance
-- execution flow
+- workflow
 - prompts
 - roles
 - skills
 - templates
 - overlays
 - documentation discipline
+- memory discipline
 
-It is not a finished app starter by itself.  
-It is the layer that helps you build and maintain other repositories consistently.
+## 2. Mental model
 
----
+Think of the toolkit in five layers:
+- Governance
+- Orchestration
+- Capability
+- Specialization
+- Continuity
 
-## 2. Recommended adoption patterns
+Use `AGENTS.md`, `core/*`, `prompts/*`, `skills/*`, `overlays/*`, and `project_memory/*` together rather than in isolation.
 
-### Pattern A — Use it as a standalone reference repo
-Good when:
-- you want to learn the system first
-- you want a canonical place for prompts and rules
-- you want to share a team-wide toolkit
+## 3. Canonical lifecycle
 
-### Pattern B — Use it as a Git submodule
-Good when:
-- you want each real project to consume the toolkit directly
-- you want overlays and templates available inside each repo
-- you want updates to flow from a central toolkit repo
+The canonical lifecycle lives in `docs/prompt-pipeline.md`.
 
-Example:
+Use that file as the source of truth for:
+- lifecycle order
+- stage list
+- prompt mapping
+
+## 4. Recommended adoption patterns
+
+### Pattern A — standalone toolkit repo
+Use when you want one canonical toolkit repository shared across projects.
+
+### Pattern B — Git submodule
+Use when you want each real project to consume the toolkit directly.
+
 ```bash
 git submodule add <toolkit-repo-url> toolkit
 ```
 
-### Pattern C — Copy selected files into a project
-Good when:
-- a team is not ready for submodules
-- a project needs a lighter setup
-- you only want AGENTS.md, prompts, and templates
+### Pattern C — copy selected files
+Use when the team is not ready for submodules and only wants governance, prompts, or templates.
 
----
+## 5. Folder guide
 
-## 3. The core lifecycle
+### `AGENTS.md`
+The root contract that tells the AI:
+- what the repository is
+- what lifecycle to follow
+- what not to assume
+- how to think about boundaries, docs, verification, and memory
 
-The recommended lifecycle is:
+### `prompts/`
+Stage-oriented prompts.
 
-```text
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
-```
+### `agent_team/`
+Role definitions for lead, architect, builder, reviewer, verifier, finalizer, and memory.
 
-### PLAN
-Clarify scope, constraints, assumptions, and risks.
+### `skills/`
+Focused reusable capabilities with explicit contracts.
 
-### DESIGN
-Define architecture, boundaries, flow, or structural approach.
+### `overlays/`
+Stack-specific extensions layered on top of the foundation.
 
-### IMPLEMENT
-Build only after plan and design are coherent.
+### `templates/`
+Reusable bootstrap, review, verification, and memory templates.
 
-### REVIEW
-Review correctness, structure, clarity, and maintainability.
+## 6. Using with Codex
 
-### VERIFY
-Validate through checks, tests, smoke paths, or manual confirmation.
-
-### FINALIZE
-Polish wording, docs, naming, and readiness.
-
-### MEMORY
-Update durable knowledge that future runs should preserve.
-
----
-
-## 4. The default team model
-
-The toolkit assumes these roles:
-
-### LEAD
-Owns decomposition, task framing, sequencing, and coordination.
-
-### ARCHITECT
-Owns structure, boundaries, interfaces, and risk of poor design.
-
-### BUILDER
-Owns implementation consistent with plan/design.
-
-### REVIEWER
-Owns critique, correctness review, structure review, and maintainability review.
-
-### VERIFIER
-Owns validation and confidence level.
-
-### FINALIZER
-Owns final cleanup, output shaping, and release readiness.
-
-### MEMORY
-Owns durable notes and continuity.
-
----
-
-## 5. What each folder is for
-
-## `prompts/`
-General-purpose prompts for each stage.
-
-## `agent_team/`
-Role definitions and role-specific prompt patterns.
-
-## `skills/`
-Narrow capabilities that can be invoked repeatedly:
-- repo audit
-- architecture review
-- safe refactor
-- dependency review
-- docs update
-- bug investigation
-- verification pass
-- risk scoring
-- skill routing
-
-## `core/`
-Shared framework material:
-- rules
-- routing
-- verification
-- review discipline
-- architecture discipline
-
-## `templates/`
-Files to copy into project repos:
-- AGENTS starter
-- memory files
-- runbooks
-- review templates
-- verification templates
-
-## `overlays/`
-Specialization packs layered on top of the foundation.
-
-## `examples/`
-Concrete usage examples and sample prompts.
-
-## `project_memory/`
-Baseline memory structures for storing decisions and constraints.
-
----
-
-## 6. How to use the toolkit with AI coding tools
-
-### Codex CLI
-Use a top-level instruction like:
+Start with:
 
 ```text
 Follow AGENTS.md strictly.
-Use the full lifecycle:
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
-Prefer reusable toolkit prompts and templates when relevant.
+Use the canonical lifecycle from docs/prompt-pipeline.md.
+Use prompts and skills from the toolkit when relevant.
+Do not introduce stack-specific assumptions into the foundation layer.
 ```
 
-### Claude Code
-Use a role-driven approach:
-- ask LEAD to frame the task
-- ask ARCHITECT to define structure
-- ask BUILDER to implement
-- ask REVIEWER to critique
-- ask VERIFIER to validate
-- ask FINALIZER to polish
-- ask MEMORY to record durable context
+Suggested sequence:
+1. Read `AGENTS.md`
+2. Read:
+   - `docs/how-to-use.md`
+   - `docs/architecture.md`
+   - `docs/overlays.md`
+   - `docs/prompt-pipeline.md`
+3. Choose the correct overlay if this is a consuming project
+4. Execute work through the lifecycle
+5. Update memory when a durable decision is made
 
-### OpenClaw
-Use the toolkit as the canonical rules/prompt source, while mapping model roles to:
-- planning
-- coding
-- review
-- verification
+## 7. Using with Claude Code
 
----
+Recommended sequence:
+1. LEAD frames the task
+2. ARCHITECT defines the structure
+3. BUILDER implements
+4. REVIEWER critiques
+5. VERIFIER validates
+6. FINALIZER shapes the final output
+7. MEMORY stores durable notes
 
-## 7. Overlay strategy
+## 8. Choosing an overlay
 
-Foundation should stay general.  
-Do not pollute root rules with Flutter-only or Node-only assumptions.
+### `mobile-flutter`
+For Flutter applications.
 
-Put stack-specific material in overlays.
+### `backend-node`
+For Node-based API or backend services.
 
-### `overlays/mobile-flutter`
-Use when project identity is mobile/Flutter.
+### `web-frontend`
+For UI-heavy web repositories.
 
-### `overlays/backend-node`
-Use when project identity is Node/Nest/Express/backend service.
+### `python-service`
+For Python services, workers, automation tools, or integration layers.
 
-### `overlays/web-frontend`
-Use when project identity is frontend/UI/product surface.
+Important rule:
+An overlay extends the foundation. It does not rewrite the foundation’s identity.
 
-### `overlays/python-service`
-Use when project identity is Python/FastAPI/service/integration automation.
+## 9. Bootstrapping a new repo
 
----
+Recommended path:
+1. Add the toolkit as submodule or copy selected files
+2. Add or reference `AGENTS.md`
+3. Copy the project memory templates
+4. Choose one overlay if needed
+5. Add project-specific verification commands
+6. Add project-specific CI
+7. Run one real feature through the full lifecycle
 
-## 8. Bootstrapping a new repository
+## 10. Project memory guidance
 
-Recommended minimal bootstrap:
-1. copy or link `AGENTS.md`
-2. copy `templates/project-bootstrap/README_BOOTSTRAP.md`
-3. copy `templates/project_memory/*`
-4. choose one overlay if needed
-5. add repo-specific verification rules
-6. add project-specific CI
+Project memory should store:
+- durable decisions
+- approved patterns
+- known constraints
+- recurring pitfalls
+- future reminders
 
----
+Project memory should not become:
+- noisy logs
+- random observations
+- temporary scratchpad clutter
 
-## 9. Practical workflow for a real feature
+## 11. Review and verification
 
-Example: "Add billing settings page"
+A good review checks:
+- correctness
+- clarity
+- maintainability
+- architecture fit
+- verification evidence
+- doc alignment
 
-### Step 1
-Use `prompts/plan_change.md`
+Verification should state clearly:
+- what was checked
+- how it was checked
+- what remains uncertain
 
-### Step 2
-Use `prompts/architecture_review.md`
-
-### Step 3
-Use `prompts/implement_change.md`
-
-### Step 4
-Use `prompts/review_change.md`
-
-### Step 5
-Use `prompts/verification_pass.md`
-
-### Step 6
-Use `prompts/finalize_change.md`
-
-### Step 7
-Update `project_memory/decisions.md` or `project_memory/known_constraints.md`
-
----
-
-## 10. How to use this repo before pushing public
-
-Before pushing publicly:
-- replace placeholder repo URLs
-- update author/license
-- rename any organization-specific files if necessary
-- decide whether to keep all overlays in one repo or move some to separate repos
-
----
-
-## 11. What this repo does not do automatically
-
-This toolkit does not automatically:
-- run models for you
-- provide hosted orchestration
-- replace CI/CD
-- replace project-specific rules
-- replace actual engineering judgment
-
-It gives you the **structure** to do those things well.
-
----
-
-## 12. Suggested next steps after push
-
-- add your preferred license
-- add your organization branding if desired
-- connect this repo as a submodule to one real project
-- test one full feature workflow end-to-end
-- refine overlays based on actual usage
+## 12. Common mistakes
+- putting Flutter or Node assumptions into the root
+- using prompts without reading `AGENTS.md`
+- skipping memory updates after important decisions
+- treating review and verification as the same thing
+- letting overlays redefine the identity of the foundation

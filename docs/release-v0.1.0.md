@@ -1,8 +1,8 @@
 # Release v0.1.0
 
-This is the first public-oriented release candidate for `agent-engineering-toolkit`.
+This was the first public-oriented release candidate for `agent-engineering-toolkit`.
 
-## Included in this release
+## Intended contents
 - foundation governance
 - prompt pipeline
 - agent team model
@@ -10,13 +10,6 @@ This is the first public-oriented release candidate for `agent-engineering-toolk
 - overlays
 - templates
 - English and Thai documentation
-- detailed usage guides
-- detailed tutorials
-- public repository hygiene files
-- CI sanity checks
 
-## Intended use
-- foundation toolkit repo
-- submodule in consuming projects
-- canonical prompt/rules source
-- starting point for broader platform integrations
+## Note
+Later release passes may expand public-repo hygiene and strengthen templates, skills, prompts, and overlays.

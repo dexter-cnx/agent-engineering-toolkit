@@ -2,16 +2,15 @@
 
 A production-ready, domain-agnostic toolkit for structured AI-assisted software engineering.
 
-This repository is designed as a **foundation toolkit** that can be reused across:
+This repository is a foundation toolkit that can be reused across:
 - mobile projects
 - backend services
 - web frontends
-- AI/agent systems
+- AI and agent systems
 - monorepos
 - internal engineering platforms
 
-It is intentionally **not tied to mobile**.  
-Mobile is treated as an **overlay**, not the default identity of the toolkit.
+It is intentionally not tied to mobile. Mobile is treated as an overlay, not the default identity of the toolkit.
 
 ## Why this repository exists
 
@@ -25,11 +24,15 @@ This toolkit goes further by providing:
 - templates for project adoption
 - overlays for stack-specific specialization
 - documentation discipline for long-term maintainability
+- public-repo hygiene for open collaboration
 
-This repository is the **foundation layer**.  
-Project-specific rules belong in overlays or in consuming repositories.
+This repository is the foundation layer. Project-specific rules belong in overlays or in consuming repositories.
 
 ## Core lifecycle
+
+The canonical lifecycle lives in `docs/prompt-pipeline.md`.
+
+Short form:
 
 ```text
 PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
@@ -44,7 +47,7 @@ LEAD → ARCHITECT → BUILDER → REVIEWER → VERIFIER → FINALIZER → MEMOR
 ## What is included
 
 - `AGENTS.md` for governance and expectations
-- `docs/` for detailed usage and architecture guidance
+- `docs/` for usage, architecture, adoption, release, and tutorial guidance
 - `prompts/` for stage-oriented workflows
 - `agent_team/` for role definitions
 - `skills/` for focused reusable capabilities
@@ -52,31 +55,7 @@ LEAD → ARCHITECT → BUILDER → REVIEWER → VERIFIER → FINALIZER → MEMOR
 - `templates/` for project bootstrap and operational consistency
 - `overlays/` for stack-specific extensions
 - `examples/` for concrete adoption patterns
-- `.github/` for public-repo hygiene and CI
-
-## Repository structure
-
-```text
-agent-engineering-toolkit/
-├─ AGENTS.md
-├─ README.md
-├─ README_TH.md
-├─ LICENSE
-├─ CONTRIBUTING.md
-├─ CHANGELOG.md
-├─ CODE_OF_CONDUCT.md
-├─ docs/
-├─ prompts/
-├─ agent_team/
-├─ skills/
-├─ core/
-├─ templates/
-├─ overlays/
-├─ examples/
-├─ project_memory/
-├─ scripts/
-└─ .github/
-```
+- `.github/` for CI, issue templates, PR template, CODEOWNERS, and security policy
 
 ## Quick start
 
@@ -93,33 +72,24 @@ Start with:
 
 ```text
 Follow AGENTS.md strictly.
-Use the full pipeline:
-PLAN → DESIGN → IMPLEMENT → REVIEW → VERIFY → FINALIZE → MEMORY
+Use the canonical lifecycle from docs/prompt-pipeline.md.
 ```
 
 ## Documentation
 
-- `README_TH.md` — Thai overview
-- `docs/how-to-use.md` — detailed English guide
-- `docs/how-to-use_TH.md` — detailed Thai guide
+- `docs/how-to-use.md` — canonical English guide
+- `docs/how-to-use_TH.md` — canonical Thai guide
+- `docs/tutorial.md` — English tutorial
+- `docs/tutorial_TH.md` — Thai tutorial
 - `docs/architecture.md` — foundation vs overlay architecture
 - `docs/agent-team-system.md` — role system guidance
-- `docs/prompt-pipeline.md` — prompt flow
+- `docs/prompt-pipeline.md` — canonical lifecycle reference
 - `docs/overlays.md` — specialization strategy
 - `docs/real-world-integration.md` — practical usage guidance
 - `docs/repo-bootstrap.md` — applying the toolkit to a new repo
 - `docs/public-repo-checklist.md` — pre-publish checklist
 - `docs/release-process.md` — suggested release process
 - `docs/codex-review-prompt.md` — strict Codex review prompt
-
-## Public release notes
-
-Before publishing broadly:
-- confirm your preferred license choice
-- review `CODEOWNERS`
-- review issue/discussion URLs
-- skim both README files for organization-specific wording
-- run the CI workflow
 
 ## License
 
