@@ -51,6 +51,8 @@ audits/codex_2026-04-08_14-16-54.md
 audits/codex_2026-04-08_14-23-58.md
 audits/codex_2026-04-08_14-29-52.md
 audits/codex_2026-04-08_14-40-52.md
+audits/claude_2026-04-08_14-44-32.md
+audits/codex_2026-04-08_14-48-34.md
 core
 core/README.md
 core/architecture
