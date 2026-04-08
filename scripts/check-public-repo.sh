@@ -81,19 +81,23 @@ check_markdown_links() {
 }
 
 check_internal_refs() {
-  if rg -n "README_INTERNAL_START_HERE|docs/doc-map|AGENTS\\.internal|prompts/teams/" \
-    "$repo_root" \
-    -g '!audits/**' \
-    -g '!docs/internal/**' \
-    -g '!docs/tree-manifest.txt' \
-    -g '!prompts/internal/**' \
-    -g '!scripts/check-public-repo.sh' >/tmp/public-repo-internal-refs.txt; then
+  local internal_refs
+  internal_refs="$(
+    find "$repo_root" \
+      \( -path "$repo_root/.git" -o -path "$repo_root/.git/*" \) -prune -o \
+      \( -path "$repo_root/audits" -o -path "$repo_root/audits/*" \
+      -o -path "$repo_root/docs/internal" -o -path "$repo_root/docs/internal/*" \
+      -o -path "$repo_root/prompts/internal" -o -path "$repo_root/prompts/internal/*" \
+      -o -path "$repo_root/scripts/check-public-repo.sh" \
+      -o -path "$repo_root/docs/tree-manifest.txt" \) -prune \
+      -o -type f -print0 \
+    | xargs -0 grep -InE "README_INTERNAL_START_HERE|docs/doc-map|AGENTS\\.internal|prompts/teams/" 2>/dev/null || true
+  )"
+
+  if [[ -n "$internal_refs" ]]; then
     echo "Internal-only references found in public-facing files:" >&2
-    cat /tmp/public-repo-internal-refs.txt >&2
-    rm -f /tmp/public-repo-internal-refs.txt
+    printf '%s\n' "$internal_refs" >&2
     missing=1
-  else
-    rm -f /tmp/public-repo-internal-refs.txt
   fi
 }
 
