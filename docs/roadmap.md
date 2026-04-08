@@ -6,9 +6,9 @@
 3. Keep release checks aligned with the documented public checklist
 
 ## Near-term priorities
-1. Expand mobile-flutter worked example
-2. Expand backend-node worked example
-3. Expand web-frontend worked example
+1. Expand the worked examples across overlays in parallel, starting with the weakest coverage
+2. Expand backend-node worked example depth
+3. Expand web-frontend worked example depth
 4. Refine agent team standalone files or consolidate them further
 
 ## Later

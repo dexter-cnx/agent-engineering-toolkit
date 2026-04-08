@@ -17,7 +17,7 @@ repo/
 ```
 
 ## Responsibilities
-- top-level UI or transport layer owns entry concerns only
+- route handlers own entry concerns only
 - business orchestration stays in a dedicated feature/service/domain layer
 - external integrations stay behind service or adapter boundaries
 - project memory captures recurring stack-specific conventions

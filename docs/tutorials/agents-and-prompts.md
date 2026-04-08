@@ -32,7 +32,6 @@ aliases:
 **Project:** <project-name>
 **Type:** <platform/project-type>
 **Architecture:** <chosen-architecture>
-**Localization:** <csv-first / none / other>
 **Target:** <target users>
 
 This file defines the repo-wide operating rules for all Agent Teams that work in this project.
@@ -55,31 +54,13 @@ This file defines the repo-wide operating rules for all Agent Teams that work in
 - <boundary rule 2>
 - <boundary rule 3>
 
-## 4. Localization Rules
-
-- <localization rule 1>
-- <localization rule 2>
-
-## 5. State Management & Routing
-
-- <state rule 1>
-- <routing rule 1>
-
-## 6. Development Workflow
+## 4. Workflow
 
 1. Read this file.
 2. Read the canonical docs.
 3. Use the lifecycle prompts in order.
 4. Verify before finalizing.
 5. Update project memory after durable decisions.
-
-## 7. Output Format
-
-1. Task Summary
-2. Files Created / Modified
-3. Verification Result
-4. Next Recommended Step
-5. Artifacts
 ```
 
 ถ้าโปรเจกต์เล็กมาก ให้ตัดหัวข้อที่ไม่จำเป็นออกได้ แต่ควรเก็บ 3 อย่างไว้เสมอ:
@@ -88,7 +69,7 @@ This file defines the repo-wide operating rules for all Agent Teams that work in
 - architecture / boundary rules
 - workflow + verification rules
 
-ถ้ารู้ stack แล้ว ให้เติม overlay-specific notes แบบสั้น ๆ ต่อท้ายเท่าที่จำเป็น แล้วพา reader ไปอ่าน tutorial เฉพาะ stack แทนการคัด template ยาว ๆ ซ้ำในหน้านี้
+ถ้ารู้ stack แล้ว ให้ไปอ่าน tutorial เฉพาะ stack แทนการคัด template ยาว ๆ ซ้ำในหน้านี้
 
 Stack-specific examples ที่มีอยู่แล้ว:
 
@@ -112,33 +93,13 @@ The stack tutorials and overlays carry the concrete platform-specific AGENTS.md 
 | Finalize | `prompts/finalization/finalize_change.md` | สรุปผลให้พร้อมส่งต่อ |
 | Memory | `prompts/memory/update_project_memory.md` | เก็บ decision และ constraint ที่ควรจำ |
 
-## Prompt starter ตาม platform
-
-### Flutter
+## Prompt starter แบบกลาง
 
 ```text
-We are starting from a blank folder for a Flutter app.
-Create a short, practical repo-root AGENTS.md first in the style of the example in docs/tutorials/agents-and-prompts.md.
-Then choose the mobile-flutter overlay.
-Use the prompt pipeline in order and keep state management, routing, and localization rules explicit.
-```
-
-### Web frontend
-
-```text
-We are starting from a blank folder for a web frontend repo.
-Create a short, practical repo-root AGENTS.md first in the style of the example in docs/tutorials/agents-and-prompts.md.
-Then choose the web-frontend overlay.
-Use the prompt pipeline in order and keep page, component, state, and service rules explicit.
-```
-
-### Services
-
-```text
-We are starting from a blank folder for a service repo.
-Create a short, practical repo-root AGENTS.md first in the style of the example in docs/tutorials/agents-and-prompts.md.
-Then choose the backend-node or python-service overlay.
-Use the prompt pipeline in order and keep transport, orchestration, persistence, and adapter rules explicit.
+We are starting from a blank folder.
+Create a short, practical repo-root AGENTS.md first.
+Then choose the correct overlay only if the stack is known.
+Use the prompt pipeline in order and keep boundaries explicit.
 ```
 
 ## อ่านต่อ

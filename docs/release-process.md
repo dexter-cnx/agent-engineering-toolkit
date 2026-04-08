@@ -15,6 +15,8 @@ A release should not be cut until:
 - the public checklist summary in `docs/public-repo-checklist.md` is current
 - the machine-readable gate source in `scripts/check-public-repo.paths` is current
 - any new docs, prompts, templates, or overlays are reflected in `docs/tree-manifest.txt`
+- markdown links in the public entry docs resolve
+- public-facing docs do not reference internal-only paths
 - no private repository URLs are embedded in public files
 
 ## Suggested versioning

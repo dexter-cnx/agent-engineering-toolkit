@@ -9,6 +9,7 @@ List the checks that were actually performed.
 
 ## Evidence
 List commands, outputs, screenshots, files, or reasoning evidence used.
+Include exact command output or file:line references where relevant.
 
 ## Identity checks
 - Foundation vs overlay boundary checked:

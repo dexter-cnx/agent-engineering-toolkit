@@ -54,3 +54,13 @@
   Decision: Foundation tutorial hubs and Obsidian-friendly pages should link to stack-specific examples instead of reprinting long platform templates.
   Why: Stack-specific examples belong in overlays and stack tutorials, not in foundation navigation pages.
   Consequence: Future updates should prefer links and short pointers over duplicated template blocks.
+
+- Date: 2026-04-08
+  Decision: Root-level onboarding tutorials should stay stack-neutral and use generic feature slices instead of Flutter-first examples.
+  Why: The foundation repository must not imply one stack as the default identity.
+  Consequence: Stack-specific walkthroughs belong in overlay or stack tutorial folders.
+
+- Date: 2026-04-08
+  Decision: Internal-only onboarding and team prompt material now lives under `docs/internal/` and `prompts/internal/`.
+  Why: Keeps the public root clean while preserving internal workflow references.
+  Consequence: Public docs should not point at root internal helper files.

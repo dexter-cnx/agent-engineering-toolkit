@@ -1,6 +1,3 @@
-# Reference file tree snapshot for audit support.
-# Regenerate when release content changes.
-
 .github
 .github/CODEOWNERS
 .github/FUNDING.yml
@@ -20,6 +17,7 @@ CODE_OF_CONDUCT.md
 CONTRIBUTING.md
 LICENSE
 README.md
+README_START_HERE.md
 README_TH.md
 SECURITY.md
 agent_team
@@ -32,6 +30,7 @@ agent_team/memory.md
 agent_team/reviewer.md
 agent_team/verifier.md
 audits
+audits/audit-scorecard-template.md
 audits/claude_2026-04-08_093146.md
 audits/claude_2026-04-08_123118.md
 audits/claude_2026-04-08_13-31-29.md
@@ -55,6 +54,10 @@ audits/codex_2026-04-08_14-40-52.md
 audits/codex_2026-04-08_14-48-34.md
 audits/codex_2026-04-08_16-40-11.md
 audits/codex_2026-04-08_16-58-44.md
+audits/codex_2026-04-08_18-09-04.md
+audits/codex_2026-04-08_18-37-22.md
+audits/codex_2026-04-08_18-47-11.md
+audits/internal-scorecard.md
 core
 core/README.md
 core/architecture
@@ -74,6 +77,14 @@ docs/agent-team-system.md
 docs/architecture.md
 docs/how-to-use.md
 docs/how-to-use_TH.md
+docs/internal
+docs/internal/AGENTS.internal.md
+docs/internal/anti-patterns.md
+docs/internal/doc-map.md
+docs/internal/merge-gate.md
+docs/internal/operating-model.md
+docs/internal/patch-notes.md
+docs/internal/start-here.md
 docs/obsidian-friendly.md
 docs/overlays.md
 docs/prompt-pipeline.md
@@ -96,10 +107,25 @@ docs/tutorial_TH.md
 docs/tutorials
 docs/tutorials/00-common-start.md
 docs/tutorials/00-common-start_EN.md
+docs/tutorials/01-golden-path.md
+docs/tutorials/01-golden-path_EN.md
+docs/tutorials/02-agent-mental-model.md
+docs/tutorials/02-agent-mental-model_EN.md
+docs/tutorials/03-real-workflow.md
+docs/tutorials/03-real-workflow_EN.md
+docs/tutorials/04-build-production-feature.md
+docs/tutorials/04-build-production-feature_EN.md
+docs/tutorials/05-reuse-toolkit.md
+docs/tutorials/05-reuse-toolkit_EN.md
+docs/tutorials/06-debugging-agent-runs.md
+docs/tutorials/06-debugging-agent-runs_EN.md
+docs/tutorials/07-multi-agent-execution.md
+docs/tutorials/07-multi-agent-execution_EN.md
+docs/tutorials/08-full-example-flutter.md
+docs/tutorials/08-full-example-flutter_EN.md
 docs/tutorials/agents-and-prompts.md
 docs/tutorials/agents-and-prompts_EN.md
 docs/tutorials/examples
-docs/tutorials/examples/flutter
 docs/tutorials/examples/index.md
 docs/tutorials/examples/index_EN.md
 docs/tutorials/examples/patterns
@@ -123,7 +149,6 @@ docs/tutorials/examples/templates/index_EN.md
 docs/tutorials/examples/templates/web
 docs/tutorials/examples/templates/web/design-md-web-frontend-template.md
 docs/tutorials/examples/templates/web/design-md-web-frontend-template_EN.md
-docs/tutorials/examples/web
 docs/tutorials/flutter
 docs/tutorials/flutter/how-to-integrate-design-md-to-existing-project-and-new-project-in-flutter.md
 docs/tutorials/flutter/how-to-integrate-design-md-to-existing-project-and-new-project-in-flutter_EN.md
@@ -163,6 +188,10 @@ docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-fron
 docs/tutorials/web/how-to-make-web-frontend.md
 docs/tutorials/web/how-to-make-web-frontend_EN.md
 examples
+examples/consuming_repo_as_submodule
+examples/consuming_repo_as_submodule/README.md
+examples/consuming_repo_with_copy
+examples/consuming_repo_with_copy/README.md
 examples/prompts
 examples/prompts/example_feature_request.md
 examples/prompts/example_repo_audit.md
@@ -222,6 +251,14 @@ prompts/implementation/index.md
 prompts/implementation/index_EN.md
 prompts/index.md
 prompts/index_EN.md
+prompts/internal
+prompts/internal/review
+prompts/internal/review/internal_release_gate.md
+prompts/internal/teams
+prompts/internal/teams/architect_internal.md
+prompts/internal/teams/implementer_internal.md
+prompts/internal/teams/lead_internal.md
+prompts/internal/teams/reviewer_internal.md
 prompts/investigate_bug.md
 prompts/investigation
 prompts/investigation/index.md
@@ -253,6 +290,9 @@ scripts
 scripts/bootstrap-project-memory.sh
 scripts/check-public-repo.paths
 scripts/check-public-repo.sh
+scripts/prompt_runner
+scripts/prompt_runner/README.md
+scripts/prompt_runner/runbook.md
 scripts/push-guide.md
 scripts/push-new-repo.sh
 skills

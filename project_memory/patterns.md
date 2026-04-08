@@ -43,3 +43,11 @@
 - Pattern: Link to stack-specific examples from foundation hubs instead of embedding them.
   When to use: when a foundation doc needs to stay neutral but still help readers find the right stack-specific guidance.
   When not to use: when the file itself is the stack-specific tutorial or overlay.
+
+- Pattern: Keep root onboarding guides stack-neutral.
+  When to use: when a public-facing foundation repo needs a first-run path that works across stacks.
+  When not to use: when the file is explicitly part of an overlay or stack-specific tutorial set.
+
+- Pattern: Put internal workflow helpers under internal namespaces.
+  When to use: when a repo needs shadow docs or team prompts that should not pollute the public root.
+  When not to use: when the file is meant to be part of the public foundation contract.
