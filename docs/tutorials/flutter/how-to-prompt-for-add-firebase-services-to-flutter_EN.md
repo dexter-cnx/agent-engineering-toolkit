@@ -20,6 +20,22 @@ Use this tutorial when you already have a Flutter app and want to ask AI to add 
 - You want AI to propose packages, adapters, auth flow, and verification first
 - You want to keep the repo in a clean or layered architecture
 
+## Mobile Flutter overlay skills to read first
+
+Pick the skill that matches the Firebase capability you are adding:
+
+- auth/session: `../../../overlays/mobile-flutter/skills/flutter-auth/skill.md`
+- data API or transport boundary: `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md`
+- cache or local persistence: `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md`
+- analytics: `../../../overlays/mobile-flutter/skills/flutter-analytics/skill.md`
+- crash reporting: `../../../overlays/mobile-flutter/skills/flutter-crash-reporting/skill.md`
+- push notifications: `../../../overlays/mobile-flutter/skills/flutter-push-notifications/skill.md`
+- remote config: `../../../overlays/mobile-flutter/skills/flutter-remote-config/skill.md`
+- feature flags: `../../../overlays/mobile-flutter/skills/flutter-feature-flags/skill.md`
+- deep links: `../../../overlays/mobile-flutter/skills/flutter-deep-link/skill.md`
+
+If the feature spans multiple capabilities, open the matching skills first and then use the prompt flow below.
+
 ## Before You Start
 
 1. You already have a Flutter repo.
@@ -117,4 +133,3 @@ Update the repo structure first, then list the files to modify, then verify with
 - forgetting to define auth/session flow
 - mixing package installation with architecture decisions
 - skipping the verification step
-

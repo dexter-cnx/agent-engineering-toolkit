@@ -1,20 +1,14 @@
 # Overlays
 
-## Purpose
-Overlays let the toolkit stay general while still supporting real stacks.
+Overlays extend the foundation toolkit with stack-specific specialization while preserving the foundation identity.
 
-## Included overlays
-- `mobile-flutter`
-- `backend-node`
-- `web-frontend`
-- `python-service`
+## Current overlays
 
-## How to use an overlay
-1. Start from foundation.
-2. Choose the overlay that matches the consuming repository stack.
-3. Copy or reference the overlay's `AGENTS.overlay.md` into the consuming repo and extend it with project-specific rules.
-4. Use the overlay README for recommended structure, review guidance, and verification examples.
-5. Keep project-specific rules in the consuming repo rather than rewriting the overlay itself.
+- backend-node
+- mobile-flutter
+- python-service
+- web-frontend
 
-## Important
-An overlay should extend the foundation, not redefine it.
+Each overlay keeps its own README, `AGENTS.overlay.md`, and any overlay-local catalog or workflow docs it needs.
+
+Use overlay-local capability catalogs to compose feature work instead of redefining the repository around a single application stack.

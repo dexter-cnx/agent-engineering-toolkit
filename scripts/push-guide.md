@@ -18,6 +18,6 @@ git push -u origin main
 
 ## Optional next steps
 - enable GitHub Discussions
-- create a tag such as `v1.0.4`
+- create a tag such as `v1.0.5`
 - create a GitHub Release
 - update `.github/CODEOWNERS` if more maintainers are added

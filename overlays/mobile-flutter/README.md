@@ -1,40 +1,16 @@
+
 # Mobile Flutter Overlay
 
-Use this overlay when the consuming repository is a Flutter application or mobile-first app.
+This overlay provides Flutter-specific engineering capabilities as reusable skills.
 
-## Recommended structure
-```text
-repo/
-├─ lib/
-│  ├─ presentation/
-│  ├─ domain/
-│  ├─ data/
-│  ├─ app/
-│  └─ core/
-├─ test/
-└─ project_memory/
-```
+These skills extend the foundation toolkit and must not redefine repository identity.
 
-## Responsibilities
-- top-level UI or transport layer owns entry concerns only
-- business orchestration stays in a dedicated feature/service/domain layer
-- external integrations stay behind service or adapter boundaries
-- project memory captures recurring stack-specific conventions
+## Available Skills
+See `skills/index.md` for full catalog.
 
-Canonical operational rules live in `AGENTS.overlay.md`; this README is the human overview and example index.
+## Operational Docs
+- `SKILL_WORKFLOW.md`
+- `OVERLAY_VALIDATION_CHECKLIST.md`
 
-## Verification examples
-```bash
-flutter analyze
-flutter test
-```
-
-## Review guidance
-Reject changes when:
-- presentation leaking domain rules
-- data layer bypassing domain contracts
-- navigation or localization logic scattered across unrelated modules
-
-## Overlay rule
-This overlay extends the foundation.
-It should not redefine the foundation identity.
+## Usage
+Use skills when generating or auditing Flutter applications.

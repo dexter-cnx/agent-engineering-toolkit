@@ -49,6 +49,12 @@ flutter pub add dio
 - [Mobile Flutter overlay rules](../../../overlays/mobile-flutter/AGENTS.overlay.md)
 - [Mobile Flutter worked example](../../../overlays/mobile-flutter/examples/worked_example.md)
 
+## Mobile Flutter overlay skills to read
+
+- API boundary, adapter placement, transport layering: `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md`
+- auth/session flow if login is involved: `../../../overlays/mobile-flutter/skills/flutter-auth/skill.md`
+- cache or persistence if temporary storage is needed: `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md`
+
 ## AGENTS.md Example You Can Use
 
 ```md
@@ -109,12 +115,12 @@ Keep API, state, and widget boundaries explicit.
 | --- | --- | --- | --- |
 | 1 | `prompts/adoption/adopt_toolkit_in_repo.md` | `skills/skill-router/README.md` | adoption path and overlay |
 | 2 | `prompts/planning/plan_change.md` | `skills/risk-scoring/README.md` | API assumptions, risks, constraints |
-| 3 | `prompts/design/architecture_review.md` | `skills/dependency-review/README.md` | API boundary, adapter placement, provider risk |
-| 4 | `prompts/implementation/implement_change.md` | `skills/safe-refactor/README.md` | app shell, network layer, state flow |
-| 5 | `prompts/review/review_change.md` | `skills/architecture-review/README.md` | thin UI, no transport leakage |
-| 6 | `prompts/verification/verification_pass.md` | `skills/verification-pass/README.md` | API smoke evidence and uncertainty |
+| 3 | `prompts/design/architecture_review.md` | `skills/dependency-review/README.md` + `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md` | API boundary, adapter placement, provider risk |
+| 4 | `prompts/implementation/implement_change.md` | `skills/safe-refactor/README.md` + `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md` | app shell, network layer, state flow |
+| 5 | `prompts/review/review_change.md` | `skills/architecture-review/README.md` + `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md` | thin UI, no transport leakage |
+| 6 | `prompts/verification/verification_pass.md` | `skills/verification-pass/README.md` + `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md` | API smoke evidence and uncertainty |
 | 7 | `prompts/finalization/finalize_change.md` | `skills/docs-update/README.md` | final summary and follow-ups |
-| 8 | `prompts/memory/update_project_memory.md` | none | durable API conventions |
+| 8 | `prompts/memory/update_project_memory.md` | `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md` | durable API conventions |
 
 ## Suggested Online-First Shape
 

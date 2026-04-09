@@ -64,3 +64,13 @@
   Decision: Internal-only onboarding and team prompt material now lives under `docs/internal/` and `prompts/internal/`.
   Why: Keeps the public root clean while preserving internal workflow references.
   Consequence: Public docs should not point at root internal helper files.
+
+- Date: 2026-04-09
+  Decision: Root docs should describe the overlay catalog without exposing a numeric skill count.
+  Why: Keeps the foundation identity neutral while leaving capability counts to overlay-local docs.
+  Consequence: Overlay catalogs may list and group skills, but the root docs should avoid capability tallies.
+
+- Date: 2026-04-09
+  Decision: Overlay workflow and validation docs use explicit names: `SKILL_WORKFLOW.md` and `OVERLAY_VALIDATION_CHECKLIST.md`.
+  Why: The old `HOW_TO_APPLY.md` and `VALIDATION.md` names were too generic.
+  Consequence: Future overlay docs should prefer descriptive operational names over ambiguous pack-style filenames.

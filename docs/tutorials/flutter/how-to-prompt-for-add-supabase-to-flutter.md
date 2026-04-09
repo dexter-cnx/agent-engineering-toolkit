@@ -20,6 +20,17 @@ aliases:
 - ต้องการให้ AI วาง package, auth flow, database access, และ verification ก่อน
 - ต้องการคุม repo ให้ยังอยู่ใน clean architecture หรือ layered architecture
 
+## skill ของ Mobile Flutter overlay ที่ควรอ่านก่อน
+
+ถ้าใช้ Supabase เป็น backend ให้เปิด skill ตาม responsibility ที่จะเพิ่ม:
+
+- auth/session: `../../../overlays/mobile-flutter/skills/flutter-auth/skill.md`
+- API boundary หรือ network client: `../../../overlays/mobile-flutter/skills/flutter-networking/skill.md`
+- cache หรือ local persistence: `../../../overlays/mobile-flutter/skills/flutter-storage/skill.md`
+- offline sync หรือ queue: `../../../overlays/mobile-flutter/skills/flutter-offline-first/skill.md`
+
+ถ้า feature ที่จะเพิ่มมี auth และ data access พร้อมกัน ให้เริ่มจาก `flutter-auth` และ `flutter-networking` ก่อน แล้วค่อยเสริม skill อื่นตามความจำเป็น
+
 ## เริ่มจากสิ่งที่ควรมี
 
 1. มี Flutter repo อยู่แล้ว
@@ -116,4 +127,3 @@ Update the repo structure first, then list the files to modify, then verify with
 - ลืมกำหนด auth/session flow
 - ผสม package install กับ architecture decision โดยไม่แยก
 - ไม่บอก verification step
-

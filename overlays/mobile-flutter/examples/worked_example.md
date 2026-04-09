@@ -1,38 +1,53 @@
-# Worked Example — Flutter Feature
-
-> This example highlights the key overlay-specific stages.
-> Steps 3 (Implement) and 6 (Finalize) follow the foundation patterns in `docs/tutorial.md`.
+# Mobile Flutter Worked Example
 
 ## Scenario
-Add a profile preferences screen that lets a user toggle notifications and update display settings.
 
-## 1. Plan
-- Goal: ship a preferences flow without mixing business logic into widgets.
-- Key constraint: UI state stays in `lib/presentation`, business rules stay in `lib/domain`.
+A consuming Flutter application needs:
+- email and password authentication
+- staged rollout of a new dashboard
+- current-location support
+- map-based branch selection
+- push notification tap-to-route behavior
+- Flutter web deployment for internal QA
 
-## 2. Architecture
-- `lib/presentation/` for screen widgets, state, and navigation triggers
-- `lib/domain/` for preference models and use cases
-- `lib/data/` for repository and API access
+## Recommended skill set
 
-## 3. Implement
-- Files changed: `lib/presentation`, `lib/domain`, and `lib/data`
-- Deviations: none
+- `flutter-auth`
+- `flutter-feature-flags`
+- `flutter-geolocation`
+- `flutter-maps`
+- `flutter-push-notifications`
+- `flutter-deep-link`
+- `flutter-web-deployment`
 
-## 4. Review
-- Widgets stay focused on rendering and user interaction.
-- Preference validation belongs in domain use cases, not inside the widget tree.
-- Navigation is handled by a coordinator or route layer, not by leaf widgets.
+## Example invocation
 
-## 5. Verify
-```bash
-flutter analyze
-flutter test
+```text
+Follow AGENTS.md strictly.
+Apply overlays/mobile-flutter/AGENTS.overlay.md.
+Use these skills:
+- flutter-auth
+- flutter-geolocation
+- flutter-maps
+- flutter-push-notifications
+- flutter-deep-link
+- flutter-web-deployment
+
+Task:
+Implement a branch finder flow with guarded account access, notification tap routing, and a QA web deployment plan.
+
+Deliver:
+1. file plan
+2. route plan
+3. capability boundaries
+4. implementation notes
+5. verification checklist
+6. release risks
 ```
 
-## 6. Finalize
-- Result: the screen boundary stays clean and reusable.
-- Follow-up: add widget or integration coverage for the preferences flow.
+## Review notes
 
-## 7. Memory
-- Keep navigation and state boundaries consistent across future Flutter features.
+- authentication state must not live only inside screens
+- location permission handling must stay separate from map rendering
+- notification payload parsing must not sit inside widgets
+- web deployment rules must match router strategy

@@ -1,26 +1,21 @@
-# 🚀 Start Here (Golden Path)
+# Start Here
 
-## 10-Minute Quick Start
-1. Clone the repo.
-2. Add `AGENTS.md` to your project.
-3. Read [docs/prompt-pipeline.md](docs/prompt-pipeline.md) and [docs/agent-team-system.md](docs/agent-team-system.md).
-4. Run [prompts/adoption/adopt_toolkit_in_repo.md](prompts/adoption/adopt_toolkit_in_repo.md).
-5. Run [prompts/planning/plan_change.md](prompts/planning/plan_change.md), [prompts/design/architecture_review.md](prompts/design/architecture_review.md), and [prompts/implementation/implement_change.md](prompts/implementation/implement_change.md).
+If you are new to this repository, use this order:
 
-✅ Expected Output:
-- Structured project
-- Clean architecture
-- Ready-to-build code
+1. Read `README.md`.
+2. Read `docs/how-to-use.md`.
+3. Read `docs/tutorial.md`.
+4. Read `docs/overlays.md`.
+5. If your target is a specific overlay, continue to that overlay's:
+   - `README.md`
+   - `AGENTS.overlay.md`
+   - catalog or skill index, if provided
 
----
+## Overlay quick path
 
-## Choose Your Path
-
-### New Project
-→ [docs/tutorials/00-common-start.md](docs/tutorials/00-common-start.md)
-
-### Existing Project
-→ [docs/tutorials/05-reuse-toolkit.md](docs/tutorials/05-reuse-toolkit.md)
-
-### Advanced (Multi-agent)
-→ [docs/tutorials/07-multi-agent-execution.md](docs/tutorials/07-multi-agent-execution.md)
+For any overlay:
+1. choose the overlay
+2. choose the minimum skill set
+3. use each skill `README.md` for orientation
+4. use `skill.md` plus prompt files during implementation
+5. use the skill checklists during review

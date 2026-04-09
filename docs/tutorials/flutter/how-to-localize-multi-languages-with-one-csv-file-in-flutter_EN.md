@@ -29,6 +29,10 @@ Notes:
 - [Mobile Flutter overlay README](../../../overlays/mobile-flutter/README.md)
 - [Mobile Flutter overlay rules](../../../overlays/mobile-flutter/AGENTS.overlay.md)
 
+## Mobile Flutter overlay skills to read
+
+- localization workflow, fallback policy, generation pipeline: `../../../overlays/mobile-flutter/skills/flutter-i18n-l10n/skill.md`
+
 ## AGENTS.md Example You Can Use
 
 ```md
@@ -178,10 +182,10 @@ context.setLocale(const Locale('th', 'TH'));
 | --- | --- | --- | --- |
 | Adopt | `prompts/adoption/adopt_toolkit_in_repo.md` | `skills/skill-router/README.md` | adoption path and overlay |
 | Plan | `prompts/planning/plan_change.md` | `skills/risk-scoring/README.md` | facts, assumptions, risks, phases |
-| Architecture | `prompts/design/architecture_review.md` | `skills/architecture-review/README.md` + `skills/dependency-review/README.md` | localization boundary, file placement, package choice |
-| Implement | `prompts/implementation/implement_change.md` | `skills/safe-refactor/README.md` | CSV, loader, generated assets |
-| Review | `prompts/review/review_change.md` | `skills/docs-update/README.md` | string coverage and boundary clarity |
-| Verify | `prompts/verification/verification_pass.md` | `skills/verification-pass/README.md` | key coverage, fallback checks, evidence |
+| Architecture | `prompts/design/architecture_review.md` | `skills/architecture-review/README.md` + `skills/dependency-review/README.md` + `../../../overlays/mobile-flutter/skills/flutter-i18n-l10n/skill.md` | localization boundary, file placement, package choice |
+| Implement | `prompts/implementation/implement_change.md` | `skills/safe-refactor/README.md` + `../../../overlays/mobile-flutter/skills/flutter-i18n-l10n/skill.md` | CSV, loader, generated assets |
+| Review | `prompts/review/review_change.md` | `skills/docs-update/README.md` + `../../../overlays/mobile-flutter/skills/flutter-i18n-l10n/skill.md` | string coverage and boundary clarity |
+| Verify | `prompts/verification/verification_pass.md` | `skills/verification-pass/README.md` + `../../../overlays/mobile-flutter/skills/flutter-i18n-l10n/skill.md` | key coverage, fallback checks, evidence |
 | Finalize | `prompts/finalization/finalize_change.md` | `skills/docs-update/README.md` | final summary and follow-ups |
 | Memory | `prompts/memory/update_project_memory.md` | none | durable localization rules |
 
@@ -194,6 +198,7 @@ context.setLocale(const Locale('th', 'TH'));
 - `skills/safe-refactor/README.md`
 - `skills/docs-update/README.md`
 - `skills/verification-pass/README.md`
+- `../../../overlays/mobile-flutter/skills/flutter-i18n-l10n/skill.md`
 
 ## Scripts to Keep in the Consuming Repo
 
