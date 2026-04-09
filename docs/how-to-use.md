@@ -9,38 +9,33 @@ Start with the foundation:
 
 Then add overlays only when the consuming repository needs stack-specific rules.
 
-## Using the Mobile Flutter overlay
+## Using an overlay
 
-Use:
+Use the overlay that matches the stack or capability you are working on, then read:
+- that overlay's `README.md`
+- that overlay's `AGENTS.overlay.md`
+- the overlay-local catalog or index, if it exists
+
+Current overlays:
+- `overlays/backend-node/README.md`
 - `overlays/mobile-flutter/README.md`
-- `overlays/mobile-flutter/AGENTS.overlay.md`
-- `overlays/mobile-flutter/skills/index.md`
+- `overlays/python-service/README.md`
+- `overlays/web-frontend/README.md`
 
 ### Skill selection workflow
 
 1. define the feature outcome
-2. choose the smallest valid set of Flutter skills
+2. choose the smallest valid set of overlay-local skills
 3. read each chosen skill README
 4. use `skill.md` and prompt files to drive implementation
 5. review against the skill checklists
 6. update project memory with stable conventions
 
-### Typical combinations
+## Capability catalog
 
-- authenticated app shell: `flutter-auth` + `flutter-storage` + `flutter-networking`
-- location picker: `flutter-permissions` + `flutter-geolocation` + `flutter-maps`
-- notification-driven navigation: `flutter-push-notifications` + `flutter-deep-link`
-- public web release: `flutter-web-deployment` + `flutter-build-flavors` + `flutter-ci-cd-mobile`
+Overlay-local skill catalogs are grouped by the overlay maintainer. The foundation docs should point readers to the catalog instead of repeating the catalog shape.
 
-## Mobile Flutter catalog
-
-The overlay currently includes 23 skills grouped into:
-- Core
-- Product
-- Release
-- Device
-
-Use `overlays/mobile-flutter/skills/index.md` as the catalog entry point.
+Use the overlay-local index as the catalog entry point.
 
 ## Documentation discipline
 

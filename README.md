@@ -10,7 +10,7 @@ This repository is a foundation toolkit that can be reused across:
 - monorepos
 - internal engineering platforms
 
-It is intentionally not tied to mobile. Mobile is treated as an overlay, not the default identity of the toolkit.
+It is intentionally stack-neutral at the foundation layer. Stack-specific conventions belong in overlays, not in the root identity of the toolkit.
 
 ## Canonical references
 
@@ -22,50 +22,21 @@ It is intentionally not tied to mobile. Mobile is treated as an overlay, not the
 - Tutorial: `docs/tutorial.md`
 - Overlay strategy: `docs/overlays.md`
 
-## Mobile Flutter overlay status
+## Overlay catalog
 
-The mobile Flutter overlay now includes a structured catalog of 23 reusable capability skills under `overlays/mobile-flutter/skills/`.
+Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 
-### Mobile Flutter skill groups
-
-#### Core
-- `flutter-auth`
-- `flutter-permissions`
-- `flutter-geolocation`
-- `flutter-maps`
-- `flutter-storage`
-- `flutter-networking`
-- `flutter-deep-link`
-- `flutter-push-notifications`
-- `flutter-i18n-l10n`
-
-#### Product
-- `flutter-analytics`
-- `flutter-crash-reporting`
-- `flutter-feature-flags`
-- `flutter-offline-first`
-- `flutter-remote-config`
-
-#### Release
-- `flutter-web-deployment`
-- `flutter-build-flavors`
-- `flutter-app-signing-release`
-- `flutter-ci-cd-mobile`
-
-#### Device
-- `flutter-camera-media`
-- `flutter-file-upload-download`
-- `flutter-biometric-auth`
-- `flutter-background-tasks`
-- `flutter-contacts-sharing`
+- [backend-node](overlays/backend-node/README.md) - Node backend, API service, and job processor guidance
+- [mobile-flutter](overlays/mobile-flutter/README.md) - Flutter app guidance and capability skills
+- [python-service](overlays/python-service/README.md) - Python service, worker, and adapter guidance
+- [web-frontend](overlays/web-frontend/README.md) - Web UI and product frontend guidance
 
 ## Start here
 
 - `README_START_HERE.md`
 - `docs/how-to-use.md`
 - `docs/tutorial.md`
-- `overlays/mobile-flutter/README.md`
-- `overlays/mobile-flutter/skills/index.md`
+- `docs/overlays.md`
 
 ## Documentation
 
@@ -80,7 +51,8 @@ The mobile Flutter overlay now includes a structured catalog of 23 reusable capa
 ## Worked examples
 
 - `examples/worked_examples/foundation_feature_flow.md`
-- `overlays/mobile-flutter/examples/worked_example.md`
+
+Overlay-specific worked examples live under each overlay's own documentation and examples folder.
 
 ## License
 

@@ -2,7 +2,7 @@
 
 ## เป้าหมาย
 
-เรียนรู้การใช้ foundation ร่วมกับ Mobile Flutter overlay โดยไม่ทำให้ repository นี้กลายเป็น Flutter-only toolkit
+เรียนรู้การใช้ foundation ร่วมกับ overlay โดยไม่ทำให้ repository นี้กลายเป็น toolkit ที่ผูกกับ stack ใด stack หนึ่ง
 
 ## ขั้นตอนที่ 1: เริ่มจาก foundation
 
@@ -11,18 +11,16 @@
 - `docs/prompt-pipeline.md`
 - `docs/agent-team-system.md`
 
-## ขั้นตอนที่ 2: เข้า Flutter overlay
+## ขั้นตอนที่ 2: เข้า overlay ที่ใช้งานจริง
 
-อ่าน:
-- `overlays/mobile-flutter/README.md`
-- `overlays/mobile-flutter/AGENTS.overlay.md`
+อ่าน README และ `AGENTS.overlay.md` ของ overlay ที่ตรงกับ stack ที่ใช้งานจริง
 
 ## ขั้นตอนที่ 3: เลือกชุด skill
 
 ตัวอย่าง:
-- login flow: `flutter-auth`, `flutter-storage`, `flutter-networking`
-- map flow: `flutter-permissions`, `flutter-geolocation`, `flutter-maps`
-- release flow: `flutter-build-flavors`, `flutter-web-deployment`, `flutter-ci-cd-mobile`
+- เลือกชุด skill ภายใน overlay ที่น้อยที่สุดแต่เพียงพอ
+- จัดกลุ่ม capability ตาม catalog ของ overlay นั้น
+- อย่าสร้างสมมติฐานเฉพาะ stack เพิ่มใน foundation layer
 
 ## ขั้นตอนที่ 4: ใช้ skill หนึ่งตัวแบบครบวงจร
 

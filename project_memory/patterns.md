@@ -51,3 +51,11 @@
 - Pattern: Put internal workflow helpers under internal namespaces.
   When to use: when a repo needs shadow docs or team prompts that should not pollute the public root.
   When not to use: when the file is meant to be part of the public foundation contract.
+
+- Pattern: Keep root docs neutral about overlay scale.
+  When to use: when documenting an overlay from the foundation repository.
+  When not to use: when the file itself is overlay-local and needs the full capability inventory.
+
+- Pattern: Give overlay operational docs explicit names.
+  When to use: when a workflow doc or checklist explains how to use, validate, or govern an overlay.
+  When not to use: when preserving a legacy compatibility alias is the only goal.

@@ -1,12 +1,22 @@
 # Changelog
 
-> Note: v1.0.3 and v1.0.4 were both released on 2026-04-08 during the same working session. Earlier bootstrap iterations are preserved in `docs/releases/`.
+> Note: v1.0.3 and v1.0.4 were both released on 2026-04-08 during the same working session. v1.0.5 is the follow-up release on 2026-04-09. Earlier bootstrap iterations are preserved in `docs/releases/`.
 
 All notable changes to this repository should be documented in this file.
 
 ## [Unreleased]
 ### Changed
 - Reserved for upcoming changes.
+
+## [1.0.5] - 2026-04-09
+### Added
+- Added a release note for v1.0.5.
+
+### Changed
+- Rebalanced the root README family and start-here docs to keep the foundation layer stack-neutral.
+- Broadened the tutorial hub so service, web, and team tutorials are surfaced alongside the overlay guides.
+- Clarified the overlay-local workflow and validation docs for the Mobile Flutter overlay.
+- Refreshed the canonical tree manifest after adding the latest audit artifact.
 
 ## [1.0.4] - 2026-04-08
 ### Added

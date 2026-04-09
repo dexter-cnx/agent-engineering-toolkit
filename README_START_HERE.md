@@ -6,14 +6,14 @@ If you are new to this repository, use this order:
 2. Read `docs/how-to-use.md`.
 3. Read `docs/tutorial.md`.
 4. Read `docs/overlays.md`.
-5. If your target is Flutter, continue to:
-   - `overlays/mobile-flutter/README.md`
-   - `overlays/mobile-flutter/AGENTS.overlay.md`
-   - `overlays/mobile-flutter/skills/index.md`
+5. If your target is a specific overlay, continue to that overlay's:
+   - `README.md`
+   - `AGENTS.overlay.md`
+   - catalog or skill index, if provided
 
-## Mobile Flutter quick path
+## Overlay quick path
 
-For Flutter work:
+For any overlay:
 1. choose the overlay
 2. choose the minimum skill set
 3. use each skill `README.md` for orientation

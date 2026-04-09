@@ -2,7 +2,7 @@
 
 ## Goal
 
-Learn how to apply the foundation plus the Mobile Flutter overlay without turning the repository into a Flutter-only toolkit.
+Learn how to apply the foundation plus an overlay without turning the repository into a stack-specific toolkit.
 
 ## Step 1: Start from the foundation
 
@@ -11,18 +11,16 @@ Read:
 - `docs/prompt-pipeline.md`
 - `docs/agent-team-system.md`
 
-## Step 2: Enter the Flutter overlay
+## Step 2: Enter the target overlay
 
-Read:
-- `overlays/mobile-flutter/README.md`
-- `overlays/mobile-flutter/AGENTS.overlay.md`
+Read the overlay README and `AGENTS.overlay.md` for the stack you are actually using.
 
 ## Step 3: Choose a skill set
 
 Examples:
-- login flow: `flutter-auth`, `flutter-storage`, `flutter-networking`
-- map flow: `flutter-permissions`, `flutter-geolocation`, `flutter-maps`
-- release flow: `flutter-build-flavors`, `flutter-web-deployment`, `flutter-ci-cd-mobile`
+- choose the smallest valid set of overlay-local skills
+- keep capabilities grouped by the overlay's own catalog
+- avoid inventing new stack assumptions in the foundation layer
 
 ## Step 4: Use one skill end to end
 

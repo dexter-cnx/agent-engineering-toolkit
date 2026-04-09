@@ -9,17 +9,6 @@ Overlays extend the foundation toolkit with stack-specific specialization while 
 - python-service
 - web-frontend
 
-## Mobile Flutter overlay
+Each overlay keeps its own README, `AGENTS.overlay.md`, and any overlay-local catalog or workflow docs it needs.
 
-The Flutter overlay now includes a capability-based skill catalog with 23 reusable skills. Use:
-- `overlays/mobile-flutter/README.md`
-- `overlays/mobile-flutter/AGENTS.overlay.md`
-- `overlays/mobile-flutter/skills/index.md`
-
-The catalog is grouped into:
-- Core
-- Product
-- Release
-- Device
-
-Use capability skills to compose feature work instead of redefining the repository around a single application stack.
+Use overlay-local capability catalogs to compose feature work instead of redefining the repository around a single application stack.

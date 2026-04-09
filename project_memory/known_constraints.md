@@ -13,3 +13,5 @@
 - Foundation navigation pages should remain thin and should not duplicate stack-specific AGENTS templates.
 - Root onboarding docs must stay stack-neutral.
 - Internal helper docs and team prompt packs should live under internal namespaces, not at the public root.
+- Root-facing docs should not advertise overlay capability counts.
+- Overlay workflow and validation files should use descriptive filenames instead of generic pack labels.

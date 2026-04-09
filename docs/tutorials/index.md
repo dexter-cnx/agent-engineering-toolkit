@@ -4,14 +4,21 @@
 - `docs/how-to-use_TH.md`
 - `docs/tutorial_TH.md`
 
-## Mobile Flutter overlay
+## Overlay guides
+- `overlays/backend-node/README.md`
 - `overlays/mobile-flutter/README.md`
-- `overlays/mobile-flutter/AGENTS.overlay.md`
-- `overlays/mobile-flutter/skills/index.md`
+- `overlays/python-service/README.md`
+- `overlays/web-frontend/README.md`
 
-## Recommended first skills
-- `overlays/mobile-flutter/skills/flutter-auth/README.md`
-- `overlays/mobile-flutter/skills/flutter-storage/README.md`
-- `overlays/mobile-flutter/skills/flutter-networking/README.md`
-- `overlays/mobile-flutter/skills/flutter-permissions/README.md`
-- `overlays/mobile-flutter/skills/flutter-geolocation/README.md`
+## Service tutorials
+- `docs/tutorials/services/how-to-make-backend-node.md`
+- `docs/tutorials/services/how-to-make-python-service.md`
+
+## Web tutorials
+- `docs/tutorials/web/how-to-make-web-frontend.md`
+
+## Team tutorials
+- `docs/tutorials/team/how-to-use-team-agents.md`
+
+## Overlay-local catalogs
+- `overlays/mobile-flutter/skills/index.md`
