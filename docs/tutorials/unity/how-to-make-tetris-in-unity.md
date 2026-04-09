@@ -1,19 +1,19 @@
-# How to Make a Tetris Game in Unity
+# วิธีทำเกม Tetris ใน Unity
 
-## Goal
+## เป้าหมาย
 
-Build a playable Unity Tetris clone with a clean project structure, a bootstrap scene, Input System controls, and a minimal UI.
+สร้างเกม Tetris ที่เล่นได้ใน Unity โดยมีโครงสร้างโปรเจกต์ที่ชัดเจน, bootstrap scene, การควบคุมด้วย Input System, และ UI แบบเรียบง่าย
 
-## What you will build
+## สิ่งที่จะสร้าง
 
-- a stable Unity folder layout
-- a bootstrap scene that loads gameplay
-- a grid-based Tetris board
-- tetromino spawning, movement, rotation, and line clearing
-- a small score HUD
-- a verification checklist that catches obvious breakage
+- โครงสร้างโฟลเดอร์ Unity ที่มั่นคง
+- bootstrap scene ที่โหลดฉากเกม
+- กระดาน Tetris แบบกริด
+- การเกิด, เคลื่อนที่, หมุน, และลบแถวของ tetromino
+- HUD แสดงคะแนนขนาดเล็ก
+- checklist สำหรับตรวจหาความเสียหายที่เห็นได้ชัด
 
-## Skills used
+## skills ที่ใช้
 
 - `unity-project-structure`
 - `unity-scene-and-bootstrap`
@@ -23,15 +23,15 @@ Build a playable Unity Tetris clone with a clean project structure, a bootstrap 
 - `unity-ugui`
 - `unity-testing`
 
-## Prompt flow
+## ลำดับ prompt
 
-Use the new skill prompts as you work:
+ใช้ prompt ของ skill ไปตามลำดับขณะทำงาน:
 
 1. Run the project structure prompt from `overlays/unity/skills/unity-project-structure/prompts/add_project_structure.md`
 2. Run the startup prompt from `overlays/unity/skills/unity-scene-and-bootstrap/prompts/add_scene_and_bootstrap.md`
 3. Run the input prompt from `overlays/unity/skills/unity-input-system/prompts/add_input_system.md`
 
-Example instruction block:
+ตัวอย่างบล็อกคำสั่ง:
 
 ```text
 Follow AGENTS.md strictly.
@@ -53,11 +53,11 @@ Deliver:
 6. follow-up risks
 ```
 
-## Step 1: Create the project structure
+## ขั้นตอนที่ 1: สร้างโครงสร้างโปรเจกต์
 
-Follow `unity-project-structure`.
+ให้ทำตาม `unity-project-structure`
 
-Use a layout like:
+ใช้โครงแบบนี้:
 
 ```text
 Assets/_Project/
@@ -69,20 +69,20 @@ Assets/_Project/
   Tests/
 ```
 
-Recommended asmdefs:
+asmdef ที่แนะนำ:
 - `Tetris.Runtime`
 - `Tetris.Editor`
 - `Tetris.Tests`
 
-Keep namespaces aligned with those assemblies, for example `UnityTetris.Runtime` and `UnityTetris.UI`.
+ให้ namespaces สอดคล้องกับ assembly เหล่านั้น เช่น `UnityTetris.Runtime` และ `UnityTetris.UI`
 
-## Step 2: Create the scenes
+## ขั้นตอนที่ 2: สร้างฉาก
 
-Create two scenes:
+สร้าง 2 ฉาก:
 - `Bootstrap`
 - `Game`
 
-The bootstrap scene should do one job only: start the game scene.
+bootstrap scene ควรทำเพียงหน้าที่เดียว: เริ่มเกม scene
 
 ### Bootstrap scene hierarchy
 
@@ -113,14 +113,14 @@ namespace UnityTetris.Bootstrap
 }
 ```
 
-Why this shape:
-- startup code stays out of gameplay objects
-- scene loading is explicit
-- you can later add service registration without rewriting the game scene
+เหตุผลที่ใช้โครงแบบนี้:
+- โค้ดเริ่มต้นจะไม่ปนกับวัตถุ gameplay
+- การโหลด scene ชัดเจน
+- ในอนาคตสามารถเพิ่ม service registration ได้โดยไม่ต้องเขียนเกม scene ใหม่
 
-## Step 3: Add the tetromino library
+## ขั้นตอนที่ 3: เพิ่ม tetromino library
 
-This tutorial keeps shapes in code so the first playable version is easy to follow.
+tutorial นี้เก็บ shape ไว้ในโค้ดเพื่อให้เวอร์ชันเล่นได้แรกเริ่มทำตามได้ง่าย
 
 ### `TetrominoLibrary.cs`
 
@@ -198,9 +198,9 @@ namespace UnityTetris.Gameplay
 }
 ```
 
-## Step 4: Add the board model
+## ขั้นตอนที่ 4: เพิ่ม board model
 
-The board owns rule state. UI and visuals only reflect it.
+board เป็นเจ้าของ state ของกติกา ส่วน UI และ visuals มีหน้าที่สะท้อน state นั้นเท่านั้น
 
 ### `TetrisBoardModel.cs`
 
@@ -338,7 +338,7 @@ namespace UnityTetris.Gameplay
 }
 ```
 
-## Step 5: Add the runtime piece
+## ขั้นตอนที่ 5: เพิ่ม runtime piece
 
 ### `TetrisPiece.cs`
 
@@ -397,9 +397,9 @@ namespace UnityTetris.Gameplay
 }
 ```
 
-## Step 6: Add the Input System adapter
+## ขั้นตอนที่ 6: เพิ่ม adapter สำหรับ Input System
 
-Create an input actions asset with one action map named `Gameplay`.
+สร้าง input actions asset ที่มี action map ชื่อ `Gameplay`
 
 Actions:
 - `Move` as a `Vector2`
@@ -485,9 +485,9 @@ namespace UnityTetris.Input
 }
 ```
 
-## Step 7: Add the gameplay controller
+## ขั้นตอนที่ 7: เพิ่ม gameplay controller
 
-The controller owns game flow. It talks to the board model, input adapter, view, and HUD.
+controller เป็นเจ้าของ flow ของเกม และคุยกับ board model, input adapter, view, และ HUD
 
 ### `TetrisGameController.cs`
 
@@ -714,9 +714,9 @@ namespace UnityTetris.Gameplay
 }
 ```
 
-### Small correction for `TryMove`
+### ข้อแก้ไขเล็กน้อยสำหรับ `TryMove`
 
-The snippet above shows the control flow clearly, but in your project keep the move rollback simple:
+snippet ด้านบนช่วยให้เห็น control flow ชัดเจน แต่ในโปรเจกต์จริงควรทำ rollback ของการเคลื่อนที่ให้เรียบง่าย:
 
 ```csharp
 private bool TryMove(Vector2Int delta)
@@ -740,11 +740,11 @@ private bool TryMove(Vector2Int delta)
 }
 ```
 
-If you prefer cleaner code, store position and rotation separately before testing the move. That makes rollback easier to reason about than reconstructing the piece inline.
+ถ้าต้องการโค้ดที่อ่านง่ายกว่า ให้เก็บ position และ rotation แยกกันก่อนทดสอบการเคลื่อนที่ วิธีนี้ทำให้ rollback เข้าใจง่ายกว่าการสร้าง piece ใหม่แบบ inline
 
-## Step 8: Add the board view
+## ขั้นตอนที่ 8: เพิ่ม board view
 
-This view redraws the board whenever the model changes. That is simple and fine for a small Tetris game.
+view นี้ redraw board ทุกครั้งที่ model เปลี่ยน ซึ่งเป็นวิธีที่เรียบง่ายและเพียงพอสำหรับเกม Tetris ขนาดเล็ก
 
 ### `TetrisBoardView.cs`
 
@@ -799,7 +799,7 @@ namespace UnityTetris.Gameplay
 }
 ```
 
-## Step 9: Add the HUD
+## ขั้นตอนที่ 9: เพิ่ม HUD
 
 ### `TetrisHud.cs`
 
@@ -829,20 +829,20 @@ namespace UnityTetris.UI
 }
 ```
 
-If you do not want TextMeshPro yet, use `UnityEngine.UI.Text`. TextMeshPro is cleaner for most Unity projects.
+ถ้ายังไม่อยากใช้ TextMeshPro ให้ใช้ `UnityEngine.UI.Text` ไปก่อนก็ได้ แต่โดยทั่วไป TextMeshPro จะเหมาะกับโปรเจกต์ Unity มากกว่า
 
-## Step 10: Wire the scene
+## ขั้นตอนที่ 10: เชื่อมฉาก
 
-In the `Game` scene:
-- place a camera
-- place `TetrisGameController`
-- place `TetrisBoardView`
-- place `TetrisHud`
-- place `TetrisInputAdapter`
+ใน `Game` scene:
+- วาง camera
+- วาง `TetrisGameController`
+- วาง `TetrisBoardView`
+- วาง `TetrisHud`
+- วาง `TetrisInputAdapter`
 
 Create a simple square sprite prefab for the cells and assign it to `TetrisBoardView`.
 
-Recommended hierarchy:
+โครงสร้าง hierarchy ที่แนะนำ:
 
 ```text
 Game
@@ -853,11 +853,11 @@ Game
   - Hud
 ```
 
-## Step 11: Configure Input System actions
+## ขั้นตอนที่ 11: ตั้งค่า Input System actions
 
 Create `TetrisInputActions.inputactions`.
 
-Action map: `Gameplay`
+action map: `Gameplay`
 
 Actions:
 - `Move` - Value / Vector2
@@ -867,7 +867,7 @@ Actions:
 - `HardDrop` - Button
 - `Pause` - Button
 
-Suggested bindings:
+binding ที่แนะนำ:
 - Move: left/right arrows, A/D, gamepad left stick horizontal
 - RotateCW: X, Up Arrow, gamepad east button
 - RotateCCW: Z, gamepad west button
@@ -875,21 +875,21 @@ Suggested bindings:
 - HardDrop: Space, gamepad north button
 - Pause: Escape, Start
 
-Hook each `InputActionReference` into `TetrisInputAdapter`.
+เชื่อม `InputActionReference` แต่ละตัวเข้ากับ `TetrisInputAdapter`
 
-## Step 12: Add tests
+## ขั้นตอนที่ 12: เพิ่ม tests
 
-Add Edit Mode tests for:
+เพิ่ม Edit Mode tests สำหรับ:
 - `CanPlace`
 - `ClearFullLines`
 - rotation collision checks
 
-Add Play Mode checks for:
+เพิ่ม Play Mode checks สำหรับ:
 - bootstrap scene loads the game scene
 - a piece spawns
 - hard drop and line clear work
 
-## Minimal test example
+## ตัวอย่าง test แบบย่อ
 
 ```csharp
 using NUnit.Framework;
@@ -917,30 +917,30 @@ public sealed class TetrisBoardTests
 }
 ```
 
-## Verification checklist
+## checklist สำหรับตรวจสอบ
 
-- Bootstrap scene loads the gameplay scene.
-- Input actions reach the controller through a thin adapter.
-- The board model owns collision and line-clear logic.
-- The HUD only displays state.
-- A hard drop can lock a piece and clear a line.
-- Tests cover the parts that are easiest to break.
+- bootstrap scene โหลด gameplay scene ได้
+- input actions ส่งถึง controller ผ่าน adapter ที่บาง
+- board model เป็นเจ้าของ logic เรื่อง collision และ line-clear
+- HUD แสดง state เท่านั้น
+- hard drop สามารถล็อก piece และลบแถวได้
+- tests ครอบคลุมส่วนที่พังง่ายที่สุด
 
-## Why this layout works
+## ทำไมโครงแบบนี้ถึงใช้ได้ผล
 
-- `unity-project-structure` keeps the repository from turning into an ad hoc scene dump
-- `unity-scene-and-bootstrap` keeps startup flow separate from gameplay
-- `unity-input-system` keeps control wiring away from game rules
-- `unity-state-machine` keeps game flow understandable
-- `unity-ugui` keeps the HUD thin
-- `unity-testing` gives you a safety net before you start polishing
+- `unity-project-structure` ช่วยไม่ให้ repository กลายเป็นกอง scene แบบกระจัดกระจาย
+- `unity-scene-and-bootstrap` ช่วยแยก flow ตอนเริ่มต้นออกจาก gameplay
+- `unity-input-system` ช่วยแยกการต่อสาย control ออกจากกติกาของเกม
+- `unity-state-machine` ทำให้ flow ของเกมเข้าใจง่าย
+- `unity-ugui` ทำให้ HUD บางและไม่แบก logic มากเกินไป
+- `unity-testing` ให้ safety net ก่อนเริ่มเก็บรายละเอียด
 
-## Next improvements
+## สิ่งที่ควรเพิ่มต่อ
 
-Once the core loop works, add:
+เมื่อ core loop ใช้งานได้แล้ว ค่อยเพิ่ม:
 - hold piece
 - ghost piece
 - pause menu
 - sound effects
 - object pooling
-- addressable art
+- art แบบ addressable

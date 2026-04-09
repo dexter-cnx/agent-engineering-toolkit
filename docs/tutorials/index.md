@@ -1,29 +1,29 @@
-# Tutorial Hub
+# ศูนย์รวมบทสอน
 
-## Foundation
+## พื้นฐาน
 - `docs/how-to-use_TH.md`
 - `docs/tutorial_TH.md`
 
-## Overlay guides
+## คู่มือ overlay
 - `overlays/backend-node/README.md`
 - `overlays/mobile-flutter/README.md`
 - `overlays/unity/README.md`
 - `overlays/python-service/README.md`
 - `overlays/web-frontend/README.md`
 
-## Unity tutorials
+## บทสอน Unity
 - `docs/tutorials/unity/index.md`
 
-## Service tutorials
+## บทสอนบริการ
 - `docs/tutorials/services/how-to-make-backend-node.md`
 - `docs/tutorials/services/how-to-make-python-service.md`
 
-## Web tutorials
+## บทสอนเว็บ
 - `docs/tutorials/web/how-to-make-web-frontend.md`
 
-## Team tutorials
+## บทสอนทีม
 - `docs/tutorials/team/how-to-use-team-agents.md`
 
-## Overlay-local catalogs
+## catalog ภายใน overlay
 - `overlays/mobile-flutter/skills/index.md`
 - `overlays/unity/skills/index.md`

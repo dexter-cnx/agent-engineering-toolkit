@@ -9,18 +9,17 @@ aliases:
   - Examples Hub
 ---
 
-# Tutorial Examples
+# ตัวอย่างประกอบบทสอน
 
-Use this folder as the entry point for reusable tutorial examples.
+ใช้โฟลเดอร์นี้เป็นจุดเริ่มต้นของตัวอย่างบทสอนที่นำกลับมาใช้ซ้ำได้
 
-## Sections
+## ส่วนย่อย
 
-- [Example patterns](./patterns/index.md)
-- [Example templates](./templates/index.md)
+- [รูปแบบตัวอย่าง](./patterns/index.md)
+- [เทมเพลตตัวอย่าง](./templates/index.md)
 
-## What belongs here
+## สิ่งที่ควรอยู่ในโฟลเดอร์นี้
 
-- reusable examples
-- copy-paste templates
-- rollout notes
-
+- ตัวอย่างที่นำกลับมาใช้ซ้ำได้
+- เทมเพลตที่คัดลอกไปใช้ต่อได้
+- บันทึกการ rollout

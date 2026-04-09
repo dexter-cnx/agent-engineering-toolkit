@@ -9,17 +9,17 @@ aliases:
   - Tutorial Example Templates
 ---
 
-# Example Templates
+# เทมเพลตตัวอย่าง
 
-Use this folder for copy-paste-ready files.
+ใช้โฟลเดอร์นี้สำหรับไฟล์ที่พร้อมคัดลอกไปใช้ต่อ
 
-## Related patterns
+## รูปแบบที่เกี่ยวข้อง
 
-- [Design usage patterns](../patterns/design/index.md)
+- [รูปแบบการใช้ DESIGN.md](../patterns/design/index.md)
 
-## Current templates
+## เทมเพลตปัจจุบัน
 
-- [Flutter DESIGN.md template](./flutter/design-md-flutter-template.md)
-- [Flutter DESIGN.md template EN](./flutter/design-md-flutter-template_EN.md)
-- [Web Frontend DESIGN.md template](./web/design-md-web-frontend-template.md)
-- [Web Frontend DESIGN.md template EN](./web/design-md-web-frontend-template_EN.md)
+- [เทมเพลต DESIGN.md สำหรับ Flutter](./flutter/design-md-flutter-template.md)
+- [เทมเพลต DESIGN.md สำหรับ Flutter EN](./flutter/design-md-flutter-template_EN.md)
+- [เทมเพลต DESIGN.md สำหรับ Web Frontend](./web/design-md-web-frontend-template.md)
+- [เทมเพลต DESIGN.md สำหรับ Web Frontend EN](./web/design-md-web-frontend-template_EN.md)

@@ -9,26 +9,25 @@ aliases:
   - Tutorial Example Patterns
 ---
 
-# Example Patterns
+# รูปแบบตัวอย่าง
 
-Use this folder for reusable patterns, rules of thumb, and "when to use" notes.
+ใช้โฟลเดอร์นี้สำหรับรูปแบบที่นำกลับมาใช้ซ้ำได้, กฎง่าย ๆ, และบันทึกประเภท “ควรใช้เมื่อไร”
 
-## Sections
+## ส่วนย่อย
 
-- [Adoption patterns](./adoption/index.md)
-- [Prompting patterns](./prompting/index.md)
-- [Design usage patterns](./design/index.md)
+- [รูปแบบการนำ toolkit ไปใช้](./adoption/index.md)
+- [รูปแบบการตั้ง prompt](./prompting/index.md)
+- [รูปแบบการใช้ DESIGN.md](./design/index.md)
 
-## What belongs here
+## สิ่งที่ควรอยู่ในโฟลเดอร์นี้
 
-- adoption patterns
-- rollout patterns
-- prompt-shaping patterns
-- design-usage patterns
+- รูปแบบการนำไปใช้
+- รูปแบบการ rollout
+- รูปแบบการปรับ prompt
+- รูปแบบการใช้ design
 
-## What does not belong here
+## สิ่งที่ไม่ควรอยู่ในโฟลเดอร์นี้
 
-- copy-paste templates
-- full scaffold files
-- project-specific examples that should live in overlays
-
+- เทมเพลตสำหรับคัดลอกไปใช้ต่อ
+- ไฟล์ scaffold แบบเต็ม
+- ตัวอย่างเฉพาะโปรเจกต์ที่ควรอยู่ใน overlay
