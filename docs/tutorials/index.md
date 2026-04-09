@@ -7,8 +7,12 @@
 ## Overlay guides
 - `overlays/backend-node/README.md`
 - `overlays/mobile-flutter/README.md`
+- `overlays/unity/README.md`
 - `overlays/python-service/README.md`
 - `overlays/web-frontend/README.md`
+
+## Unity tutorials
+- `docs/tutorials/unity/index.md`
 
 ## Service tutorials
 - `docs/tutorials/services/how-to-make-backend-node.md`
@@ -22,3 +26,4 @@
 
 ## Overlay-local catalogs
 - `overlays/mobile-flutter/skills/index.md`
+- `overlays/unity/skills/index.md`

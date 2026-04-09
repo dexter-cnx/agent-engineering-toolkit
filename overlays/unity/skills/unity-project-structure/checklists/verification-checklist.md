@@ -1,0 +1,5 @@
+- [ ] Folders exist where documentation says they should
+- [ ] asmdef boundaries are easy to explain
+- [ ] Namespaces match ownership and assembly boundaries
+- [ ] No scene-only assumptions leak into the project root rules
+- [ ] Risks are documented if the structure is still provisional

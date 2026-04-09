@@ -1,0 +1,5 @@
+- [ ] Project root layout chosen and documented
+- [ ] Folder ownership is explicit
+- [ ] Runtime, editor, and test asmdefs are planned
+- [ ] Namespace convention matches the folder structure
+- [ ] No feature code is left without an ownership boundary

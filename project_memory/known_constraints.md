@@ -15,3 +15,5 @@
 - Internal helper docs and team prompt packs should live under internal namespaces, not at the public root.
 - Root-facing docs should not advertise overlay capability counts.
 - Overlay workflow and validation files should use descriptive filenames instead of generic pack labels.
+- Unity overlay guidance should stay under `overlays/unity/` and keep UI implementation separate as `unity-ugui` and `unity-ui-toolkit`.
+- Unity tutorial content should live under `docs/tutorials/unity/`, with worked examples under `overlays/unity/examples/`.

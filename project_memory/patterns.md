@@ -59,3 +59,11 @@
 - Pattern: Give overlay operational docs explicit names.
   When to use: when a workflow doc or checklist explains how to use, validate, or govern an overlay.
   When not to use: when preserving a legacy compatibility alias is the only goal.
+
+- Pattern: Keep Unity skill catalogs README-first and capability-scoped.
+  When to use: when an overlay needs Unity-specific guidance without overloading the foundation layer.
+  When not to use: when the file is a generic foundation doc or a cross-stack policy.
+
+- Pattern: Pair Unity tutorials with overlay worked examples.
+  When to use: when a Unity tutorial needs both a human-readable walkthrough and a reusable overlay example.
+  When not to use: when the content is only an overlay rule or a foundation-wide tutorial.

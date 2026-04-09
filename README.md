@@ -28,6 +28,7 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 
 - [backend-node](overlays/backend-node/README.md) - Node backend, API service, and job processor guidance
 - [mobile-flutter](overlays/mobile-flutter/README.md) - Flutter app guidance and capability skills
+- [unity](overlays/unity/README.md) - Unity project structure, runtime, and delivery skills
 - [python-service](overlays/python-service/README.md) - Python service, worker, and adapter guidance
 - [web-frontend](overlays/web-frontend/README.md) - Web UI and product frontend guidance
 

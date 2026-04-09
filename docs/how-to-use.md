@@ -19,6 +19,7 @@ Use the overlay that matches the stack or capability you are working on, then re
 Current overlays:
 - `overlays/backend-node/README.md`
 - `overlays/mobile-flutter/README.md`
+- `overlays/unity/README.md`
 - `overlays/python-service/README.md`
 - `overlays/web-frontend/README.md`
 

@@ -1,0 +1,5 @@
+- [ ] Move / rotate / drop actions exist
+- [ ] Input callbacks reach gameplay through a thin seam
+- [ ] Keyboard, mouse, gamepad, and touch are considered where relevant
+- [ ] Rebinding has a documented workflow
+- [ ] No direct input code leaks into unrelated systems

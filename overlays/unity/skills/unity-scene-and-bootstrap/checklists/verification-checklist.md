@@ -1,0 +1,5 @@
+- [ ] Bootstrap scene loads the right gameplay scene
+- [ ] Services are available before gameplay starts
+- [ ] Failure and fallback behavior are documented
+- [ ] No startup logic is duplicated in unrelated scenes
+- [ ] Load order is reproducible in editor and build
