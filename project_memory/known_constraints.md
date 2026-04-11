@@ -17,3 +17,4 @@
 - Overlay workflow and validation files should use descriptive filenames instead of generic pack labels.
 - Unity overlay guidance should stay under `overlays/unity/` and keep UI implementation separate as `unity-ugui` and `unity-ui-toolkit`.
 - Unity tutorial content should live under `docs/tutorials/unity/`, with worked examples under `overlays/unity/examples/`.
+- The toolkit-i18n CLI must stay safe by default: generated JSON goes to a requested output directory only, and source CSV files are never mutated implicitly.

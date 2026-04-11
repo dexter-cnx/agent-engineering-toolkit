@@ -29,6 +29,8 @@ Returns:
 - runtime assumptions
 - basic environment readiness
 
+Supports `--json` for compact machine-readable output.
+
 ### validate
 
 Returns compact findings such as:
@@ -38,19 +40,28 @@ Returns compact findings such as:
 - empty values by language
 - malformed rows
 
+Use `--json` in agent workflows so the output stays easy to parse.
+
 ### diff
 
 Returns compact summary of what would be generated.
 
+Includes the expected per-language output file names and row counts.
+
 ### generate
 
 Writes per-language JSON files to the target output directory and reports the file paths.
+
+Uses dotted keys to build nested JSON objects.
+
+Supports `--json` for compact machine-readable output.
 
 ## Safety rules
 
 - no implicit overwrite of source-of-truth CSV
 - generated files go to the requested output directory
 - no live mutation unless an explicit apply-style command is added later
+- dotted keys must remain nested in output JSON
 
 ## Verification requirements
 

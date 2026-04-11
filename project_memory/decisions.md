@@ -84,3 +84,8 @@
   Decision: The first Unity game tutorial for this repo lives at `docs/tutorials/unity/how-to-make-tetris-in-unity.md` with a matching EN file and an overlay worked example.
   Why: Gives Unity tutorial content a clear home while keeping the overlay example reusable.
   Consequence: Future Unity tutorial additions should follow the same docs/tutorials/unity pattern and keep examples under `overlays/unity/examples/`.
+
+- Date: 2026-04-11
+  Decision: `tools/toolkit-i18n` is implemented as a reusable PATH-friendly wrapper over a stdlib Python CLI with `doctor`, `validate`, `diff`, and `generate` subcommands.
+  Why: Keeps localization workflows repeatable, compact, and easy to invoke from outside the source folder.
+  Consequence: Future toolkit-i18n changes should preserve the non-interactive surface, compact JSON/text output, and explicit target-directory writes.

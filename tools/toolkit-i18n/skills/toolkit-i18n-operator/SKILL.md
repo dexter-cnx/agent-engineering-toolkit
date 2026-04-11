@@ -20,6 +20,7 @@ Use this skill when the task involves Flutter localization files generated from 
 - prefer structured output where practical
 - write generated language files to a target directory
 - always report generated file paths
+- dotted keys should become nested JSON objects
 
 # Safety
 

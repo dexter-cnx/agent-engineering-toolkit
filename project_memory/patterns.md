@@ -67,3 +67,7 @@
 - Pattern: Pair Unity tutorials with overlay worked examples.
   When to use: when a Unity tutorial needs both a human-readable walkthrough and a reusable overlay example.
   When not to use: when the content is only an overlay rule or a foundation-wide tutorial.
+
+- Pattern: Keep reusable CLIs PATH-friendly and documented from outside the source folder.
+  When to use: when a repeatable workflow is turned into a shared CLI for agent use.
+  When not to use: when the command is only intended as a local throwaway script.
