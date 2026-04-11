@@ -12,12 +12,16 @@ Execution order:
 1. `toolkit-i18n doctor`
 2. `toolkit-i18n validate <csv-path> --json`
 3. `toolkit-i18n diff <csv-path> --json`
-4. `toolkit-i18n generate <csv-path> --output <dir>`
+4. `toolkit-i18n keys list <csv-path> --json`
+5. `toolkit-i18n keys diff --used-file <file> --translations <csv-path> --json`
+6. `toolkit-i18n coverage --used-file <file> --translations <csv-path> --json`
+7. `toolkit-i18n generate <csv-path> --output <dir>`
 
 Rules:
 
 - keep stdout compact
 - summarize only the highest-signal issues
+- compare architecture-exported used keys when available
 - report generated file paths
 - do not perform any live write step unless explicitly requested
 

@@ -1,6 +1,6 @@
 ---
 name: toolkit-i18n-operator
-description: Use the toolkit-i18n CLI for repeated Flutter localization workflows with compact outputs, CSV validation, generated JSON exports, and safe non-mutating behavior.
+description: Use the toolkit-i18n CLI for repeated Flutter localization workflows with compact outputs, CSV validation, key coverage reporting, generated JSON exports, and safe non-mutating behavior.
 ---
 
 # When to use
@@ -12,7 +12,10 @@ Use this skill when the task involves Flutter localization files generated from 
 1. `toolkit-i18n doctor`
 2. `toolkit-i18n validate <csv-path> --json`
 3. `toolkit-i18n diff <csv-path> --json`
-4. `toolkit-i18n generate <csv-path> --output <dir>`
+4. `toolkit-i18n keys list <csv-path> --json`
+5. `toolkit-i18n keys diff --used-file <file> --translations <csv-path> --json`
+6. `toolkit-i18n coverage --used-file <file> --translations <csv-path> --json`
+7. `toolkit-i18n generate <csv-path> --output <dir>`
 
 # Output rules
 
@@ -21,6 +24,7 @@ Use this skill when the task involves Flutter localization files generated from 
 - write generated language files to a target directory
 - always report generated file paths
 - dotted keys should become nested JSON objects
+- compare used keys from `toolkit-arch i18n-usage` when available
 
 # Safety
 

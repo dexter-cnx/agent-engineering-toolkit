@@ -6,7 +6,7 @@ from typing import Any
 
 
 def print_json(data: Any) -> None:
-    print(json.dumps(data, ensure_ascii=False, indent=2))
+    print(json.dumps(data, ensure_ascii=False, separators=(",", ":")))
 
 
 def ensure_output_parent(path: Path) -> None:

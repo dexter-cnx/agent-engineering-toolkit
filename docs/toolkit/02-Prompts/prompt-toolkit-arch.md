@@ -1,1 +1,0 @@
-Use toolkit-arch. Scan repo and report top violations.

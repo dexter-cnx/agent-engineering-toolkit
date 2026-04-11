@@ -1,0 +1,148 @@
+{
+  "tool": "toolkit-arch",
+  "command": "i18n-usage",
+  "target": ".",
+  "status": "ok",
+  "dart_files_scanned": 4,
+  "match_count": 7,
+  "unique_key_count": 6,
+  "pattern_counts": {
+    "tr()": 3,
+    "context.tr": 2,
+    "string.tr": 1,
+    "LocaleKeys": 1
+  },
+  "used_keys": [
+    "auth.login.button",
+    "data.secret",
+    "domain.forbidden",
+    "home.title",
+    "home.subtitle",
+    "shared.tooltip"
+  ],
+  "used_key_details": [
+    {
+      "key": "auth.login.button",
+      "first_seen": {
+        "file": "samples/flutter_quality/lib/application/home_view_model.dart",
+        "line": 3
+      }
+    },
+    {
+      "key": "data.secret",
+      "first_seen": {
+        "file": "samples/flutter_quality/lib/data/home_repository.dart",
+        "line": 3
+      }
+    },
+    {
+      "key": "domain.forbidden",
+      "first_seen": {
+        "file": "samples/flutter_quality/lib/domain/home_entity.dart",
+        "line": 3
+      }
+    },
+    {
+      "key": "home.title",
+      "first_seen": {
+        "file": "samples/flutter_quality/lib/presentation/home_page.dart",
+        "line": 3
+      }
+    },
+    {
+      "key": "home.subtitle",
+      "first_seen": {
+        "file": "samples/flutter_quality/lib/presentation/home_page.dart",
+        "line": 4
+      }
+    },
+    {
+      "key": "shared.tooltip",
+      "first_seen": {
+        "file": "samples/flutter_quality/lib/presentation/home_page.dart",
+        "line": 5
+      }
+    }
+  ],
+  "matches": [
+    {
+      "file": "samples/flutter_quality/lib/application/home_view_model.dart",
+      "layer": "application",
+      "line": 3,
+      "column": 19,
+      "pattern": "tr()",
+      "raw_key": "auth.login.button",
+      "key": "auth.login.button",
+      "source": "tr(\"auth.login.button\")"
+    },
+    {
+      "file": "samples/flutter_quality/lib/data/home_repository.dart",
+      "layer": "data",
+      "line": 3,
+      "column": 21,
+      "pattern": "context.tr",
+      "raw_key": "data.secret",
+      "key": "data.secret",
+      "source": "context.tr(\"data.secret\")"
+    },
+    {
+      "file": "samples/flutter_quality/lib/domain/home_entity.dart",
+      "layer": "domain",
+      "line": 3,
+      "column": 21,
+      "pattern": "tr()",
+      "raw_key": "domain.forbidden",
+      "key": "domain.forbidden",
+      "source": "tr(\"domain.forbidden\")"
+    },
+    {
+      "file": "samples/flutter_quality/lib/presentation/home_page.dart",
+      "layer": "presentation",
+      "line": 3,
+      "column": 19,
+      "pattern": "context.tr",
+      "raw_key": "home.title",
+      "key": "home.title",
+      "source": "context.tr(\"home.title\")"
+    },
+    {
+      "file": "samples/flutter_quality/lib/presentation/home_page.dart",
+      "layer": "presentation",
+      "line": 4,
+      "column": 22,
+      "pattern": "string.tr",
+      "raw_key": "home.subtitle",
+      "key": "home.subtitle",
+      "source": "\"home.subtitle\".tr"
+    },
+    {
+      "file": "samples/flutter_quality/lib/presentation/home_page.dart",
+      "layer": "presentation",
+      "line": 5,
+      "column": 21,
+      "pattern": "tr()",
+      "raw_key": "shared.tooltip",
+      "key": "shared.tooltip",
+      "source": "tr(\"shared.tooltip\")"
+    },
+    {
+      "file": "samples/flutter_quality/lib/presentation/home_page.dart",
+      "layer": "presentation",
+      "line": 6,
+      "column": 19,
+      "pattern": "LocaleKeys",
+      "raw_key": "home_title",
+      "key": "home.title",
+      "source": "LocaleKeys.home_title"
+    }
+  ],
+  "layer_counts": {
+    "presentation": 4,
+    "application": 1,
+    "controller": 0,
+    "viewmodel": 0,
+    "domain": 1,
+    "data": 1,
+    "other": 0
+  }
+}

@@ -10,6 +10,9 @@ Validate and generate localization outputs from a CSV source of truth for Flutte
 - `toolkit-i18n validate <csv-path> --json`
 - `toolkit-i18n diff <csv-path> --json`
 - `toolkit-i18n generate <csv-path> --output <dir>`
+- `toolkit-i18n keys list <csv-path> --json`
+- `toolkit-i18n keys diff --used-file <file> --translations <csv-path> --json`
+- `toolkit-i18n coverage --used-file <file> --translations <csv-path> --json`
 
 ## Input expectations
 
@@ -55,6 +58,27 @@ Writes per-language JSON files to the target output directory and reports the fi
 Uses dotted keys to build nested JSON objects.
 
 Supports `--json` for compact machine-readable output.
+
+### keys list
+
+Returns the unique keys defined in `translations.csv`.
+
+Use `--output` when the full key list is large.
+
+### keys diff
+
+Compares used localization keys exported by `toolkit-arch i18n-usage` against `translations.csv`.
+
+Returns missing keys, unused keys, and matched keys in compact form.
+
+The preferred flags are `--used-file` and `--translations`. Legacy aliases may
+still be accepted for compatibility.
+
+### coverage
+
+Summarizes defined, used, missing, unused, and feature coverage.
+
+Supports the same `--used-file` JSON input as `keys diff`.
 
 ## Safety rules
 

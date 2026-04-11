@@ -1,1 +1,0 @@
-Use toolkit-design. Validate and generate Flutter tokens.

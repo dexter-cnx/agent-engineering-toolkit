@@ -1,3 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-python -m toolkit_arch.cli "$@"
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+PYTHON_BIN="${PYTHON_BIN:-python3}"
+
+export PYTHONPATH="${ROOT_DIR}/src${PYTHONPATH:+:${PYTHONPATH}}"
+
+exec "${PYTHON_BIN}" -m toolkit_arch.cli "$@"

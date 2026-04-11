@@ -19,6 +19,9 @@ Initial target workflow:
 - `toolkit-i18n validate <csv-path> --json`
 - `toolkit-i18n diff <csv-path> --json`
 - `toolkit-i18n generate <csv-path> --output <dir>`
+- `toolkit-i18n keys list <csv-path> --json`
+- `toolkit-i18n keys diff --used-file <file> --translations <csv-path> --json`
+- `toolkit-i18n coverage --used-file <file> --translations <csv-path> --json`
 
 ## Run from any folder
 
@@ -35,6 +38,9 @@ toolkit-i18n doctor
 toolkit-i18n validate assets/i18n/translations.csv --json
 toolkit-i18n diff assets/i18n/translations.csv --json
 toolkit-i18n generate assets/i18n/translations.csv --output artifacts/i18n/
+toolkit-i18n keys list assets/i18n/translations.csv --json
+toolkit-i18n keys diff --used-file artifacts/i18n-used-keys.json --translations assets/i18n/translations.csv --json
+toolkit-i18n coverage --used-file artifacts/i18n-used-keys.json --translations assets/i18n/translations.csv --json
 ```
 ```
 
@@ -46,6 +52,8 @@ toolkit-i18n generate assets/i18n/translations.csv --output artifacts/i18n/
 - safe by default
 - output files written to a target directory instead of mutating source files silently
 - dotted keys become nested JSON objects
+- used keys exported by `toolkit-arch i18n-usage` can be diffed against `translations.csv`
+- `--used-file` and `--translations` are the preferred flags for cross-tool coverage workflows
 
 ## Typical usage
 
