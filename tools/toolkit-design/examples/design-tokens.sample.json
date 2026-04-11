@@ -1,0 +1,8 @@
+{
+  "color": {
+    "primary": { "value": "#3366FF", "type": "color" }
+  },
+  "spacing": {
+    "md": { "value": 16, "type": "dimension" }
+  }
+}
