@@ -1,9 +1,9 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../controllers/auth_controller.dart';
+import '../../../../app/router/route_names.dart';
+import '../providers/auth_providers.dart';
 
 class LoginPage extends ConsumerStatefulWidget {
   const LoginPage({super.key});
@@ -14,61 +14,50 @@ class LoginPage extends ConsumerStatefulWidget {
 
 class _LoginPageState extends ConsumerState<LoginPage> {
   final _emailController = TextEditingController(text: 'demo@example.com');
-  final _passwordController = TextEditingController(text: 'password123');
-
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
-  }
+  final _passwordController = TextEditingController(text: 'secret');
+  bool _submitting = false;
 
   @override
   Widget build(BuildContext context) {
-    final authState = ref.watch(authControllerProvider);
-
-    ref.listen(authControllerProvider, (previous, next) {
-      if (next.isAuthenticated && context.mounted) {
-        context.go('/');
-      }
-    });
-
     return Scaffold(
-      appBar: AppBar(title: Text('login_title'.tr())),
+      appBar: AppBar(title: const Text('Login')),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextField(
               controller: _emailController,
-              decoration: InputDecoration(labelText: 'email_label'.tr()),
+              decoration: const InputDecoration(labelText: 'Email'),
             ),
-            const SizedBox(height: 12),
             TextField(
               controller: _passwordController,
+              decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
-              decoration: InputDecoration(labelText: 'password_label'.tr()),
             ),
             const SizedBox(height: 16),
             FilledButton(
-              onPressed: authState.isLoading
-                  ? null
-                  : () => ref.read(authControllerProvider.notifier).signIn(
-                        email: _emailController.text.trim(),
-                        password: _passwordController.text,
-                      ),
-              child: Text(
-                authState.isLoading ? 'loading_label'.tr() : 'login_cta'.tr(),
-              ),
+              onPressed: _submitting ? null : _submit,
+              child: Text(_submitting ? 'Loading...' : 'Sign in'),
             ),
-            if (authState.errorMessage != null) ...[
-              const SizedBox(height: 12),
-              Text(authState.errorMessage!.tr()),
-            ],
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _submit() async {
+    setState(() => _submitting = true);
+    try {
+      await ref.read(signInWithEmailProvider).call(
+            email: _emailController.text.trim(),
+            password: _passwordController.text,
+          );
+      if (!mounted) return;
+      context.go(RouteNames.home);
+    } finally {
+      if (mounted) {
+        setState(() => _submitting = false);
+      }
+    }
   }
 }

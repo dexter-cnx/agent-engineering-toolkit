@@ -1,20 +1,17 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../features/auth/presentation/pages/login_page.dart';
-import '../../features/home/presentation/pages/home_page.dart';
+import 'route_names.dart';
+import 'route_registry.dart';
 
-final appRouterProvider = Provider<GoRouter>((ref) {
+GoRouter createAppRouter() {
   return GoRouter(
-    routes: [
-      GoRoute(
-        path: '/',
-        builder: (context, state) => const HomePage(),
+    initialLocation: RouteNames.home,
+    routes: buildAppRoutes(),
+    errorBuilder: (context, state) => Scaffold(
+      body: Center(
+        child: Text('Route error: ${state.uri}'),
       ),
-      GoRoute(
-        path: '/login',
-        builder: (context, state) => const LoginPage(),
-      ),
-    ],
+    ),
   );
-});
+}

@@ -1,13 +1,5 @@
 key,en,th
-home_title,Home,หน้าหลัก
-welcome_message,You have {} pending tasks,คุณมีงานค้าง {} งาน
-login_title,Sign in,เข้าสู่ระบบ
-email_label,Email,อีเมล
-password_label,Password,รหัสผ่าน
-login_cta,Sign in,เข้าสู่ระบบ
-logout_cta,Sign out,ออกจากระบบ
-loading_label,Loading...,กำลังโหลด...
-login_failed,Login failed,เข้าสู่ระบบไม่สำเร็จ
-auth_feature_title,Authentication demo,ตัวอย่างระบบยืนยันตัวตน
-auth_feature_subtitle,Open the mock login flow,เปิด flow เข้าสู่ระบบแบบ mock
-generic_error,Something went wrong,เกิดข้อผิดพลาดบางอย่าง
+app.title,Starter App,แอปเริ่มต้น
+home.title,Home,หน้าหลัก
+login.title,Login,เข้าสู่ระบบ
+map.title,Map,แผนที่

@@ -1,59 +1,35 @@
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../auth/presentation/controllers/auth_controller.dart';
-import '../controllers/home_controller.dart';
+import '../../../../app/router/route_names.dart';
 
-class HomePage extends ConsumerWidget {
+class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final summaryAsync = ref.watch(homeControllerProvider);
-    final authState = ref.watch(authControllerProvider);
-
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('home_title'.tr()),
-        actions: [
-          if (authState.isAuthenticated)
-            IconButton(
-              onPressed: () => ref.read(authControllerProvider.notifier).signOut(),
-              icon: const Icon(Icons.logout),
-              tooltip: 'logout_cta'.tr(),
-            )
-          else
-            TextButton(
-              onPressed: () => context.go('/login'),
-              child: Text('login_cta'.tr()),
-            ),
-        ],
-      ),
+      appBar: AppBar(title: const Text('Home')),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: summaryAsync.when(
-          data: (summary) => Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(summary.title, style: Theme.of(context).textTheme.headlineSmall),
-              const SizedBox(height: 8),
-              Text('welcome_message'.tr(args: [summary.pendingTasks.toString()])),
-              const SizedBox(height: 24),
-              Card(
-                child: ListTile(
-                  leading: const Icon(Icons.login),
-                  title: Text('auth_feature_title'.tr()),
-                  subtitle: Text('auth_feature_subtitle'.tr()),
-                  trailing: const Icon(Icons.chevron_right),
-                  onTap: () => context.go('/login'),
-                ),
-              ),
-            ],
-          ),
-          error: (error, stack) => Center(child: Text('generic_error'.tr())),
-          loading: () => const Center(child: CircularProgressIndicator()),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const Text(
+              'Starter dashboard',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 16),
+            FilledButton(
+              onPressed: () => context.go(RouteNames.map),
+              child: const Text('Open map'),
+            ),
+            const SizedBox(height: 12),
+            OutlinedButton(
+              onPressed: () => context.go(RouteNames.login),
+              child: const Text('Go to login'),
+            ),
+          ],
         ),
       ),
     );

@@ -87,3 +87,23 @@ Beyond the skill catalog, this overlay now also includes:
 - Mock auth and home sample features
 - CSV-to-JSON localization generator
 - Stricter starter CI with policy checks
+
+## Phase 5 additions
+
+This pack now also includes integration templates for Firebase auth, push notifications, customer visit maps, environment config, and a lightweight feature generator script under `starter-app-template/scripts/`.
+
+
+## Added in Phase 8
+- Flutter Web loading integration pack
+- `flutter-web-loading-production` skill
+- starter `web/` baseline in the starter app
+- reusable web loader templates from the uploaded pack
+
+
+## Added in Phase 9
+- Flutter web deployment skill
+- Web build GitHub Actions workflow
+- GitHub Pages example workflow
+- apply-web-loader patch script
+- bootstrap shell script
+- web deployment checklist and hosting notes

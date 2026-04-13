@@ -2,6 +2,6 @@ include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
-    avoid_print: true
-    prefer_final_locals: true
     prefer_single_quotes: true
+    avoid_print: true
+    directives_ordering: true

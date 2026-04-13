@@ -15,10 +15,3 @@ This package now includes the first repo-specific acceleration layer:
 4. offline sync specialization
 5. analytics/event taxonomy policy
 6. environment/flavor policy skill
-
-
-## Phase 3 additions
-- flutter-auth-firebase-production
-- flutter-maps-routing-production
-- flutter-notifications-fcm-production
-- starter-app-template/
