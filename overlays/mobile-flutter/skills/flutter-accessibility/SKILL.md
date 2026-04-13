@@ -1,16 +1,16 @@
-# flutter-permissions
+# flutter-accessibility
 
 ## Category
 
-reference
+design
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Accessibility guidance for semantics, contrast, focus order, text scaling, hit targets, and screen readers.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **accessibility guidance**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
+- `flutter-material-3`
+- `flutter-responsive-layout`
+- `flutter-accessibility`
 
 ## Execution notes
 

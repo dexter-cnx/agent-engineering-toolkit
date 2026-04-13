@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-localization-csv
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Localization workflow using easy_localization plus CSV source of truth and generated JSON artifacts.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **localization workflow using easy_localization plus csv source of truth and generated json artifacts.**.
 
 ## Default behavior
 

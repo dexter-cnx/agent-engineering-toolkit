@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-forms-validation
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Form handling, validation, focus flow, submit state, error display, and domain-safe form models.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **form handling, validation, focus flow, submit state, error display, and domain-safe form models.**.
 
 ## Default behavior
 

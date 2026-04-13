@@ -1,16 +1,16 @@
-# flutter-permissions
+# guide-performance-audit
 
 ## Category
 
-reference
+workflow
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Performance review process for build cost, rebuild analysis, jank, memory, startup time, and network overhead.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **performance review process**.
 
 ## Default behavior
 
@@ -28,8 +28,8 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
+- `flutter-dev`
+- `policy-folder-structure`
 - `policy-testing-minimum`
 
 ## Execution notes

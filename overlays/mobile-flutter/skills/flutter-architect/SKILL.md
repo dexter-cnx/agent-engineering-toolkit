@@ -1,16 +1,16 @@
-# flutter-permissions
+# flutter-architect
 
 ## Category
 
-reference
+coordinator
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Architecture-focused coordinator for feature boundaries, dependency rules, modularization, and app structure.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **architecture-focused coordinator**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
+- `guide-new-feature-flow`
+- `policy-folder-structure`
 - `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
 
 ## Execution notes
 

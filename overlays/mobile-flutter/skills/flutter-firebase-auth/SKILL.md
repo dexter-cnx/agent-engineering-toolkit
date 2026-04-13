@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-firebase-auth
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Authentication patterns with Firebase Auth, token lifecycle, secure session handling, and user state integration.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **authentication patterns with firebase auth, token lifecycle, secure session handling, and user state integration.**.
 
 ## Default behavior
 

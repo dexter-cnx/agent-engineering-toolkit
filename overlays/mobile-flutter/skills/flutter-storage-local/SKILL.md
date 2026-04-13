@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-storage-local
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Local persistence options such as shared_preferences, secure storage, Hive, Isar, and Realm decision guidance.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **local persistence options such as shared_preferences, secure storage, hive, isar, and realm decision guidance.**.
 
 ## Default behavior
 

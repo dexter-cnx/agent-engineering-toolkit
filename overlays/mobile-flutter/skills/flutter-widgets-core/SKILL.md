@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-widgets-core
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Core Flutter widget composition patterns, stateful/stateless boundaries, layout system, and rendering basics.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **core flutter widget composition patterns, stateful/stateless boundaries, layout system, and rendering basics.**.
 
 ## Default behavior
 

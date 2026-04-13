@@ -1,0 +1,22 @@
+name: flutter_overlay_starter
+publish_to: 'none'
+description: Starter app aligned with mobile-flutter overlay.
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.5.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  go_router: ^14.8.1
+  dio: ^5.7.0
+  easy_localization: ^3.0.7
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/i18n/

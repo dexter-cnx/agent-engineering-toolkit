@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-network-dio
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+HTTP client setup with Dio including interceptors, auth headers, retries, typed DTOs, and error mapping.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **http client setup with dio including interceptors, auth headers, retries, typed dtos, and error mapping.**.
 
 ## Default behavior
 

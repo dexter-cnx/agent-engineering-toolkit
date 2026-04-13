@@ -1,16 +1,16 @@
-# flutter-permissions
+# flutter-animation-guidelines
 
 ## Category
 
-reference
+design
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Animation rules for tasteful transitions, implicit/explicit animations, performance, and reduced-motion awareness.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **animation rules**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
+- `flutter-material-3`
+- `flutter-responsive-layout`
+- `flutter-accessibility`
 
 ## Execution notes
 

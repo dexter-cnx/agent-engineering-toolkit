@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-fcm-notifications
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Push notifications with Firebase Cloud Messaging across Android, iOS, and web including permission flow.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **push notifications with firebase cloud messaging across android, ios, and web including permission flow.**.
 
 ## Default behavior
 

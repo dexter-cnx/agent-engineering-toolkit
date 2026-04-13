@@ -1,16 +1,16 @@
-# flutter-permissions
+# policy-clean-architecture
 
 ## Category
 
-reference
+policy
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Rules enforcing dependencies: presentation depends on domain, data implements domain, widgets stay thin.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **rules enforcing dependencies: presentation depends on domain, data implements domain, widgets stay thin.**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
+- `flutter-dev`
+- `flutter-code-reviewer`
+- `flutter-ci-checks`
 
 ## Execution notes
 

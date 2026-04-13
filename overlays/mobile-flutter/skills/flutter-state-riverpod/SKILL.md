@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-state-riverpod
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Riverpod patterns for providers, async state, dependency injection, testing, and feature-scoped state.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **riverpod patterns**.
 
 ## Default behavior
 

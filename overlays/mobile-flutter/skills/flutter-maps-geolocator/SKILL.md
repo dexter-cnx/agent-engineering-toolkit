@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-maps-geolocator
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Maps, geolocation, markers, permissions, foreground/background location constraints, and UX guidance.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **maps, geolocation, markers, permissions, foreground/background location constraints, and ux guidance.**.
 
 ## Default behavior
 

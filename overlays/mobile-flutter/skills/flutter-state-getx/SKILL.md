@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-state-getx
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+GetX patterns for routing, controllers, state, bindings, and migration guidance for teams already using GetX.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **getx patterns**.
 
 ## Default behavior
 

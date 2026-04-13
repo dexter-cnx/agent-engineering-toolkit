@@ -1,16 +1,16 @@
-# flutter-permissions
+# policy-translation-csv
 
 ## Category
 
-reference
+policy
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Localization source-of-truth policy requiring CSV maintenance, generation workflow, and translation key conventions.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **localization source-of-truth policy requiring csv maintenance, generation workflow, and translation key conventions.**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
+- `flutter-dev`
+- `flutter-code-reviewer`
+- `flutter-ci-checks`
 
 ## Execution notes
 

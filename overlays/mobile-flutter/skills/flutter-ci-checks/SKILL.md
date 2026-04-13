@@ -1,16 +1,16 @@
-# flutter-permissions
+# flutter-ci-checks
 
 ## Category
 
-reference
+utility
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+CI blueprint for format, analyze, test, build, and structure enforcement in Flutter repositories.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **ci blueprint**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
+- `flutter-dev`
+- `flutter-code-reviewer`
+- `policy-commit-pr-checks`
 
 ## Execution notes
 

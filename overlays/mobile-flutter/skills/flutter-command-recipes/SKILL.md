@@ -1,16 +1,16 @@
-# flutter-permissions
+# flutter-command-recipes
 
 ## Category
 
-reference
+utility
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+High-value Flutter/Dart command recipes for clean, get, build, test, analyze, and platform tasks.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **high-value flutter/dart command recipes**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
+- `flutter-dev`
+- `flutter-code-reviewer`
+- `policy-commit-pr-checks`
 
 ## Execution notes
 

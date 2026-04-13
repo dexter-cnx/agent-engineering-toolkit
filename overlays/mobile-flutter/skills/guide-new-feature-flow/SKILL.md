@@ -1,16 +1,16 @@
-# flutter-permissions
+# guide-new-feature-flow
 
 ## Category
 
-reference
+workflow
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Implementation flow for adding a new feature from requirement to UI, use cases, repositories, and QA.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **implementation flow**.
 
 ## Default behavior
 
@@ -28,8 +28,8 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
+- `flutter-dev`
+- `policy-folder-structure`
 - `policy-testing-minimum`
 
 ## Execution notes

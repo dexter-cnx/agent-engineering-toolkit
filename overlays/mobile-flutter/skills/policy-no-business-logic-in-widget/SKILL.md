@@ -1,16 +1,16 @@
-# flutter-permissions
+# policy-no-business-logic-in-widget
 
 ## Category
 
-reference
+policy
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Prevents domain/data logic in widgets and enforces extraction to controller/viewmodel/use case layers.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **prevents domain/data logic in widgets and enforces extraction to controller/viewmodel/use case layers.**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
+- `flutter-dev`
+- `flutter-code-reviewer`
+- `flutter-ci-checks`
 
 ## Execution notes
 

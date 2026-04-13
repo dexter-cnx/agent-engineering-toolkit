@@ -1,16 +1,16 @@
-# flutter-permissions
+# flutter-code-reviewer
 
 ## Category
 
-reference
+coordinator
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Reviews Flutter code for architecture drift, widget misuse, state issues, testing gaps, and maintainability.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **reviews flutter code**.
 
 ## Default behavior
 
@@ -28,9 +28,9 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
+- `guide-new-feature-flow`
+- `policy-folder-structure`
 - `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
 
 ## Execution notes
 

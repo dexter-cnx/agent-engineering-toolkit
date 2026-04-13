@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-testing-widget
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Widget testing patterns, test harness structure, golden strategy, and avoiding brittle UI tests.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **widget testing patterns, test harness structure, golden strategy, and avoiding brittle ui tests.**.
 
 ## Default behavior
 

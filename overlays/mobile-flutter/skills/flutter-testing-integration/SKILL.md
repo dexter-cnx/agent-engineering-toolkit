@@ -1,4 +1,4 @@
-# flutter-permissions
+# flutter-testing-integration
 
 ## Category
 
@@ -6,11 +6,11 @@ reference
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Integration and end-to-end testing patterns, device matrix, CI execution, and environment control.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **integration and end-to-end testing patterns, device matrix, ci execution, and environment control.**.
 
 ## Default behavior
 

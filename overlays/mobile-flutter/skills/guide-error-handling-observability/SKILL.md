@@ -1,16 +1,16 @@
-# flutter-permissions
+# guide-error-handling-observability
 
 ## Category
 
-reference
+workflow
 
 ## Purpose
 
-Runtime permission strategy across Android and iOS with rationale prompts and platform-specific configs.
+Error boundaries, user-friendly failures, logging, crash capture, metrics, and tracing approach for production.
 
 ## When to use
 
-Use this skill when the task directly involves **runtime permission strategy across android and ios with rationale prompts and platform-specific configs.**.
+Use this skill when the task directly involves **error boundaries, user-friendly failures, logging, crash capture, metrics, and tracing approach**.
 
 ## Default behavior
 
@@ -28,8 +28,8 @@ Use this skill when the task directly involves **runtime permission strategy acr
 
 ## Recommended companion skills
 
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
+- `flutter-dev`
+- `policy-folder-structure`
 - `policy-testing-minimum`
 
 ## Execution notes
