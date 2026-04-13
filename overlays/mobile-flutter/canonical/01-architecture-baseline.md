@@ -1,3 +1,13 @@
 # Architecture Baseline
 
-Use `lib/app/`, `lib/core/`, and `lib/features/<feature>/{domain,data,presentation}` as the minimum structure.
+Minimum structure:
+- `lib/app/`
+- `lib/core/`
+- `lib/features/<feature>/domain`
+- `lib/features/<feature>/data`
+- `lib/features/<feature>/presentation`
+
+Rules:
+- avoid business logic in widgets
+- keep boundaries explicit
+- prefer feature-based structure

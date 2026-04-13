@@ -1,3 +1,6 @@
 # Maps Baseline
 
-Treat maps/location as a capability. Keep business rules out of map widgets.
+Guidance:
+- map widget belongs in presentation or adapter boundary
+- map/location is a capability, not a business model
+- keep business rules out of map widgets

@@ -1,3 +1,7 @@
 # Network Baseline
 
-Keep network code out of widgets. Use a central API client baseline.
+Guidance:
+- keep network code out of widgets
+- use an API client baseline
+- keep error mapping centralized enough to stay maintainable
+- Dio is the default network baseline when needed

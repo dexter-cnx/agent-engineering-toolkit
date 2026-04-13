@@ -1,8 +1,8 @@
 # START HERE
 
-จุดเริ่มต้นเดียวสำหรับทีมที่ใช้ mobile-flutter overlay
+จุดเริ่มต้นเดียวสำหรับทีมที่ใช้ `overlays/mobile-flutter`
 
-ลำดับอ่านที่แนะนำ:
+ลำดับอ่าน:
 1. `INDEX_CANONICAL.md`
 2. `HOW_TO_USE.md`
 3. `INDEX_PROMPTS.md`
@@ -11,6 +11,6 @@
 
 กฎหลัก:
 - toolkit = reusable engineering system
-- อย่าใส่ product-specific assumptions ลง canonical core
+- toolkit core ต้อง product-agnostic
 - prefer capability over domain
-- ใช้ companion-pack กับ app repo จริง
+- companion-pack ใช้กับ app repo จริง

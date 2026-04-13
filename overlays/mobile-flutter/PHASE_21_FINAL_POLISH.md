@@ -1,6 +1,6 @@
 # Phase 21 Final Polish
 
-This layer adds the missing consolidated operating model on top of the current Phase 10-style repository layout.
+This patch adds the missing consolidated operating layer on top of the current repository layout.
 
 Goals:
 - one onboarding entry

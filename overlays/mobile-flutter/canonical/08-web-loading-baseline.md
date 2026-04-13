@@ -1,3 +1,6 @@
 # Web Loading Baseline
 
-Use a pre-first-frame loading baseline and verify with release builds.
+Guidance:
+- show loader before first frame
+- keep it reusable across Flutter web apps
+- validate with release builds
