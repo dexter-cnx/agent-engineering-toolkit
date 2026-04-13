@@ -1,2 +1,24 @@
 # START HERE
-Single entry for Phase 21
+
+If the team only reads one file, read this one.
+
+## Read order
+
+### Everyone
+1. `INDEX_CANONICAL.md`
+2. `HOW_TO_USE.md`
+
+### Tech lead / reviewer
+1. `INDEX_CANONICAL.md`
+2. `INDEX_CHECKLISTS.md`
+3. `companion-pack/prompts/review_toolkit_scope_prompt.md`
+
+### Feature implementer
+1. `INDEX_PROMPTS.md`
+2. `INDEX_COMPANION.md`
+
+## Golden rules
+- Toolkit = reusable engineering system
+- Toolkit != product-specific playbook
+- Prefer capability over domain
+- Keep docs, tooling, and CI aligned

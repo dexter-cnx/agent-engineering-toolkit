@@ -1,1 +1,15 @@
-# Prompt Index
+# Prompts Index
+
+Toolkit-safe prompts:
+
+## Init / starter
+- `companion-pack/prompts/init_generic_toolkit_safe_prompt.md`
+
+## Review
+- `companion-pack/prompts/review_toolkit_scope_prompt.md`
+
+## Feature delivery
+- `companion-pack/prompts/create_feature_prompt.md`
+
+## Capability
+- `companion-pack/prompts/add_capability_firebase_prompt.md`

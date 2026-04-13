@@ -1,16 +1,17 @@
 # Mobile Flutter Overlay
 
-Production-oriented Flutter skills overlay for **Agent Engineering Toolkit**.
+Production-oriented Flutter skills overlay for Agent Engineering Toolkit.
 
-This overlay adapts the small, task-specific skill pattern into a Flutter-first system with four layers of value:
+This version keeps the current skill/starter assets, but adds a clearer operating layer for long-term team use.
 
-1. **Coordinators** route work to the right skills.
-2. **Reference skills** explain packages, APIs, and platform details.
-3. **Workflow guides** tell the agent how to execute real delivery work.
-4. **Policies** enforce team standards so output stays consistent.
+## Start here
+- `START_HERE.md`
+- `INDEX_CANONICAL.md`
+- `INDEX_PROMPTS.md`
+- `INDEX_COMPANION.md`
+- `INDEX_CHECKLISTS.md`
 
 ## Target stack
-
 - Flutter stable
 - Dart 3
 - Material 3
@@ -23,13 +24,11 @@ This overlay adapts the small, task-specific skill pattern into a Flutter-first 
 - GetX as supported opt-in path
 
 ## Overlay path
-
 ```text
 overlays/mobile-flutter/
 ```
 
 ## Included skill groups
-
 - Coordinators
 - Design
 - Framework reference
@@ -37,73 +36,35 @@ overlays/mobile-flutter/
 - Policies
 - Utilities
 
-See [SKILLS_INDEX.md](./SKILLS_INDEX.md) for the full catalog.
+See `SKILLS_INDEX.md` for the skill catalog.
 
-## Recommended use
+## Toolkit-safe scope
+This overlay is architecture-first and capability-driven.
 
-Use `flutter-dev` as the default starting point. For architecture-heavy requests, use `flutter-architect`. For audits, use `flutter-code-reviewer` or `flutter-release-reviewer`.
+Canonical toolkit scope:
+- state management
+- localization
+- networking
+- Firebase
+- maps
+- offline-first guidance
+- Flutter web loading
+- policy checks / CI / prompts / templates
 
-## Repo integration
-
-Copy this overlay into your toolkit repo:
-
-```bash
-cp -R overlays/mobile-flutter <your-agent-engineering-toolkit>/overlays/
-```
-
-Then commit and push.
-
-## Design principles
-
-- Keep skills narrow and composable.
-- Prefer execution workflows over generic explanation.
-- Encode team policy explicitly.
-- Keep Flutter code production-friendly by default.
-- Avoid business logic in widgets.
-- Treat localization and testing as first-class concerns.
-
+The toolkit core should avoid product-specific business assumptions.
 
 ## Included support assets
+- `prompts/`
+- `templates/`
+- `ci/github-actions/`
+- `repo-customization/`
+- `examples/`
+- `starter-app-template/`
+- `companion-pack/` for repo-facing tooling
+- `canonical/` for source-of-truth baseline docs
 
-Beyond the skill catalog, this overlay now also includes:
-
-- `prompts/` for common agent entry prompts
-- `templates/` for project and feature scaffolding
-- `ci/github-actions/` for baseline Flutter CI
-- `repo-customization/` for adapting the overlay to a specific repository
-- `examples/` for copy-paste usage examples
-
-
-## Phase 3 additions
-- flutter-auth-firebase-production
-- flutter-maps-routing-production
-- flutter-notifications-fcm-production
-- starter-app-template/
-
-
-## Phase 4 additions
-
-- Repo-ready starter app patterns
-- Mock auth and home sample features
-- CSV-to-JSON localization generator
-- Stricter starter CI with policy checks
-
-## Phase 5 additions
-
-This pack now also includes integration templates for Firebase auth, push notifications, customer visit maps, environment config, and a lightweight feature generator script under `starter-app-template/scripts/`.
-
-
-## Added in Phase 8
-- Flutter Web loading integration pack
-- `flutter-web-loading-production` skill
-- starter `web/` baseline in the starter app
-- reusable web loader templates from the uploaded pack
-
-
-## Added in Phase 9
-- Flutter web deployment skill
-- Web build GitHub Actions workflow
-- GitHub Pages example workflow
-- apply-web-loader patch script
-- bootstrap shell script
-- web deployment checklist and hosting notes
+## Recommended use
+1. Start at `START_HERE.md`
+2. Use `INDEX_CANONICAL.md` for standards
+3. Use `INDEX_PROMPTS.md` for prompt entry points
+4. Use `INDEX_COMPANION.md` when integrating into a real Flutter repo
