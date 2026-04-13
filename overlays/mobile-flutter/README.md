@@ -2,7 +2,7 @@
 
 Production-oriented Flutter skills overlay for Agent Engineering Toolkit.
 
-This version keeps the current skill/starter assets, but adds a clearer operating layer for long-term team use.
+This overlay keeps the current skills, starter app, prompts, templates, CI assets, and phase history, while adding a clearer long-term operating layer for teams.
 
 ## Start here
 - `START_HERE.md`
@@ -38,6 +38,12 @@ overlays/mobile-flutter/
 
 See `SKILLS_INDEX.md` for the skill catalog.
 
+## Operating layers
+1. **Skills layer** — current skill catalog in `skills/`
+2. **Starter layer** — `starter-app-template/`
+3. **Prompt/template layer** — `prompts/`, `templates/`, `examples/`, `repo-customization/`
+4. **Consolidated operating layer** — `START_HERE.md`, `INDEX_*`, `canonical/`, `companion-pack/`
+
 ## Toolkit-safe scope
 This overlay is architecture-first and capability-driven.
 
@@ -53,18 +59,9 @@ Canonical toolkit scope:
 
 The toolkit core should avoid product-specific business assumptions.
 
-## Included support assets
-- `prompts/`
-- `templates/`
-- `ci/github-actions/`
-- `repo-customization/`
-- `examples/`
-- `starter-app-template/`
-- `companion-pack/` for repo-facing tooling
-- `canonical/` for source-of-truth baseline docs
-
 ## Recommended use
 1. Start at `START_HERE.md`
 2. Use `INDEX_CANONICAL.md` for standards
 3. Use `INDEX_PROMPTS.md` for prompt entry points
-4. Use `INDEX_COMPANION.md` when integrating into a real Flutter repo
+4. Use `INDEX_COMPANION.md` for repo-facing integration
+5. Use `INDEX_CHECKLISTS.md` before merge / rollout
