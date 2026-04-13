@@ -2,7 +2,7 @@
 
 Production-oriented Flutter skills overlay for Agent Engineering Toolkit.
 
-This overlay keeps the existing skills, starter app, prompts, templates, CI assets, and phase history, while adding a clearer long-term operating layer for teams.
+This overlay adapts the small, task-specific skill pattern into a Flutter-first system with an added consolidated operating layer for long-term team use.
 
 ## Start here
 - `START_HERE.md`
@@ -23,6 +23,12 @@ This overlay keeps the existing skills, starter app, prompts, templates, CI asse
 - Riverpod as default state management
 - GetX as supported opt-in path
 
+## Overlay path
+
+```text
+overlays/mobile-flutter/
+```
+
 ## Included skill groups
 - Coordinators
 - Design
@@ -31,17 +37,43 @@ This overlay keeps the existing skills, starter app, prompts, templates, CI asse
 - Policies
 - Utilities
 
-See `SKILLS_INDEX.md` for the skill catalog.
-
-## Operating layers
-1. Skills layer — current skill catalog in `skills/`
-2. Starter layer — `starter-app-template/`
-3. Prompt/template layer — `prompts/`, `templates/`, `examples/`, `repo-customization/`
-4. Consolidated operating layer — `START_HERE.md`, `INDEX_*`, `canonical/`, `companion-pack/`
+See `SKILLS_INDEX.md` for the full catalog.
 
 ## Recommended use
-1. Start at `START_HERE.md`
-2. Use `INDEX_CANONICAL.md` for standards
-3. Use `INDEX_PROMPTS.md` for prompt entry points
-4. Use `INDEX_COMPANION.md` for repo-facing integration
-5. Use `INDEX_CHECKLISTS.md` before merge / rollout
+Use `flutter-dev` as the default starting point. For architecture-heavy requests, use `flutter-architect`. For audits, use `flutter-code-reviewer` or `flutter-release-reviewer`.
+
+For team onboarding and operating guidance, start at `START_HERE.md`.
+
+## Repo integration
+Copy this overlay into your toolkit repo:
+
+```bash
+cp -R overlays/mobile-flutter <your-agent-engineering-toolkit>/overlays/
+```
+
+Then commit and push.
+
+## Design principles
+- Keep skills narrow and composable.
+- Prefer execution workflows over generic explanation.
+- Encode team policy explicitly.
+- Keep Flutter code production-friendly by default.
+- Avoid business logic in widgets.
+- Treat localization and testing as first-class concerns.
+
+## Included support assets
+Beyond the skill catalog, this overlay also includes:
+- `prompts/` for common agent entry prompts
+- `templates/` for project and feature scaffolding
+- `ci/github-actions/` for baseline Flutter CI
+- `repo-customization/` for adapting the overlay to a specific repository
+- `examples/` for copy-paste usage examples
+- `canonical/` for source-of-truth baseline docs
+- `companion-pack/` for repo-facing integration assets
+
+## Current operating layer
+This overlay now has four practical layers:
+1. Skills and coordinators in `skills/`
+2. Starter and scaffold assets in `starter-app-template/`
+3. Prompts, templates, CI, examples, and repo customization
+4. Consolidated operating docs in `START_HERE.md`, `INDEX_*`, `canonical/`, and `companion-pack/`
