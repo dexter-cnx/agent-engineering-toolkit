@@ -2,9 +2,3 @@
 
 This patch is additive.
 It does not remove current phase docs or the existing skill catalog.
-
-Recommended posture:
-- keep `skills/`, `starter-app-template/`, `prompts/`, `templates/`, `ci/`
-- start onboarding from `START_HERE.md`
-- treat `canonical/` as standards
-- treat `companion-pack/` as repo-facing integration assets

@@ -14,6 +14,3 @@
 - analyze passes
 - test passes
 - policy check passes
-
-## Scope
-- canonical toolkit docs remain product-agnostic

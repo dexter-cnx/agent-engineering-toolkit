@@ -1,7 +1,3 @@
 # Localization Baseline
 
-Preferred baseline:
-- `assets/i18n/translations.csv`
-- key-based strings
-- tooling-assisted seeding
-- review visible strings first
+Prefer `assets/i18n/translations.csv` as source of truth and use key-based strings.

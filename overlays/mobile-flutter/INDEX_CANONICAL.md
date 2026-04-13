@@ -1,7 +1,5 @@
 # Canonical Index
 
-เอกสารชุดนี้คือ source of truth ฝั่ง baseline
-
 - `canonical/01-architecture-baseline.md`
 - `canonical/02-capability-baseline.md`
 - `canonical/03-state-management-baseline.md`

@@ -2,7 +2,7 @@
 
 Production-oriented Flutter skills overlay for Agent Engineering Toolkit.
 
-This overlay keeps the current skills, starter app, prompts, templates, CI assets, and phase history, while adding a clearer long-term operating layer for teams.
+This overlay keeps the existing skills, starter app, prompts, templates, CI assets, and phase history, while adding a clearer long-term operating layer for teams.
 
 ## Start here
 - `START_HERE.md`
@@ -23,11 +23,6 @@ This overlay keeps the current skills, starter app, prompts, templates, CI asset
 - Riverpod as default state management
 - GetX as supported opt-in path
 
-## Overlay path
-```text
-overlays/mobile-flutter/
-```
-
 ## Included skill groups
 - Coordinators
 - Design
@@ -39,25 +34,10 @@ overlays/mobile-flutter/
 See `SKILLS_INDEX.md` for the skill catalog.
 
 ## Operating layers
-1. **Skills layer** — current skill catalog in `skills/`
-2. **Starter layer** — `starter-app-template/`
-3. **Prompt/template layer** — `prompts/`, `templates/`, `examples/`, `repo-customization/`
-4. **Consolidated operating layer** — `START_HERE.md`, `INDEX_*`, `canonical/`, `companion-pack/`
-
-## Toolkit-safe scope
-This overlay is architecture-first and capability-driven.
-
-Canonical toolkit scope:
-- state management
-- localization
-- networking
-- Firebase
-- maps
-- offline-first guidance
-- Flutter web loading
-- policy checks / CI / prompts / templates
-
-The toolkit core should avoid product-specific business assumptions.
+1. Skills layer — current skill catalog in `skills/`
+2. Starter layer — `starter-app-template/`
+3. Prompt/template layer — `prompts/`, `templates/`, `examples/`, `repo-customization/`
+4. Consolidated operating layer — `START_HERE.md`, `INDEX_*`, `canonical/`, `companion-pack/`
 
 ## Recommended use
 1. Start at `START_HERE.md`
