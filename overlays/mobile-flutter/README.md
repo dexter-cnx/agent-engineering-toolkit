@@ -2,7 +2,7 @@
 
 Production-oriented Flutter skills overlay for Agent Engineering Toolkit.
 
-This overlay adapts the small, task-specific skill pattern into a Flutter-first system with an added consolidated operating layer for long-term team use.
+This overlay adapts the small, task-specific skill pattern into a Flutter-first system and now includes a consolidated operating layer for long-term team use.
 
 ## Start here
 - `START_HERE.md`
@@ -42,7 +42,7 @@ See `SKILLS_INDEX.md` for the full catalog.
 ## Recommended use
 Use `flutter-dev` as the default starting point. For architecture-heavy requests, use `flutter-architect`. For audits, use `flutter-code-reviewer` or `flutter-release-reviewer`.
 
-For team onboarding and operating guidance, start at `START_HERE.md`.
+For team onboarding and repo usage, start at `START_HERE.md`.
 
 ## Repo integration
 Copy this overlay into your toolkit repo:
@@ -72,7 +72,7 @@ Beyond the skill catalog, this overlay also includes:
 - `companion-pack/` for repo-facing integration assets
 
 ## Current operating layer
-This overlay now has four practical layers:
+This overlay has four practical layers:
 1. Skills and coordinators in `skills/`
 2. Starter and scaffold assets in `starter-app-template/`
 3. Prompts, templates, CI, examples, and repo customization

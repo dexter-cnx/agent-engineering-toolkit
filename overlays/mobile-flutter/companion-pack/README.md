@@ -1,3 +1,3 @@
 # Companion Pack
 
-Use this directory when integrating the overlay concepts into a real Flutter app repo.
+Use this directory when integrating overlay concepts into a real Flutter app repo.
