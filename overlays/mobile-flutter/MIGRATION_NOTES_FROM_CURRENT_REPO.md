@@ -1,10 +1,10 @@
 # Migration Notes From Current Repo
 
-This patch does not remove the existing phase docs or current assets.
-It adds a consolidated layer so the repo can move toward a long-term operating model.
+This patch is additive.
+It does not remove current phase docs or the existing skill catalog.
 
-Recommended next step:
-- keep current `skills/`, `starter-app-template/`, `prompts/`, `templates/`, `ci/`
+Recommended posture:
+- keep `skills/`, `starter-app-template/`, `prompts/`, `templates/`, `ci/`
 - start onboarding from `START_HERE.md`
-- treat `canonical/` as source of truth for baseline standards
-- treat `companion-pack/` as the repo-facing integration layer
+- treat `canonical/` as standards
+- treat `companion-pack/` as repo-facing integration assets

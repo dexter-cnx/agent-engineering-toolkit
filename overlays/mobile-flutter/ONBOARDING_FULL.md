@@ -1,21 +1,14 @@
 # Onboarding Full
 
-## Phase 1 — Learn the baseline
+## Learn
 - `INDEX_CANONICAL.md`
 - `INDEX_CHECKLISTS.md`
 
-## Phase 2 — Prepare a repo
-- copy `companion-pack/`
+## Apply
+- copy `companion-pack/` into a real app repo
 - run CLI baseline
-- enable policy check
+- scaffold one feature at a time
 
-## Phase 3 — Deliver changes
-- use prompt index
-- scaffold capability or feature
+## Control
 - review changed files scope
-
-## Phase 4 — Control quality
-- run analyze
-- run tests
-- run policy check
-- run web build if applicable
+- run analyze/test/policy check

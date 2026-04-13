@@ -1,24 +1,16 @@
 # START HERE
 
-If the team only reads one file, read this one.
+จุดเริ่มต้นเดียวสำหรับทีมที่ใช้ mobile-flutter overlay
 
-## Read order
-
-### Everyone
+ลำดับอ่านที่แนะนำ:
 1. `INDEX_CANONICAL.md`
 2. `HOW_TO_USE.md`
+3. `INDEX_PROMPTS.md`
+4. `INDEX_COMPANION.md`
+5. `INDEX_CHECKLISTS.md`
 
-### Tech lead / reviewer
-1. `INDEX_CANONICAL.md`
-2. `INDEX_CHECKLISTS.md`
-3. `companion-pack/prompts/review_toolkit_scope_prompt.md`
-
-### Feature implementer
-1. `INDEX_PROMPTS.md`
-2. `INDEX_COMPANION.md`
-
-## Golden rules
-- Toolkit = reusable engineering system
-- Toolkit != product-specific playbook
-- Prefer capability over domain
-- Keep docs, tooling, and CI aligned
+กฎหลัก:
+- toolkit = reusable engineering system
+- อย่าใส่ product-specific assumptions ลง canonical core
+- prefer capability over domain
+- ใช้ companion-pack กับ app repo จริง

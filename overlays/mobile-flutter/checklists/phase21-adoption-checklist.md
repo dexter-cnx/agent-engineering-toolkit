@@ -1,8 +1,7 @@
 # Phase 21 Adoption Checklist
 
 - team starts from `START_HERE.md`
-- canonical docs are the source of truth
-- companion pack is used as the repo-facing layer
-- generic_app or field_service is chosen intentionally
-- product-specific content is kept out of toolkit core
+- canonical docs are used as source of truth
+- companion-pack is the repo-facing layer
+- generic_app / field_service are the recommended profiles
 - policy check and CI are enabled

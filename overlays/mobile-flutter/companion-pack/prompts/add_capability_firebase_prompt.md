@@ -6,6 +6,6 @@ Requirements:
 - firebase_core
 - firebase_messaging
 - firebase_analytics
-- SDK usage behind adapters/services
-- no SDK calls in widgets
-- changed files summary first
+- no direct SDK usage in widgets
+- keep adapter/service boundaries
+- show changed files summary first

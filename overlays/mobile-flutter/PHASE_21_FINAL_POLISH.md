@@ -1,11 +1,10 @@
 # Phase 21 Final Polish
 
-This patch adds the missing consolidated operating layer on top of the current repo state.
+This layer adds the missing consolidated operating model on top of the current Phase 10-style repository layout.
 
-Key outcomes:
+Goals:
 - one onboarding entry
-- one checklist
 - one canonical index
-- one prompts index
 - one companion index
+- one checklist index
 - toolkit-safe scope

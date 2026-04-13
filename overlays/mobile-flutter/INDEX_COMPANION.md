@@ -1,6 +1,6 @@
 # Companion Pack Index
 
-Repo-facing files live in `companion-pack/`.
+Repo-facing assets:
 
 ## Tooling
 - `companion-pack/tooling/flutter_overlay_cli_v7.py`
@@ -9,7 +9,7 @@ Repo-facing files live in `companion-pack/`.
 ## CI
 - `companion-pack/.github/workflows/flutter_overlay_phase21_ci.yml`
 
-## Profile templates
+## Templates
 - `companion-pack/profile_templates/generic_app_template.md`
 - `companion-pack/profile_templates/field_service_template.md`
 
