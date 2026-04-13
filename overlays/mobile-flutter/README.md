@@ -1,0 +1,109 @@
+# Mobile Flutter Overlay
+
+Production-oriented Flutter skills overlay for **Agent Engineering Toolkit**.
+
+This overlay adapts the small, task-specific skill pattern into a Flutter-first system with four layers of value:
+
+1. **Coordinators** route work to the right skills.
+2. **Reference skills** explain packages, APIs, and platform details.
+3. **Workflow guides** tell the agent how to execute real delivery work.
+4. **Policies** enforce team standards so output stays consistent.
+
+## Target stack
+
+- Flutter stable
+- Dart 3
+- Material 3
+- Clean Architecture
+- `go_router`
+- `dio`
+- `easy_localization`
+- CSV source of truth at `assets/i18n/translations.csv`
+- Riverpod as default state management
+- GetX as supported opt-in path
+
+## Overlay path
+
+```text
+overlays/mobile-flutter/
+```
+
+## Included skill groups
+
+- Coordinators
+- Design
+- Framework reference
+- Workflow guides
+- Policies
+- Utilities
+
+See [SKILLS_INDEX.md](./SKILLS_INDEX.md) for the full catalog.
+
+## Recommended use
+
+Use `flutter-dev` as the default starting point. For architecture-heavy requests, use `flutter-architect`. For audits, use `flutter-code-reviewer` or `flutter-release-reviewer`.
+
+## Repo integration
+
+Copy this overlay into your toolkit repo:
+
+```bash
+cp -R overlays/mobile-flutter <your-agent-engineering-toolkit>/overlays/
+```
+
+Then commit and push.
+
+## Design principles
+
+- Keep skills narrow and composable.
+- Prefer execution workflows over generic explanation.
+- Encode team policy explicitly.
+- Keep Flutter code production-friendly by default.
+- Avoid business logic in widgets.
+- Treat localization and testing as first-class concerns.
+
+
+## Included support assets
+
+Beyond the skill catalog, this overlay now also includes:
+
+- `prompts/` for common agent entry prompts
+- `templates/` for project and feature scaffolding
+- `ci/github-actions/` for baseline Flutter CI
+- `repo-customization/` for adapting the overlay to a specific repository
+- `examples/` for copy-paste usage examples
+
+
+## Phase 3 additions
+- flutter-auth-firebase-production
+- flutter-maps-routing-production
+- flutter-notifications-fcm-production
+- starter-app-template/
+
+
+## Phase 4 additions
+
+- Repo-ready starter app patterns
+- Mock auth and home sample features
+- CSV-to-JSON localization generator
+- Stricter starter CI with policy checks
+
+## Phase 5 additions
+
+This pack now also includes integration templates for Firebase auth, push notifications, customer visit maps, environment config, and a lightweight feature generator script under `starter-app-template/scripts/`.
+
+
+## Added in Phase 8
+- Flutter Web loading integration pack
+- `flutter-web-loading-production` skill
+- starter `web/` baseline in the starter app
+- reusable web loader templates from the uploaded pack
+
+
+## Added in Phase 9
+- Flutter web deployment skill
+- Web build GitHub Actions workflow
+- GitHub Pages example workflow
+- apply-web-loader patch script
+- bootstrap shell script
+- web deployment checklist and hosting notes

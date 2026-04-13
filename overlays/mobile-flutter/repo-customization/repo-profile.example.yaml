@@ -1,0 +1,16 @@
+overlay_name: mobile-flutter
+flutter_channel: stable
+dart_major: 3
+state_management_default: riverpod
+navigation_default: go_router
+network_default: dio
+localization:
+  package: easy_localization
+  source_of_truth: assets/i18n/translations.csv
+testing:
+  require_widget_tests_for_ui_changes: true
+  require_unit_tests_for_domain_logic: true
+policies:
+  no_business_logic_in_widget: true
+  clean_architecture: true
+  feature_oriented_structure: true
