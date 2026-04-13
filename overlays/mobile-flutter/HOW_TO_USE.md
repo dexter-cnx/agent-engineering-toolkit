@@ -25,13 +25,3 @@ Use `companion-pack/` inside a real Flutter app repository.
 2. Add capabilities incrementally
 3. Migrate one feature or one screen first
 4. Keep changed files scope tight
-
-## Example commands in a real app repo
-
-```bash
-python3 tooling/flutter_overlay_cli_v7.py init generic_app
-python3 tooling/flutter_overlay_cli_v7.py add-capabilities riverpod localization dio
-python3 tooling/flutter_overlay_cli_v7.py scaffold-capability dio
-python3 tooling/flutter_overlay_cli_v7.py create-feature home riverpod
-python3 tooling/flutter_overlay_cli_v7.py check-policy
-```
