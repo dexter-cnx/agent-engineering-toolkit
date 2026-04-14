@@ -9,7 +9,9 @@ aliases:
   - Web Frontend DESIGN.md Template
 ---
 
-# DESIGN.md Template for Web Frontend
+# เทมเพลต DESIGN.md สำหรับ Web Frontend
+
+ใช้เทมเพลตนี้เป็นจุดเริ่มต้นสำหรับ web frontend ที่ต้องการกติกาด้าน design ที่ชัดเจนและนำไปใช้ซ้ำได้
 
 ```md
 # DESIGN.md

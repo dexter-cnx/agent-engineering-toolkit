@@ -1,0 +1,5 @@
+- [ ] Bootstrap scene exists and is lightweight
+- [ ] Game scenes are not owning app lifetime
+- [ ] Service registration path is explicit
+- [ ] Scene load order is documented
+- [ ] Platform init is separated from gameplay startup

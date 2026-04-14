@@ -10,32 +10,31 @@ aliases:
   - Design Usage Patterns
 ---
 
-# Design Usage Patterns
+# รูปแบบการใช้ DESIGN.md
 
-Use these patterns when `DESIGN.md` is part of the workflow.
+ใช้รูปแบบเหล่านี้เมื่อ `DESIGN.md` เป็นส่วนหนึ่งของ workflow
 
-## Related templates
+## เทมเพลตที่เกี่ยวข้อง
 
-- [Flutter DESIGN.md template](../../templates/flutter/design-md-flutter-template.md)
-- [Web Frontend DESIGN.md template](../../templates/web/design-md-web-frontend-template.md)
+- [เทมเพลต DESIGN.md สำหรับ Flutter](../../templates/flutter/design-md-flutter-template.md)
+- [เทมเพลต DESIGN.md สำหรับ Web Frontend](../../templates/web/design-md-web-frontend-template.md)
 
-## Typical situations
+## สถานการณ์ที่พบบ่อย
 
-- adding design rules to a new repo
-- retrofitting design rules into an existing app
-- asking AI to respect a design contract
+- เพิ่มกฎ design ให้ repo ใหม่
+- retrofit กฎ design เข้าไปในแอปเดิม
+- ขอให้ AI เคารพ design contract
 
-## Recommended order
+## ลำดับที่แนะนำ
 
-1. decide where `DESIGN.md` lives
-2. update `AGENTS.md` to point to it
-3. choose the right overlay
-4. use a template from `templates/`
-5. verify the UI against the contract
+1. ตัดสินว่า `DESIGN.md` จะอยู่ที่ไหน
+2. อัปเดต `AGENTS.md` ให้ชี้ไปหาไฟล์นั้น
+3. เลือก overlay ที่เหมาะ
+4. ใช้เทมเพลตจาก `templates/`
+5. ตรวจ UI เทียบกับ contract
 
-## Do not do this
+## สิ่งที่ไม่ควรทำ
 
-- make `DESIGN.md` optional if the repo depends on it
-- keep the template and the repo contract inconsistent
-- hide accessibility or responsive rules
-
+- ทำให้ `DESIGN.md` เป็นไฟล์เลือกใส่ได้ ถ้า repo ต้องพึ่งมัน
+- ปล่อยให้เทมเพลตกับ contract ของ repo ไม่ตรงกัน
+- ซ่อนกฎ accessibility หรือ responsive

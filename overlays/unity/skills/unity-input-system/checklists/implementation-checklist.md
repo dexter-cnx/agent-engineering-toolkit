@@ -1,0 +1,5 @@
+- [ ] Action maps are grouped by intent
+- [ ] Gameplay logic is not reading raw input directly
+- [ ] Rebinding flow is documented
+- [ ] Device support is explicit
+- [ ] Input assets are easy to regenerate or update

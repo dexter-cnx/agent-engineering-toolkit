@@ -10,28 +10,27 @@ aliases:
   - Adoption Patterns
 ---
 
-# Adoption Patterns
+# รูปแบบการนำ toolkit ไปใช้
 
-Use these patterns when introducing the toolkit into a repo.
+ใช้รูปแบบเหล่านี้เมื่อนำ toolkit เข้าไปใน repo
 
-## Typical situations
+## สถานการณ์ที่พบบ่อย
 
-- fresh repo bootstrap
-- existing repo retrofit
-- submodule adoption
-- copy-selected-files adoption
+- bootstrap repo ใหม่
+- retrofit repo เดิม
+- นำเข้าแบบ submodule
+- นำเข้าแบบคัดลอกเฉพาะไฟล์ที่เลือก
 
-## Recommended order
+## ลำดับที่แนะนำ
 
-1. Read `AGENTS.md`.
-2. Read `docs/prompt-pipeline.md`.
-3. Choose the relevant overlay.
-4. Add or update project memory.
-5. Introduce design or stack-specific contracts only after the foundation is stable.
+1. อ่าน `AGENTS.md`
+2. อ่าน `docs/prompt-pipeline.md`
+3. เลือก overlay ที่เกี่ยวข้อง
+4. เพิ่มหรืออัปเดต project memory
+5. ค่อยเพิ่ม design หรือสัญญาเฉพาะ stack เมื่อ foundation เสถียรแล้ว
 
-## Do not do this
+## สิ่งที่ไม่ควรทำ
 
-- mix stack-specific rules into root foundation docs
-- skip verification
-- let adoption notes become vague or purely inspirational
-
+- เอากฎเฉพาะ stack ไปปนในเอกสาร foundation root
+- ข้ามการตรวจสอบ
+- ปล่อยให้บันทึกการ adoption กำกวม หรือเป็นแค่ข้อความสร้างแรงบันดาลใจ

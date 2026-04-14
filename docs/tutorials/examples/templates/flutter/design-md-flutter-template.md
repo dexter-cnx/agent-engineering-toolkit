@@ -9,7 +9,9 @@ aliases:
   - Flutter DESIGN.md Template
 ---
 
-# DESIGN.md Template for Flutter
+# เทมเพลต DESIGN.md สำหรับ Flutter
+
+ใช้เทมเพลตนี้เป็นจุดเริ่มต้นสำหรับ repo Flutter ที่ต้องการกติกาด้าน design ที่ชัดเจนและนำไปใช้ซ้ำได้
 
 ```md
 # DESIGN.md

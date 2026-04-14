@@ -1,0 +1,2 @@
+[console_scripts]
+toolkit-design = toolkit_design.cli:main

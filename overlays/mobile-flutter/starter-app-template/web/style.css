@@ -1,0 +1,61 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f7f7f7;
+}
+
+.boot-shell {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.boot-card {
+  width: min(420px, 100%);
+  background: white;
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+}
+
+.boot-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.boot-caption {
+  margin-top: 12px;
+  color: #666;
+  font-size: 14px;
+}
+
+.progress-container {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #ececec;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 35%;
+  border-radius: 999px;
+  animation: indeterminate 1.2s infinite ease-in-out;
+  background: linear-gradient(90deg, #7aa2ff, #4f7cff);
+}
+
+@keyframes indeterminate {
+  0%   { transform: translateX(-120%); width: 30%; }
+  50%  { transform: translateX(60%); width: 45%; }
+  100% { transform: translateX(260%); width: 30%; }
+}

@@ -6,6 +6,7 @@ Overlays extend the foundation toolkit with stack-specific specialization while 
 
 - backend-node
 - mobile-flutter
+- unity
 - python-service
 - web-frontend
 

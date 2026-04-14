@@ -74,3 +74,18 @@
   Decision: Overlay workflow and validation docs use explicit names: `SKILL_WORKFLOW.md` and `OVERLAY_VALIDATION_CHECKLIST.md`.
   Why: The old `HOW_TO_APPLY.md` and `VALIDATION.md` names were too generic.
   Consequence: Future overlay docs should prefer descriptive operational names over ambiguous pack-style filenames.
+
+- Date: 2026-04-09
+  Decision: Unity capabilities live in a dedicated `overlays/unity/` overlay with a README-first catalog and separate `unity-ugui` and `unity-ui-toolkit` skills.
+  Why: Unity needs stack-specific structure, and splitting the UI surface keeps implementation guidance practical.
+  Consequence: Future Unity work should extend the Unity overlay instead of adding Unity assumptions to the foundation root.
+
+- Date: 2026-04-09
+  Decision: The first Unity game tutorial for this repo lives at `docs/tutorials/unity/how-to-make-tetris-in-unity.md` with a matching EN file and an overlay worked example.
+  Why: Gives Unity tutorial content a clear home while keeping the overlay example reusable.
+  Consequence: Future Unity tutorial additions should follow the same docs/tutorials/unity pattern and keep examples under `overlays/unity/examples/`.
+
+- Date: 2026-04-11
+  Decision: `tools/toolkit-i18n` is implemented as a reusable PATH-friendly wrapper over a stdlib Python CLI with `doctor`, `validate`, `diff`, and `generate` subcommands.
+  Why: Keeps localization workflows repeatable, compact, and easy to invoke from outside the source folder.
+  Consequence: Future toolkit-i18n changes should preserve the non-interactive surface, compact JSON/text output, and explicit target-directory writes.
