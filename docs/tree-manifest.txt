@@ -293,6 +293,9 @@ overlays/agent-friendly-cli/README.md
 overlays/agent-friendly-cli/docs
 overlays/agent-friendly-cli/docs/cli_contract.md
 overlays/agent-friendly-cli/docs/codex_usage.md
+overlays/agent-friendly-cli/examples
+overlays/agent-friendly-cli/examples/.gitkeep
+overlays/agent-friendly-cli/examples/README.md
 overlays/agent-friendly-cli/prompts
 overlays/agent-friendly-cli/prompts/local
 overlays/agent-friendly-cli/prompts/local/create_or_update_cli.md
