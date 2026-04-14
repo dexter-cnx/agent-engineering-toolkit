@@ -71,3 +71,7 @@
 - Pattern: Keep reusable CLIs PATH-friendly and documented from outside the source folder.
   When to use: when a repeatable workflow is turned into a shared CLI for agent use.
   When not to use: when the command is only intended as a local throwaway script.
+
+- Pattern: Mirror overlay shape without copying stack identity.
+  When to use: when bringing a new overlay up to parity with an existing one.
+  When not to use: when stack-specific assumptions would leak into the foundation layer.

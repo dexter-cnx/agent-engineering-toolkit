@@ -1,0 +1,8 @@
+overlay_name: web-frontend
+framework: react
+routing: route-based
+state: explicit
+data_layer: service-adapter
+i18n: supported
+testing: lint-unit-integration-e2e
+deployment: hosting-aware

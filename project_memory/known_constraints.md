@@ -19,3 +19,4 @@
 - Unity tutorial content should live under `docs/tutorials/unity/`, with worked examples under `overlays/unity/examples/`.
 - The toolkit-i18n CLI must stay safe by default: generated JSON goes to a requested output directory only, and source CSV files are never mutated implicitly.
 - Localization coverage must report real key overlap by unique set intersection, not by comparing raw counts.
+- The web frontend overlay should keep parity with mobile-flutter as a workflow shape, but not as a stack identity.

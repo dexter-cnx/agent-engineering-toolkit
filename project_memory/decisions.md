@@ -94,3 +94,8 @@
   Decision: Feature coverage summaries in `toolkit-arch` and `toolkit-i18n` must use per-feature set intersection, not count-only heuristics.
   Why: Matching by counts alone can overstate coverage when defined and used keys do not actually overlap.
   Consequence: Future coverage changes should derive matched, missing, and unused counts from unique key sets.
+
+- Date: 2026-04-14
+  Decision: `overlays/web-frontend` should follow the same operational layers as `overlays/mobile-flutter`, but with web-specific stack assumptions and capabilities.
+  Why: The web overlay needs parity in workflow shape without inheriting mobile-specific assumptions.
+  Consequence: Future web-overlay work should keep contract, catalog, prompts, templates, examples, checklists, and companion assets aligned as separate layers.

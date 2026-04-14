@@ -1,39 +1,37 @@
-# Worked Example — Web Frontend Feature
+# Worked Example - Web Frontend Feature
 
-> This example highlights the key overlay-specific stages.
-> Steps 3 (Implement) and 6 (Finalize) follow the foundation patterns in `docs/tutorial.md`.
+> This example highlights the overlay-specific stages.
 
 ## Scenario
 Add a settings page that lets a user update profile visibility and notification preferences.
 
 ## 1. Plan
-- Goal: keep page orchestration separate from reusable UI primitives.
-- Key constraint: data fetching and state updates stay out of pure presentational components.
+- keep orchestration in the page layer
+- keep reusable presentation components stateless
 
 ## 2. Architecture
-- route/page layer for page orchestration
-- feature modules for settings behavior and state
-- reusable component layer for presentation
-- services/state layer for API access and data flow
+- route/page layer for orchestration
+- feature module for settings behavior
+- component layer for presentation
+- service layer for API access
 
 ## 3. Implement
-- Files changed: route/page, feature, component, and data layers
-- Deviations: none
+- files changed: route/page, feature, component, service, and tests
 
 ## 4. Review
-- Page components can assemble features, but they should not own reusable business logic.
-- Design-system primitives should remain stateless and reusable.
-- API calls should live in the data/service layer, not inside leaf UI components.
+- page components can assemble features
+- shared primitives should stay generic
+- API calls should not live in leaf UI components
 
 ## 5. Verify
 ```bash
 npm run lint
+npm run test
 npm run build
 ```
 
 ## 6. Finalize
-- Result: the page stays composed from reusable layers instead of becoming a one-off container.
-- Follow-up: add a small end-to-end test for the settings flow.
+- keep the page composed from reusable layers instead of a one-off container
 
 ## 7. Memory
-- Keep fetching, state management, and reusable presentation layers clearly separated.
+- keep fetching, state management, and reusable presentation layers clearly separated
