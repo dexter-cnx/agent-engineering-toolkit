@@ -89,3 +89,23 @@
   Decision: `tools/toolkit-i18n` is implemented as a reusable PATH-friendly wrapper over a stdlib Python CLI with `doctor`, `validate`, `diff`, and `generate` subcommands.
   Why: Keeps localization workflows repeatable, compact, and easy to invoke from outside the source folder.
   Consequence: Future toolkit-i18n changes should preserve the non-interactive surface, compact JSON/text output, and explicit target-directory writes.
+
+- Date: 2026-04-14
+  Decision: Feature coverage summaries in `toolkit-arch` and `toolkit-i18n` must use per-feature set intersection, not count-only heuristics.
+  Why: Matching by counts alone can overstate coverage when defined and used keys do not actually overlap.
+  Consequence: Future coverage changes should derive matched, missing, and unused counts from unique key sets.
+
+- Date: 2026-04-14
+  Decision: `overlays/web-frontend` should follow the same operational layers as `overlays/mobile-flutter`, but with web-specific stack assumptions and capabilities.
+  Why: The web overlay needs parity in workflow shape without inheriting mobile-specific assumptions.
+  Consequence: Future web-overlay work should keep contract, catalog, prompts, templates, examples, checklists, and companion assets aligned as separate layers.
+
+- Date: 2026-04-14
+  Decision: Web tutorial onboarding now has Thai mirrors for blank-folder startup, design contract setup, and CSV localization.
+  Why: The Thai docs need to be discoverable alongside the English web tutorials and cover the common startup paths directly.
+  Consequence: Future web tutorial updates should keep the English and Thai versions in sync when the onboarding flow changes.
+
+- Date: 2026-04-14
+  Decision: The Thai web onboarding tutorial should be split into a hub plus stack-specific step-by-step guides for React+Vite and Next.js.
+  Why: The two stacks have different routing and runtime assumptions, and splitting them keeps the guidance concrete.
+  Consequence: Future updates to blank-folder onboarding should update the hub and the matching stack-specific guides together.

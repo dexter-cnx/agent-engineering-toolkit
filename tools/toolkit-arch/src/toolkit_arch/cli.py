@@ -11,6 +11,10 @@ from typing import Any, Iterable, Optional
 from .utils import print_json, write_json_file
 
 
+class ToolkitError(Exception):
+    """Raised for user-facing command failures."""
+
+
 _DART_USAGE_PATTERNS: tuple[tuple[str, re.Pattern[str]], ...] = (
     ("context.tr", re.compile(r'\bcontext\.tr\s*\(\s*(?P<quote>["\'])(?P<key>[^"\']+)(?P=quote)\s*\)')),
     ("string.tr", re.compile(r'(?P<quote>["\'])(?P<key>[^"\']+)(?P=quote)\s*\.tr\b')),
@@ -383,25 +387,27 @@ def _collect_i18n_coverage(target: Path, translations_csv: Path) -> dict[str, An
 
 def _summarize_feature_coverage(defined_keys: list[str], used_keys: list[str]) -> dict[str, Any]:
     features: dict[str, dict[str, int]] = {}
-    defined_counts: dict[str, int] = {}
-    used_counts: dict[str, int] = {}
-    defined_set = set(defined_keys)
+    defined_by_feature: dict[str, set[str]] = {}
+    used_by_feature: dict[str, set[str]] = {}
 
     for key in defined_keys:
         feature = _feature_name(key)
-        defined_counts[feature] = defined_counts.get(feature, 0) + 1
+        defined_by_feature.setdefault(feature, set()).add(key)
 
     for key in used_keys:
         feature = _feature_name(key)
-        used_counts[feature] = used_counts.get(feature, 0) + 1
+        used_by_feature.setdefault(feature, set()).add(key)
 
-    feature_names = sorted(set(defined_counts) | set(used_counts))
+    feature_names = sorted(set(defined_by_feature) | set(used_by_feature))
     for feature in feature_names:
-        defined_count = defined_counts.get(feature, 0)
-        used_count = used_counts.get(feature, 0)
-        matched_count = min(defined_count, used_count)
-        missing_count = max(used_count - defined_count, 0)
-        unused_count = max(defined_count - used_count, 0)
+        defined_set = defined_by_feature.get(feature, set())
+        used_set = used_by_feature.get(feature, set())
+        matched_set = defined_set & used_set
+        defined_count = len(defined_set)
+        used_count = len(used_set)
+        matched_count = len(matched_set)
+        missing_count = len(used_set - defined_set)
+        unused_count = len(defined_set - used_set)
         if used_count == 0:
             percent = 100.0 if defined_count == 0 else 0.0
         else:
@@ -708,7 +714,11 @@ def i18n_coverage(args: argparse.Namespace) -> int:
 def main() -> int:
     parser = _build_parser()
     args = parser.parse_args()
-    return args.func(args)
+    try:
+        return args.func(args)
+    except ToolkitError as exc:
+        print(f"toolkit-arch: {exc}", file=sys.stderr)
+        return 1
 
 
 if __name__ == "__main__":

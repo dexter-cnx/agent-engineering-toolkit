@@ -1,0 +1,13 @@
+name: web-overlay-phase-ci
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "web overlay CI placeholder"

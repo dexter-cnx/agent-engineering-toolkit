@@ -1,40 +1,74 @@
 # Web Frontend Overlay
 
-Use this overlay when the consuming repository is a web UI, admin dashboard, or product frontend.
+Use this overlay when the consuming repository is a web UI, admin dashboard, product frontend, or design-system-driven web app.
+
+## Start here
+- `START_HERE.md`
+- `HOW_TO_USE.md`
+- `INDEX_CANONICAL.md`
+- `INDEX_PROMPTS.md`
+- `INDEX_COMPANION.md`
+- `INDEX_CHECKLISTS.md`
+- `SKILLS_INDEX.md`
+
+## Default stack assumptions
+- TypeScript first.
+- React-first UI, with Next.js, Remix, Vite, or a similar framework acceptable if the repo standard says so.
+- Route/page layers orchestrate work.
+- Feature modules own behavior.
+- Presentational components stay reusable and stateless where practical.
+- API access goes through services, adapters, or data hooks, not leaf UI primitives.
+- Design system tokens and components are a first-class layer.
+- Testing, accessibility, and performance are part of delivery, not an afterthought.
 
 ## Recommended structure
 ```text
 repo/
 ├─ src/
-│  ├─ pages/ or app/
+│  ├─ app/ or pages/
 │  ├─ components/
 │  ├─ features/
 │  ├─ services/
 │  ├─ state/
-│  └─ design-system/
-├─ test/
+│  ├─ design-system/
+│  └─ routes/
+├─ tests/
+├─ e2e/
 └─ project_memory/
 ```
 
 ## Responsibilities
-- top-level UI or transport layer owns entry concerns only
-- business orchestration stays in a dedicated feature/service/domain layer
-- external integrations stay behind service or adapter boundaries
-- project memory captures recurring stack-specific conventions
+- Page components own orchestration and composition only.
+- Shared components stay free of feature logic.
+- Business orchestration stays in a feature, service, or domain layer.
+- External integrations stay behind adapters or service boundaries.
+- Global state changes happen in a dedicated state layer.
+- Project memory captures recurring web-specific conventions.
 
-Canonical operational rules live in `AGENTS.overlay.md`; this README is the human overview and example index.
+## Included assets
+- canonical baselines in `canonical/`
+- prompts in `prompts/`
+- templates in `templates/`
+- examples in `examples/`
+- validation docs in `CHECKLIST.md` and `OVERLAY_VALIDATION_CHECKLIST.md`
+- companion-pack entry assets in `companion-pack/`
+- repo adaptation guidance in `repo-customization/`
+- a starter template in `starter-app-template/`
 
 ## Verification examples
 ```bash
 npm run lint
+npm run test
 npm run build
 ```
 
 ## Review guidance
 Reject changes when:
-- page logic spread into reusable components
-- design-system drift
-- hidden data fetching inside unrelated UI primitives
+- page logic spreads into reusable components
+- design-system drift appears
+- data fetching hides inside unrelated UI primitives
+- accessibility regressions are introduced
+- tests are missing for behavior changes
 
 ## Overlay rule
 This overlay extends the foundation.
