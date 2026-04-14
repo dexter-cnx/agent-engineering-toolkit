@@ -65,4 +65,5 @@ toolkit-i18n generate assets/i18n/translations.csv --output artifacts/i18n/
 
 ## What this repository is
 
-This repository is a foundation toolkit for building agent-ready engineering overlays and reusable implementation workflows.
+This repository is a foundation toolkit for building reusable overlay packages and agent-ready workflows.
+
