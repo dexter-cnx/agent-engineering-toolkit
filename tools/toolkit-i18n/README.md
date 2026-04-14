@@ -62,3 +62,7 @@ toolkit-i18n doctor
 toolkit-i18n validate assets/i18n/translations.csv --json
 toolkit-i18n diff assets/i18n/translations.csv --json
 toolkit-i18n generate assets/i18n/translations.csv --output artifacts/i18n/
+
+## What this repository is
+
+This repository is a foundation toolkit for building agent-ready engineering overlays and reusable implementation workflows.
