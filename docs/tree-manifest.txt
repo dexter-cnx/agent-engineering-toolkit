@@ -296,6 +296,19 @@ overlays/agent-friendly-cli/docs/codex_usage.md
 overlays/agent-friendly-cli/examples
 overlays/agent-friendly-cli/examples/.gitkeep
 overlays/agent-friendly-cli/examples/README.md
+overlays/agent-friendly-cli/examples/README_TH.md
+overlays/agent-friendly-cli/examples/cli-adoption-workflow.md
+overlays/agent-friendly-cli/examples/cli-adoption-workflow_TH.md
+overlays/agent-friendly-cli/examples/cli-dry-run-vs-write.md
+overlays/agent-friendly-cli/examples/cli-dry-run-vs-write_TH.md
+overlays/agent-friendly-cli/examples/cli-export-large-payload.md
+overlays/agent-friendly-cli/examples/cli-export-large-payload_TH.md
+overlays/agent-friendly-cli/examples/cli-failure-handling.md
+overlays/agent-friendly-cli/examples/cli-failure-handling_TH.md
+overlays/agent-friendly-cli/examples/cli-operator-workflow.md
+overlays/agent-friendly-cli/examples/cli-operator-workflow_TH.md
+overlays/agent-friendly-cli/examples/cli-verification-checklist.md
+overlays/agent-friendly-cli/examples/cli-verification-checklist_TH.md
 overlays/agent-friendly-cli/prompts
 overlays/agent-friendly-cli/prompts/local
 overlays/agent-friendly-cli/prompts/local/create_or_update_cli.md
@@ -1276,6 +1289,7 @@ scripts/prompt_runner/README.md
 scripts/prompt_runner/runbook.md
 scripts/push-guide.md
 scripts/push-new-repo.sh
+scripts/update_file_tree.sh
 skills
 skills/architecture-review
 skills/architecture-review/README.md
