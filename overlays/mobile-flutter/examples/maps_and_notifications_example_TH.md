@@ -59,7 +59,7 @@ Deliver:
 4. verification checklist
 ```
 
-## สิ่งที่ควรได้
+## Expected output
 
 - permission handling แยกจาก map rendering
 - notification payload parsing อยู่นอก widgets

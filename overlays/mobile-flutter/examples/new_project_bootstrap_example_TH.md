@@ -55,7 +55,7 @@ Deliver:
 4. verification checklist
 ```
 
-## สิ่งที่ควรได้
+## Expected output
 
 - app shell ที่สะอาด
 - route registry

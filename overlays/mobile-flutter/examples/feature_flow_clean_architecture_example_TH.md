@@ -60,7 +60,7 @@ Deliver:
 5. test plan
 ```
 
-## สิ่งที่ควรได้
+## Expected output
 
 - domain, data, presentation แยกกันชัด
 - widget code ไม่มี repository/validation logic

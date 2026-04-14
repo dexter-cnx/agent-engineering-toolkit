@@ -53,7 +53,7 @@ Deliver:
 4. verification checklist
 ```
 
-## สิ่งที่ควรได้
+## Expected output
 
 - route guards อยู่ข้างนอก widgets
 - auth state อยู่ใน layer ที่มั่นคง

@@ -1,16 +1,16 @@
-# Mobile Flutter Worked Example
+# ตัวอย่าง Mobile Flutter แบบครบ flow
 
-## Scenario
+## สถานการณ์
 
-A consuming Flutter application needs:
+แอป Flutter ที่ใช้งานจริงต้องมี:
 
-- email and password authentication
+- email/password authentication
 - current-location support
 - map-based branch selection
-- push notification tap-to-route behavior
-- Flutter web deployment for internal QA
+- notification tap-to-route
+- web deployment สำหรับ internal QA
 
-## Recommended skills
+## Skill ที่แนะนำ
 
 - `flutter-auth`
 - `flutter-geolocation`
@@ -21,7 +21,7 @@ A consuming Flutter application needs:
 - `flutter-web-deployment`
 - `guide-clean-architecture-feature`
 
-## Reference files
+## ไฟล์อ้างอิง
 
 - `overlays/mobile-flutter/skills/flutter-auth/SKILL.md`
 - `overlays/mobile-flutter/skills/flutter-geolocation/SKILL.md`
@@ -36,7 +36,7 @@ A consuming Flutter application needs:
 - `overlays/mobile-flutter/prompts/prepare_flutter_web_release.md`
 - `overlays/mobile-flutter/prompts/apply_flutter_web_loading.md`
 
-## Example invocation
+## ตัวอย่าง invocation
 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
@@ -53,7 +53,6 @@ Reference files:
 - overlays/mobile-flutter/skills/flutter-auth/SKILL.md
 - overlays/mobile-flutter/prompts/add_auth_feature.md
 - overlays/mobile-flutter/prompts/add_maps_feature.md
-- overlays/mobile-flutter/prompts/add_notifications_feature.md
 
 Task:
 Implement a branch finder flow with guarded account access, notification tap
@@ -70,19 +69,34 @@ Deliver:
 
 ## Expected output
 
-- auth state should not live only inside screens
-- location permission handling should stay separate from map rendering
-- notification payload parsing should not sit inside widgets
-- web deployment rules should match router strategy
+```text
+$ myapp doctor
+OK  Flutter stable
+OK  Dart 3
+OK  router configured
+
+$ myapp plan branch-finder --json
+{
+  "features":["auth","location","maps","notifications","web"],
+  "boundaries":["auth-state","permission-handling","payload-parsing","web-startup"]
+}
+
+$ myapp verify branch-finder
+PASS route guard is outside widget tree
+PASS location permission flow is isolated
+PASS notification routing uses a dedicated resolver
+PASS web release checklist is attached
+```
 
 ## Review notes
 
-- keep platform boundaries explicit
-- keep routing logic outside presentation widgets
-- keep web loading and deployment decisions documented
+- auth state ต้องไม่อยู่แค่ใน screen
+- location permission handling ต้องแยกจาก map rendering
+- notification payload parsing ต้องไม่อยู่ใน widget
+- web deployment rules ต้องตรงกับ router strategy
 
 ## Verification notes
 
-- confirm permission handling is isolated
-- confirm notification intent parsing is isolated
-- confirm release checklist covers web startup and deployment paths
+- ตรวจว่า permission handling ถูก isolate
+- ตรวจว่า notification intent parsing ถูก isolate
+- ตรวจว่า release checklist ครอบคลุม web startup และ deployment

@@ -51,7 +51,7 @@ Deliver:
 4. release risks
 ```
 
-## สิ่งที่ควรได้
+## Expected output
 
 - loading state ตั้งใจไว้ชัด และสั้น
 - web bootstrap behavior ถูกอธิบาย

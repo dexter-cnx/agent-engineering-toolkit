@@ -431,6 +431,7 @@ overlays/mobile-flutter/examples/README_TH.md
 overlays/mobile-flutter/examples/feature_flow_clean_architecture_example.md
 overlays/mobile-flutter/examples/feature_flow_clean_architecture_example_TH.md
 overlays/mobile-flutter/examples/feature_request_example.md
+overlays/mobile-flutter/examples/feature_request_example_TH.md
 overlays/mobile-flutter/examples/localization_csv_example.md
 overlays/mobile-flutter/examples/localization_csv_example_TH.md
 overlays/mobile-flutter/examples/maps_and_notifications_example.md
@@ -444,6 +445,7 @@ overlays/mobile-flutter/examples/review_and_release_example_TH.md
 overlays/mobile-flutter/examples/web_loading_and_deployment_example.md
 overlays/mobile-flutter/examples/web_loading_and_deployment_example_TH.md
 overlays/mobile-flutter/examples/worked_example.md
+overlays/mobile-flutter/examples/worked_example_TH.md
 overlays/mobile-flutter/prompts
 overlays/mobile-flutter/prompts/add_auth_feature.md
 overlays/mobile-flutter/prompts/add_customer_visit_map.md

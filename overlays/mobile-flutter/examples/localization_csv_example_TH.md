@@ -50,7 +50,7 @@ Deliver:
 4. verification checklist
 ```
 
-## สิ่งที่ควรได้
+## Expected output
 
 - keys ใหม่ถูกเพิ่มใน CSV ก่อน
 - generated localization artifacts ถูกอัปเดต

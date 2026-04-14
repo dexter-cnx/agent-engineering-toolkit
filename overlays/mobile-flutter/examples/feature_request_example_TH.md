@@ -1,19 +1,19 @@
-# Example Feature Request
+# ตัวอย่าง Feature request
 
-## Scenario
+## สถานการณ์
 
-Use `mobile-flutter` to add a profile feature with:
+ใช้ `mobile-flutter` เพื่อเพิ่มฟีเจอร์ profile ที่มี:
 
 - profile view page
-- editable display name
+- แก้ display name ได้
 - avatar placeholder
-- load/save via repository
+- load/save ผ่าน repository
 - Riverpod providers
-- localization for all strings
-- widget tests for the page
-- unit tests for validation logic
+- localization สำหรับทุก string
+- widget tests สำหรับหน้า
+- unit tests สำหรับ validation logic
 
-## Recommended skills
+## Skill ที่แนะนำ
 
 - `flutter-dev`
 - `guide-new-feature-flow`
@@ -24,7 +24,7 @@ Use `mobile-flutter` to add a profile feature with:
 - `policy-testing-minimum`
 - `policy-no-business-logic-in-widget`
 
-## Reference files
+## ไฟล์อ้างอิง
 
 - `overlays/mobile-flutter/skills/guide-new-feature-flow/SKILL.md`
 - `overlays/mobile-flutter/skills/guide-clean-architecture-feature/SKILL.md`
@@ -35,7 +35,7 @@ Use `mobile-flutter` to add a profile feature with:
 - `overlays/mobile-flutter/skills/policy-testing-minimum/SKILL.md`
 - `overlays/mobile-flutter/skills/policy-no-business-logic-in-widget/SKILL.md`
 
-## Example invocation
+## ตัวอย่าง invocation
 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
@@ -68,19 +68,30 @@ Deliver:
 
 ## Expected output
 
-- domain, data, and presentation responsibilities are separated
-- widget code stays free of repository and validation logic
-- localization keys are added through the CSV source of truth
-- tests cover the behavior that matters
+```text
+$ myapp plan feature profile --json
+{
+  "feature":"profile",
+  "layers":["presentation","domain","data"],
+  "localization":"assets/i18n/translations.csv",
+  "tests":["widget","unit"]
+}
+
+$ myapp verify feature profile
+PASS repository boundaries are isolated
+PASS widget tree has no business logic
+PASS localization keys added through CSV
+PASS validation logic covered by unit tests
+```
 
 ## Review notes
 
-- do not push business rules into widgets
-- do not blur repository, use case, and UI responsibilities
-- keep the feature modular enough for later reuse
+- อย่าย้าย business rules ไปไว้ใน widgets
+- อย่าทำ repository/use case/UI ให้ปนกัน
+- ทำ feature ให้ modular พอสำหรับ reuse
 
 ## Verification notes
 
-- confirm localization keys come from the CSV source of truth
-- confirm widget tests cover the page behavior
-- confirm validation logic has unit test coverage
+- ตรวจว่าใช้ workflow skill ที่ถูก
+- ตรวจว่า localization ผูกกับ CSV source of truth
+- ตรวจว่ามี unit test และ widget test ตาม scope

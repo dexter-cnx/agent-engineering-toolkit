@@ -50,7 +50,7 @@ Deliver:
 4. go/no-go recommendation
 ```
 
-## สิ่งที่ควรได้
+## Expected output
 
 - blocking issues แยกจาก non-blocking notes
 - architecture fit ถูกตรวจอย่างชัดเจน
