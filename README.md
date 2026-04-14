@@ -46,3 +46,5 @@ This overlay stays toolkit-safe:
 - CLI v7 baseline
 - policy check baseline
 - GitHub Actions CI sample
+
+This repository is a foundation toolkit for building reusable overlay packages and agent-ready workflows.
