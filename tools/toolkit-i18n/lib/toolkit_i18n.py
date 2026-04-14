@@ -89,24 +89,27 @@ def _feature_name(key: str) -> str:
 
 
 def _feature_coverage_summary(defined_keys: list[str], used_keys: list[str]) -> dict[str, Any]:
-    defined_counts: dict[str, int] = {}
-    used_counts: dict[str, int] = {}
+    defined_by_feature: dict[str, set[str]] = {}
+    used_by_feature: dict[str, set[str]] = {}
 
     for key in defined_keys:
         feature = _feature_name(key)
-        defined_counts[feature] = defined_counts.get(feature, 0) + 1
+        defined_by_feature.setdefault(feature, set()).add(key)
 
     for key in used_keys:
         feature = _feature_name(key)
-        used_counts[feature] = used_counts.get(feature, 0) + 1
+        used_by_feature.setdefault(feature, set()).add(key)
 
     features: dict[str, dict[str, Any]] = {}
-    for feature in sorted(set(defined_counts) | set(used_counts)):
-        defined_count = defined_counts.get(feature, 0)
-        used_count = used_counts.get(feature, 0)
-        matched_count = min(defined_count, used_count)
-        missing_count = max(used_count - defined_count, 0)
-        unused_count = max(defined_count - used_count, 0)
+    for feature in sorted(set(defined_by_feature) | set(used_by_feature)):
+        defined_set = defined_by_feature.get(feature, set())
+        used_set = used_by_feature.get(feature, set())
+        matched_set = defined_set & used_set
+        defined_count = len(defined_set)
+        used_count = len(used_set)
+        matched_count = len(matched_set)
+        missing_count = len(used_set - defined_set)
+        unused_count = len(defined_set - used_set)
         if used_count == 0:
             percent = 100.0 if defined_count == 0 else 0.0
         else:

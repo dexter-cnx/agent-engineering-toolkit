@@ -89,3 +89,8 @@
   Decision: `tools/toolkit-i18n` is implemented as a reusable PATH-friendly wrapper over a stdlib Python CLI with `doctor`, `validate`, `diff`, and `generate` subcommands.
   Why: Keeps localization workflows repeatable, compact, and easy to invoke from outside the source folder.
   Consequence: Future toolkit-i18n changes should preserve the non-interactive surface, compact JSON/text output, and explicit target-directory writes.
+
+- Date: 2026-04-14
+  Decision: Feature coverage summaries in `toolkit-arch` and `toolkit-i18n` must use per-feature set intersection, not count-only heuristics.
+  Why: Matching by counts alone can overstate coverage when defined and used keys do not actually overlap.
+  Consequence: Future coverage changes should derive matched, missing, and unused counts from unique key sets.
