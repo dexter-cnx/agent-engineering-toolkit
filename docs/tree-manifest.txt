@@ -269,10 +269,15 @@ docs/tutorials/unity/index_EN.md
 docs/tutorials/web
 docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend.md
 docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend_EN.md
+docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend_TH.md
 docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend.md
 docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend_EN.md
+docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend_TH.md
+docs/tutorials/web/how-to-make-web-frontend-nextjs_TH.md
+docs/tutorials/web/how-to-make-web-frontend-react-vite_TH.md
 docs/tutorials/web/how-to-make-web-frontend.md
 docs/tutorials/web/how-to-make-web-frontend_EN.md
+docs/tutorials/web/how-to-make-web-frontend_TH.md
 examples
 examples/consuming_repo_as_submodule
 examples/consuming_repo_as_submodule/README.md

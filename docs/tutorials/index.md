@@ -20,6 +20,13 @@
 
 ## บทสอนเว็บ
 - `docs/tutorials/web/how-to-make-web-frontend.md`
+- `docs/tutorials/web/how-to-make-web-frontend_TH.md`
+- `docs/tutorials/web/how-to-make-web-frontend-react-vite_TH.md`
+- `docs/tutorials/web/how-to-make-web-frontend-nextjs_TH.md`
+- `docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend.md`
+- `docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend_TH.md`
+- `docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend.md`
+- `docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend_TH.md`
 
 ## บทสอนทีม
 - `docs/tutorials/team/how-to-use-team-agents.md`
