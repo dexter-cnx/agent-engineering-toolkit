@@ -1,4 +1,0 @@
-name: flutter_overlay_phase21_ci
-on:
-  push:
-  pull_request:

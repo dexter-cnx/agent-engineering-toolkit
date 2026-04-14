@@ -1,1 +1,0 @@
-# Prompt — add firebase capability

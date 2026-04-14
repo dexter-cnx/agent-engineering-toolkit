@@ -1,1 +1,0 @@
-# Example flutter-camera-media

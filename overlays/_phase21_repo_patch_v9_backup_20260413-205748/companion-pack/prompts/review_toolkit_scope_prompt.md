@@ -1,1 +1,0 @@
-# Prompt — review toolkit scope

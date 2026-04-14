@@ -1,1 +1,0 @@
-# Generic App Template
