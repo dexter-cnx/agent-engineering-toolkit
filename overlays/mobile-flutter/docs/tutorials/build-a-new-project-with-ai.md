@@ -23,8 +23,8 @@ Bootstrap a new Flutter app from the overlay without guessing the structure, sta
 
 1. Read `workflows/new-project/README.md`.
 2. Copy `starter-app-template/` into the new consuming repository.
-3. Use `project-bootstrap-template.md` to confirm the expected folders.
-4. Use `feature-module-template.md` for the first feature module shape.
+3. Use `overlays/mobile-flutter/templates/project-bootstrap-template.md` to confirm the expected folders.
+4. Use `overlays/mobile-flutter/templates/feature-module-template.md` for the first feature module shape.
 5. Initialize routing, state, and localization from the overlay defaults.
 6. Add tests for the bootstrap shell and the first feature slice.
 7. Run the overlay validation command before you mark the bootstrap complete.

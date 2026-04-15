@@ -22,7 +22,7 @@ Add one feature module to an existing Flutter app without breaking architecture 
 ## Step-by-step instructions
 
 1. Read `workflows/new-feature/README.md`.
-2. Read `feature-module-template.md` and `repository-template.md`.
+2. Read `overlays/mobile-flutter/templates/feature-module-template.md` and `overlays/mobile-flutter/templates/repository-template.md`.
 3. Use `flutter-clean-architecture-audit` to confirm the boundary.
 4. Scaffold the feature folder and contract files.
 5. Add the state skeleton and repository adapter.

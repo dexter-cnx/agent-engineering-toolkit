@@ -13,5 +13,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Validate skill schema
+      - name: Run full Mobile Flutter overlay validation
         run: bash tools/skillgen/bin/skillgen check --overlay overlays/mobile-flutter

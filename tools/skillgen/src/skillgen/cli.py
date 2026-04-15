@@ -39,6 +39,49 @@ ACTIVE_REAL_WORLD_EXAMPLE_FILES = [
     "real-world/go-router-deep-linking_TH.md",
 ]
 
+VALIDATION_DOC_EXCLUSIONS = {
+    "sample-failures.md",
+}
+
+VALIDATABLE_REFERENCE_PREFIXES = (
+    "overlays/mobile-flutter/",
+    "tools/",
+    ".github/",
+    "docs/",
+    "workflows/",
+    "templates/",
+    "examples/",
+    "prompts/",
+    "skills/",
+    "policies/",
+    "ci/",
+    "starter-app-template/",
+    "canonical/",
+    "checklists/",
+    "AGENTS.overlay.md",
+    "HOW_TO_USE.md",
+    "README.md",
+    "SKILLS_INDEX.md",
+    "SKILL_SCHEMA.md",
+    "AGENT_CONTRIBUTION_RULES.md",
+    "../",
+    "./",
+)
+
+IGNORED_CONSUMER_PATH_PREFIXES = (
+    "lib/",
+    "android/",
+    "ios/",
+    "web/",
+    "assets/",
+    "test/",
+    "pubspec.yaml",
+)
+
+IGNORED_GENERIC_REFERENCES = {
+    "SKILL.md",
+}
+
 REQUIRED_HEADINGS = [
     "Purpose",
     "Use when",
@@ -53,6 +96,10 @@ REQUIRED_HEADINGS = [
     "Real example",
     "Real file output sample",
 ]
+
+VALID_SKILL_STRUCTURE = re.compile(
+    r"^skills/(?P<category>[a-z0-9-]+)/(?P<name>[a-z0-9-]+)/SKILL\.md$"
+)
 
 PLACEHOLDER_PATTERNS = [
     re.compile(r"\bTBD\b", re.IGNORECASE),
@@ -267,6 +314,32 @@ def naming_errors(skill: SkillDoc) -> list[str]:
     return errors
 
 
+def location_errors(skill: SkillDoc) -> list[str]:
+    errors: list[str] = []
+    relative = skill.path.as_posix().split("overlays/mobile-flutter/", 1)[-1]
+    match = VALID_SKILL_STRUCTURE.match(relative)
+    if not match:
+        errors.append(
+            f"{skill.path}: must live at overlays/mobile-flutter/skills/<category>/<skill_name>/SKILL.md"
+        )
+        return errors
+    category = match.group("category")
+    name = match.group("name")
+    if category != skill.category:
+        errors.append(
+            f"{skill.path}: folder category '{skill.category}' does not match path category '{category}'"
+        )
+    if name != skill.name:
+        errors.append(
+            f"{skill.path}: folder name '{skill.name}' does not match path skill name '{name}'"
+        )
+    if category not in ACTIVE_CATEGORIES:
+        errors.append(
+            f"{skill.path}: category '{category}' is not in the active routing set {ACTIVE_CATEGORIES}"
+        )
+    return errors
+
+
 def reference_errors(skill: SkillDoc, overlay: Path) -> list[str]:
     refs = skill.references
     if not refs:
@@ -287,17 +360,82 @@ def reference_errors(skill: SkillDoc, overlay: Path) -> list[str]:
     return errors
 
 
+def extract_path_literals(text: str) -> list[str]:
+    text = re.sub(r"```.*?```", "", text, flags=re.DOTALL)
+    literals = re.findall(r"`([^`]+)`", text)
+    path_like_prefixes = (
+        "overlays/",
+        "tools/",
+        "docs/",
+        "workflows/",
+        "templates/",
+        "examples/",
+        "prompts/",
+        "skills/",
+        "policies/",
+        "ci/",
+        "starter-app-template/",
+        "canonical/",
+        "checklists/",
+        "lib/",
+        "android/",
+        "ios/",
+        "web/",
+        "assets/",
+        "test/",
+    )
+    results: list[str] = []
+    for literal in literals:
+        candidate = literal.strip()
+        if " " in candidate:
+            continue
+        if candidate.startswith(IGNORED_CONSUMER_PATH_PREFIXES):
+            continue
+        if candidate.startswith(path_like_prefixes) or candidate.endswith((".md", ".csv", ".yaml", ".yml")):
+            results.append(candidate)
+    return results
+
+
+def resolve_repo_reference(base: Path, reference: str) -> Path:
+    if reference.startswith("http://") or reference.startswith("https://"):
+        return Path(reference)
+    if reference.startswith("/"):
+        return Path(reference)
+    if reference.startswith(("overlays/", "tools/", ".github/")):
+        return repo_root() / reference
+    if reference.startswith((
+        "docs/",
+        "workflows/",
+        "templates/",
+        "examples/",
+        "prompts/",
+        "skills/",
+        "policies/",
+        "ci/",
+        "starter-app-template/",
+        "canonical/",
+        "checklists/",
+        "AGENTS.overlay.md",
+        "HOW_TO_USE.md",
+        "README.md",
+        "SKILLS_INDEX.md",
+        "SKILL_SCHEMA.md",
+        "AGENT_CONTRIBUTION_RULES.md",
+    )):
+        overlay = overlay_root(None)
+        return (overlay / reference).resolve()
+    if "#" in reference:
+        reference = reference.split("#", 1)[0]
+    return (base.parent / reference).resolve()
+
+
 def extract_links(base: Path, text: str) -> list[str]:
     links = re.findall(r"\[[^\]]+\]\(([^)]+)\)", text)
     return [link for link in links if not link.startswith("http://") and not link.startswith("https://")]
 
 
 def resolve_link(base: Path, link: str) -> Path:
-    if link.startswith("/"):
-        return Path(link)
-    if "#" in link:
-        link = link.split("#", 1)[0]
-    return (base.parent / link).resolve()
+    return resolve_repo_reference(base, link)
 
 
 def validate_skills(overlay: Path) -> int:
@@ -307,6 +445,7 @@ def validate_skills(overlay: Path) -> int:
     trigger_index: dict[str, SkillDoc] = {}
 
     for skill in docs:
+        issues.extend(location_errors(skill))
         issues.extend(required_section_errors(skill))
         issues.extend(placeholder_errors(skill))
         issues.extend(naming_errors(skill))
@@ -340,6 +479,55 @@ def validate_skills(overlay: Path) -> int:
 
     print(f"Validated {len(docs)} active skills against SKILL_SCHEMA.md")
     return 0
+
+
+def parse_index_skill_paths(index_path: Path) -> list[str]:
+    paths: list[str] = []
+    for line in read_text(index_path).splitlines():
+        match = re.match(r"\|\s*[a-z0-9-]+\s*\|\s*`([^`]+/SKILL\.md)`\s*\|", line)
+        if match:
+            paths.append(match.group(1))
+    return paths
+
+
+def validate_index_references(overlay: Path) -> list[str]:
+    issues: list[str] = []
+    index_path = overlay / "SKILLS_INDEX.md"
+    docs = discover_active_skills(overlay)
+    active_paths = {f"skills/{doc.category}/{doc.name}/SKILL.md" for doc in docs}
+    index_paths = set(parse_index_skill_paths(index_path))
+    missing = sorted(active_paths - index_paths)
+    extra = sorted(index_paths - active_paths)
+    if missing:
+        issues.append(
+            f"{index_path}: missing active skills -> {', '.join(missing)}"
+        )
+    if extra:
+        issues.append(
+            f"{index_path}: references non-active skills -> {', '.join(extra)}"
+        )
+    return issues
+
+
+def path_reference_errors(overlay: Path) -> list[str]:
+    issues: list[str] = []
+    docs = discover_doc_files(overlay)
+    for path in docs:
+        if path.parent.name == "validation" and path.name in VALIDATION_DOC_EXCLUSIONS:
+            continue
+        text = read_text(path)
+        candidates = set(extract_links(path, text)) | set(extract_path_literals(text))
+        for candidate in sorted(candidates):
+            if candidate.startswith("http://") or candidate.startswith("https://"):
+                continue
+            if candidate in IGNORED_GENERIC_REFERENCES:
+                continue
+            if candidate.startswith(IGNORED_CONSUMER_PATH_PREFIXES):
+                continue
+            resolved = resolve_repo_reference(path, candidate)
+            if not resolved.exists():
+                issues.append(f"{path}: broken repository path reference -> {candidate}")
+    return issues
 
 
 def similarity_score(left: str, right: str) -> float:
@@ -619,6 +807,7 @@ def discover_doc_files(overlay: Path) -> list[Path]:
         overlay / "examples" / "release-config-example.md",
     ]
     docs.extend(sorted((overlay / "docs" / "tutorials").glob("*.md")))
+    docs.extend(sorted((overlay / "docs" / "validation").glob("*.md")))
     docs.extend(sorted((overlay / "examples" / "real-world").glob("*.md")))
     docs.extend(sorted((overlay / "prompts").glob("*.md")))
     docs.extend(sorted((overlay / "workflows").glob("*/README.md")))
@@ -639,7 +828,11 @@ def docs_check_command(overlay: Path) -> int:
     active_skill_names = known_skill_names(overlay)
     issues.extend(detect_workflow_reference_errors(overlay, active_skill_names))
     issues.extend(detect_example_reference_errors(overlay, active_skill_names))
+    issues.extend(validate_index_references(overlay))
+    issues.extend(path_reference_errors(overlay))
     for path in docs:
+        if path.parent.name == "validation" and path.name in VALIDATION_DOC_EXCLUSIONS:
+            continue
         text = read_text(path)
         for deprecated in sorted(DEPRECATED_SKILL_NAMES):
             if re.search(rf"(?<![A-Za-z0-9-]){re.escape(deprecated)}(?![A-Za-z0-9-])", text):

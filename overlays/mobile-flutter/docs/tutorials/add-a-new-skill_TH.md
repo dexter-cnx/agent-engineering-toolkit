@@ -16,7 +16,7 @@
 - `overlays/mobile-flutter/SKILLS_INDEX.md`
 - `overlays/mobile-flutter/SKILL_SCHEMA.md`
 - `overlays/mobile-flutter/docs/tutorials/add-a-new-skill.md`
-- `overlays/mobile-flutter/tools/skillgen/`
+- `tools/skillgen/README.md`
 
 ## ขั้นตอน
 
@@ -70,7 +70,7 @@
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Read overlays/mobile-flutter/AGENT_CONTRIBUTION_RULES.md first.
-Use overlays/mobile-flutter/tools/skillgen/ to scaffold the skill.
+Use `tools/skillgen/README.md` and `tools/skillgen/bin/skillgen` to scaffold the skill.
 
 Task:
 Create a new atomic skill called <skill name>.

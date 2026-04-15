@@ -23,8 +23,8 @@
 
 1. อ่าน `workflows/new-project/README.md`
 2. copy `starter-app-template/` ไปยัง consuming repository ใหม่
-3. ใช้ `project-bootstrap-template.md` ยืนยันโฟลเดอร์ที่คาดหวัง
-4. ใช้ `feature-module-template.md` ตรวจรูปแบบ feature แรก
+3. ใช้ `overlays/mobile-flutter/templates/project-bootstrap-template.md` ยืนยันโฟลเดอร์ที่คาดหวัง
+4. ใช้ `overlays/mobile-flutter/templates/feature-module-template.md` ตรวจรูปแบบ feature แรก
 5. ตั้งค่า routing, state และ localization ตาม default ของ overlay
 6. เพิ่ม tests สำหรับ bootstrap shell และ feature slice แรก
 7. รัน overlay validation ก่อนประกาศว่า bootstrap เสร็จ

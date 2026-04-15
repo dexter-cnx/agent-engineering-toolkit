@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate Mobile Flutter skill structure
-        run: bash tools/skillgen/bin/skillgen validate --overlay overlays/mobile-flutter
+        run: bash tools/skillgen/bin/skillgen check --overlay overlays/mobile-flutter
       - name: Sync Mobile Flutter skill index
         run: bash tools/skillgen/bin/skillgen sync-index --overlay overlays/mobile-flutter --check
       - name: Check Mobile Flutter skill overlap

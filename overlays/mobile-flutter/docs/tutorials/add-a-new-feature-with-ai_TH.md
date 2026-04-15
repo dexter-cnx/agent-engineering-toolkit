@@ -22,7 +22,7 @@
 ## ขั้นตอน
 
 1. อ่าน `workflows/new-feature/README.md`
-2. อ่าน `feature-module-template.md` และ `repository-template.md`
+2. อ่าน `overlays/mobile-flutter/templates/feature-module-template.md` และ `overlays/mobile-flutter/templates/repository-template.md`
 3. ใช้ `flutter-clean-architecture-audit` เพื่อตรวจ boundary
 4. สร้าง feature folder และ contract files
 5. เพิ่ม state skeleton และ repository adapter
