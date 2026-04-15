@@ -2,6 +2,13 @@
 
 Example feature: guarded profile route with deep-link support.
 
+## Reference files
+
+- [`../templates/feature-module-template.md`](../templates/feature-module-template.md)
+- [`../skills/routing/flutter-go-router-route-map/SKILL.md`](../skills/routing/flutter-go-router-route-map/SKILL.md)
+- [`../skills/routing/flutter-go-router-redirect-guard/SKILL.md`](../skills/routing/flutter-go-router-redirect-guard/SKILL.md)
+- [`../skills/routing/flutter-go-router-deeplink-wireup/SKILL.md`](../skills/routing/flutter-go-router-deeplink-wireup/SKILL.md)
+
 ## Output tree
 
 ```text

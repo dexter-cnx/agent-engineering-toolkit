@@ -2,6 +2,14 @@
 
 Example feature: sign-in flow with Firebase Auth and repository indirection.
 
+## Reference files
+
+- [`../templates/repository-template.md`](../templates/repository-template.md)
+- [`../templates/state-management-template.md`](../templates/state-management-template.md)
+- [`../skills/firebase/flutter-firebase-auth-adapter/SKILL.md`](../skills/firebase/flutter-firebase-auth-adapter/SKILL.md)
+- [`../skills/firebase/flutter-firebase-auth-state/SKILL.md`](../skills/firebase/flutter-firebase-auth-state/SKILL.md)
+- [`../skills/routing/flutter-go-router-redirect-guard/SKILL.md`](../skills/routing/flutter-go-router-redirect-guard/SKILL.md)
+
 ## Output tree
 
 ```text

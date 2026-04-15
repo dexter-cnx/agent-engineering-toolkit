@@ -3,8 +3,8 @@
 This folder keeps historical phase documents that are no longer the main operating entry points.
 
 Current entry points:
-- START_HERE.md
-- INDEX_CANONICAL.md
-- INDEX_PROMPTS.md
-- INDEX_COMPANION.md
-- INDEX_CHECKLISTS.md
+- README.md
+- AGENTS.overlay.md
+- SKILLS_INDEX.md
+- HOW_TO_USE.md
+- docs/tutorials/README.md

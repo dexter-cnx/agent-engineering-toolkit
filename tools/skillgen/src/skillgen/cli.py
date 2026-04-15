@@ -21,6 +21,24 @@ ACTIVE_CATEGORIES = [
     "tooling",
 ]
 
+ACTIVE_EXAMPLE_FILES = [
+    "full-feature-implementation.md",
+    "firebase-integration-example.md",
+    "routing-example.md",
+    "release-config-example.md",
+]
+
+ACTIVE_REAL_WORLD_EXAMPLE_FILES = [
+    "real-world/README.md",
+    "real-world/README_TH.md",
+    "real-world/new-feature-module.md",
+    "real-world/new-feature-module_TH.md",
+    "real-world/firebase-auth-flow.md",
+    "real-world/firebase-auth-flow_TH.md",
+    "real-world/go-router-deep-linking.md",
+    "real-world/go-router-deep-linking_TH.md",
+]
+
 REQUIRED_HEADINGS = [
     "Purpose",
     "Use when",
@@ -367,6 +385,53 @@ def workflow_skills(overlay: Path) -> list[tuple[Path, list[str]]]:
     return workflows
 
 
+def known_skill_names(overlay: Path) -> set[str]:
+    return {skill.name for skill in discover_active_skills(overlay)}
+
+
+def detect_workflow_reference_errors(overlay: Path, active_skill_names: set[str]) -> list[str]:
+    findings: list[str] = []
+    for path, skills in workflow_skills(overlay):
+        unknown = [skill for skill in skills if skill not in active_skill_names]
+        if unknown:
+            findings.append(
+                f"- {path}: references non-active skills -> {', '.join(sorted(set(unknown)))}"
+            )
+    return findings
+
+
+def detect_example_reference_errors(overlay: Path, active_skill_names: set[str]) -> list[str]:
+    findings: list[str] = []
+    for filename in ACTIVE_EXAMPLE_FILES + ACTIVE_REAL_WORLD_EXAMPLE_FILES:
+        path = overlay / "examples" / filename
+        if not path.exists():
+            findings.append(f"- {path}: missing active example file")
+            continue
+        text = read_text(path)
+        links = extract_links(path, text)
+        template_links = [link for link in links if "/templates/" in link]
+        skill_links = [link for link in links if "/skills/" in link]
+        is_navigation_doc = path.name.startswith("README")
+        if not is_navigation_doc:
+            if not template_links:
+                findings.append(f"- {path}: missing template reference")
+            if not skill_links:
+                findings.append(f"- {path}: missing skill reference")
+        for link in skill_links:
+            target = resolve_link(path, link)
+            if not target.exists():
+                findings.append(f"- {path}: broken skill reference -> {link}")
+                continue
+            skill_name = target.parent.name
+            if skill_name not in active_skill_names:
+                findings.append(f"- {path}: example references non-active skill '{skill_name}'")
+        for link in template_links:
+            target = resolve_link(path, link)
+            if not target.exists():
+                findings.append(f"- {path}: broken template reference -> {link}")
+    return findings
+
+
 def detect_workflow_duplicates(overlay: Path) -> list[str]:
     findings: list[str] = []
     workflows = workflow_skills(overlay)
@@ -546,11 +611,6 @@ def discover_doc_files(overlay: Path) -> list[Path]:
         overlay / "SKILLS_INDEX.md",
         overlay / "SKILL_SCHEMA.md",
         overlay / "AGENT_CONTRIBUTION_RULES.md",
-        overlay / "docs" / "tutorials" / "README.md",
-        overlay / "docs" / "tutorials" / "getting-started.md",
-        overlay / "docs" / "tutorials" / "how-skills-work.md",
-        overlay / "docs" / "tutorials" / "real-use-cases.md",
-        overlay / "docs" / "tutorials" / "add-a-new-skill.md",
         overlay / "docs" / "architecture" / "skill-change-impact-map.md",
         overlay / "examples" / "README.md",
         overlay / "examples" / "full-feature-implementation.md",
@@ -558,6 +618,8 @@ def discover_doc_files(overlay: Path) -> list[Path]:
         overlay / "examples" / "routing-example.md",
         overlay / "examples" / "release-config-example.md",
     ]
+    docs.extend(sorted((overlay / "docs" / "tutorials").glob("*.md")))
+    docs.extend(sorted((overlay / "examples" / "real-world").glob("*.md")))
     docs.extend(sorted((overlay / "workflows").glob("*/README.md")))
     docs.extend(sorted((overlay / "templates").glob("*.md")))
     docs.extend(sorted((overlay / "policies").glob("*/*.md")))
@@ -573,6 +635,9 @@ def discover_doc_files(overlay: Path) -> list[Path]:
 def docs_check_command(overlay: Path) -> int:
     issues: list[str] = []
     docs = discover_doc_files(overlay)
+    active_skill_names = known_skill_names(overlay)
+    issues.extend(detect_workflow_reference_errors(overlay, active_skill_names))
+    issues.extend(detect_example_reference_errors(overlay, active_skill_names))
     for path in docs:
         text = read_text(path)
         for deprecated in sorted(DEPRECATED_SKILL_NAMES):

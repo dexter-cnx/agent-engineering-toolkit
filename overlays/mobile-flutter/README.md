@@ -61,6 +61,11 @@ The overlay retains older catalog material in place for reference, but only the 
 ## Related docs
 
 - `docs/tutorials/README.md`
+- `docs/tutorials/getting-started.md`
+- `docs/tutorials/build-a-new-project-with-ai.md`
+- `docs/tutorials/add-a-new-feature-with-ai.md`
+- `docs/tutorials/release-a-flutter-app-with-ai.md`
+- `docs/tutorials/fix-architecture-violations-with-ai.md`
 - `AGENT_CONTRIBUTION_RULES.md`
 - `workflows/new-project/README.md`
 - `workflows/new-feature/README.md`

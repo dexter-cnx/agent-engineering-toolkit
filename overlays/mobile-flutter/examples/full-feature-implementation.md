@@ -2,6 +2,17 @@
 
 Example feature: profile screen with remote repository and Riverpod state.
 
+## Reference files
+
+- [`../templates/feature-module-template.md`](../templates/feature-module-template.md)
+- [`../templates/repository-template.md`](../templates/repository-template.md)
+- [`../templates/state-management-template.md`](../templates/state-management-template.md)
+- [`../skills/architecture/flutter-clean-architecture-audit/SKILL.md`](../skills/architecture/flutter-clean-architecture-audit/SKILL.md)
+- [`../skills/architecture/flutter-feature-folder-scaffold/SKILL.md`](../skills/architecture/flutter-feature-folder-scaffold/SKILL.md)
+- [`../skills/architecture/flutter-feature-contract-scaffold/SKILL.md`](../skills/architecture/flutter-feature-contract-scaffold/SKILL.md)
+- [`../skills/state/flutter-riverpod-state-skeleton/SKILL.md`](../skills/state/flutter-riverpod-state-skeleton/SKILL.md)
+- [`../skills/firebase/flutter-firestore-repository/SKILL.md`](../skills/firebase/flutter-firestore-repository/SKILL.md)
+
 ## Output tree
 
 ```text

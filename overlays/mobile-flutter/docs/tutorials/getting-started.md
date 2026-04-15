@@ -1,21 +1,91 @@
 # Getting Started
 
-## Use the overlay
+## Purpose
 
-1. Open `README.md`.
-2. Open `AGENTS.overlay.md`.
-3. Use `SKILLS_INDEX.md` to choose the smallest active skill.
-4. Use the matching workflow to orchestrate multi-step work.
+Use this overlay end-to-end without prior context. Start here when you need to pick a skill, follow a workflow, and ship a change safely.
 
-## Load skills in Claude Code or Codex
+## Prerequisites
 
-- Open the overlay root first.
-- Read the router before reading individual skill docs.
-- Open only the skill docs needed for the task.
-- Use the examples to mirror file output and structure.
+- Repository checked out locally
+- Access to `overlays/mobile-flutter/`
+- A clear task goal: new app, new feature, release, or architecture fix
 
-## What to expect
+## Exact repository paths
 
-- The agent should pick one or more skills.
-- The agent should report assumptions and output paths.
-- The agent should validate the resulting file tree.
+- `overlays/mobile-flutter/README.md`
+- `overlays/mobile-flutter/AGENTS.overlay.md`
+- `overlays/mobile-flutter/SKILLS_INDEX.md`
+- `overlays/mobile-flutter/SKILL_SCHEMA.md`
+- `overlays/mobile-flutter/workflows/`
+- `overlays/mobile-flutter/examples/`
+- `overlays/mobile-flutter/templates/`
+- `overlays/mobile-flutter/ci/validate_skills.sh`
+
+## Step-by-step instructions
+
+1. Read [README.md](../../README.md) to confirm the overlay purpose.
+2. Read [AGENTS.overlay.md](../../AGENTS.overlay.md) to understand the operating rules.
+3. Open [SKILLS_INDEX.md](../../SKILLS_INDEX.md) and choose the smallest skill that fits.
+4. Open the matching workflow in `../../workflows/` if the task spans more than one skill.
+5. Open the linked example and template files before editing code.
+6. Make the smallest file change that satisfies the workflow output.
+7. Run `bash overlays/mobile-flutter/ci/validate_skills.sh` before handing off the result.
+
+## What skills to use
+
+- Use `SKILLS_INDEX.md` to pick the smallest active skill.
+- Use `workflows/new-project/README.md` for a new app.
+- Use `workflows/new-feature/README.md` for a feature module.
+- Use `workflows/release-app/README.md` for release readiness.
+- Use `workflows/migrate-project/README.md` for legacy refactors.
+
+## Expected inputs
+
+- Task description
+- Target repository path
+- Feature or app name
+- State management choice when relevant
+- Platform scope when relevant
+
+## Expected outputs
+
+- Clear skill selection
+- Exact file list to change
+- Updated docs or templates when needed
+- Validation results from the overlay checker
+
+## Common mistakes
+
+- Reading every skill before acting
+- Using a workflow when one skill is enough
+- Editing code before checking the overlay path
+- Skipping the validation command
+
+## Troubleshooting
+
+- If the task is unclear, start with `flutter-clean-architecture-audit`.
+- If the project uses GetX, choose the GetX state skill instead of Riverpod.
+- If the task touches routing, split route map, redirects, and deep links into separate skills.
+- If validation fails, fix the file paths first, then rerun the checker.
+
+## Copy-paste prompt for Claude Code / Codex
+
+```text
+Follow overlays/mobile-flutter/AGENTS.overlay.md.
+Use overlays/mobile-flutter/SKILLS_INDEX.md to select the smallest active skill.
+If the task spans multiple steps, use the matching workflow from overlays/mobile-flutter/workflows/.
+
+Task:
+<describe the change>
+
+Deliver:
+1. assumptions
+2. exact files to update
+3. chosen skills
+4. implementation plan
+5. validation checklist
+```
+
+## Thai
+
+ดู `getting-started_TH.md` สำหรับเวอร์ชันภาษาไทยที่ใช้โครงสร้างเดียวกัน

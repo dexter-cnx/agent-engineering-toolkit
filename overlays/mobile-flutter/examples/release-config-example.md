@@ -2,6 +2,14 @@
 
 Example feature: Android and iOS release readiness setup.
 
+## Reference files
+
+- [`../templates/pull_request_checklist.md`](../templates/pull_request_checklist.md)
+- [`../skills/release/flutter-android-signing-config/SKILL.md`](../skills/release/flutter-android-signing-config/SKILL.md)
+- [`../skills/release/flutter-android-release-validate/SKILL.md`](../skills/release/flutter-android-release-validate/SKILL.md)
+- [`../skills/release/flutter-ios-release-readiness/SKILL.md`](../skills/release/flutter-ios-release-readiness/SKILL.md)
+- [`../policies/secrets/README.md`](../policies/secrets/README.md)
+
 ## Output tree
 
 ```text
