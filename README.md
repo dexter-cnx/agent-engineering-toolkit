@@ -28,9 +28,20 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 
 - [backend-node](overlays/backend-node/README.md) - Node backend, API service, and job processor guidance
 - [mobile-flutter](overlays/mobile-flutter/README.md) - Flutter app guidance and capability skills
+- [web-frontend-common](overlays/web-frontend-common/README.md) - Framework-agnostic web frontend guidance
+- [web-frontend-nextjs](overlays/web-frontend-nextjs/README.md) - Next.js-specific frontend implementation guidance
+- [backend-common](overlays/backend-common/README.md) - Runtime-neutral backend guidance
+- [backend-dotnet](overlays/backend-dotnet/README.md) - ASP.NET Core and .NET backend guidance
 - [unity](overlays/unity/README.md) - Unity project structure, runtime, and delivery skills
 - [python-service](overlays/python-service/README.md) - Python service, worker, and adapter guidance
-- [web-frontend](overlays/web-frontend/README.md) - Web UI and product frontend guidance
+- [web-frontend](overlays/web-frontend/README.md) - Legacy web UI and product frontend guidance
+
+## Full-stack composition
+
+- [docs/compositions/README.md](docs/compositions/README.md) - Index of modular full-stack reference paths
+- [docs/compositions/nextjs-dotnet/README.md](docs/compositions/nextjs-dotnet/README.md) - Full-stack Next.js + ASP.NET Core reference path
+- [docs/compositions/nextjs-python-service/README.md](docs/compositions/nextjs-python-service/README.md) - Full-stack Next.js + Python service reference path
+- [docs/compositions/nextjs-nodebackend/README.md](docs/compositions/nextjs-nodebackend/README.md) - Full-stack Next.js + Node backend reference path
 
 ## Start here
 

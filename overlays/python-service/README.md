@@ -2,6 +2,19 @@
 
 Use this overlay when the consuming repository is a Python service, FastAPI application, worker, adapter layer, or automation system.
 
+## Use with
+- `overlays/backend-common/` for runtime-neutral backend guidance
+- `docs/compositions/README.md` for full-stack composition choices
+- `docs/compositions/nextjs-python-service/` for the Next.js + Python service reference path
+
+## Start here
+- `AGENTS.overlay.md`
+- `HOW_TO_USE.md`
+- `TUTORIAL.md`
+- `README.th.md`
+- `HOW_TO_USE.th.md`
+- `TUTORIAL.th.md`
+
 ## Purpose
 This overlay adds practical guidance for Python service repositories, FastAPI apps, workers, and automation services while preserving the foundation identity.
 
