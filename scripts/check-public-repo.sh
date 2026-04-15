@@ -85,6 +85,7 @@ check_internal_refs() {
   internal_refs="$(
     find "$repo_root" \
       \( -path "$repo_root/.git" -o -path "$repo_root/.git/*" \) -prune -o \
+      -name '.DS_Store' -prune -o \
       \( -path "$repo_root/audits" -o -path "$repo_root/audits/*" \
       -o -path "$repo_root/docs/internal" -o -path "$repo_root/docs/internal/*" \
       -o -path "$repo_root/prompts/internal" -o -path "$repo_root/prompts/internal/*" \
@@ -108,7 +109,11 @@ done < "$required_list"
 
 actual_paths="$(mktemp)"
 manifest_paths="$(mktemp)"
-find "$repo_root" -mindepth 1 -not -path "$repo_root/.git" -not -path "$repo_root/.git/*" | sed "s#^$repo_root/##" | sort > "$actual_paths"
+find "$repo_root" -mindepth 1 \
+  -not -path "$repo_root/.git" \
+  -not -path "$repo_root/.git/*" \
+  -not -name '.DS_Store' \
+  | sed "s#^$repo_root/##" | sort > "$actual_paths"
 grep -v '^#' "$repo_root/docs/tree-manifest.txt" | sed '/^$/d' | sort > "$manifest_paths"
 compare_lists "$actual_paths" "$manifest_paths"
 rm -f "$actual_paths" "$manifest_paths"
