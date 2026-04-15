@@ -14,6 +14,20 @@ Skill validation failed:
 - overlays/mobile-flutter/skills/firebase/flutter-firebase-auth-adapter/SKILL.md: section '## Purpose' is empty
 ```
 
+## Section shape error
+
+```text
+Skill validation failed:
+- overlays/mobile-flutter/skills/architecture/flutter-feature-folder-scaffold/SKILL.md: section '## Step-by-step workflow' must contain at least two numbered steps
+```
+
+## Duplicate heading
+
+```text
+Skill validation failed:
+- overlays/mobile-flutter/skills/routing/flutter-go-router-route-map/SKILL.md: duplicate heading '## References'
+```
+
 ## Naming mismatch
 
 ```text
@@ -33,6 +47,20 @@ Skill validation failed:
 ```text
 Skill validation failed:
 - overlays/mobile-flutter/skills/routing/flutter-go-router-deeplink-wireup/SKILL.md: duplicate purpose detected with overlays/mobile-flutter/skills/routing/flutter-go-router-route-map/SKILL.md -> 'Create the go_router route map for one Flutter app or feature slice.'
+```
+
+## Missing non-README reference
+
+```text
+Skill validation failed:
+- overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md: references must link to at least one non-README example or template file
+```
+
+## Real file output sample
+
+```text
+Skill validation failed:
+- overlays/mobile-flutter/skills/architecture/flutter-feature-folder-scaffold/SKILL.md: section '## Real file output sample' must include at least one concrete file or folder path
 ```
 
 ## Broken repository path

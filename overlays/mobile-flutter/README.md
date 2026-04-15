@@ -7,10 +7,10 @@ This overlay keeps the foundation general and pushes Flutter-specific execution 
 ## Start here
 
 - If you are new, read `HOW_TO_USE.md` first, then `docs/tutorials/getting-started.md`.
+- `HOW_TO_USE.md`
 - `AGENTS.overlay.md`
 - `SKILLS_INDEX.md`
 - `SKILL_SCHEMA.md`
-- `HOW_TO_USE.md`
 
 ## What changed in v2
 
@@ -55,7 +55,7 @@ overlays/mobile-flutter/
 
 Use `SKILLS_INDEX.md` to select the smallest skill that can finish the task, then compose workflows when the work spans multiple execution units. Use `tools/skillgen/` to add or sync skills safely.
 
-## Legacy assets
+## Archive assets
 
 The overlay retains older catalog material in place for reference, but only the v2 skill set is considered active and CI-validated.
 
@@ -65,13 +65,14 @@ The overlay retains older catalog material in place for reference, but only the 
 - `docs/tutorials/getting-started.md`
 - `docs/tutorials/how-skills-work.md`
 - `docs/tutorials/add-a-new-skill.md`
+- `examples/README.md`
+- `examples/real-world/README.md`
 - `prompts/new_project.md`
 - `prompts/new_feature.md`
 - `prompts/fix_architecture.md`
 - `prompts/integrate_firebase_auth.md`
 - `prompts/add_go_router_deeplink.md`
 - `prompts/release_android_ios.md`
-- `docs/tutorials/getting-started.md`
 - `docs/tutorials/build-a-new-project-with-ai.md`
 - `docs/tutorials/add-a-new-feature-with-ai.md`
 - `docs/tutorials/release-a-flutter-app-with-ai.md`

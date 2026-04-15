@@ -1,28 +1,30 @@
 # Agent Contribution Rules
 
-## Goal
+Use this page as the fast agent-facing reminder for skill contributions.
 
-Keep agent-driven skill contributions safe, atomic, and deterministic.
+## Canonical docs
 
-## Rules
+- [CONTRIBUTING_SKILLS.md](CONTRIBUTING_SKILLS.md)
+- [MAINTAINER_REVIEW_GUIDE.md](MAINTAINER_REVIEW_GUIDE.md)
+- [docs/validation/skills-boundary-audit.md](docs/validation/skills-boundary-audit.md)
+
+## Agent rules
 
 - Prefer updating an existing skill before creating a new one.
 - Create a new skill only when the responsibility cannot be expressed without overlap.
-- Explain why the existing skill set is insufficient before adding a new skill.
+- Explain why the current skill set is insufficient before adding a new skill.
 - Fill every schema field completely.
-- Link at least one example and one template in every new skill.
+- Link at least one real example and one real template in every new skill.
 - Keep workflows orchestration-only.
-- Do not add a new skill if the change belongs in a policy, template, or example.
+- Do not add a new skill if the change belongs in a policy, template, example, or tutorial.
 
-## Required agent behavior
+## Required checks
 
 - Use `tools/skillgen/bin/skillgen new` to scaffold new skills.
-- Run `validate`, `sync-index --check`, `overlap`, and `docs-check` before proposing the change as complete.
+- Run `tools/skillgen/bin/skillgen check --overlay overlays/mobile-flutter` before proposing the change as complete.
 - Call out any place where a new skill might duplicate an existing one.
-- State the active category and the exact files that will be created or updated.
+- State the active category and exact files that will be created or updated.
 
-## Review standard
+## Final rule
 
-- The agent must justify the new skill in terms of responsibility boundaries.
-- The agent must not leave placeholder text in committed skill files.
-- The agent must not create a skill with a duplicated purpose or trigger set.
+If the contribution cannot be described as one execution responsibility with one output contract, it does not belong in `skills/`.

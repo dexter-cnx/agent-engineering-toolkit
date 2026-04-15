@@ -13,7 +13,7 @@ Use the English files first; Thai mirrors exist beside them for bilingual teams.
 - [Add a New Skill TH](add-a-new-skill_TH.md)
 - [Real Use Cases](real-use-cases.md)
 
-## AI workflows
+## Workflow Guides
 
 - [Build a New Project With AI](build-a-new-project-with-ai.md)
 - [Build a New Project With AI TH](build-a-new-project-with-ai_TH.md)

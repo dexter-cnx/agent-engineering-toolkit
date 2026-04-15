@@ -18,6 +18,7 @@ Use this overlay end-to-end without prior context. Start here when you need to p
 - `overlays/mobile-flutter/SKILL_SCHEMA.md`
 - `overlays/mobile-flutter/workflows/`
 - `overlays/mobile-flutter/examples/`
+- `overlays/mobile-flutter/examples/real-world/README.md`
 - `overlays/mobile-flutter/templates/`
 - `overlays/mobile-flutter/ci/validate_skills.sh`
 
@@ -28,8 +29,9 @@ Use this overlay end-to-end without prior context. Start here when you need to p
 3. Open [SKILLS_INDEX.md](../../SKILLS_INDEX.md) and choose the smallest skill that fits.
 4. Open the matching workflow in `../../workflows/` if the task spans more than one skill.
 5. Open the linked example and template files before editing code.
-6. Make the smallest file change that satisfies the workflow output.
-7. Run `bash overlays/mobile-flutter/ci/validate_skills.sh` before handing off the result.
+6. If you want a concrete end-to-end shape, start with `examples/real-world/README.md`.
+7. Make the smallest file change that satisfies the workflow output.
+8. Run `bash overlays/mobile-flutter/ci/validate_skills.sh` before handing off the result.
 
 ## What skills to use
 

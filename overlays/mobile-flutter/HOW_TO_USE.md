@@ -46,7 +46,7 @@ Read policies when you need constraints, not execution.
 
 ## 5 common tasks
 
-| Task | Use |
+| Task | Recommended path |
 |---|---|
 | Create a new project | `prompts/new_project.md` + `workflows/new-project/README.md` + `flutter-clean-architecture-audit` |
 | Add a new feature | `prompts/new_feature.md` + `workflows/new-feature/README.md` + `flutter-feature-folder-scaffold` + `flutter-feature-contract-scaffold` |
@@ -143,7 +143,7 @@ Deliver:
 4. release risks
 ```
 
-## Quick troubleshooting
+## Quick Troubleshooting
 
 - If the task is boundary-heavy, start with `flutter-clean-architecture-audit`.
 - If the task touches routing, split route map, redirects, and deep links.
@@ -161,6 +161,7 @@ Deliver:
 - `policies/` -> constraints only
 - `templates/` -> file shape and scaffolding
 - `examples/` -> worked output examples
+- `examples/real-world/README.md` -> end-to-end example index
 - `prompts/` -> reusable operational prompts
 - `docs/tutorials/` -> operational guides
 - `CONTRIBUTING_SKILLS.md` -> how to add skills safely

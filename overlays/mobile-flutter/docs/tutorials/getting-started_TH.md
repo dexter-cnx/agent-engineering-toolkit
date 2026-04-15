@@ -18,6 +18,7 @@
 - `overlays/mobile-flutter/SKILL_SCHEMA.md`
 - `overlays/mobile-flutter/workflows/`
 - `overlays/mobile-flutter/examples/`
+- `overlays/mobile-flutter/examples/real-world/README.md`
 - `overlays/mobile-flutter/templates/`
 - `overlays/mobile-flutter/ci/validate_skills.sh`
 
@@ -28,8 +29,9 @@
 3. เปิด [SKILLS_INDEX.md](../../SKILLS_INDEX.md) แล้วเลือก skill ที่เล็กที่สุดที่ใช้ได้
 4. ถ้างานต้องใช้มากกว่าหนึ่ง skill ให้เปิด workflow ที่ตรงใน `../../workflows/`
 5. เปิด example และ template ที่ถูกอ้างถึงก่อนเริ่มแก้ code
-6. แก้ไฟล์ให้น้อยที่สุดแต่ตรงกับ output ของ workflow
-7. รัน `bash overlays/mobile-flutter/ci/validate_skills.sh` ก่อนส่งงาน
+6. ถ้าต้องการตัวอย่าง end-to-end ให้เริ่มจาก `examples/real-world/README.md`
+7. แก้ไฟล์ให้น้อยที่สุดแต่ตรงกับ output ของ workflow
+8. รัน `bash overlays/mobile-flutter/ci/validate_skills.sh` ก่อนส่งงาน
 
 ## ควรใช้ skill อะไร
 

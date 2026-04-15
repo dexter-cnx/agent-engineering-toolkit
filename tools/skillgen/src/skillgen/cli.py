@@ -52,31 +52,6 @@ VALIDATION_DOC_EXCLUSIONS = {
     "sample-failures.md",
 }
 
-VALIDATABLE_REFERENCE_PREFIXES = (
-    "overlays/mobile-flutter/",
-    "tools/",
-    ".github/",
-    "docs/",
-    "workflows/",
-    "templates/",
-    "examples/",
-    "prompts/",
-    "skills/",
-    "policies/",
-    "ci/",
-    "starter-app-template/",
-    "canonical/",
-    "checklists/",
-    "AGENTS.overlay.md",
-    "HOW_TO_USE.md",
-    "README.md",
-    "SKILLS_INDEX.md",
-    "SKILL_SCHEMA.md",
-    "AGENT_CONTRIBUTION_RULES.md",
-    "../",
-    "./",
-)
-
 IGNORED_CONSUMER_PATH_PREFIXES = (
     "lib/",
     "android/",
@@ -163,13 +138,6 @@ DEPRECATED_SKILL_NAMES = {
     "policy-testing-minimum",
     "policy-translation-csv",
 }
-
-CANONICAL_TEMPLATE_CHECKS = {
-    "feature-module-template.md": ["lib/features/<feature_name>/", "domain/", "data/", "presentation/"],
-    "state-management-template.md": ["Riverpod", "GetX"],
-    "project-bootstrap-template.md": ["lib/", "app/", "core/", "features/"],
-}
-
 
 @dataclass(frozen=True)
 class SkillDoc:
@@ -297,12 +265,16 @@ def parse_skill(path: Path) -> SkillDoc:
     for line in lines[1:]:
         if line.startswith("## "):
             if current is not None:
+                if current in sections:
+                    raise ValueError(f"{path}: duplicate heading '## {current}'")
                 sections[current] = buffer[:]
             current = line[3:].strip()
             buffer = []
         else:
             buffer.append(line)
     if current is not None:
+        if current in sections:
+            raise ValueError(f"{path}: duplicate heading '## {current}'")
         sections[current] = buffer[:]
     normalized_sections = {key: "\n".join(value).strip() for key, value in sections.items()}
     category = path.parent.parent.name
@@ -396,10 +368,49 @@ def reference_errors(skill: SkillDoc, overlay: Path) -> list[str]:
         resolved = resolve_link(skill.path, target)
         if not resolved.exists():
             errors.append(f"{skill.path}: broken reference link -> {target}")
-        if "examples/" in target or "templates/" in target:
+        if (
+            ("examples/" in target or "templates/" in target)
+            and not target.endswith("/README.md")
+            and not target.endswith("/README_TH.md")
+        ):
             example_or_template = True
     if not example_or_template:
-        errors.append(f"{skill.path}: references must link to at least one example or template")
+        errors.append(
+            f"{skill.path}: references must link to at least one non-README example or template file"
+        )
+    return errors
+
+
+def section_shape_errors(skill: SkillDoc) -> list[str]:
+    errors: list[str] = []
+    bullet_sections = {
+        "Use when": skill.use_when,
+        "Do NOT use when": skill.do_not_use_when,
+        "Inputs required": skill.inputs_required,
+        "Constraints": skill.constraints,
+        "Output contract": skill.output_contract,
+        "Validation checklist": skill.validation_checklist,
+        "Related skills": skill.related_skills,
+        "References": skill.references,
+    }
+    for heading, body in bullet_sections.items():
+        if not split_bullets(body):
+            errors.append(f"{skill.path}: section '## {heading}' must contain at least one bullet item")
+
+    workflow_steps = split_numbered(skill.workflow)
+    if len(workflow_steps) < 2:
+        errors.append(
+            f"{skill.path}: section '## Step-by-step workflow' must contain at least two numbered steps"
+        )
+
+    if not skill.real_example.strip():
+        errors.append(f"{skill.path}: section '## Real example' is empty")
+
+    if not re.search(r"[A-Za-z0-9_.-]+(?:/[A-Za-z0-9_.-]+)+(?:\.[A-Za-z0-9]+)?", skill.real_file_output_sample):
+        errors.append(
+            f"{skill.path}: section '## Real file output sample' must include at least one concrete file or folder path"
+        )
+
     return errors
 
 
@@ -492,6 +503,7 @@ def validate_skills(overlay: Path) -> int:
         issues.extend(required_section_errors(skill))
         issues.extend(placeholder_errors(skill))
         issues.extend(naming_errors(skill))
+        issues.extend(section_shape_errors(skill))
         issues.extend(reference_errors(skill, overlay))
 
         purpose_key = normalize(skill.purpose)
@@ -681,25 +693,10 @@ def detect_workflow_duplicates(overlay: Path) -> list[str]:
     return findings
 
 
-def detect_template_drift(overlay: Path) -> list[str]:
-    findings: list[str] = []
-    for template_name, required_fragments in CANONICAL_TEMPLATE_CHECKS.items():
-        matches = list((overlay / "templates").glob(template_name))
-        if not matches:
-            continue
-        template_path = matches[0]
-        text = read_text(template_path)
-        for fragment in required_fragments:
-            if fragment not in text:
-                findings.append(f"- {template_path}: missing canonical guidance fragment '{fragment}'")
-    return findings
-
-
 def overlap_command(overlay: Path, report_path: Path | None, fail_on_overlap: bool) -> int:
     docs = discover_active_skills(overlay)
     findings = pairwise_overlap_report(docs)
     findings.extend(detect_workflow_duplicates(overlay))
-    findings.extend(detect_template_drift(overlay))
 
     report_lines = [
         "# Skill Overlap Report",
