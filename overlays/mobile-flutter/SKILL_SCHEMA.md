@@ -43,10 +43,10 @@ Every skill must include these sections in this order:
 ## Correct example
 
 ```md
-# flutter-go-router-deeplink
+# flutter-go-router-route-map
 
 ## Purpose
-Define router structure, guarded routes, and deep-link handling for Flutter apps.
+Define the route tree for a Flutter app.
 
 ## Use when
 - Adding navigation to a feature-heavy app
@@ -56,26 +56,25 @@ Define router structure, guarded routes, and deep-link handling for Flutter apps
 
 ## Inputs required
 - Route list
-- Auth boundary rules
+- Route hierarchy rules
 
 ## Constraints
 - Use `go_router`
 
 ## Step-by-step workflow
 1. Create route table
-2. Add guards
 
 ## Output contract
 - `lib/app/router/app_router.dart`
 
 ## Validation checklist
-- Deep link opens the correct page
+- Route tree matches the planned feature paths
 
 ## Related skills
-- `flutter-firebase-auth-flow`
+- `flutter-go-router-redirect-guard`
 
 ## References
-- `../../../../examples/routing-example.md`
+- `examples/routing-example.md`
 
 ## Real example
 - Route `/profile/:id`

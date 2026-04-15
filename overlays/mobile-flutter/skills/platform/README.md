@@ -4,7 +4,7 @@ This category is reserved for future platform-specific atomic skills.
 
 Current platform readiness work is covered by:
 
-- `skills/release/flutter-android-release-signing/SKILL.md`
+- `skills/release/flutter-android-signing-config/SKILL.md`
 - `skills/release/flutter-ios-release-readiness/SKILL.md`
 - `skills/web/flutter-web-loading-shell/SKILL.md`
 

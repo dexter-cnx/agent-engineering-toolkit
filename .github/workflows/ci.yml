@@ -5,6 +5,13 @@ on:
   pull_request:
 
 jobs:
+  mobile-flutter-skill-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Mobile Flutter skill structure
+        run: sh overlays/mobile-flutter/ci/validate_skills.sh
+
   structure-check:
     runs-on: ubuntu-latest
     steps:

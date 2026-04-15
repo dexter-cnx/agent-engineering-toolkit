@@ -20,20 +20,24 @@ This overlay equips an agent to plan, build, review, verify, and release Flutter
 ### Architecture
 
 - `skills/architecture/flutter-clean-architecture-audit/SKILL.md`
-- `skills/architecture/flutter-feature-scaffold/SKILL.md`
+- `skills/architecture/flutter-feature-folder-scaffold/SKILL.md`
+- `skills/architecture/flutter-feature-contract-scaffold/SKILL.md`
 
 ### State
 
-- `skills/state/flutter-riverpod-feature-state/SKILL.md`
-- `skills/state/flutter-getx-mvc-feature/SKILL.md`
+- `skills/state/flutter-riverpod-state-skeleton/SKILL.md`
+- `skills/state/flutter-getx-controller-skeleton/SKILL.md`
 
 ### Routing
 
-- `skills/routing/flutter-go-router-deeplink/SKILL.md`
+- `skills/routing/flutter-go-router-route-map/SKILL.md`
+- `skills/routing/flutter-go-router-redirect-guard/SKILL.md`
+- `skills/routing/flutter-go-router-deeplink-wireup/SKILL.md`
 
 ### Firebase
 
-- `skills/firebase/flutter-firebase-auth-flow/SKILL.md`
+- `skills/firebase/flutter-firebase-auth-adapter/SKILL.md`
+- `skills/firebase/flutter-firebase-auth-state/SKILL.md`
 - `skills/firebase/flutter-firestore-repository/SKILL.md`
 
 ### Web
@@ -42,7 +46,8 @@ This overlay equips an agent to plan, build, review, verify, and release Flutter
 
 ### Release
 
-- `skills/release/flutter-android-release-signing/SKILL.md`
+- `skills/release/flutter-android-signing-config/SKILL.md`
+- `skills/release/flutter-android-release-validate/SKILL.md`
 - `skills/release/flutter-ios-release-readiness/SKILL.md`
 
 ### Testing
@@ -56,7 +61,8 @@ This overlay equips an agent to plan, build, review, verify, and release Flutter
 
 ### Tooling
 
-- `skills/tooling/flutter-design-token-sync/SKILL.md`
+- `skills/tooling/flutter-design-token-map/SKILL.md`
+- `skills/tooling/flutter-localization-csv-sync/SKILL.md`
 
 ## Orchestration rules
 

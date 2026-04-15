@@ -13,10 +13,13 @@ The agent first looks at the request goal, then the input type, then the active 
 ## Example composition
 
 1. `flutter-clean-architecture-audit`
-2. `flutter-feature-scaffold`
-3. `flutter-riverpod-feature-state`
-4. `flutter-go-router-deeplink`
-5. `flutter-performance-audit`
+2. `flutter-feature-folder-scaffold`
+3. `flutter-feature-contract-scaffold`
+4. `flutter-riverpod-state-skeleton`
+5. `flutter-go-router-route-map`
+6. `flutter-go-router-redirect-guard`
+7. `flutter-go-router-deeplink-wireup`
+8. `flutter-performance-audit`
 
 ## Anti-pattern
 

@@ -6,11 +6,12 @@ Prepare a Flutter app for Android and iOS release with signing, readiness checks
 
 ## Execution order
 
-1. `flutter-android-release-signing`
-2. `flutter-ios-release-readiness`
-3. `flutter-performance-audit`
-4. `flutter-clean-architecture-audit` if release blockers are architectural
-5. `flutter-web-loading-shell` if the release includes web
+1. `flutter-android-signing-config`
+2. `flutter-android-release-validate`
+3. `flutter-ios-release-readiness`
+4. `flutter-performance-audit`
+5. `flutter-clean-architecture-audit` if release blockers are architectural
+6. `flutter-web-loading-shell` if the release includes web
 
 ## Expected outputs
 

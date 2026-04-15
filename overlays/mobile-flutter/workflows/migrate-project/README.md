@@ -7,11 +7,15 @@ Move a legacy Flutter codebase toward the overlay's production architecture with
 ## Execution order
 
 1. `flutter-clean-architecture-audit`
-2. `flutter-feature-scaffold`
-3. `flutter-riverpod-feature-state` or `flutter-getx-mvc-feature`
-4. `flutter-go-router-deeplink`
-5. `flutter-firestore-repository` or `flutter-firebase-auth-flow` when applicable
-6. `flutter-performance-audit`
+2. `flutter-feature-folder-scaffold`
+3. `flutter-feature-contract-scaffold`
+4. `flutter-riverpod-state-skeleton` or `flutter-getx-controller-skeleton`
+5. `flutter-go-router-route-map`
+6. `flutter-go-router-redirect-guard`
+7. `flutter-go-router-deeplink-wireup`
+8. `flutter-firestore-repository` or `flutter-firebase-auth-adapter` when applicable
+9. `flutter-firebase-auth-state` when route guards depend on auth
+10. `flutter-performance-audit`
 
 ## Expected outputs
 

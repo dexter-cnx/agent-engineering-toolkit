@@ -1,8 +1,8 @@
-# Mobile Flutter Overlay v2
+# Mobile Flutter Overlay v3
 
 Production Flutter operating overlay for the Agent Engineering Toolkit.
 
-This overlay keeps the foundation general and pushes Flutter-specific execution into atomic skills, workflows, policies, templates, and examples.
+This overlay keeps the foundation general and pushes Flutter-specific execution into smaller atomic skills, workflows, policies, templates, and examples.
 
 ## Start here
 
@@ -14,7 +14,7 @@ This overlay keeps the foundation general and pushes Flutter-specific execution 
 ## What changed in v2
 
 - The catalog is now routed through a decision index instead of a flat list.
-- Skills are atomic execution capsules with explicit contracts.
+- Skills are atomic execution capsules with explicit single responsibilities.
 - Policies live outside skills.
 - Workflows orchestrate multiple skills in a fixed order.
 - CI validates that every active skill follows `SKILL_SCHEMA.md`.

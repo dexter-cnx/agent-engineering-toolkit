@@ -55,9 +55,28 @@ for relative_path in $skill_files; do
       echo "Heading order violation in $relative_path near '$heading'" >&2
       exit 1
     fi
+    if [ "$previous_line" -gt 0 ]; then
+      section_start=$((previous_line + 1))
+      section_end=$((line_number - 1))
+      if [ "$section_end" -lt "$section_start" ] || ! sed -n "${section_start},${section_end}p" "$skill_path" | grep -q '[^[:space:]]'; then
+        echo "Empty section for the heading before '$heading' in $relative_path" >&2
+        exit 1
+      fi
+    fi
     previous_line=$line_number
   done
   IFS=$OLDIFS
+  total_lines=$(wc -l < "$skill_path")
+  section_start=$((previous_line + 1))
+  if [ "$section_start" -le "$total_lines" ]; then
+    if ! sed -n "${section_start},\$p" "$skill_path" | grep -q '[^[:space:]]'; then
+      echo "Empty final section in $relative_path" >&2
+      exit 1
+    fi
+  else
+    echo "Empty final section in $relative_path" >&2
+    exit 1
+  fi
   validated_count=$((validated_count + 1))
 done
 echo "Validated $validated_count active skills against SKILL_SCHEMA.md"
