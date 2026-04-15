@@ -1,33 +1,7 @@
 
-# Flutter Skills Catalog
+# Deprecated Flutter Skills Catalog
 
-## Core
-- flutter-auth
-- flutter-permissions
-- flutter-geolocation
-- flutter-maps
-- flutter-storage
-- flutter-networking
-- flutter-deep-link
-- flutter-push-notifications
-- flutter-i18n-l10n
+This legacy catalog is retained for historical reference only.
+The active skill router lives in `overlays/mobile-flutter/SKILLS_INDEX.md`.
 
-## Product
-- flutter-analytics
-- flutter-crash-reporting
-- flutter-feature-flags
-- flutter-offline-first
-- flutter-remote-config
-
-## Release
-- flutter-web-deployment
-- flutter-build-flavors
-- flutter-app-signing-release
-- flutter-ci-cd-mobile
-
-## Device
-- flutter-camera-media
-- flutter-file-upload-download
-- flutter-biometric-auth
-- flutter-background-tasks
-- flutter-contacts-sharing
+Do not use this file for active skill selection.

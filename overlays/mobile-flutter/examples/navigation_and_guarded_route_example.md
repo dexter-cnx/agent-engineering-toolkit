@@ -13,29 +13,33 @@ Example change:
 
 ## Recommended skills
 
-- `flutter-auth`
-- `flutter-navigation-go-router`
-- `flutter-dev`
-- `guide-clean-architecture-feature`
-- `policy-no-business-logic-in-widget`
+- `flutter-clean-architecture-audit`
+- `flutter-firebase-auth-adapter`
+- `flutter-firebase-auth-state`
+- `flutter-go-router-route-map`
+- `flutter-go-router-redirect-guard`
+- `flutter-go-router-deeplink-wireup`
 
 ## Reference files
 
-- `overlays/mobile-flutter/skills/flutter-navigation-go-router/SKILL.md`
-- `overlays/mobile-flutter/skills/flutter-auth/SKILL.md`
+- `overlays/mobile-flutter/skills/routing/flutter-go-router-route-map/SKILL.md`
+- `overlays/mobile-flutter/skills/routing/flutter-go-router-redirect-guard/SKILL.md`
+- `overlays/mobile-flutter/skills/routing/flutter-go-router-deeplink-wireup/SKILL.md`
+- `overlays/mobile-flutter/skills/firebase/flutter-firebase-auth-adapter/SKILL.md`
+- `overlays/mobile-flutter/skills/firebase/flutter-firebase-auth-state/SKILL.md`
 - `overlays/mobile-flutter/prompts/add_auth_feature.md`
 - `overlays/mobile-flutter/prompts/new_feature.md`
-- `overlays/mobile-flutter/skills/policy-no-business-logic-in-widget/SKILL.md`
-- `overlays/mobile-flutter/skills/policy-folder-structure/SKILL.md`
 
 ## Example invocation
 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use these skills:
-- flutter-auth
-- flutter-navigation-go-router
-- flutter-dev
+- flutter-clean-architecture-audit
+- flutter-firebase-auth-adapter
+- flutter-firebase-auth-state
+- flutter-go-router-route-map
+- flutter-go-router-redirect-guard
 
 Task:
 Add an auth-gated dashboard route with redirect handling and route registry

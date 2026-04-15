@@ -15,44 +15,41 @@ Use `mobile-flutter` to add a profile feature with:
 
 ## Recommended skills
 
-- `flutter-dev`
-- `guide-new-feature-flow`
-- `guide-clean-architecture-feature`
-- `flutter-state-riverpod`
+- `flutter-clean-architecture-audit`
+- `flutter-feature-folder-scaffold`
+- `flutter-feature-contract-scaffold`
+- `flutter-riverpod-state-skeleton`
 - `flutter-localization-csv`
-- `policy-translation-csv`
-- `policy-testing-minimum`
-- `policy-no-business-logic-in-widget`
+- `flutter-localization-csv-sync`
+- `policies/architecture/README.md`
+- `policies/testing/README.md`
 
 ## Reference files
 
-- `overlays/mobile-flutter/skills/guide-new-feature-flow/SKILL.md`
-- `overlays/mobile-flutter/skills/guide-clean-architecture-feature/SKILL.md`
-- `overlays/mobile-flutter/skills/flutter-state-riverpod/SKILL.md`
-- `overlays/mobile-flutter/skills/flutter-localization-csv/SKILL.md`
-- `overlays/mobile-flutter/skills/policy-translation-csv/SKILL.md`
+- `overlays/mobile-flutter/workflows/new-feature/README.md`
+- `overlays/mobile-flutter/skills/architecture/flutter-feature-folder-scaffold/SKILL.md`
+- `overlays/mobile-flutter/skills/architecture/flutter-feature-contract-scaffold/SKILL.md`
+- `overlays/mobile-flutter/skills/state/flutter-riverpod-state-skeleton/SKILL.md`
+- `overlays/mobile-flutter/skills/tooling/flutter-localization-csv-sync/SKILL.md`
 - `overlays/mobile-flutter/prompts/new_feature.md`
-- `overlays/mobile-flutter/skills/policy-testing-minimum/SKILL.md`
-- `overlays/mobile-flutter/skills/policy-no-business-logic-in-widget/SKILL.md`
+- `overlays/mobile-flutter/policies/testing/README.md`
+- `overlays/mobile-flutter/policies/architecture/README.md`
 
 ## Example invocation
 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use these skills:
-- flutter-dev
-- guide-new-feature-flow
-- guide-clean-architecture-feature
-- flutter-state-riverpod
-- flutter-localization-csv
-- policy-translation-csv
-- policy-testing-minimum
-- policy-no-business-logic-in-widget
+- flutter-clean-architecture-audit
+- flutter-feature-folder-scaffold
+- flutter-feature-contract-scaffold
+- flutter-riverpod-state-skeleton
+- flutter-localization-csv-sync
 
 Reference files:
-- overlays/mobile-flutter/skills/guide-new-feature-flow/SKILL.md
+- overlays/mobile-flutter/workflows/new-feature/README.md
 - overlays/mobile-flutter/prompts/new_feature.md
-- overlays/mobile-flutter/skills/flutter-localization-csv/SKILL.md
+- overlays/mobile-flutter/skills/tooling/flutter-localization-csv-sync/SKILL.md
 
 Task:
 Implement a profile feature with clean boundaries, localization, and tests.

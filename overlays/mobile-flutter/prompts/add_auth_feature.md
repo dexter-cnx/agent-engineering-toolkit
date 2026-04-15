@@ -9,20 +9,21 @@ Use the mobile-flutter overlay to add production-ready authentication.
 - Support loading, error, unauthenticated, and authenticated states
 
 ## Required skills
-- flutter-dev
-- flutter-auth-firebase-production
-- guide-clean-architecture-feature
-- guide-new-feature-flow
-- policy-clean-architecture
-- policy-folder-structure
-- policy-no-business-logic-in-widget
-- policy-testing-minimum
+- flutter-clean-architecture-audit
+- flutter-firebase-auth-adapter
+- flutter-firebase-auth-state
+- flutter-go-router-redirect-guard
+- flutter-feature-folder-scaffold
+- flutter-feature-contract-scaffold
+- flutter-riverpod-state-skeleton
+- workflows/new-feature/README.md
+- policies/architecture/README.md
+- policies/testing/README.md
 
 ## Deliverables
 1. Folder plan
-2. Files to create/update
-3. Repository contracts and use cases
-4. State management wiring
-5. Router guard strategy
-6. Test plan
-7. Release checklist
+2. Files to create or update
+3. Auth adapter and auth state plan
+4. Route guard strategy
+5. Test plan
+6. Verification checklist

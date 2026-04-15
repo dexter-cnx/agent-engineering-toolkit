@@ -14,30 +14,32 @@ A team needs to start a new Flutter app with production-oriented defaults:
 
 ## Recommended skills
 
-- `flutter-dev`
-- `guide-new-flutter-project-bootstrap`
-- `guide-clean-architecture-feature`
-- `policy-folder-structure`
-- `policy-testing-minimum`
+- `flutter-clean-architecture-audit`
+- `flutter-feature-folder-scaffold`
+- `flutter-feature-contract-scaffold`
+- `flutter-riverpod-state-skeleton`
+- `flutter-localization-csv-sync`
+- `policies/architecture/README.md`
+- `policies/testing/README.md`
 
 ## Reference files
 
-- `overlays/mobile-flutter/skills/guide-new-flutter-project-bootstrap/SKILL.md`
+- `overlays/mobile-flutter/workflows/new-project/README.md`
 - `overlays/mobile-flutter/prompts/new_project.md`
-- `overlays/mobile-flutter/skills/policy-folder-structure/SKILL.md`
-- `overlays/mobile-flutter/skills/policy-testing-minimum/SKILL.md`
-- `overlays/mobile-flutter/templates/project-bootstrap-template.md`
+- `overlays/mobile-flutter/policies/architecture/README.md`
+- `overlays/mobile-flutter/policies/testing/README.md`
 - `overlays/mobile-flutter/templates/feature-module-template.md`
+- `overlays/mobile-flutter/templates/state-management-template.md`
 
 ## Example invocation
 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use these skills:
-- flutter-dev
-- guide-new-flutter-project-bootstrap
-- policy-folder-structure
-- policy-testing-minimum
+- flutter-clean-architecture-audit
+- flutter-feature-folder-scaffold
+- flutter-feature-contract-scaffold
+- flutter-riverpod-state-skeleton
 
 Task:
 Bootstrap a new mobile Flutter app with a clear folder structure, router

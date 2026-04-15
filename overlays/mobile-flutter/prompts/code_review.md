@@ -3,11 +3,8 @@
 Use the `mobile-flutter` overlay to review a Flutter codebase or patch.
 
 ## Load these skills first
-- `flutter-code-reviewer`
-- `policy-clean-architecture`
-- `policy-no-business-logic-in-widget`
-- `policy-testing-minimum`
-- `guide-performance-audit`
+- `flutter-clean-architecture-audit`
+- `flutter-performance-audit`
 - `flutter-pubspec-audit`
 
 ## Review output format
@@ -20,3 +17,7 @@ Use the `mobile-flutter` overlay to review a Flutter codebase or patch.
 - **Recommended fixes**
 
 Focus on concrete, repository-safe findings rather than generic style commentary.
+
+## Also read
+- `overlays/mobile-flutter/policies/architecture/README.md`
+- `overlays/mobile-flutter/policies/testing/README.md`

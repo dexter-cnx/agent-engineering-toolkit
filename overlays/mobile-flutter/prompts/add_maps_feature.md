@@ -8,19 +8,20 @@ Use the mobile-flutter overlay to add production-ready maps and geolocation.
 - Keep routing optimization behind a service boundary
 
 ## Required skills
-- flutter-dev
-- flutter-maps-routing-production
-- flutter-maps-geolocator
-- flutter-platform-permissions
-- guide-clean-architecture-feature
-- guide-performance-audit
-- policy-clean-architecture
-- policy-no-business-logic-in-widget
+- flutter-clean-architecture-audit
+- flutter-go-router-route-map
+- flutter-go-router-deeplink-wireup
+- flutter-go-router-redirect-guard
+- flutter-maps
+- flutter-geolocation
+- flutter-permissions
+- workflows/new-feature/README.md
+- policies/architecture/README.md
 
 ## Deliverables
-1. Architecture plan
+1. Route and map boundary plan
 2. File changes
 3. Permission flow
 4. State transitions
-5. Marker/render performance notes
+5. Performance notes
 6. Platform configuration checklist

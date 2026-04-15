@@ -39,6 +39,15 @@ ACTIVE_REAL_WORLD_EXAMPLE_FILES = [
     "real-world/go-router-deep-linking_TH.md",
 ]
 
+ACTIVE_PROMPT_FILES = [
+    "new_project.md",
+    "new_feature.md",
+    "fix_architecture.md",
+    "integrate_firebase_auth.md",
+    "add_go_router_deeplink.md",
+    "release_android_ios.md",
+]
+
 VALIDATION_DOC_EXCLUSIONS = {
     "sample-failures.md",
 }
@@ -112,13 +121,47 @@ PLACEHOLDER_PATTERNS = [
 ]
 
 DEPRECATED_SKILL_NAMES = {
+    "flutter-auth",
+    "flutter-auth-firebase-production",
+    "flutter-android-release-signing",
+    "flutter-ci-cd-mobile",
+    "flutter-deep-link",
+    "flutter-deep-linking",
+    "flutter-feature-generator",
+    "flutter-firebase-auth",
+    "flutter-firebase-auth-flow",
+    "flutter-firebase-wiring",
+    "flutter-go-router-deeplink",
+    "flutter-maps-geolocator",
+    "flutter-maps-routing-production",
+    "flutter-navigation-go-router",
+    "flutter-notifications-fcm-production",
+    "flutter-push-notifications",
+    "flutter-starter-baseline",
+    "flutter-storage",
+    "flutter-storage-local",
+    "flutter-web-deployment",
+    "flutter-web-deployment-production",
+    "flutter-web-loading-production",
     "flutter-feature-scaffold",
     "flutter-riverpod-feature-state",
     "flutter-getx-mvc-feature",
-    "flutter-firebase-auth-flow",
-    "flutter-go-router-deeplink",
-    "flutter-android-release-signing",
     "flutter-design-token-sync",
+    "guide-app-release-checklist",
+    "guide-clean-architecture-feature",
+    "guide-error-handling-observability",
+    "guide-flutter-web-loading",
+    "guide-new-feature-flow",
+    "guide-new-flutter-project-bootstrap",
+    "guide-performance-audit",
+    "guide-refactor-widget-tree",
+    "guide-state-management-selection",
+    "policy-clean-architecture",
+    "policy-commit-pr-checks",
+    "policy-folder-structure",
+    "policy-no-business-logic-in-widget",
+    "policy-testing-minimum",
+    "policy-translation-csv",
 }
 
 CANONICAL_TEMPLATE_CHECKS = {
@@ -822,15 +865,31 @@ def discover_doc_files(overlay: Path) -> list[Path]:
     return [path for path in docs if path.exists()]
 
 
+def active_operator_doc_files(overlay: Path) -> list[Path]:
+    docs: list[Path] = [
+        overlay / "README.md",
+        overlay / "AGENTS.overlay.md",
+        overlay / "HOW_TO_USE.md",
+        overlay / "docs" / "tutorials" / "README.md",
+        overlay / "examples" / "README.md",
+    ]
+    docs.extend(sorted((overlay / "docs" / "tutorials").glob("*.md")))
+    docs.extend(overlay / "prompts" / filename for filename in ACTIVE_PROMPT_FILES)
+    docs.extend(overlay / "examples" / filename for filename in ACTIVE_EXAMPLE_FILES)
+    docs.extend(overlay / "examples" / filename for filename in ACTIVE_REAL_WORLD_EXAMPLE_FILES)
+    return [path for path in docs if path.exists()]
+
+
 def docs_check_command(overlay: Path) -> int:
     issues: list[str] = []
     docs = discover_doc_files(overlay)
+    operator_docs = active_operator_doc_files(overlay)
     active_skill_names = known_skill_names(overlay)
     issues.extend(detect_workflow_reference_errors(overlay, active_skill_names))
     issues.extend(detect_example_reference_errors(overlay, active_skill_names))
     issues.extend(validate_index_references(overlay))
     issues.extend(path_reference_errors(overlay))
-    for path in docs:
+    for path in operator_docs:
         if path.parent.name == "validation" and path.name in VALIDATION_DOC_EXCLUSIONS:
             continue
         text = read_text(path)
