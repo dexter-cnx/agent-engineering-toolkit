@@ -82,7 +82,7 @@ REQUIRED_HEADINGS = [
 ]
 
 VALID_SKILL_STRUCTURE = re.compile(
-    r"^skills/(?P<category>[a-z0-9-]+)/(?P<name>[a-z0-9-]+)/SKILL\.md$"
+    r"^(?P<category>[a-z0-9-]+)/(?P<name>[a-z0-9-]+)/SKILL\.md$"
 )
 
 PLACEHOLDER_PATTERNS = [
@@ -329,13 +329,20 @@ def naming_errors(skill: SkillDoc) -> list[str]:
     return errors
 
 
-def location_errors(skill: SkillDoc) -> list[str]:
+def location_errors(skill: SkillDoc, overlay: Path) -> list[str]:
     errors: list[str] = []
-    relative = skill.path.as_posix().split("overlays/mobile-flutter/", 1)[-1]
+    try:
+        relative = skill.path.resolve().relative_to((overlay / "skills").resolve())
+    except ValueError:
+        errors.append(
+            f"{skill.path}: must live under {overlay.as_posix()}/skills/<category>/<skill_name>/SKILL.md"
+        )
+        return errors
+    relative = relative.as_posix()
     match = VALID_SKILL_STRUCTURE.match(relative)
     if not match:
         errors.append(
-            f"{skill.path}: must live at overlays/mobile-flutter/skills/<category>/<skill_name>/SKILL.md"
+            f"{skill.path}: must live under {overlay.as_posix()}/skills/<category>/<skill_name>/SKILL.md"
         )
         return errors
     category = match.group("category")
@@ -499,7 +506,7 @@ def validate_skills(overlay: Path) -> int:
     trigger_index: dict[str, SkillDoc] = {}
 
     for skill in docs:
-        issues.extend(location_errors(skill))
+        issues.extend(location_errors(skill, overlay))
         issues.extend(required_section_errors(skill))
         issues.extend(placeholder_errors(skill))
         issues.extend(naming_errors(skill))
