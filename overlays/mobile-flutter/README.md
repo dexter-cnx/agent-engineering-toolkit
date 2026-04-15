@@ -6,6 +6,7 @@ This overlay keeps the foundation general and pushes Flutter-specific execution 
 
 ## Start here
 
+- If you are new, read `HOW_TO_USE.md` first, then `docs/tutorials/getting-started.md`.
 - `AGENTS.overlay.md`
 - `SKILLS_INDEX.md`
 - `SKILL_SCHEMA.md`
@@ -61,6 +62,9 @@ The overlay retains older catalog material in place for reference, but only the 
 ## Related docs
 
 - `docs/tutorials/README.md`
+- `docs/tutorials/getting-started.md`
+- `docs/tutorials/how-skills-work.md`
+- `docs/tutorials/add-a-new-skill.md`
 - `prompts/new_project.md`
 - `prompts/new_feature.md`
 - `prompts/fix_architecture.md`
@@ -72,6 +76,7 @@ The overlay retains older catalog material in place for reference, but only the 
 - `docs/tutorials/add-a-new-feature-with-ai.md`
 - `docs/tutorials/release-a-flutter-app-with-ai.md`
 - `docs/tutorials/fix-architecture-violations-with-ai.md`
+- `docs/tutorials/real-use-cases.md`
 - `AGENT_CONTRIBUTION_RULES.md`
 - `CONTRIBUTING_SKILLS.md`
 - `MAINTAINER_REVIEW_GUIDE.md`

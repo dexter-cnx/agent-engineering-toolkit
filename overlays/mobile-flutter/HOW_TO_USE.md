@@ -36,22 +36,23 @@ Read policies when you need constraints, not execution.
 
 ## Minimal onboarding steps
 
-1. Read `README.md`.
+1. Read `README.md` and `docs/tutorials/getting-started.md`.
 2. Read `AGENTS.overlay.md`.
 3. Open `SKILLS_INDEX.md` and pick the smallest skill.
 4. Open the matching workflow if the task spans multiple steps.
 5. Use `templates/` and `examples/` to match the expected file shape.
-6. Validate with `ci/validate_skills.sh`.
+6. Reuse the matching prompt in `prompts/` when you want a copy-paste AI task.
+7. Validate with `ci/validate_skills.sh`.
 
 ## 5 common tasks
 
 | Task | Use |
 |---|---|
-| Create a new project | `workflows/new-project/README.md` + `flutter-clean-architecture-audit` |
-| Add a new feature | `workflows/new-feature/README.md` + `flutter-feature-folder-scaffold` + `flutter-feature-contract-scaffold` |
-| Integrate Firebase auth | `flutter-firebase-auth-adapter` + `flutter-firebase-auth-state` + `workflows/new-feature/README.md` |
-| Add deep link routing | `flutter-go-router-route-map` + `flutter-go-router-redirect-guard` + `flutter-go-router-deeplink-wireup` |
-| Prepare release | `workflows/release-app/README.md` + `flutter-android-signing-config` + `flutter-ios-release-readiness` |
+| Create a new project | `prompts/new_project.md` + `workflows/new-project/README.md` + `flutter-clean-architecture-audit` |
+| Add a new feature | `prompts/new_feature.md` + `workflows/new-feature/README.md` + `flutter-feature-folder-scaffold` + `flutter-feature-contract-scaffold` |
+| Integrate Firebase auth | `prompts/integrate_firebase_auth.md` + `flutter-firebase-auth-adapter` + `flutter-firebase-auth-state` + `workflows/new-feature/README.md` |
+| Add deep link routing | `prompts/add_go_router_deeplink.md` + `flutter-go-router-route-map` + `flutter-go-router-redirect-guard` + `flutter-go-router-deeplink-wireup` |
+| Prepare release | `prompts/release_android_ios.md` + `workflows/release-app/README.md` + `flutter-android-signing-config` + `flutter-ios-release-readiness` |
 
 ## Copy-paste prompts
 
@@ -60,6 +61,7 @@ Read policies when you need constraints, not execution.
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/workflows/new-project/README.md.
+Use overlays/mobile-flutter/prompts/new_project.md.
 Pick the smallest skills from overlays/mobile-flutter/SKILLS_INDEX.md.
 
 Task:
@@ -78,6 +80,7 @@ Deliver:
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/workflows/new-feature/README.md.
 Use overlays/mobile-flutter/templates/feature-module-template.md.
+Use overlays/mobile-flutter/prompts/new_feature.md.
 
 Task:
 Add a <feature name> feature module to the Flutter app.
@@ -94,7 +97,7 @@ Deliver:
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/workflows/new-feature/README.md.
-Use overlays/mobile-flutter/examples/firebase-integration-example.md.
+Use overlays/mobile-flutter/prompts/integrate_firebase_auth.md.
 
 Task:
 Integrate Firebase Auth with adapter, auth state, and guarded routing.
@@ -110,7 +113,7 @@ Deliver:
 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
-Use overlays/mobile-flutter/examples/routing-example.md.
+Use overlays/mobile-flutter/prompts/add_go_router_deeplink.md.
 Use overlays/mobile-flutter/workflows/new-feature/README.md if the feature is new.
 
 Task:
@@ -128,7 +131,7 @@ Deliver:
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/workflows/release-app/README.md.
-Use overlays/mobile-flutter/examples/release-config-example.md.
+Use overlays/mobile-flutter/prompts/release_android_ios.md.
 
 Task:
 Prepare the app for Android and iOS release.

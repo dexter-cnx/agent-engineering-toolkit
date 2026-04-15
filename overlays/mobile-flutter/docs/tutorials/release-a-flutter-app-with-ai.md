@@ -13,6 +13,7 @@ Prepare a Flutter app for Android and iOS release with signing, validation, and 
 ## Exact repository paths
 
 - `overlays/mobile-flutter/workflows/release-app/README.md`
+- `overlays/mobile-flutter/prompts/release_android_ios.md`
 - `overlays/mobile-flutter/ci/github-actions/validate-skills.yml`
 - `overlays/mobile-flutter/ci/github-actions/flutter_overlay_ci.yml`
 - `overlays/mobile-flutter/examples/release-config-example.md`
@@ -28,6 +29,7 @@ Prepare a Flutter app for Android and iOS release with signing, validation, and 
 5. Use the release validation skill to check the release path.
 6. Keep secrets out of git and document secret placement only.
 7. Run the overlay validation command before release handoff.
+8. Use `prompts/release_android_ios.md` when you need a copy-paste release prompt.
 
 ## What skills to use
 
@@ -71,6 +73,7 @@ Prepare a Flutter app for Android and iOS release with signing, validation, and 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/workflows/release-app/README.md and overlays/mobile-flutter/examples/release-config-example.md.
+Use overlays/mobile-flutter/prompts/release_android_ios.md.
 
 Task:
 Prepare the Flutter app for release on <platforms>.

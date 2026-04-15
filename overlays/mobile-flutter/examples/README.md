@@ -1,7 +1,9 @@
 # Examples
 
 This folder contains worked examples that match the active v2 skills and workflows.
-Legacy example material remains in the folder for historical reference, but only the files below are part of the active overlay contract.
+The active overlay contract is limited to the files below.
+
+Use the active examples to copy file shape, not prose.
 
 ## Active examples
 

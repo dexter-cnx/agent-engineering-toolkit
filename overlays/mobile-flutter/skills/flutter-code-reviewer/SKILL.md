@@ -12,13 +12,6 @@ Reviews Flutter code for architecture drift, widget misuse, state issues, testin
 
 Use this skill when the task directly involves **reviews flutter code**.
 
-## Default behavior
-
-- Stay consistent with `policy-folder-structure` and `policy-clean-architecture`.
-- Prefer production-safe, testable output.
-- Keep user-facing strings localizable.
-- Keep business logic out of widgets unless this skill explicitly states otherwise.
-
 ## What this skill should help produce
 
 - Clear implementation plan
@@ -26,15 +19,15 @@ Use this skill when the task directly involves **reviews flutter code**.
 - Platform setup notes where needed
 - Follow-up checks or review points
 
-## Recommended companion skills
-
-- `guide-new-feature-flow`
-- `policy-folder-structure`
-- `policy-clean-architecture`
-
 ## Execution notes
 
 1. Clarify the scope of the request in implementation terms.
 2. Apply the most relevant architecture and policy skills.
 3. Generate or review code with maintainability in mind.
 4. Add tests and docs where the change justifies them.
+
+## References
+
+- `policies/architecture/README.md`
+- `policies/testing/README.md`
+- `workflows/new-feature/README.md`

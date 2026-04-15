@@ -27,6 +27,11 @@ Add one atomic Flutter skill safely without duplicating existing responsibilitie
 7. Run validation, overlap detection, and docs sync.
 8. Update workflows or tutorials only if the new skill changes orchestration.
 
+## Canonical review docs
+
+- Contributor rules: `overlays/mobile-flutter/CONTRIBUTING_SKILLS.md`
+- Maintainer review criteria: `overlays/mobile-flutter/MAINTAINER_REVIEW_GUIDE.md`
+
 ## Example command
 
 ```bash
@@ -39,19 +44,8 @@ bash tools/skillgen/bin/skillgen new \
   --outputs "Router file; page builder paths"
 ```
 
-## Contribution checklist
+## Keep in mind
 
-- [ ] I checked for a closer existing skill.
-- [ ] I explained why a new skill is needed.
-- [ ] I used the generator instead of creating files manually.
-- [ ] I completed every required field in `SKILL.md`.
-- [ ] I linked examples and templates.
-- [ ] I ran index sync and validation.
-
-## Maintainer review checklist
-
-- [ ] The skill is atomic.
-- [ ] The skill does not duplicate another active skill.
-- [ ] The naming is consistent.
-- [ ] The references exist and are current.
-- [ ] CI passes after the change.
+- The tutorial shows the creation flow.
+- The canonical checklists live in the contributor and maintainer docs above.
+- Do not duplicate checklist content here.

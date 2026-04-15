@@ -13,6 +13,7 @@ Repair layering, dependency direction, and boundary violations without rewriting
 ## Exact repository paths
 
 - `overlays/mobile-flutter/workflows/migrate-project/README.md`
+- `overlays/mobile-flutter/prompts/fix_architecture.md`
 - `overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md`
 - `overlays/mobile-flutter/templates/feature-module-template.md`
 - `overlays/mobile-flutter/templates/repository-template.md`
@@ -27,6 +28,7 @@ Repair layering, dependency direction, and boundary violations without rewriting
 5. Move route rules into routing files, not UI files.
 6. Update tests and docs if the boundary changed.
 7. Re-run the audit to confirm the fix is smaller than a rewrite.
+8. Use `prompts/fix_architecture.md` when you need a copy-paste prompt for the refactor.
 
 ## What skills to use
 
@@ -72,6 +74,7 @@ Repair layering, dependency direction, and boundary violations without rewriting
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md first.
+Use overlays/mobile-flutter/prompts/fix_architecture.md.
 
 Task:
 Fix the architecture violation in <file or feature path>.

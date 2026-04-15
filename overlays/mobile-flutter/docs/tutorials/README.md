@@ -11,6 +11,7 @@ Use the English files first; Thai mirrors exist beside them for bilingual teams.
 - [How Skills Work TH](how-skills-work_TH.md)
 - [Add a New Skill](add-a-new-skill.md)
 - [Add a New Skill TH](add-a-new-skill_TH.md)
+- [Real Use Cases](real-use-cases.md)
 
 ## AI workflows
 
@@ -22,10 +23,3 @@ Use the English files first; Thai mirrors exist beside them for bilingual teams.
 - [Release a Flutter App With AI TH](release-a-flutter-app-with-ai_TH.md)
 - [Fix Architecture Violations With AI](fix-architecture-violations-with-ai.md)
 - [Fix Architecture Violations With AI TH](fix-architecture-violations-with-ai_TH.md)
-
-## Practical flows
-
-- [Build a new Flutter app](build-a-new-project-with-ai.md)
-- [Add a feature](add-a-new-feature-with-ai.md)
-- [Fix an architecture violation](fix-architecture-violations-with-ai.md)
-- [Release an app](release-a-flutter-app-with-ai.md)

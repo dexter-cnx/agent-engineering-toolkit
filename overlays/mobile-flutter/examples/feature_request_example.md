@@ -21,8 +21,6 @@ Use `mobile-flutter` to add a profile feature with:
 - `flutter-riverpod-state-skeleton`
 - `flutter-localization-csv`
 - `flutter-localization-csv-sync`
-- `policies/architecture/README.md`
-- `policies/testing/README.md`
 
 ## Reference files
 

@@ -13,6 +13,7 @@ Bootstrap a new Flutter app from the overlay without guessing the structure, sta
 ## Exact repository paths
 
 - `overlays/mobile-flutter/workflows/new-project/README.md`
+- `overlays/mobile-flutter/prompts/new_project.md`
 - `overlays/mobile-flutter/starter-app-template/`
 - `overlays/mobile-flutter/templates/project-bootstrap-template.md`
 - `overlays/mobile-flutter/templates/feature-module-template.md`
@@ -28,6 +29,7 @@ Bootstrap a new Flutter app from the overlay without guessing the structure, sta
 5. Initialize routing, state, and localization from the overlay defaults.
 6. Add tests for the bootstrap shell and the first feature slice.
 7. Run the overlay validation command before you mark the bootstrap complete.
+8. Use `prompts/new_project.md` when you need a copy-paste prompt for an AI agent.
 
 ## What skills to use
 
@@ -76,6 +78,7 @@ Bootstrap a new Flutter app from the overlay without guessing the structure, sta
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/workflows/new-project/README.md.
+Use overlays/mobile-flutter/prompts/new_project.md.
 Copy overlays/mobile-flutter/starter-app-template/ into the target repo.
 
 Task:

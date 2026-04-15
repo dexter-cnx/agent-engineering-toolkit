@@ -29,6 +29,11 @@
 7. รัน validation, overlap detection และ docs sync
 8. อัปเดต workflow หรือ tutorial เฉพาะเมื่อ orchestration เปลี่ยนจริง
 
+## เอกสารคานอนิคัลสำหรับรีวิว
+
+- กฎสำหรับ contributor: `overlays/mobile-flutter/CONTRIBUTING_SKILLS.md`
+- เกณฑ์ review ของ maintainer: `overlays/mobile-flutter/MAINTAINER_REVIEW_GUIDE.md`
+
 ## ควรใช้ skill อะไร
 
 - `flutter-clean-architecture-audit` สำหรับตรวจว่า skill ใหม่นี้ควรแยกจริงหรือไม่
@@ -83,6 +88,8 @@ Deliver:
 5. validation checklist
 ```
 
-## English
+## ข้อควรจำ
 
-ดู `add-a-new-skill.md`
+- tutorial นี้อธิบาย flow การสร้าง
+- checklist หลักอยู่ใน docs contributor และ maintainer ด้านบน
+- อย่าซ้ำ checklist ที่นี่

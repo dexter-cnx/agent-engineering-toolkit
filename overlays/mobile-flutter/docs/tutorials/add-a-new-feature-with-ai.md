@@ -13,6 +13,7 @@ Add one feature module to an existing Flutter app without breaking architecture 
 ## Exact repository paths
 
 - `overlays/mobile-flutter/workflows/new-feature/README.md`
+- `overlays/mobile-flutter/prompts/new_feature.md`
 - `overlays/mobile-flutter/templates/feature-module-template.md`
 - `overlays/mobile-flutter/templates/repository-template.md`
 - `overlays/mobile-flutter/templates/state-management-template.md`
@@ -28,6 +29,7 @@ Add one feature module to an existing Flutter app without breaking architecture 
 5. Add the state skeleton and repository adapter.
 6. Wire routes only if the feature adds navigation.
 7. Add tests and validate the final tree against the template.
+8. Use `prompts/new_feature.md` when you want a copy-paste prompt for an AI agent.
 
 ## What skills to use
 
@@ -77,6 +79,7 @@ Add one feature module to an existing Flutter app without breaking architecture 
 ```text
 Follow overlays/mobile-flutter/AGENTS.overlay.md.
 Use overlays/mobile-flutter/workflows/new-feature/README.md.
+Use overlays/mobile-flutter/prompts/new_feature.md.
 Use overlays/mobile-flutter/templates/feature-module-template.md and overlays/mobile-flutter/examples/full-feature-implementation.md.
 
 Task:
