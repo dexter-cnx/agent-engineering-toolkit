@@ -29,7 +29,6 @@ Audit goals:
    - examples/*
    - .github/*
    - scripts/*
-   - docs/tree-manifest.txt
 2. Detect any leakage of mobile-, Flutter-, Node-, or Python-specific assumptions into the foundation layer.
 3. Review whether the prompt pipeline is coherent and non-duplicative.
 4. Review whether agent_team roles are clearly separated and useful.

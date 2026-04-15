@@ -58,6 +58,5 @@ The exact machine-readable source for the automation lives in `scripts/check-pub
 - Foundation worked examples remain stack-neutral.
 - Public docs do not reference internal-only paths.
 - Markdown links in the public entry docs resolve.
-- `docs/tree-manifest.txt` matches the actual repository tree.
 - No private repository URLs are hardcoded in scripts or docs.
 - CI passes.
