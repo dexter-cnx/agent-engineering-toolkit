@@ -1,77 +1,66 @@
-# Mobile Flutter Overlay
+# Mobile Flutter Overlay v2
 
-Production-oriented Flutter skills overlay for Agent Engineering Toolkit.
+Production Flutter operating overlay for the Agent Engineering Toolkit.
 
-This overlay adapts the small, task-specific skill pattern into a Flutter-first system with four layers of value:
-
-1. Coordinators route work to the right skills.
-2. Reference skills explain packages, APIs, and platform details.
-3. Workflow guides tell the agent how to execute real delivery work.
-4. Policies enforce team standards so output stays consistent.
+This overlay keeps the foundation general and pushes Flutter-specific execution into atomic skills, workflows, policies, templates, and examples.
 
 ## Start here
-- `START_HERE.md`
-- `INDEX_CANONICAL.md`
-- `INDEX_PROMPTS.md`
-- `INDEX_COMPANION.md`
-- `INDEX_CHECKLISTS.md`
 
-## Target stack
-- Flutter stable
-- Dart 3
-- Material 3
-- Clean Architecture
-- `go_router`
-- `dio`
-- `easy_localization`
-- CSV source of truth at `assets/i18n/translations.csv`
-- Riverpod as default state management
-- GetX as supported opt-in path
+- `AGENTS.overlay.md`
+- `SKILLS_INDEX.md`
+- `SKILL_SCHEMA.md`
+- `HOW_TO_USE.md`
 
-## Overlay path
+## What changed in v2
+
+- The catalog is now routed through a decision index instead of a flat list.
+- Skills are atomic execution capsules with explicit contracts.
+- Policies live outside skills.
+- Workflows orchestrate multiple skills in a fixed order.
+- CI validates that every active skill follows `SKILL_SCHEMA.md`.
+
+## Active architecture
 
 ```text
 overlays/mobile-flutter/
+  AGENTS.overlay.md
+  README.md
+  SKILLS_INDEX.md
+  SKILL_SCHEMA.md
+  skills/
+  workflows/
+  policies/
+  canonical/
+  templates/
+  examples/
+  checklists/
+  ci/
+  starter-app-template/
 ```
 
-## Included skill groups
-- Coordinators
-- Design
-- Framework reference
-- Workflow guides
-- Policies
-- Utilities
+## Default stack
 
-See `SKILLS_INDEX.md` for the full catalog.
+- Flutter stable
+- Dart 3
+- Clean Architecture
+- Riverpod by default
+- GetX when explicitly selected
+- `go_router` for navigation
+- Firebase adapters behind repository boundaries
+- CSV-driven localization when localization is needed
 
-## Recommended use
-Use `flutter-dev` as the default starting point. For architecture-heavy requests, use `flutter-architect`. For audits, use `flutter-code-reviewer` or `flutter-release-reviewer`.
+## Operating rule
 
-For onboarding and current operating guidance, start at `START_HERE.md`.
+Use `SKILLS_INDEX.md` to select the smallest skill that can finish the task, then compose workflows when the work spans multiple execution units.
 
-## Repo integration
-Copy this overlay into your toolkit repo:
+## Legacy assets
 
-```bash
-cp -R overlays/mobile-flutter <your-agent-engineering-toolkit>/overlays/
-```
+The overlay retains older catalog material in place for reference, but only the v2 skill set is considered active and CI-validated.
 
-Then commit and push.
+## Related docs
 
-## Design principles
-- Keep skills narrow and composable.
-- Prefer execution workflows over generic explanation.
-- Encode team policy explicitly.
-- Keep Flutter code production-friendly by default.
-- Avoid business logic in widgets.
-- Treat localization and testing as first-class concerns.
-
-## Included support assets
-Beyond the skill catalog, this overlay also includes:
-- `prompts/` for common agent entry prompts
-- `templates/` for project and feature scaffolding
-- `ci/github-actions/` for baseline Flutter CI
-- `repo-customization/` for adapting the overlay to a specific repository
-- `examples/` for copy-paste usage examples
-- `canonical/` for source-of-truth baseline docs
-- `companion-pack/` for repo-facing integration assets
+- `docs/tutorials/README.md`
+- `workflows/new-project/README.md`
+- `workflows/new-feature/README.md`
+- `workflows/release-app/README.md`
+- `workflows/migrate-project/README.md`

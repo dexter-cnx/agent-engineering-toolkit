@@ -1,6 +1,6 @@
 # Feature Module Template
 
-Use this as the default shape for a new feature.
+Use this as the default shape for a new Flutter feature.
 
 ```text
 lib/features/<feature_name>/
@@ -15,23 +15,34 @@ lib/features/<feature_name>/
     usecases/
   presentation/
     controllers/
-    providers/
     pages/
     widgets/
 ```
 
-## Minimum files to consider
-- one page or screen
-- one state holder (Riverpod provider / GetX controller)
-- one domain use case
+## Minimum files
+
+- one page
+- one state holder
 - one repository contract
 - one repository implementation
-- one mapper if network or storage models differ from domain entities
-- one widget test for the page
-- one unit test for non-trivial domain logic
-- localization keys for all user-facing text
+- one use case or controller entry point
+- one mapper when data and domain models differ
+- one widget test
+- one unit test
 
-## Notes
-- Put orchestration in controllers/providers/use cases, not widgets.
-- Keep DTOs out of the presentation layer.
-- Prefer typed models over `Map<String, dynamic>` crossing layers.
+## Example
+
+- `lib/features/profile/presentation/pages/profile_page.dart`
+- `lib/features/profile/presentation/controllers/profile_controller.dart`
+- `lib/features/profile/domain/usecases/load_profile_usecase.dart`
+
+## Output sample
+
+```text
+lib/features/profile/
+  data/repositories/profile_repository_impl.dart
+  domain/entities/profile.dart
+  domain/usecases/load_profile_usecase.dart
+  presentation/controllers/profile_controller.dart
+  presentation/pages/profile_page.dart
+```

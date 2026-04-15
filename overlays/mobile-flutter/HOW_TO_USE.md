@@ -1,27 +1,29 @@
-# HOW TO USE
+# How To Use
 
-This overlay has two usage layers.
+## Minimal flow
 
-## Layer A — Toolkit source of truth
-Use these docs inside Agent Engineering Toolkit:
-- `START_HERE.md`
-- `INDEX_CANONICAL.md`
-- `INDEX_PROMPTS.md`
-- `INDEX_CHECKLISTS.md`
+1. Read `AGENTS.overlay.md`.
+2. Select the active skill in `SKILLS_INDEX.md`.
+3. Follow the matching workflow in `workflows/`.
+4. Use templates from `templates/` and examples from `examples/`.
+5. Validate active skills with `ci/validate_skills.sh`.
 
-## Layer B — Repo-facing integration
-Use `companion-pack/` inside a real Flutter app repository.
+## Typical commands
 
-## Recommended workflow
+- New app: `workflows/new-project/README.md`
+- New feature: `workflows/new-feature/README.md`
+- Release: `workflows/release-app/README.md`
+- Migration: `workflows/migrate-project/README.md`
 
-### For a new repo
-1. Start from `generic_app`
-2. Add only required capabilities
-3. Scaffold one feature at a time
-4. Run policy check and CI
+## Quick examples
 
-### For an existing repo
-1. Read `companion-pack/migration/older_vault_cleanup.md`
-2. Add capabilities incrementally
-3. Migrate one feature or one screen first
-4. Keep changed files scope tight
+- Build a Flutter app from scratch by chaining scaffold, state, routing, localization, and release readiness skills.
+- Add a secure feature by chaining architecture audit, feature scaffold, state, repository, and routing skills.
+- Prepare a release by chaining platform readiness, signing, performance, and CI checks.
+
+## Claude Code / Codex loading
+
+- Open `overlays/mobile-flutter/README.md` first.
+- Then open `AGENTS.overlay.md` and `SKILLS_INDEX.md`.
+- Use the relevant workflow doc instead of reading every skill.
+

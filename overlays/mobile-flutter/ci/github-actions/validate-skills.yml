@@ -1,0 +1,17 @@
+name: Validate Mobile Flutter Skills
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+jobs:
+  validate-skills:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate skill schema
+        run: bash overlays/mobile-flutter/ci/validate_skills.sh

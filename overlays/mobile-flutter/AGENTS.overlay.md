@@ -1,70 +1,89 @@
 # AGENTS.overlay.md
 
-## Overlay Purpose
+## Overlay purpose
 
-This overlay equips an agent to design, scaffold, implement, review, and harden Flutter applications using a production-oriented workflow.
+This overlay equips an agent to plan, build, review, verify, and release Flutter applications using atomic skills and explicit orchestration.
 
-## Default assumptions
+## Foundation assumptions
 
-- Use Flutter stable and Dart 3.
-- Prefer Material 3.
-- Prefer Clean Architecture.
-- Prefer `go_router` for navigation.
-- Prefer Riverpod unless the task clearly requires GetX or the project already uses GetX.
-- Use `dio` for HTTP unless a project standard says otherwise.
-- Use `easy_localization` with CSV as the source of truth for translations when localization is needed.
+- Keep the foundation domain-agnostic; Flutter specialization stays in this overlay.
+- Prefer Flutter stable and Dart 3.
+- Prefer Clean Architecture at the feature boundary.
+- Prefer Riverpod unless the task explicitly calls for GetX or the project already uses GetX.
+- Prefer `go_router` for routing and deep links.
+- Keep external services behind adapters and repositories.
 - Keep business logic out of widgets.
-- Treat testing, error handling, and release readiness as part of feature delivery.
+- Keep localization, testing, and release readiness part of delivery, not afterthoughts.
 
-## Entry points
+## Active v2 routing
 
-### 1. General delivery
-Start with `skills/flutter-dev/SKILL.md`.
+### Architecture
 
-### 2. Architecture decisions
-Start with `skills/flutter-architect/SKILL.md`.
+- `skills/architecture/flutter-clean-architecture-audit/SKILL.md`
+- `skills/architecture/flutter-feature-scaffold/SKILL.md`
 
-### 3. Code review or refactor
-Start with `skills/flutter-code-reviewer/SKILL.md`.
+### State
 
-### 4. Release checks
-Start with `skills/flutter-release-reviewer/SKILL.md`.
+- `skills/state/flutter-riverpod-feature-state/SKILL.md`
+- `skills/state/flutter-getx-mvc-feature/SKILL.md`
 
-## Skill-routing rules
+### Routing
 
-- New project setup -> `guide-new-flutter-project-bootstrap`
-- New feature -> `guide-new-feature-flow`
-- Feature layering -> `guide-clean-architecture-feature`
-- Routing/deep links -> `flutter-navigation-go-router`
-- Riverpod state -> `flutter-state-riverpod`
-- GetX state -> `flutter-state-getx`
-- Forms -> `flutter-forms-validation`
-- Networking -> `flutter-network-dio`
-- Localization -> `flutter-localization-csv` + `policy-translation-csv`
-- Web startup/loading -> `guide-flutter-web-loading`
-- Performance -> `guide-performance-audit`
-- Testing -> `flutter-testing-widget` and `flutter-testing-integration`
-- Permissions -> `flutter-permissions`
-- Maps/location -> `flutter-maps-geolocator`
-- Push notifications -> `flutter-fcm-notifications`
-- CI enforcement -> `flutter-ci-checks` + `policy-commit-pr-checks`
+- `skills/routing/flutter-go-router-deeplink/SKILL.md`
 
-## Required delivery behavior
+### Firebase
 
-When generating or modifying Flutter code:
+- `skills/firebase/flutter-firebase-auth-flow/SKILL.md`
+- `skills/firebase/flutter-firestore-repository/SKILL.md`
 
-1. Respect folder and dependency rules from the policy skills.
-2. Keep architecture explicit.
-3. Add or update tests when the task changes behavior.
-4. Update localization files when user-facing strings change.
-5. Keep platform setup steps documented when mobile/web integrations are involved.
-6. Prefer small, composable widgets and typed models.
-7. Do not introduce hidden framework choices; state them clearly.
+### Web
 
-## Output expectations
+- `skills/web/flutter-web-loading-shell/SKILL.md`
 
-- Produce implementation plans before large changes.
-- Use feature-oriented structure.
-- Surface tradeoffs when selecting state management or persistence.
-- Default to repo-safe, CI-safe output.
-- Keep markdown docs Obsidian-friendly when generating `.md` files.
+### Release
+
+- `skills/release/flutter-android-release-signing/SKILL.md`
+- `skills/release/flutter-ios-release-readiness/SKILL.md`
+
+### Testing
+
+- `policies/testing/README.md`
+- `ci/validate_skills.sh`
+
+### Performance
+
+- `skills/performance/flutter-performance-audit/SKILL.md`
+
+### Tooling
+
+- `skills/tooling/flutter-design-token-sync/SKILL.md`
+
+## Orchestration rules
+
+- New project -> `workflows/new-project/README.md`
+- New feature -> `workflows/new-feature/README.md`
+- Release -> `workflows/release-app/README.md`
+- Migration -> `workflows/migrate-project/README.md`
+
+## Delivery rules
+
+1. Pick the smallest active skill that covers the task.
+2. Compose multiple skills through a workflow when the task spans architecture, implementation, and release.
+3. Update templates and examples when the expected file shape changes.
+4. Update policies when the operating standard changes.
+5. Validate active skills through the CI checker before calling the overlay production-ready.
+
+## Output discipline
+
+- State assumptions before major changes.
+- Keep architecture and implementation separate for non-trivial work.
+- Verify structural correctness, obvious edge cases, and docs consistency.
+- Call out what was not verified.
+
+## Reference layers
+
+- Canonical baselines live in `canonical/`.
+- Scaffolding lives in `templates/`.
+- Worked examples live in `examples/`.
+- Tutorials live in `docs/tutorials/`.
+- Policy constraints live in `policies/`.
