@@ -103,3 +103,6 @@ This overlay equips an agent to plan, build, review, verify, and release Flutter
 - Tutorials live in `docs/tutorials/`.
 - Policy constraints live in `policies/`.
 - Contribution rules live in `AGENT_CONTRIBUTION_RULES.md`.
+- Skill contribution guidance lives in `CONTRIBUTING_SKILLS.md`.
+- Maintainer review guidance lives in `MAINTAINER_REVIEW_GUIDE.md`.
+- Migration guidance lives in `MIGRATION_TO_V2.md`.

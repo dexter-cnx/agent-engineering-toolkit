@@ -73,6 +73,9 @@ The overlay retains older catalog material in place for reference, but only the 
 - `docs/tutorials/release-a-flutter-app-with-ai.md`
 - `docs/tutorials/fix-architecture-violations-with-ai.md`
 - `AGENT_CONTRIBUTION_RULES.md`
+- `CONTRIBUTING_SKILLS.md`
+- `MAINTAINER_REVIEW_GUIDE.md`
+- `MIGRATION_TO_V2.md`
 - `workflows/new-project/README.md`
 - `workflows/new-feature/README.md`
 - `workflows/release-app/README.md`

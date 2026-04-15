@@ -160,6 +160,9 @@ Deliver:
 - `examples/` -> worked output examples
 - `prompts/` -> reusable operational prompts
 - `docs/tutorials/` -> operational guides
+- `CONTRIBUTING_SKILLS.md` -> how to add skills safely
+- `MAINTAINER_REVIEW_GUIDE.md` -> review criteria and heuristics
+- `MIGRATION_TO_V2.md` -> old to v2 migration map
 - `ci/validate_skills.sh` -> overlay validation
 
 ## Thai
@@ -240,4 +243,7 @@ Deliver:
 - `templates/` -> โครงไฟล์
 - `examples/` -> ตัวอย่างผลลัพธ์
 - `docs/tutorials/` -> คู่มือใช้งาน
+- `CONTRIBUTING_SKILLS.md` -> วิธีเพิ่ม skill อย่างปลอดภัย
+- `MAINTAINER_REVIEW_GUIDE.md` -> เกณฑ์ review
+- `MIGRATION_TO_V2.md` -> แผนย้ายจากโครงสร้างเดิม
 - `ci/validate_skills.sh` -> ตรวจ overlay
