@@ -79,6 +79,14 @@ This overlay equips an agent to plan, build, review, verify, and release Flutter
 4. Update policies when the operating standard changes.
 5. Validate active skills through the CI checker before calling the overlay production-ready.
 
+## Agent contribution rules
+
+- Prefer updating an existing skill over creating a duplicate.
+- If a new skill is needed, justify the new boundary before writing files.
+- Use `tools/skillgen/` to scaffold, validate, sync the index, and check overlap.
+- Fill every schema field completely and link examples plus templates.
+- Keep workflow docs orchestration-only and keep policies out of skills.
+
 ## Output discipline
 
 - State assumptions before major changes.
@@ -93,3 +101,4 @@ This overlay equips an agent to plan, build, review, verify, and release Flutter
 - Worked examples live in `examples/`.
 - Tutorials live in `docs/tutorials/`.
 - Policy constraints live in `policies/`.
+- Contribution rules live in `AGENT_CONTRIBUTION_RULES.md`.

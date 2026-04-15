@@ -57,8 +57,8 @@ Create the `go_router` route map for one Flutter app or feature slice.
 
 ## References
 
-- [`../../../../examples/routing-example.md`](../../../../examples/routing-example.md)
-- [`../../../../templates/feature-module-template.md`](../../../../templates/feature-module-template.md)
+- [`../../../examples/routing-example.md`](../../../examples/routing-example.md)
+- [`../../../templates/feature-module-template.md`](../../../templates/feature-module-template.md)
 
 ## Real example
 

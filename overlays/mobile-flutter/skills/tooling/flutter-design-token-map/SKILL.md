@@ -54,7 +54,7 @@ Map design system tokens to Flutter theme targets without applying unrelated UI 
 
 ## References
 
-- [`../../../../examples/full-feature-implementation.md`](../../../../examples/full-feature-implementation.md)
+- [`../../../examples/full-feature-implementation.md`](../../../examples/full-feature-implementation.md)
 
 ## Real example
 

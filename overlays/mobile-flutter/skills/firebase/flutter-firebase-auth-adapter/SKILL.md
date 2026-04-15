@@ -57,8 +57,8 @@ Create the Firebase Auth data adapter for one Flutter feature or app auth bounda
 
 ## References
 
-- [`../../../../examples/firebase-integration-example.md`](../../../../examples/firebase-integration-example.md)
-- [`../../../../policies/secrets/README.md`](../../../../policies/secrets/README.md)
+- [`../../../examples/firebase-integration-example.md`](../../../examples/firebase-integration-example.md)
+- [`../../../policies/secrets/README.md`](../../../policies/secrets/README.md)
 
 ## Real example
 

@@ -53,13 +53,13 @@ Add a visible, production-friendly loading shell for Flutter Web startup.
 
 ## Related skills
 
-- `flutter-go-router-deeplink`
+- `flutter-go-router-deeplink-wireup`
 - `flutter-performance-audit`
 
 ## References
 
-- [`../../../../examples/release-config-example.md`](../../../../examples/release-config-example.md)
-- [`../../../../canonical/web_loading.md`](../../../../canonical/web_loading.md)
+- [`../../../examples/release-config-example.md`](../../../examples/release-config-example.md)
+- [`../../../canonical/web_loading.md`](../../../canonical/web_loading.md)
 
 ## Real example
 

@@ -57,7 +57,7 @@ Wire deep-link entry handling to an existing `go_router` route map.
 
 ## References
 
-- [`../../../../examples/routing-example.md`](../../../../examples/routing-example.md)
+- [`../../../examples/routing-example.md`](../../../examples/routing-example.md)
 
 ## Real example
 

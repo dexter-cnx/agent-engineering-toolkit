@@ -54,7 +54,7 @@ Validate the Android release path without changing the signing configuration.
 
 ## References
 
-- [`../../../../examples/release-config-example.md`](../../../../examples/release-config-example.md)
+- [`../../../examples/release-config-example.md`](../../../examples/release-config-example.md)
 
 ## Real example
 

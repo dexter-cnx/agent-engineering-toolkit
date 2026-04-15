@@ -57,7 +57,7 @@ Create the auth session state layer that consumes a Firebase Auth adapter.
 
 ## References
 
-- [`../../../../examples/firebase-integration-example.md`](../../../../examples/firebase-integration-example.md)
+- [`../../../examples/firebase-integration-example.md`](../../../examples/firebase-integration-example.md)
 
 ## Real example
 

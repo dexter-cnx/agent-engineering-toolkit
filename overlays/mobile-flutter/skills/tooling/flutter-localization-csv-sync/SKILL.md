@@ -56,8 +56,8 @@ Sync a CSV-based translation source into the Flutter localization files used by 
 
 ## References
 
-- [`../../../../templates/translations.csv`](../../../../templates/translations.csv)
-- [`../../../../canonical/localization.md`](../../../../canonical/localization.md)
+- [`../../../templates/translations.csv`](../../../templates/translations.csv)
+- [`../../../canonical/localization.md`](../../../canonical/localization.md)
 
 ## Real example
 

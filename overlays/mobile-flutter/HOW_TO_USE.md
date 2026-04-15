@@ -6,7 +6,8 @@
 2. Select the active skill in `SKILLS_INDEX.md`.
 3. Follow the matching workflow in `workflows/`.
 4. Use templates from `templates/` and examples from `examples/`.
-5. Validate active skills with `ci/validate_skills.sh`.
+5. Use `tools/skillgen/` when adding or splitting skills.
+6. Validate active skills with `ci/validate_skills.sh`.
 
 ## Typical commands
 
@@ -26,4 +27,4 @@
 - Open `overlays/mobile-flutter/README.md` first.
 - Then open `AGENTS.overlay.md` and `SKILLS_INDEX.md`.
 - Use the relevant workflow doc instead of reading every skill.
-
+- When contributing a new skill, read `AGENT_CONTRIBUTION_RULES.md` and `docs/tutorials/add-a-new-skill.md`.

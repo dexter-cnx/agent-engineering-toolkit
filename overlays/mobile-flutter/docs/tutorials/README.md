@@ -5,6 +5,7 @@
 - [Getting Started](getting-started.md)
 - [How Skills Work](how-skills-work.md)
 - [Real Use Cases](real-use-cases.md)
+- [Add a New Skill](add-a-new-skill.md)
 
 ## Practical flows
 

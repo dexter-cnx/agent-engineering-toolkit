@@ -55,16 +55,17 @@ Audit a Flutter feature or app for Clean Architecture compliance, dependency dir
 
 ## Related skills
 
-- `flutter-feature-scaffold`
-- `flutter-riverpod-feature-state`
+- `flutter-feature-folder-scaffold`
+- `flutter-feature-contract-scaffold`
+- `flutter-riverpod-state-skeleton`
 - `flutter-firestore-repository`
-- `flutter-go-router-deeplink`
+- `flutter-go-router-route-map`
 
 ## References
 
-- [`../../../../templates/feature-module-template.md`](../../../../templates/feature-module-template.md)
-- [`../../../../examples/full-feature-implementation.md`](../../../../examples/full-feature-implementation.md)
-- [`../../../../policies/architecture/README.md`](../../../../policies/architecture/README.md)
+- [`../../../templates/feature-module-template.md`](../../../templates/feature-module-template.md)
+- [`../../../examples/full-feature-implementation.md`](../../../examples/full-feature-implementation.md)
+- [`../../../policies/architecture/README.md`](../../../policies/architecture/README.md)
 
 ## Real example
 

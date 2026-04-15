@@ -57,8 +57,8 @@ Create the minimal domain contract files for a Flutter feature, such as entities
 
 ## References
 
-- [`../../../../templates/repository-template.md`](../../../../templates/repository-template.md)
-- [`../../../../templates/feature-module-template.md`](../../../../templates/feature-module-template.md)
+- [`../../../templates/repository-template.md`](../../../templates/repository-template.md)
+- [`../../../templates/feature-module-template.md`](../../../templates/feature-module-template.md)
 
 ## Real example
 

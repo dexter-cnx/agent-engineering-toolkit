@@ -33,7 +33,7 @@ Create the feature folder tree for a Flutter module with the correct layer bound
 1. Create `lib/features/<feature_name>/`.
 2. Create `data/`, `domain/`, and `presentation/`.
 3. Create nested layer folders needed by the project standard.
-4. Add placeholder files only if the caller requested them.
+4. Seed support files only if the caller requested them.
 5. Return the created tree.
 
 ## Output contract
@@ -57,8 +57,8 @@ Create the feature folder tree for a Flutter module with the correct layer bound
 
 ## References
 
-- [`../../../../templates/feature-module-template.md`](../../../../templates/feature-module-template.md)
-- [`../../../../examples/full-feature-implementation.md`](../../../../examples/full-feature-implementation.md)
+- [`../../../templates/feature-module-template.md`](../../../templates/feature-module-template.md)
+- [`../../../examples/full-feature-implementation.md`](../../../examples/full-feature-implementation.md)
 
 ## Real example
 

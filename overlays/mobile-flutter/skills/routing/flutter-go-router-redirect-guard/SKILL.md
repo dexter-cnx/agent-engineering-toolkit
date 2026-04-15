@@ -57,8 +57,8 @@ Create the redirect or guard logic for a `go_router` app.
 
 ## References
 
-- [`../../../../examples/routing-example.md`](../../../../examples/routing-example.md)
-- [`../../../../examples/firebase-integration-example.md`](../../../../examples/firebase-integration-example.md)
+- [`../../../examples/routing-example.md`](../../../examples/routing-example.md)
+- [`../../../examples/firebase-integration-example.md`](../../../examples/firebase-integration-example.md)
 
 ## Real example
 

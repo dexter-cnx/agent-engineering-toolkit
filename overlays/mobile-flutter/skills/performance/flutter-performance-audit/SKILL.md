@@ -59,8 +59,8 @@ Audit Flutter performance symptoms and produce prioritized fixes with measurable
 
 ## References
 
-- [`../../../../examples/full-feature-implementation.md`](../../../../examples/full-feature-implementation.md)
-- [`../../../../canonical/web_loading.md`](../../../../canonical/web_loading.md)
+- [`../../../examples/full-feature-implementation.md`](../../../examples/full-feature-implementation.md)
+- [`../../../canonical/web_loading.md`](../../../canonical/web_loading.md)
 
 ## Real example
 

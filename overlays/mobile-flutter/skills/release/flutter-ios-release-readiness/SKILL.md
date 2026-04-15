@@ -55,13 +55,13 @@ Prepare iOS release readiness, signing hygiene, and App Store-safe Flutter relea
 
 ## Related skills
 
-- `flutter-android-release-signing`
+- `flutter-android-signing-config`
 - `flutter-performance-audit`
 
 ## References
 
-- [`../../../../examples/release-config-example.md`](../../../../examples/release-config-example.md)
-- [`../../../../policies/secrets/README.md`](../../../../policies/secrets/README.md)
+- [`../../../examples/release-config-example.md`](../../../examples/release-config-example.md)
+- [`../../../policies/secrets/README.md`](../../../policies/secrets/README.md)
 
 ## Real example
 

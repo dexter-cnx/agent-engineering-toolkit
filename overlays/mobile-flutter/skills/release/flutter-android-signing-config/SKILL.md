@@ -54,8 +54,8 @@ Create the Android signing configuration only.
 
 ## References
 
-- [`../../../../examples/release-config-example.md`](../../../../examples/release-config-example.md)
-- [`../../../../policies/secrets/README.md`](../../../../policies/secrets/README.md)
+- [`../../../examples/release-config-example.md`](../../../examples/release-config-example.md)
+- [`../../../policies/secrets/README.md`](../../../policies/secrets/README.md)
 
 ## Real example
 

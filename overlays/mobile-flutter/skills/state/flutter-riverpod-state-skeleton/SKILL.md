@@ -57,8 +57,8 @@ Create the Riverpod state skeleton for one Flutter feature.
 
 ## References
 
-- [`../../../../templates/state-management-template.md`](../../../../templates/state-management-template.md)
-- [`../../../../examples/full-feature-implementation.md`](../../../../examples/full-feature-implementation.md)
+- [`../../../templates/state-management-template.md`](../../../templates/state-management-template.md)
+- [`../../../examples/full-feature-implementation.md`](../../../examples/full-feature-implementation.md)
 
 ## Real example
 

@@ -55,14 +55,14 @@ Build a Firestore-backed repository with explicit DTO mapping, query boundaries,
 
 ## Related skills
 
-- `flutter-firebase-auth-flow`
-- `flutter-riverpod-feature-state`
+- `flutter-firebase-auth-adapter`
+- `flutter-riverpod-state-skeleton`
 - `flutter-clean-architecture-audit`
 
 ## References
 
-- [`../../../../templates/repository-template.md`](../../../../templates/repository-template.md)
-- [`../../../../examples/firebase-integration-example.md`](../../../../examples/firebase-integration-example.md)
+- [`../../../templates/repository-template.md`](../../../templates/repository-template.md)
+- [`../../../examples/firebase-integration-example.md`](../../../examples/firebase-integration-example.md)
 
 ## Real example
 
