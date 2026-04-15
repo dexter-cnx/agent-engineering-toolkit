@@ -620,6 +620,7 @@ def discover_doc_files(overlay: Path) -> list[Path]:
     ]
     docs.extend(sorted((overlay / "docs" / "tutorials").glob("*.md")))
     docs.extend(sorted((overlay / "examples" / "real-world").glob("*.md")))
+    docs.extend(sorted((overlay / "prompts").glob("*.md")))
     docs.extend(sorted((overlay / "workflows").glob("*/README.md")))
     docs.extend(sorted((overlay / "templates").glob("*.md")))
     docs.extend(sorted((overlay / "policies").glob("*/*.md")))

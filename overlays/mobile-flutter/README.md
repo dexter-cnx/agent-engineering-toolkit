@@ -61,6 +61,12 @@ The overlay retains older catalog material in place for reference, but only the 
 ## Related docs
 
 - `docs/tutorials/README.md`
+- `prompts/new_project.md`
+- `prompts/new_feature.md`
+- `prompts/fix_architecture.md`
+- `prompts/integrate_firebase_auth.md`
+- `prompts/add_go_router_deeplink.md`
+- `prompts/release_android_ios.md`
 - `docs/tutorials/getting-started.md`
 - `docs/tutorials/build-a-new-project-with-ai.md`
 - `docs/tutorials/add-a-new-feature-with-ai.md`

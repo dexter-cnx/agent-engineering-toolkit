@@ -158,6 +158,7 @@ Deliver:
 - `policies/` -> constraints only
 - `templates/` -> file shape and scaffolding
 - `examples/` -> worked output examples
+- `prompts/` -> reusable operational prompts
 - `docs/tutorials/` -> operational guides
 - `ci/validate_skills.sh` -> overlay validation
 
