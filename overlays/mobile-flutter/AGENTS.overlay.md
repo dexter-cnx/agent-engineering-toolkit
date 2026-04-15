@@ -86,6 +86,7 @@ This overlay equips an agent to plan, build, review, verify, and release Flutter
 - Use `tools/skillgen/` to scaffold, validate, sync the index, and check overlap.
 - Fill every schema field completely and link examples plus templates.
 - Keep workflow docs orchestration-only and keep policies out of skills.
+- Treat legacy skill files outside the active v2 router as compatibility stubs. Do not expand them; migrate behavior into the active router, workflows, policies, templates, or tutorials.
 
 ## Output discipline
 

@@ -1,24 +1,11 @@
-# SKILL: flutter-web-deployment-production
+# Deprecated: flutter-web-deployment-production
 
-## Purpose
-Package, validate, and ship Flutter Web in a repeatable production-friendly way.
+This broader capsule has been moved into workflows and the active web loading skill.
 
-## Requirements
-- release build only for deployment validation
-- preserve web loader baseline
-- document base href and asset path assumptions
-- validate CDN/static-host compatibility
-- keep deployment workflow separate from app architecture
+Use these instead:
 
-## Deliverables
-- deployment workflow
-- hosting notes
-- build checklist
-- environment notes
-- rollback/readiness guidance
-
-## Review points
-- release build succeeds
-- startup loader still works after deployment
-- routes and refresh behavior are verified
-- asset paths are correct under target hosting
+- `skills/web/flutter-web-loading-shell/SKILL.md`
+- `workflows/release-app/README.md`
+- `docs/tutorials/release-a-flutter-app-with-ai.md`
+- `docs/tutorials/getting-started.md`
+- `docs/tutorials/how-skills-work.md`

@@ -1,3 +1,9 @@
-# flutter-deep-link Skill
+# Deprecated: flutter-deep-link
 
-Rules and implementation contract.
+This deep-link umbrella has been split into routing-specific skills.
+
+Use these instead:
+
+- `skills/routing/flutter-go-router-route-map/SKILL.md`
+- `skills/routing/flutter-go-router-redirect-guard/SKILL.md`
+- `skills/routing/flutter-go-router-deeplink-wireup/SKILL.md`

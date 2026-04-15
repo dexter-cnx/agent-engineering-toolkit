@@ -24,6 +24,10 @@ This folder documents the CI checks used by `overlays/mobile-flutter`.
 - `overlays/mobile-flutter/ci/github-actions/validate-skills.yml`
 - `overlays/mobile-flutter/ci/validate_skills.sh`
 
+## Skill boundary audit
+
+- `docs/validation/skills-boundary-audit.md`
+
 ## Operating rule
 
 If a check fails, fix the file path, ownership boundary, or missing reference first.

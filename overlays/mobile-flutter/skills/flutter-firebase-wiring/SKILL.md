@@ -1,17 +1,14 @@
-# SKILL: flutter-firebase-wiring
+# Deprecated: flutter-firebase-wiring
 
-## Purpose
-Wire Firebase into a Flutter app in a way that preserves Clean Architecture boundaries.
+This broader capsule has been split into smaller atomic skills and workflow docs.
 
-## Rules
-- Initialize Firebase in app bootstrap, not in widgets
-- Keep firebase_auth and firebase_messaging behind adapters
-- Never mix Firebase SDK models directly into domain entities
-- Environment/config loading must be explicit per flavor
+Use these instead:
 
-## Deliverables
-- bootstrap initialization
-- auth adapter
-- notification adapter
-- environment docs
-- Android/iOS/Web platform setup checklist
+- `skills/firebase/flutter-firebase-auth-adapter/SKILL.md`
+- `skills/firebase/flutter-firebase-auth-state/SKILL.md`
+- `skills/firebase/flutter-firestore-repository/SKILL.md`
+- `workflows/new-project/README.md`
+- `workflows/new-feature/README.md`
+- `policies/architecture/README.md`
+- `docs/tutorials/build-a-new-project-with-ai.md`
+- `docs/tutorials/add-a-new-feature-with-ai.md`

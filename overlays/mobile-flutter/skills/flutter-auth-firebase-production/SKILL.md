@@ -1,24 +1,13 @@
-# SKILL: flutter-auth-firebase-production
+# Deprecated: flutter-auth-firebase-production
 
-## Purpose
-Implement production-ready authentication in Flutter with a clean separation between presentation, domain, and data layers.
+This broader capsule has been split into smaller atomic skills.
 
-## Default stack
-- firebase_auth
-- google_sign_in when required
-- flutter_secure_storage for token/session adjunct data
-- Riverpod for state orchestration
+Use these instead:
 
-## Requirements
-- No Firebase SDK calls in widgets
-- All auth flows go through use cases / repositories
-- Session and profile concerns remain separable
-- Route guards are centralized
-
-## Deliverables
-- Auth repository interface
-- Firebase auth datasource
-- Login / logout / current user use cases
-- Auth state provider
-- Route guard integration
-- Tests for repository and guard behavior
+- `skills/firebase/flutter-firebase-auth-adapter/SKILL.md`
+- `skills/firebase/flutter-firebase-auth-state/SKILL.md`
+- `skills/routing/flutter-go-router-redirect-guard/SKILL.md`
+- `workflows/new-project/README.md`
+- `workflows/new-feature/README.md`
+- `docs/tutorials/add-a-new-feature-with-ai.md`
+- `docs/tutorials/build-a-new-project-with-ai.md`
