@@ -1,0 +1,39 @@
+# $skill_name
+
+## Purpose
+$purpose
+
+## Use when
+$use_when
+
+## Do NOT use when
+$do_not_use_when
+
+## Inputs required
+$inputs_required
+
+## Constraints
+$constraints
+
+## Step-by-step workflow
+$workflow
+
+## Output contract
+$output_contract
+
+## Validation checklist
+$validation_checklist
+
+## Related skills
+$related_skills
+
+## References
+$references
+
+## Real example
+$real_example
+
+## Real file output sample
+```text
+$real_file_output_sample
+```

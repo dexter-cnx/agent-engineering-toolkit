@@ -5,6 +5,19 @@ on:
   pull_request:
 
 jobs:
+  mobile-flutter-skill-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Mobile Flutter skill structure
+        run: bash tools/skillgen/bin/skillgen check --overlay overlays/mobile-flutter
+      - name: Sync Mobile Flutter skill index
+        run: bash tools/skillgen/bin/skillgen sync-index --overlay overlays/mobile-flutter --check
+      - name: Check Mobile Flutter skill overlap
+        run: bash tools/skillgen/bin/skillgen overlap --overlay overlays/mobile-flutter --fail-on-overlap --report overlays/mobile-flutter/docs/skill-overlap-report.md
+      - name: Check Mobile Flutter docs consistency
+        run: bash tools/skillgen/bin/skillgen docs-check --overlay overlays/mobile-flutter
+
   structure-check:
     runs-on: ubuntu-latest
     steps:

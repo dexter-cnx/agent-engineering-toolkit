@@ -1,0 +1,17 @@
+name: Validate Mobile Flutter Skills
+
+on:
+  pull_request:
+  push:
+    branches: [main, master]
+
+jobs:
+  validate-skills:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run full Mobile Flutter overlay validation
+        run: bash tools/skillgen/bin/skillgen check --overlay overlays/mobile-flutter

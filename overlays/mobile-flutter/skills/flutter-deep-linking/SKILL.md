@@ -1,21 +1,9 @@
----
-name: flutter-deep-linking
-category: Framework Reference Docs
-summary: Deep link and app link setup patterns across Android, iOS, and web.
----
+# Deprecated: flutter-deep-linking
 
-# flutter-deep-linking
+This reference doc overlaps the active routing skill set.
 
-Use for inbound links, universal links, and web route entry.
+Use these instead:
 
-## Scope
-- Android App Links / intent filters
-- iOS Universal Links / associated domains
-- Router integration
-- Deferred destination handling after auth
-
-## Rules
-- Keep platform config documented
-- Validate links end-to-end
-- Centralize parsing and destination mapping
-- Handle invalid or expired links gracefully
+- `skills/routing/flutter-go-router-route-map/SKILL.md`
+- `skills/routing/flutter-go-router-redirect-guard/SKILL.md`
+- `skills/routing/flutter-go-router-deeplink-wireup/SKILL.md`

@@ -1,17 +1,14 @@
-# SKILL: flutter-maps-routing-production
+# Deprecated: flutter-maps-routing-production
 
-## Purpose
-Add map display, customer pin rendering, and route orchestration without binding business logic directly to a map package.
+This broader capsule has been split into smaller atomic skills and supporting docs.
 
-## Default approach
-- Abstract map provider behind interfaces
-- Keep route optimization logic in domain/application layer
-- Treat vendor SDKs as adapters
+Use these instead:
 
-## Deliverables
-- Coordinates value object
-- Customer visit entity
-- Route planning repository interface
-- Map adapter/service
-- UI page with map canvas and markers
-- Testable route plan formatter
+- `skills/routing/flutter-go-router-route-map/SKILL.md`
+- `skills/routing/flutter-go-router-deeplink-wireup/SKILL.md`
+- `skills/routing/flutter-go-router-redirect-guard/SKILL.md`
+- `skills/flutter-maps/SKILL.md`
+- `skills/flutter-geolocation/SKILL.md`
+- `skills/flutter-permissions/SKILL.md`
+- `workflows/new-feature/README.md`
+- `docs/tutorials/add-a-new-feature-with-ai.md`

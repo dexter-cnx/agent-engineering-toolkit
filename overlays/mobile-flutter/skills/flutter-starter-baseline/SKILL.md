@@ -1,18 +1,13 @@
-# SKILL: flutter-starter-baseline
+# Deprecated: flutter-starter-baseline
 
-## Purpose
-Turn the starter app into a repeatable near-production baseline.
+This umbrella starter baseline has been split into scaffolding skills, templates, and the new-project workflow.
 
-## Requirements
-- dependencies declared centrally
-- app bootstraps through one entrypoint
-- routes use shared registration conventions
-- translations have seeded workflow
-- new features can be scaffolded and registered with low friction
+Use these instead:
 
-## Deliverables
-- stronger pubspec baseline
-- feature generation helpers
-- route registration pattern
-- translation seed/update helper
-- checklist for first implementation pass
+- `skills/architecture/flutter-feature-folder-scaffold/SKILL.md`
+- `skills/architecture/flutter-feature-contract-scaffold/SKILL.md`
+- `skills/state/flutter-riverpod-state-skeleton/SKILL.md`
+- `skills/state/flutter-getx-controller-skeleton/SKILL.md`
+- `templates/feature-module-template.md`
+- `workflows/new-project/README.md`
+- `docs/tutorials/build-a-new-project-with-ai.md`

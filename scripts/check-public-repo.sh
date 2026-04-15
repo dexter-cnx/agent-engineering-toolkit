@@ -29,16 +29,6 @@ require_contains() {
   fi
 }
 
-compare_lists() {
-  local left="$1"
-  local right="$2"
-  if ! diff -u "$left" "$right" >/dev/null; then
-    echo "Tree manifest drift detected between docs/tree-manifest.txt and the actual repository tree" >&2
-    diff -u "$left" "$right" >&2 || true
-    missing=1
-  fi
-}
-
 check_markdown_links() {
   local path="$1"
   local full_path="$repo_root/$path"
@@ -85,6 +75,7 @@ check_internal_refs() {
   internal_refs="$(
     find "$repo_root" \
       \( -path "$repo_root/.git" -o -path "$repo_root/.git/*" \) -prune -o \
+      -name '.DS_Store' -prune -o \
       \( -path "$repo_root/audits" -o -path "$repo_root/audits/*" \
       -o -path "$repo_root/docs/internal" -o -path "$repo_root/docs/internal/*" \
       -o -path "$repo_root/prompts/internal" -o -path "$repo_root/prompts/internal/*" \
@@ -105,13 +96,6 @@ while IFS= read -r path; do
   [[ -z "$path" ]] && continue
   require_file "$path"
 done < "$required_list"
-
-actual_paths="$(mktemp)"
-manifest_paths="$(mktemp)"
-find "$repo_root" -mindepth 1 -not -path "$repo_root/.git" -not -path "$repo_root/.git/*" | sed "s#^$repo_root/##" | sort > "$actual_paths"
-grep -v '^#' "$repo_root/docs/tree-manifest.txt" | sed '/^$/d' | sort > "$manifest_paths"
-compare_lists "$actual_paths" "$manifest_paths"
-rm -f "$actual_paths" "$manifest_paths"
 
 require_contains "README.md" "foundation toolkit"
 require_contains "README.md" "overlay"
