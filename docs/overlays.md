@@ -18,8 +18,9 @@ Each overlay keeps its own README, `AGENTS.overlay.md`, and any overlay-local ca
 
 Use overlay-local capability catalogs to compose feature work instead of redefining the repository around a single application stack.
 
-For full-stack reference usage, see `docs/compositions/nextjs-dotnet/`.
+For full-stack reference usage, see `docs/compositions/nextjs-fullstack/` or `docs/compositions/nextjs-dotnet/`.
 Additional composition paths:
+- `docs/compositions/nextjs-prisma-postgres-nextauth-vercel/`
 - `docs/compositions/nextjs-python-service/`
 - `docs/compositions/nextjs-nodebackend/`
 See `docs/compositions/README.md` for the full index.

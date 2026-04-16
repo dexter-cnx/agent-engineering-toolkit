@@ -109,3 +109,13 @@
   Decision: The Thai web onboarding tutorial should be split into a hub plus stack-specific step-by-step guides for React+Vite and Next.js.
   Why: The two stacks have different routing and runtime assumptions, and splitting them keeps the guidance concrete.
   Consequence: Future updates to blank-folder onboarding should update the hub and the matching stack-specific guides together.
+
+- Date: 2026-04-16
+  Decision: Add a dedicated `docs/compositions/nextjs-fullstack/` path for single-app Next.js full-stack work.
+  Why: The repo already had separate Next.js + backend compositions, but no clear reference path for backend logic living inside the Next.js app itself.
+  Consequence: Future docs should treat the full-stack Next.js path as a first-class composition alongside the separated backend compositions.
+
+- Date: 2026-04-16
+  Decision: Add a dedicated `docs/compositions/nextjs-prisma-postgres-nextauth-vercel/` path for the opinionated app-local Next.js stack.
+  Why: The generic full-stack path is too broad for a composition that needs Prisma, Postgres, NextAuth.js, and Vercel guidance together.
+  Consequence: Future docs should route this stack to the dedicated composition instead of stretching the generic full-stack path.

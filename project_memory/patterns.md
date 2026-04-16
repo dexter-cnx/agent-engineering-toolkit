@@ -79,3 +79,11 @@
 - Pattern: Keep tutorial language mirrors discoverable.
   When to use: when onboarding docs are published in English plus Thai or other language pairs.
   When not to use: when the file is intentionally single-language or does not have a maintained mirror.
+
+- Pattern: Give single-app Next.js work its own composition path.
+  When to use: when the frontend and backend live in the same Next.js deployment and contracts still matter.
+  When not to use: when the project has a separate backend runtime such as Node, Python, or .NET.
+
+- Pattern: Split generic single-app Next.js guidance from opinionated app-local stack guidance.
+  When to use: when one composition needs to stay broad and another needs Prisma, Postgres, NextAuth.js, and Vercel specifics.
+  When not to use: when the stack-specific composition would be redundant or would blur the generic path.

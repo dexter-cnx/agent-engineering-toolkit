@@ -20,3 +20,5 @@
 - The toolkit-i18n CLI must stay safe by default: generated JSON goes to a requested output directory only, and source CSV files are never mutated implicitly.
 - Localization coverage must report real key overlap by unique set intersection, not by comparing raw counts.
 - The web frontend overlay should keep parity with mobile-flutter as a workflow shape, but not as a stack identity.
+- `docs/compositions/nextjs-fullstack/` is the reference path for single-app Next.js full-stack work; it should not be described as a separate backend service composition.
+- `docs/compositions/nextjs-prisma-postgres-nextauth-vercel/` is the reference path for the opinionated app-local Next.js stack with Prisma, Postgres, NextAuth.js, and Vercel; it should not be collapsed into the generic full-stack path.
