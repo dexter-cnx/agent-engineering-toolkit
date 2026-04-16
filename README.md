@@ -46,6 +46,7 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 ## Start here
 
 - `README_START_HERE.md`
+- `Makefile` - common repo tasks via `make help`
 - `docs/how-to-use.md`
 - `docs/tutorial.md`
 - `docs/overlays.md`
