@@ -17,6 +17,7 @@ Use the overlay that matches the stack or capability you are working on, then re
 - the overlay-local catalog or index, if it exists
 
 Current overlays:
+- `overlays/agent-karpathy/README.md`
 - `overlays/backend-node/README.md`
 - `overlays/mobile-flutter/README.md`
 - `overlays/unity/README.md`
@@ -45,3 +46,12 @@ When you add or change a skill:
 - update tutorials if the usage model changes
 - avoid references to files that do not exist
 - keep human overview files separate from operational AI rule files
+
+## Karpathy guidance
+
+If your work is about skill quality, mutation, regression-safe promotion, or token governance,
+switch to the Karpathy overlay instead of treating it like a generic feature-work overlay.
+
+Start here:
+- `overlays/agent-karpathy/README.md`
+- `docs/karpathy-guide.md`

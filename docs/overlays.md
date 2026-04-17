@@ -20,7 +20,8 @@ Each overlay keeps its own README, `AGENTS.overlay.md`, and any overlay-local ca
 Use overlay-local capability catalogs to compose feature work instead of redefining the repository around a single application stack.
 
 For Karpathy-governed overlays and skills, see `docs/karpathy-ecosystem-index.md` and
-`docs/karpathy-overlay-integration.md`.
+`docs/karpathy-overlay-integration.md`. For a detailed operator walkthrough, see
+`docs/karpathy-guide.md`.
 
 [agent-karpathy](../overlays/agent-karpathy/README.md) is the overlay to select when you are
 working on AI skill quality, mutation, regression-safe promotion, or token governance. It is a

@@ -119,3 +119,8 @@
   Decision: Add a dedicated `docs/compositions/nextjs-prisma-postgres-nextauth-vercel/` path for the opinionated app-local Next.js stack.
   Why: The generic full-stack path is too broad for a composition that needs Prisma, Postgres, NextAuth.js, and Vercel guidance together.
   Consequence: Future docs should route this stack to the dedicated composition instead of stretching the generic full-stack path.
+
+- Date: 2026-04-17
+  Decision: Karpathy guidance now has a dedicated operator guide in `docs/karpathy-guide.md` and `docs/karpathy-guide_TH.md`.
+  Why: The Karpathy workflow needed one detailed reference instead of spreading operator detail across foundation docs.
+  Consequence: Foundation docs should link to the guide and keep Karpathy workflow detail out of generic how-to/tutorial pages.

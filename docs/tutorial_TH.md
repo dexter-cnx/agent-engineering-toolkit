@@ -38,3 +38,19 @@
 - ตรวจว่าทุกไฟล์ที่เอกสารอ้างถึงมีอยู่จริง
 - ตรวจว่า overlay catalog ตรงกับ skill ที่มีจริง
 - อย่าใช้ชื่อ skill ที่ lock กับ provider มากเกินไป
+
+## เส้นทาง Karpathy
+
+ถ้า overlay ที่ใช้งานคือ `agent-karpathy` ให้มองงานนี้เป็น skill optimization ไม่ใช่งาน
+feature ทั่วไป
+
+ใช้เอกสารเหล่านี้:
+- `overlays/agent-karpathy/README.md`
+- `overlays/agent-karpathy/AGENTS.overlay.md`
+- `docs/karpathy-guide_TH.md`
+
+จากนั้นทำตาม workflow ที่กำกับ:
+1. รัน `./scripts/karpathy-eval.sh <skill>`
+2. ตรวจ `reports/latest_report.md`
+3. รัน `./scripts/karpathy-run-cycle.sh <skill> --dry-run --n 3 --pretty`
+4. ตรวจผล regression และ token-policy ก่อนอนุญาต promotion

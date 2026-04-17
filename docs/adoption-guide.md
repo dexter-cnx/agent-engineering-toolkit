@@ -7,6 +7,8 @@ This guide is for engineers who want to:
 - Integrate the Karpathy system into an existing CI pipeline
 - Understand how to interpret optimization reports and score histories
 
+For a deeper operator walkthrough, pair this guide with `docs/karpathy-guide.md`.
+
 ---
 
 ## Prerequisites
@@ -39,8 +41,8 @@ Required sections in order:
 11. Real example
 12. Real file output sample
 
-The overlay fixtures use these 12 markdown headings; the repository's "13 required sections"
-wording counts the file title/header separately in the validator documentation.
+The validator counts the file title/H1 plus these 12 markdown sections, which is why the
+repository still refers to the format as "13 required sections."
 
 See `overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md`
 for a reference implementation.

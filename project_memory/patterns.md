@@ -87,3 +87,7 @@
 - Pattern: Split generic single-app Next.js guidance from opinionated app-local stack guidance.
   When to use: when one composition needs to stay broad and another needs Prisma, Postgres, NextAuth.js, and Vercel specifics.
   When not to use: when the stack-specific composition would be redundant or would blur the generic path.
+
+- Pattern: Centralize Karpathy operator detail in a dedicated guide.
+  When to use: when the Karpathy workflow needs richer operator advice than the foundation docs should carry.
+  When not to use: when a short pointer or quick path is enough.

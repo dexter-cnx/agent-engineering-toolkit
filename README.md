@@ -21,6 +21,7 @@ It is intentionally stack-neutral at the foundation layer. Stack-specific conven
 - Prompt hub (English): `prompts/index_EN.md`
 - Adoption guide: `docs/how-to-use.md`
 - Tutorial: `docs/tutorial.md`
+- Karpathy guide: `docs/karpathy-guide.md`
 - Overlay strategy: `docs/overlays.md`
 
 ## Overlay catalog
@@ -39,7 +40,8 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 - [web-frontend](overlays/web-frontend/README.md) - Legacy web UI and product frontend guidance
 
 If you are working on AI skill quality or promotion workflows, start with
-`overlays/agent-karpathy/README.md` and use the canonical scripts shown below.
+`overlays/agent-karpathy/README.md`, then read `docs/karpathy-guide.md`, and use the
+canonical scripts shown below.
 
 ## When to Use Karpathy Layer
 
@@ -63,12 +65,37 @@ Karpathy runtime artifacts are written to `reports/latest_report.md`, `reports/h
 
 Static worked examples stay in `examples/` and are not runtime output.
 
+If you are optimizing a skill for quality or promotion, read
+`docs/karpathy-guide.md` before starting the cycle so the baseline, regression, and
+token-policy checks stay aligned.
+
 ## Full-stack composition
 
 - [docs/compositions/README.md](docs/compositions/README.md) - Index of modular full-stack reference paths
 - [docs/compositions/nextjs-dotnet/README.md](docs/compositions/nextjs-dotnet/README.md) - Full-stack Next.js + ASP.NET Core reference path
 - [docs/compositions/nextjs-python-service/README.md](docs/compositions/nextjs-python-service/README.md) - Full-stack Next.js + Python service reference path
 - [docs/compositions/nextjs-nodebackend/README.md](docs/compositions/nextjs-nodebackend/README.md) - Full-stack Next.js + Node backend reference path
+
+## Full Stack Starters
+
+- [`apps/nextjs-fullstack-app/`](apps/nextjs-fullstack-app/README.md) - canonical single-app starter with app-local backend
+- [`apps/nextjs-dotnet-app/`](apps/nextjs-dotnet-app/README.md) - canonical split starter with Next.js frontend and ASP.NET Core backend
+- [`packages/contracts/`](packages/contracts/README.md) - shared schema-first API contract package
+- [`docs/fullstack/architecture.md`](docs/fullstack/architecture.md) - full-stack boundary model and lifecycle
+- [`docs/fullstack/contracts.md`](docs/fullstack/contracts.md) - contract package purpose, versioning, and envelopes
+- [`docs/fullstack/selection-matrix.md`](docs/fullstack/selection-matrix.md) - business-driven composition selection guide
+
+Verification commands:
+
+```bash
+npm --prefix packages/contracts run check
+npm --prefix packages/contracts run build
+npm --prefix apps/nextjs-fullstack-app run check
+npm --prefix apps/nextjs-fullstack-app run build
+npm --prefix apps/nextjs-dotnet-app/frontend run check
+npm --prefix apps/nextjs-dotnet-app/frontend run build
+dotnet build apps/nextjs-dotnet-app/backend/src/Web/NextjsDotnetApp.Web.csproj
+```
 
 ## Start here
 
@@ -85,6 +112,8 @@ Static worked examples stay in `examples/` and are not runtime output.
 - `docs/how-to-use_TH.md`
 - `docs/tutorial.md`
 - `docs/tutorial_TH.md`
+- `docs/karpathy-guide.md`
+- `docs/karpathy-guide_TH.md`
 - `docs/tutorials/index.md`
 - `docs/tutorials/index_EN.md`
 - `docs/overlays.md`

@@ -1,0 +1,27 @@
+{
+  "name": "@agent-toolkit/nextjs-dotnet-frontend",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "check:structure": "node ./scripts/check-structure.mjs",
+    "check": "npm run check:structure && npm run typecheck"
+  },
+  "dependencies": {
+    "@agent-toolkit/contracts": "file:../../../packages/contracts",
+    "next": "^14.2.24",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "@types/react": "^18.3.7",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.6.3"
+  }
+}

@@ -1,0 +1,97 @@
+name: Full Stack Readiness
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "apps/nextjs-fullstack-app/**"
+      - "apps/nextjs-dotnet-app/**"
+      - "packages/contracts/**"
+      - "docs/fullstack/**"
+      - "docs/compositions/**"
+      - "README.md"
+      - "overlays/backend-dotnet/**"
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "apps/nextjs-fullstack-app/**"
+      - "apps/nextjs-dotnet-app/**"
+      - "packages/contracts/**"
+      - "docs/fullstack/**"
+      - "docs/compositions/**"
+      - "README.md"
+      - "overlays/backend-dotnet/**"
+
+jobs:
+  validate-fullstack:
+    name: Validate full-stack readiness
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Verify required starter files exist
+        run: |
+          test -f apps/nextjs-fullstack-app/package.json
+          test -f apps/nextjs-fullstack-app/prisma/schema.prisma
+          test -f apps/nextjs-fullstack-app/app/api/posts/route.ts
+          test -f apps/nextjs-dotnet-app/frontend/package.json
+          test -f apps/nextjs-dotnet-app/backend/src/Web/NextjsDotnetApp.Web.csproj
+          test -f packages/contracts/package.json
+          test -f docs/fullstack/architecture.md
+          test -f docs/fullstack/contracts.md
+          test -f docs/fullstack/selection-matrix.md
+
+      - name: Install contracts package dependencies
+        working-directory: packages/contracts
+        run: npm install
+
+      - name: Validate contracts package
+        working-directory: packages/contracts
+        run: |
+          npm run check
+          npm run build
+
+      - name: Install Next.js full-stack starter dependencies
+        working-directory: apps/nextjs-fullstack-app
+        env:
+          DATABASE_URL: file:./prisma/dev.db
+        run: npm install
+
+      - name: Validate Next.js full-stack starter
+        working-directory: apps/nextjs-fullstack-app
+        env:
+          DATABASE_URL: file:./prisma/dev.db
+        run: |
+          npm run check
+          npm run build
+
+      - name: Install Next.js + ASP.NET Core frontend dependencies
+        working-directory: apps/nextjs-dotnet-app/frontend
+        run: npm install
+
+      - name: Validate split frontend starter
+        working-directory: apps/nextjs-dotnet-app/frontend
+        run: |
+          npm run check
+          npm run build
+
+      - name: Restore split backend dependencies
+        working-directory: apps/nextjs-dotnet-app/backend
+        run: dotnet restore src/Web/NextjsDotnetApp.Web.csproj
+
+      - name: Build split backend starter
+        working-directory: apps/nextjs-dotnet-app/backend
+        run: dotnet build src/Web/NextjsDotnetApp.Web.csproj --no-restore

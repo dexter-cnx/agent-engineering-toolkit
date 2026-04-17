@@ -1,0 +1,24 @@
+{
+  "name": "@agent-toolkit/contracts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Schema-first shared API contracts for full-stack starter compositions.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "node ./scripts/check.mjs",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
