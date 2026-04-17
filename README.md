@@ -37,6 +37,9 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 - [agent-karpathy](overlays/agent-karpathy/README.md) - Eval-driven skill optimization, controlled mutation, regression-safe promotion, and token governance
 - [web-frontend](overlays/web-frontend/README.md) - Legacy web UI and product frontend guidance
 
+If you are working on AI skill quality or promotion workflows, start with `overlays/agent-karpathy/README.md`
+and use the Karpathy commands below.
+
 ## When to Use Karpathy Layer
 
 Use the `agent-karpathy` overlay when you are working on AI skill quality or promotion
