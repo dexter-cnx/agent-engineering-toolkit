@@ -2,7 +2,7 @@
 # karpathy-run-cycle.sh — run the full 11-step Karpathy optimization cycle
 #
 # Usage:
-#   ./scripts/karpathy-run-cycle.sh <path/to/SKILL.md> [options]
+#   ./scripts/karpathy-run-cycle.sh <path/to/SKILL.md> [true|false] [n] [options]
 #
 # Options:
 #   --dry-run        Evaluate and compare but do not write promoted skill
@@ -30,16 +30,21 @@ DRY_RUN_ARG=""
 N_ARG="--n 5"
 REPORT_ARG=""
 PRETTY_ARG=""
+POSITIONAL=()
+N_EXPLICIT="false"
+DRY_RUN_EXPLICIT="false"
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --dry-run)
       DRY_RUN_ARG="--dry-run"
+      DRY_RUN_EXPLICIT="true"
       shift
       ;;
     --n)
       N_ARG="--n $2"
+      N_EXPLICIT="true"
       shift 2
       ;;
     --report-only)
@@ -50,22 +55,56 @@ while [[ $# -gt 0 ]]; do
       PRETTY_ARG="--pretty"
       shift
       ;;
+    --)
+      shift
+      while [[ $# -gt 0 ]]; do
+        POSITIONAL+=("$1")
+        shift
+      done
+      break
+      ;;
     -*)
       echo "Unknown flag: $1" >&2
-      echo "Usage: $0 <skill_path> [--dry-run] [--n <int>] [--report-only] [--pretty]" >&2
+      echo "Usage: $0 <skill_path> [true|false] [n] [--dry-run] [--n <int>] [--report-only] [--pretty]" >&2
       exit 1
       ;;
     *)
-      SKILL_PATH="$1"
+      POSITIONAL+=("$1")
       shift
       ;;
   esac
 done
 
-if [[ -z "$SKILL_PATH" ]]; then
+if [[ ${#POSITIONAL[@]} -lt 1 ]]; then
   echo "Error: skill path is required." >&2
-  echo "Usage: $0 <path/to/SKILL.md> [--dry-run] [--n <int>] [--report-only] [--pretty]" >&2
+  echo "Usage: $0 <path/to/SKILL.md> [true|false] [n] [--dry-run] [--n <int>] [--report-only] [--pretty]" >&2
   exit 1
+fi
+
+SKILL_PATH="${POSITIONAL[0]}"
+
+if [[ ${#POSITIONAL[@]} -ge 2 ]]; then
+  case "${POSITIONAL[1]}" in
+    true)
+      if [[ "$DRY_RUN_EXPLICIT" != "true" ]]; then
+        DRY_RUN_ARG="--dry-run"
+      fi
+      ;;
+    false)
+      if [[ "$DRY_RUN_EXPLICIT" != "true" ]]; then
+        DRY_RUN_ARG=""
+      fi
+      ;;
+    *)
+      if [[ "$N_EXPLICIT" != "true" ]]; then
+        N_ARG="--n ${POSITIONAL[1]}"
+      fi
+      ;;
+  esac
+fi
+
+if [[ ${#POSITIONAL[@]} -ge 3 && "$N_EXPLICIT" != "true" ]]; then
+  N_ARG="--n ${POSITIONAL[2]}"
 fi
 
 if [[ ! -f "$SKILL_PATH" ]]; then

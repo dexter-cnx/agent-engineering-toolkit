@@ -50,22 +50,28 @@ output runtime ที่เป็น source of truth คือ `reports/latest_r
 
 ```bash
 # Eval only
-bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty
+./scripts/karpathy-eval.sh <skill>
 
 # Full cycle แบบไม่เขียนไฟล์
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only
+./scripts/karpathy-run-cycle.sh <skill> true 3
 
 # Full cycle แบบเปิด promotion
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty
+./scripts/karpathy-run-cycle.sh <skill> false 3
 ```
 
-## หมายเหตุ audit
+## Audit & Production Guarantees
 
 overlay นี้เหมาะกับ CI เพราะ promotion จะถูกบล็อกถ้า regression check ไม่ผ่าน, token policy
 ไม่ผ่าน, หรือ candidate ไม่ชนะ baseline แบบชัดเจน โมเดลประเมินยังมีส่วน heuristic อยู่
 เพราะ rubric scoring และ mutation selection เป็น rule-based แต่ `expected_result.json`
 ช่วยเพิ่มการ validate แบบ expectation-backed เมื่อมีไฟล์นั้น Maintain การตัดสิน promotion
 ให้เป็น governance record ไม่ใช่หลักฐานว่าผลลัพธ์นั้นดีที่สุดเสมอ
+
+- Deterministic: การสร้าง report, token counting, binary checks, regression gate, และ
+  location ของ artifact
+- Heuristic: rubric scoring และ candidate mutation selection
+- Interpretation: PROMOTE แปลว่า "candidate ที่ดีที่สุดภายใต้ rubric และ gate ปัจจุบัน"
+  ไม่ใช่ "ดีที่สุดในทุกบริบท"
 
 ---
 

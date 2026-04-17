@@ -56,6 +56,9 @@ This policy prevents candidates from being promoted when they cost significantly
 without delivering meaningful quality improvement.
 
 Candidates that fail Gate 2 are listed in `token_policy_rejections` in the RunReport.
+The report also records `score_delta`, `token_delta`, `regression_pass`, `token_policy_pass`,
+`final_decision`, `candidate_score`, and `reason` so the promotion gate is auditable without
+having to infer the result from prose.
 
 ---
 
@@ -101,18 +104,18 @@ When dry_run = True: no files are written.  The RunReport records the would-be w
 | `baseline_token_count` | int or null | Baseline token count used in the decision |
 | `winner_score` | float or null | Winning candidate final score, if any |
 | `winner_token_count` | int or null | Winning candidate token count, if any |
+| `candidate_score` | float or null | Score of the selected candidate used in the decision |
+| `candidate_token_count` | int or null | Token count of the selected candidate |
+| `token_delta` | float or null | Token change as a fraction relative to baseline |
+| `regression_pass` | bool | Whether the selected candidate passed regression |
+| `token_policy_pass` | bool | Whether the selected candidate passed token policy |
+| `final_decision` | "PROMOTE" or "REJECT" | Alias of `decision` for audit clarity |
+| `reason` | str | Alias of `reasoning` for audit clarity |
 
 ---
 
 ## Running the Promotion Runner
 
-```bash
-python -m runners.promotion_runner \
-  --baseline-eval   memory/baseline_eval.json \
-  --candidate-evals memory/candidate_evals.json \
-  --candidates      memory/candidates.json \
-  --skill           overlays/agent-karpathy/skills/evaluation/SKILL.md \
-  --dry-run
-```
-
-Exit codes: `0` = PROMOTE, `1` = REJECT, `2` = input error.
+The canonical operator path is `./scripts/karpathy-run-cycle.sh <skill> true 3` for dry-run
+or `./scripts/karpathy-run-cycle.sh <skill> false 3` for promotion-enabled runs. The
+`runners/promotion_runner.py` module is the internal implementation behind that wrapper.

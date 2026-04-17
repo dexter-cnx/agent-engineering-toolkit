@@ -37,6 +37,29 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 - [agent-karpathy](overlays/agent-karpathy/README.md) - Eval-driven skill optimization, mutation, regression-safe promotion, and token governance
 - [web-frontend](overlays/web-frontend/README.md) - Legacy web UI and product frontend guidance
 
+## When to Use Karpathy Layer
+
+Use the `agent-karpathy` overlay when you are working on AI skill quality or promotion
+workflows. It is the repository's eval-driven optimization layer: it measures a skill against
+the rubric, generates controlled mutations, blocks regressions, applies token governance, and
+only promotes a candidate when it strictly beats the baseline.
+
+Run it with the canonical scripts:
+
+```bash
+./scripts/karpathy-eval.sh <skill>
+./scripts/karpathy-run-cycle.sh <skill> true 3
+./scripts/karpathy-run-cycle.sh <skill> false 3
+```
+
+Runtime outputs go to:
+- `reports/latest_report.md`
+- `reports/history/`
+- `memory/score_history.json`
+- `memory/candidate_archive.json`
+
+Static worked examples stay in `examples/` and are not runtime output.
+
 ## Full-stack composition
 
 - [docs/compositions/README.md](docs/compositions/README.md) - Index of modular full-stack reference paths

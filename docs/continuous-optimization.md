@@ -33,13 +33,13 @@ Static worked examples live in `examples/` and are intentionally separate from r
 
 ```bash
 # Evaluate only (no mutation, no promotion)
-bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty
+./scripts/karpathy-eval.sh <skill>
 
 # Full cycle, dry-run (evaluate + mutate + compare, no write)
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only
+./scripts/karpathy-run-cycle.sh <skill> true 3
 
 # Full cycle, production (promotes if winner found)
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty
+./scripts/karpathy-run-cycle.sh <skill> false 3
 ```
 
 ---
@@ -64,14 +64,10 @@ Two workflows are provided:
 
 ## Scheduling Individual Skills
 
-To schedule a specific skill for automated optimization, set the `schedule` field in its
-`skill_contract.yaml`:
-
-```yaml
-schedule: "0 3 * * 1"   # Every Monday at 3am UTC
-```
-
-The CI workflow reads this field and runs the cycle on the configured schedule.
+The Karpathy cycle is scheduled by `.github/workflows/karpathy-cycle.yml` and defaults to the
+baseline skill path provided by the workflow inputs. If you want a different skill optimized
+on a schedule, update the workflow input default or pass a different `skill_path` when
+triggering it manually.
 
 ---
 

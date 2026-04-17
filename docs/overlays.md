@@ -19,11 +19,12 @@ Each overlay keeps its own README, `AGENTS.overlay.md`, and any overlay-local ca
 
 Use overlay-local capability catalogs to compose feature work instead of redefining the repository around a single application stack.
 
-[agent-karpathy](../overlays/agent-karpathy/README.md) is the eval-driven optimization overlay.
-It adds mutation, regression checks, token governance, and promotion traceability for AI skills
-and prompts. Use `scripts/karpathy-eval.sh` for eval-only runs and
-`scripts/karpathy-run-cycle.sh` for dry-run or promotion-enabled cycles. Runtime outputs live in
-`reports/` and `memory/`; static worked examples live in `examples/`.
+[agent-karpathy](../overlays/agent-karpathy/README.md) is the overlay to select when you are
+working on AI skill quality, mutation, regression-safe promotion, or token governance. It is a
+specialization layer on top of the stack-neutral foundation, not a replacement for it. Use
+`scripts/karpathy-eval.sh` for eval-only runs and `scripts/karpathy-run-cycle.sh` for dry-run or
+promotion-enabled cycles. Runtime outputs live in `reports/` and `memory/`; static worked
+examples live in `examples/`.
 
 For full-stack reference usage, see `docs/compositions/nextjs-fullstack/` or `docs/compositions/nextjs-dotnet/`.
 Additional composition paths:

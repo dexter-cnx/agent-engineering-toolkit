@@ -19,8 +19,15 @@ Output dict:
     winner_id           str | None
     decision            "PROMOTE" | "REJECT"
     reasoning           str
+    final_decision      "PROMOTE" | "REJECT"
+    reason              str
+    candidate_score     float | None
+    candidate_token_count int | None
     score_delta         float | None
     token_delta_pct     float | None
+    token_delta         float | None
+    regression_pass     bool
+    token_policy_pass   bool
     promoted_path       str | None
     token_policy_applied bool
     token_policy_rejections list[str]
@@ -82,6 +89,10 @@ class PromotionAgent:
                 reason="All candidates were filtered by token policy or no candidates provided.",
                 baseline_score=baseline_score,
                 baseline_tokens=baseline_tokens,
+                candidate_score=None,
+                candidate_tokens=None,
+                regression_pass=False,
+                token_policy_pass=False,
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -98,6 +109,10 @@ class PromotionAgent:
                 ),
                 baseline_score=baseline_score,
                 baseline_tokens=baseline_tokens,
+                candidate_score=winner_eval["final_score"],
+                candidate_tokens=winner_eval["token_count"],
+                regression_pass=True,
+                token_policy_pass=winner_eval.get("token_policy_passed", False),
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -111,6 +126,10 @@ class PromotionAgent:
                 ),
                 baseline_score=baseline_score,
                 baseline_tokens=baseline_tokens,
+                candidate_score=winner_eval["final_score"],
+                candidate_tokens=winner_eval["token_count"],
+                regression_pass=True,
+                token_policy_pass=winner_eval.get("token_policy_passed", False),
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -125,6 +144,10 @@ class PromotionAgent:
                 reason=f"Winner candidate_id {winner_id} not found in candidates list.",
                 baseline_score=baseline_score,
                 baseline_tokens=baseline_tokens,
+                candidate_score=winner_eval["final_score"],
+                candidate_tokens=winner_eval["token_count"],
+                regression_pass=True,
+                token_policy_pass=winner_eval.get("token_policy_passed", False),
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -153,8 +176,15 @@ class PromotionAgent:
             "winner_id":                winner_id,
             "decision":                 "PROMOTE",
             "reasoning":                reasoning,
+            "final_decision":           "PROMOTE",
+            "reason":                   reasoning,
+            "candidate_score":          round(winner_eval["final_score"], 4),
+            "candidate_token_count":    winner_eval["token_count"],
             "score_delta":              round(score_delta, 4),
             "token_delta_pct":          round(token_delta_pct, 4),
+            "token_delta":              round(token_delta_pct, 4),
+            "regression_pass":          True,
+            "token_policy_pass":        bool(winner_eval.get("token_policy_passed", False)),
             "promoted_path":            promoted_path,
             "token_policy_applied":     token_policy_applied,
             "token_policy_rejections":  rejected_ids,
@@ -189,6 +219,10 @@ class PromotionAgent:
         reason: str,
         baseline_score: float | None = None,
         baseline_tokens: int | None = None,
+        candidate_score: float | None = None,
+        candidate_tokens: int | None = None,
+        regression_pass: bool = False,
+        token_policy_pass: bool = False,
         token_policy_applied: bool = False,
         token_policy_rejections: list[str] | None = None,
     ) -> dict[str, Any]:
@@ -196,8 +230,15 @@ class PromotionAgent:
             "winner_id":                None,
             "decision":                 "REJECT",
             "reasoning":                reason,
+            "final_decision":           "REJECT",
+            "reason":                   reason,
+            "candidate_score":          candidate_score,
+            "candidate_token_count":    candidate_tokens,
             "score_delta":              None,
             "token_delta_pct":          None,
+            "token_delta":              None,
+            "regression_pass":          regression_pass,
+            "token_policy_pass":        token_policy_pass,
             "promoted_path":            None,
             "token_policy_applied":     token_policy_applied,
             "token_policy_rejections":  token_policy_rejections or [],

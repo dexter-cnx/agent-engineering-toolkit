@@ -62,9 +62,9 @@ Route to the correct skill based on the task:
 
 ## Operator reference
 
-- Eval only: `bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty`
-- Dry-run cycle: `bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only`
-- Promotion-enabled cycle: `bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty`
+- Eval only: `./scripts/karpathy-eval.sh <skill>`
+- Dry-run cycle: `./scripts/karpathy-run-cycle.sh <skill> true 3`
+- Promotion-enabled cycle: `./scripts/karpathy-run-cycle.sh <skill> false 3`
 
 ## Audit note
 

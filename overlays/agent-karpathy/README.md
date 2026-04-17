@@ -50,22 +50,28 @@ Runtime outputs are the committed `reports/latest_report.md`, `reports/history/<
 
 ```bash
 # Eval only
-bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty
+./scripts/karpathy-eval.sh <skill>
 
 # Full cycle, no write
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only
+./scripts/karpathy-run-cycle.sh <skill> true 3
 
 # Full cycle with promotion enabled
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty
+./scripts/karpathy-run-cycle.sh <skill> false 3
 ```
 
-## Audit note
+## Audit & Production Guarantees
 
 This overlay is safe for CI because promotion is blocked unless all binary regression checks
 pass, token policy passes, and the candidate strictly beats the baseline score. The evaluation
 model is still partly heuristic: rubric scoring and mutation selection are rule-based, while
 `expected_result.json` adds expectation-backed validation when it is present. Maintain
 promotion decisions as governance records, not as proof that a candidate is universally better.
+
+- Deterministic: report generation, token counting, binary checks, regression gating, and
+  artifact locations.
+- Heuristic: rubric scoring and candidate mutation selection.
+- Interpretation: PROMOTE means "best candidate under the current rubric and gates", not
+  "globally better in every context".
 
 ---
 

@@ -111,6 +111,7 @@ class Orchestrator:
             skill_path      = skill_path,
             dry_run         = dry_run,
         )
+        self._validate_promotion_contract(promotion)
 
         # Step 10 + 11: Assemble report, store results
         expected_result = self._load_expected_result(skill_path)
@@ -185,18 +186,26 @@ class Orchestrator:
         expected_result:     dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         token_policy_rejections = promotion.get("token_policy_rejections", [])
+        regression_pass = bool(promotion.get("regression_pass", not regression_failures))
+        token_policy_pass = bool(promotion.get("token_policy_pass", not token_policy_rejections))
         promotion_trace = {
             "baseline_score": baseline_eval.get("final_score"),
             "baseline_token_count": baseline_eval.get("token_count"),
             "winner_id": promotion.get("winner_id"),
+            "candidate_score": promotion.get("candidate_score"),
+            "candidate_token_count": promotion.get("candidate_token_count"),
             "winner_score": None,
             "winner_token_count": None,
             "score_delta": promotion.get("score_delta"),
             "token_delta_pct": promotion.get("token_delta_pct"),
+            "token_delta": promotion.get("token_delta", promotion.get("token_delta_pct")),
+            "regression_pass": regression_pass,
+            "token_policy_pass": token_policy_pass,
             "regression_failures": regression_failures,
             "token_policy_rejections": token_policy_rejections,
             "decision": promotion.get("decision", "REJECT"),
-            "reason": promotion.get("reasoning", ""),
+            "final_decision": promotion.get("final_decision", promotion.get("decision", "REJECT")),
+            "reason": promotion.get("reason", promotion.get("reasoning", "")),
         }
 
         winner_id = promotion_trace["winner_id"]
@@ -287,6 +296,8 @@ class Orchestrator:
     @staticmethod
     def _render_markdown_report(report: dict[str, Any]) -> str:
         baseline = report["baseline"]
+        regression_status = "PASS" if not report.get("regression_failures") else "FAIL"
+        expected_status = report.get("expected_result_validation", {}).get("status", "not_applicable")
         lines = [
             f"# Karpathy Optimization Report",
             f"",
@@ -307,24 +318,35 @@ class Orchestrator:
             lines.append(f"| {dim} | {score:.3f} |")
         lines += [
             f"",
-            f"**Final score**: {baseline['final_score']:.4f}  ",
+            f"**Rubric score**: {baseline['final_score']:.4f}  ",
             f"**Tokens**: {baseline['token_count']}  ",
             f"**Quality/1k tokens**: {baseline.get('quality_per_1k_tokens', 0):.4f}",
+            f"**Binary checks**: {'PASS' if baseline.get('binary_checks_passed') else 'FAIL'}",
+            f"",
+            f"## Evaluation Breakdown",
+            f"",
+            f"| Component | Value |",
+            f"|-----------|-------|",
+            f"| rubric_score | {baseline['final_score']:.4f} |",
+            f"| binary_checks | {'PASS' if baseline.get('binary_checks_passed') else 'FAIL'} |",
+            f"| regression_check | {regression_status} |",
+            f"| expected_result_validation | {expected_status} |",
             f"",
             f"---",
             f"",
             f"## Candidates",
             f"",
-            f"| Candidate | Mutation | Score | Tokens | Regression | Token Policy |",
-            f"|-----------|----------|-------|--------|------------|--------------|",
+            f"| Candidate | Mutation | Score | Tokens | Binary Checks | Regression | Token Policy |",
+            f"|-----------|----------|-------|--------|---------------|------------|--------------|",
         ]
         for eval_r in report.get("candidate_evals", []):
             reg  = "PASS" if eval_r.get("regression_passed") else "FAIL"
             tok  = eval_r.get("token_policy_passed")
             tp   = "PASS" if tok is True else ("FAIL" if tok is False else "—")
+            bin_checks = "PASS" if eval_r.get("binary_checks_passed") else "FAIL"
             lines.append(
                 f"| {eval_r['candidate_id']} | {eval_r.get('mutation_type','—')} | "
-                f"{eval_r['final_score']:.4f} | {eval_r['token_count']} | {reg} | {tp} |"
+                f"{eval_r['final_score']:.4f} | {eval_r['token_count']} | {bin_checks} | {reg} | {tp} |"
             )
 
         decision_icon = "PROMOTE" if report["decision"] == "PROMOTE" else "REJECT"
@@ -349,12 +371,18 @@ class Orchestrator:
             f"| baseline_score | {trace.get('baseline_score', 0):.4f} |",
             f"| baseline_token_count | {trace.get('baseline_token_count', 0)} |",
             f"| winner_id | {show(trace.get('winner_id'))} |",
+            f"| candidate_score | {show(trace.get('candidate_score'))} |",
+            f"| candidate_token_count | {show(trace.get('candidate_token_count'))} |",
             f"| winner_score | {show(trace.get('winner_score'))} |",
             f"| winner_token_count | {show(trace.get('winner_token_count'))} |",
             f"| score_delta | {show(trace.get('score_delta'))} |",
+            f"| token_delta | {show(trace.get('token_delta'))} |",
             f"| token_delta_pct | {show(trace.get('token_delta_pct'))} |",
+            f"| regression_pass | {show(trace.get('regression_pass'))} |",
+            f"| token_policy_pass | {show(trace.get('token_policy_pass'))} |",
             f"| regression_failures | {', '.join(trace.get('regression_failures', [])) or 'none'} |",
             f"| token_policy_rejections | {', '.join(trace.get('token_policy_rejections', [])) or 'none'} |",
+            f"| final_decision | {trace.get('final_decision', trace.get('decision', report['decision']))} |",
             f"| decision | {trace.get('decision', report['decision'])} |",
             f"| reason | {trace.get('reason', report['reasoning'])} |",
             f"",
@@ -392,7 +420,7 @@ class Orchestrator:
             lines.append(f"**Token policy rejections**: {', '.join(report['token_policy_rejections'])}")
 
         lines.append("")
-        return "\n".join(lines)
+        return "\n".join(line.rstrip() for line in lines)
 
     @staticmethod
     def _load_expected_result(skill_path: str) -> dict[str, Any] | None:
@@ -403,6 +431,34 @@ class Orchestrator:
 
         with open(expected_path, "r", encoding="utf-8") as fh:
             return json.load(fh)
+
+    @staticmethod
+    def _validate_promotion_contract(promotion: dict[str, Any]) -> None:
+        required = {
+            "winner_id",
+            "decision",
+            "reasoning",
+            "final_decision",
+            "reason",
+            "candidate_score",
+            "candidate_token_count",
+            "score_delta",
+            "token_delta",
+            "regression_pass",
+            "token_policy_pass",
+            "promoted_path",
+            "token_policy_applied",
+            "token_policy_rejections",
+            "baseline_score",
+            "baseline_token_count",
+            "winner_score",
+            "winner_token_count",
+        }
+        missing = sorted(required - promotion.keys())
+        if missing:
+            raise RuntimeError(
+                "Promotion decision missing required fields: " + ", ".join(missing)
+            )
 
     @staticmethod
     def _validate_expected_result(

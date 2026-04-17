@@ -53,7 +53,7 @@ the runtime outputs written to `reports/` and `memory/`.
 ## Step 2: Run your first evaluation
 
 ```bash
-bash scripts/karpathy-eval.sh overlays/agent-karpathy/skills/<category>/<name>/SKILL.md --pretty
+./scripts/karpathy-eval.sh overlays/agent-karpathy/skills/<category>/<name>/SKILL.md
 ```
 
 Read the output.  The two most important fields:
@@ -67,12 +67,9 @@ If `final_score` < 0.60, fix the identified issues before running a mutation cyc
 ## Step 3: Run a dry-run optimization cycle
 
 ```bash
-bash scripts/karpathy-run-cycle.sh \
+./scripts/karpathy-run-cycle.sh \
   overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
-  --n 5 \
-  --dry-run \
-  --pretty \
-  --report-only
+  true 5
 ```
 
 This runs all 11 steps without writing any file.  Read the output:
@@ -102,10 +99,9 @@ It means none of the 6 mutation types found an improvement this cycle.
 When you are satisfied with the dry-run results and want the system to actually update the skill:
 
 ```bash
-bash scripts/karpathy-run-cycle.sh \
+./scripts/karpathy-run-cycle.sh \
   overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
-  --n 5 \
-  --pretty
+  false 5
 ```
 
 The system will back up the existing skill and write the winner.

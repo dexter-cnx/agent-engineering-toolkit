@@ -109,12 +109,18 @@ Binary checks are pass/fail and supplement the dimension scores.
 |-------|-------------|
 | `has_purpose_section` | `## Purpose` section is non-empty |
 | `has_workflow_steps` | `## Step-by-step workflow` has ≥ 2 numbered steps |
-| `no_placeholder_text` | No TODO, TBD, FIXME, `{{`, `<fill` present |
+| `no_placeholder_text` | No unfinished placeholder markers are present |
 | `has_validation_checklist` | `## Validation checklist` has ≥ 1 bullet |
 | `has_output_contract` | `## Output contract` has ≥ 1 bullet |
 | `has_real_example` | `## Real example` has non-empty prose |
 
 A skill with any failing binary check cannot be promoted regardless of its final_score.
+
+For full-cycle runs, the report splits evaluation into explicit components:
+- `rubric_score` = weighted `final_score`
+- `binary_checks` = pass/fail summary of the evaluator's structural checks
+- `regression_check` = pass/fail summary of the regression gate on candidates
+- `expected_result_validation` = pass/fail/not_applicable when `expected_result.json` exists next to the testcase
 
 ---
 
@@ -134,17 +140,11 @@ Higher quality_per_1k_tokens indicates a more efficient skill.
 ## Running the Evaluator
 
 ```bash
-# Single skill
-python -m runners.eval_runner --skill <path/to/SKILL.md> --pretty
-
-# Save result to file
-python -m runners.eval_runner --skill <path> --out-json result.json
-
-# Save to history
-python -m runners.eval_runner --skill <path> --save-history
+./scripts/karpathy-eval.sh <skill>
 ```
 
-Exit codes: `0` = success (score ≥ 0.60), `2` = score below threshold, `1` = file error.
+The wrapper evaluates the skill, writes `memory/score_history.json` when the workflow asks
+for history, and exits `2` when the score is below the promotion threshold.
 
 For full-cycle runs, the report also includes:
 - a structured promotion decision trace

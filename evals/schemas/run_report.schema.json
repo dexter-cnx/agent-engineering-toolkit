@@ -64,10 +64,15 @@
         "baseline_score": { "type": ["number", "null"] },
         "baseline_token_count": { "type": ["integer", "null"] },
         "winner_id": { "type": ["string", "null"] },
+        "candidate_score": { "type": ["number", "null"] },
+        "candidate_token_count": { "type": ["integer", "null"] },
         "winner_score": { "type": ["number", "null"] },
         "winner_token_count": { "type": ["integer", "null"] },
         "score_delta": { "type": ["number", "null"] },
+        "token_delta": { "type": ["number", "null"] },
         "token_delta_pct": { "type": ["number", "null"] },
+        "regression_pass": { "type": ["boolean", "null"] },
+        "token_policy_pass": { "type": ["boolean", "null"] },
         "regression_failures": {
           "type": "array",
           "items": { "type": "string" }
@@ -77,6 +82,7 @@
           "items": { "type": "string" }
         },
         "decision": { "type": "string" },
+        "final_decision": { "type": "string" },
         "reason": { "type": "string" }
       },
       "additionalProperties": false
