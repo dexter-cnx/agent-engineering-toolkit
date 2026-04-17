@@ -1,4 +1,4 @@
-# System Layer
+# System Layer (Canonical)
 
 Operational kernel for repository behavior and governance enforcement.
 
@@ -13,3 +13,8 @@ Defines enforcement intent (evidence, deprecation, edit-scope) that CI/tooling m
 
 ## Rule of use
 When repository behavior and docs disagree, update either policy or implementation so they match; never leave silent drift.
+
+## Boundary note
+
+`core/` is a legacy/frozen quick-reference namespace.
+Canonical operating contracts live in `system/`.

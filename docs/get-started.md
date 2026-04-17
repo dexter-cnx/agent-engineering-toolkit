@@ -35,3 +35,6 @@ Follow [architecture/task-lifecycle.md](architecture/task-lifecycle.md) and role
 
 Legacy root onboarding/index files are compatibility redirects only.
 Do not start there for new work.
+
+
+If you encounter older root files/directories, check `docs/reference/repo-surface-status.md` before using them.

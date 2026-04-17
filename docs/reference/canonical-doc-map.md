@@ -20,6 +20,7 @@
 
 ## Operational references
 - `docs/reference/prompt-catalog.md`
+- `docs/reference/repo-surface-status.md`
 - `docs/graph/navigation-map.md`
 
 ## Compatibility redirectors (legacy links only)
@@ -30,3 +31,8 @@ These are not onboarding sources:
 - `ONBOARDING_MINIMAL.md`
 - `ONBOARDING_FULL.md`
 - `INDEX_CANONICAL.md`
+
+## Legacy namespaces (non-canonical)
+- `agent_team/`
+- `project_memory/`
+- `core/`

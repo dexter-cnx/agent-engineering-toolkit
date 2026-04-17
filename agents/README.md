@@ -1,6 +1,6 @@
-# Agents Runtime
+# Agents Runtime (Canonical)
 
-Role model for executing repository work with clear accountability.
+`agents/` is the canonical runtime role model for this repository.
 
 ## Lead roles
 - `lead/architecture-lead.md`
@@ -18,4 +18,7 @@ Role model for executing repository work with clear accountability.
 - release-readiness
 - incident-repair
 
-Use these roles during PLAN→DESIGN→IMPLEMENT→REVIEW→VERIFY→FINALIZE→MEMORY.
+## Boundary note
+
+`agent_team/` is retained as legacy quick-reference material only.
+Use `agents/` for all new runtime role and workflow work.
