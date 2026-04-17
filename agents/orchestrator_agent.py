@@ -32,24 +32,25 @@ class OrchestratorAgent:
 
     def run(self, payload: dict[str, Any]) -> dict[str, Any]:
         """Main dispatch method. Returns a result dict."""
-        action     = payload.get("action", "full_cycle")
-        skill_path = payload.get("skill_path", "")
-        n          = int(payload.get("n", 5))
-        dry_run    = bool(payload.get("dry_run", False))
-        run_id     = payload.get("run_id")
-
-        if action == "status":
-            return {"status": "ok", "timestamp": datetime.now(timezone.utc).isoformat()}
-
-        if not skill_path:
-            return self._error("skill_path is required for action: " + action)
-
         try:
+            action = self._parse_action(payload.get("action", "full_cycle"))
+
+            if action == "status":
+                return {"status": "ok", "timestamp": datetime.now(timezone.utc).isoformat()}
+
+            skill_path = self._parse_skill_path(payload.get("skill_path", ""))
+            if not skill_path:
+                return self._error("skill_path is required for action: " + action)
+
+            run_id = payload.get("run_id")
+
             if action == "eval_only":
                 result = self._orchestrator.run_eval_only(skill_path)
                 return {"action": "eval_only", "result": result}
 
             if action == "full_cycle":
+                n = self._parse_n(payload.get("n", 5))
+                dry_run = self._parse_dry_run(payload.get("dry_run", False))
                 report = self._orchestrator.run_full_cycle(
                     skill_path=skill_path,
                     n_candidates=n,
@@ -97,6 +98,35 @@ class OrchestratorAgent:
         if traceback:
             result["traceback"] = traceback
         return result
+
+    @staticmethod
+    def _parse_action(value: Any) -> str:
+        action = str(value)
+        if action not in {"full_cycle", "eval_only", "status"}:
+            raise ValueError(f"Unknown action: {action}")
+        return action
+
+    @staticmethod
+    def _parse_skill_path(value: Any) -> str:
+        if value is None:
+            return ""
+        return str(value).strip()
+
+    @staticmethod
+    def _parse_n(value: Any) -> int:
+        try:
+            n = int(value)
+        except (TypeError, ValueError) as exc:
+            raise ValueError("n must be an integer") from exc
+        if n < 1:
+            raise ValueError("n must be at least 1")
+        return min(n, 6)
+
+    @staticmethod
+    def _parse_dry_run(value: Any) -> bool:
+        if isinstance(value, bool):
+            return value
+        raise ValueError("dry_run must be a boolean")
 
 
 if __name__ == "__main__":

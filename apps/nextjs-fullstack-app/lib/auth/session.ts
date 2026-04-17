@@ -20,7 +20,12 @@ export async function issueSession(user: SessionUser): Promise<SessionResponse> 
     .setExpirationTime("15m")
     .sign(ACCESS_SECRET);
 
-  const refreshToken = await new SignJWT({ tokenType: "refresh" })
+  const refreshToken = await new SignJWT({
+    tokenType: "refresh",
+    roles: user.roles,
+    email: user.email,
+    displayName: user.displayName,
+  })
     .setProtectedHeader({ alg: "HS256" })
     .setSubject(user.id)
     .setIssuedAt()
@@ -81,11 +86,14 @@ export async function requireSession(): Promise<SessionUser | null> {
 export async function refreshSession(refreshToken: string): Promise<SessionResponse | null> {
   try {
     const verified = await jwtVerify(refreshToken, REFRESH_SECRET);
+    const roles = Array.isArray(verified.payload.roles)
+      ? verified.payload.roles.map((role) => String(role)).filter((role) => role.length > 0)
+      : [];
     const user: SessionUser = {
       id: verified.payload.sub ?? "demo-user",
-      email: demoCredentials.email,
-      displayName: "Demo Admin",
-      roles: ["user"],
+      email: typeof verified.payload.email === "string" ? verified.payload.email : demoCredentials.email,
+      displayName: typeof verified.payload.displayName === "string" ? verified.payload.displayName : "Demo Admin",
+      roles: roles.length > 0 ? roles : ["user"],
     };
     return issueSession(user);
   } catch {

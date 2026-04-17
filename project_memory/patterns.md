@@ -95,3 +95,11 @@
 - Pattern: Prefer semver ranges for internal workspace dependencies when runner compatibility matters.
   When to use: when npm-based CI jobs need to install linked workspace packages without protocol issues.
   When not to use: when a package manager feature is explicitly required and the CI runners are pinned to support it.
+
+- Pattern: Validate JSON dispatch payloads inside the guarded execution path.
+  When to use: when an API or agent wrapper must return structured errors for malformed input instead of crashing before handling begins.
+  When not to use: when the payload shape is already enforced by a schema boundary before the handler runs.
+
+- Pattern: Preserve authenticated session claims across refresh.
+  When to use: when refresh tokens are used to renew access without changing the authenticated principal.
+  When not to use: when a refresh flow intentionally re-resolves the account from a separate authoritative store.

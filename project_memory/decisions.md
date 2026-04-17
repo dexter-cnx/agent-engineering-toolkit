@@ -129,3 +129,13 @@
   Decision: Internal workspace package dependencies should prefer semver ranges over `workspace:*` when CI compatibility matters.
   Why: The repo's npm-based workflows can fail closed on unsupported workspace protocol resolution in some runners.
   Consequence: New or updated workspace packages should use compatible semver ranges that still allow local workspace linking.
+
+- Date: 2026-04-17
+  Decision: Orchestrator dispatch now rejects malformed `n` and non-boolean `dry_run` values before starting a run.
+  Why: The JSON entry point should return a structured input error instead of crashing or silently changing execution mode.
+  Consequence: External callers must send `n` as an integer in the range 1..6 and `dry_run` as a real boolean.
+
+- Date: 2026-04-17
+  Decision: Auth refresh now preserves roles and profile claims in the refresh token payload.
+  Why: Session renewal should not downgrade permissions after a valid refresh.
+  Consequence: Refresh tokens must continue to carry the role and identity claims needed to reconstruct the same user session.

@@ -24,3 +24,5 @@
 - `docs/compositions/nextjs-prisma-postgres-nextauth-vercel/` is the reference path for the opinionated app-local Next.js stack with Prisma, Postgres, NextAuth.js, and Vercel; it should not be collapsed into the generic full-stack path.
 - Karpathy workflow detail should live in the dedicated guide files, while foundation docs stay neutral and link outward.
 - Some CI runners may reject `workspace:*` dependency specifiers; internal packages should remain installable with plain semver ranges.
+- Orchestrator payloads must treat `n` as a bounded integer and `dry_run` as a real boolean, not a truthy string.
+- Refresh token renewal must keep the authenticated user's roles and identity claims intact.

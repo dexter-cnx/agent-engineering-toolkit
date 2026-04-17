@@ -47,7 +47,7 @@ def main() -> None:
     )
     parser.add_argument("--skill",       required=True,  help="Path to the baseline SKILL.md")
     parser.add_argument("--n",           type=int, default=5,
-                        help="Number of mutation candidates (default: 5, max: 6)")
+                        help="Number of mutation candidates (default: 5, min: 1, max: 6)")
     parser.add_argument("--dry-run",     action="store_true",
                         help="Do not write the promoted skill to disk")
     parser.add_argument("--pretty",      action="store_true",
@@ -59,6 +59,10 @@ def main() -> None:
     args = parser.parse_args()
 
     skill_path = os.path.abspath(args.skill)
+
+    if args.n < 1:
+        print(json.dumps({"error": "--n must be at least 1"}), file=sys.stderr)
+        sys.exit(1)
 
     if not os.path.exists(skill_path):
         print(json.dumps({"error": f"Skill not found: {skill_path}"}), file=sys.stderr)
@@ -72,7 +76,7 @@ def main() -> None:
         orch   = Orchestrator()
         report = orch.run_full_cycle(
             skill_path   = skill_path,
-            n_candidates = min(args.n, 6),
+            n_candidates = min(max(args.n, 1), 6),
             dry_run      = args.dry_run,
             run_id       = args.run_id,
         )
