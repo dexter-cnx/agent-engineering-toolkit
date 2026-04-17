@@ -54,6 +54,21 @@ Start here when you are working on canonical runnable full-stack paths:
 - `apps/nextjs-dotnet-app/` for the split starter
 - `packages/contracts/` for shared schemas
 - `packages/fullstack-client/` for typed client helpers
+- `apps/ai-workflow-reference/` for worker-oriented orchestration reference
+- `packages/job-contracts/` for shared async job envelopes
+
+## AI worker quick path
+
+Start here when you are building AI-heavy async or batch workflows:
+
+- `docs/compositions/nextjs-python-worker/README.md`
+- `docs/compositions/nextjs-dotnet-python-worker/README.md`
+- `docs/fullstack/ai-worker-architecture.md`
+- `docs/fullstack/async-jobs.md`
+- `docs/fullstack/observability.md`
+- `docs/fullstack/failure-recovery.md`
+- `apps/ai-workflow-reference/`
+- `packages/job-contracts/`
 
 ## Mobile-first quick path
 
@@ -105,15 +120,21 @@ token-policy checks stay aligned.
 - [docs/compositions/README.md](docs/compositions/README.md) - Index of modular full-stack reference paths
 - [docs/compositions/nextjs-dotnet/README.md](docs/compositions/nextjs-dotnet/README.md) - Full-stack Next.js + ASP.NET Core reference path
 - [docs/compositions/nextjs-python-service/README.md](docs/compositions/nextjs-python-service/README.md) - Full-stack Next.js + Python service reference path
+- [docs/compositions/nextjs-python-worker/README.md](docs/compositions/nextjs-python-worker/README.md) - Full-stack Next.js + Python worker reference path
+- [docs/compositions/nextjs-dotnet-python-worker/README.md](docs/compositions/nextjs-dotnet-python-worker/README.md) - Full-stack Next.js + .NET + Python worker reference path
 - [docs/compositions/nextjs-nodebackend/README.md](docs/compositions/nextjs-nodebackend/README.md) - Full-stack Next.js + Node backend reference path
+- [docs/compositions/nextjs-python-worker/README.md](docs/compositions/nextjs-python-worker/README.md) - Full-stack Next.js + Python worker reference path
+- [docs/compositions/nextjs-dotnet-python-worker/README.md](docs/compositions/nextjs-dotnet-python-worker/README.md) - Full-stack Next.js + .NET + Python worker reference path
 
 ## Full Stack Starters
 
 - [`apps/nextjs-fullstack-app/`](apps/nextjs-fullstack-app/README.md) - canonical single-app starter with app-local backend
 - [`apps/nextjs-dotnet-app/`](apps/nextjs-dotnet-app/README.md) - canonical split starter with Next.js frontend and ASP.NET Core backend
 - [`apps/flutter-api-client-reference/`](apps/flutter-api-client-reference/README.md) - canonical Flutter API client reference
+- [`apps/ai-workflow-reference/`](apps/ai-workflow-reference/README.md) - canonical AI workflow reference
 - [`packages/contracts/`](packages/contracts/README.md) - shared schema-first API contract package
 - [`packages/fullstack-client/`](packages/fullstack-client/README.md) - reusable typed client helpers
+- [`packages/job-contracts/`](packages/job-contracts/README.md) - shared async job contract package
 - [`packages/mobile-contract-adapters/`](packages/mobile-contract-adapters/README.md) - mobile contract mapping guidance
 - [`docs/fullstack/architecture.md`](docs/fullstack/architecture.md) - full-stack boundary model and lifecycle
 - [`docs/fullstack/contracts.md`](docs/fullstack/contracts.md) - contract package purpose, versioning, and envelopes
@@ -122,6 +143,10 @@ token-policy checks stay aligned.
 - [`docs/fullstack/repo-layout.md`](docs/fullstack/repo-layout.md) - workspace layout and responsibility map
 - [`docs/fullstack/mobile-backend-integration.md`](docs/fullstack/mobile-backend-integration.md) - mobile/backend boundary model
 - [`docs/fullstack/auth-cross-platform.md`](docs/fullstack/auth-cross-platform.md) - cross-platform auth lifecycle
+- [`docs/fullstack/ai-worker-architecture.md`](docs/fullstack/ai-worker-architecture.md) - worker boundary model and orchestration rules
+- [`docs/fullstack/async-jobs.md`](docs/fullstack/async-jobs.md) - async job lifecycle and retry guidance
+- [`docs/fullstack/observability.md`](docs/fullstack/observability.md) - tracing, logging, and metrics expectations
+- [`docs/fullstack/failure-recovery.md`](docs/fullstack/failure-recovery.md) - fail-closed recovery and replay guidance
 - [`docs/fullstack/selection-matrix.md`](docs/fullstack/selection-matrix.md) - business-driven composition selection guide
 
 Verification commands:
@@ -130,9 +155,11 @@ Verification commands:
 npm install
 npm run contracts:check
 npm run mobile:verify
+npm run job:verify
 npm run build -w @agent-toolkit/fullstack-client
 npm run check -w @agent-toolkit/fullstack-client
 npm run check -w @agent-toolkit/mobile-contract-adapters
+npm run check -w @agent-toolkit/job-contracts
 npm run check -w @agent-toolkit/nextjs-fullstack-app
 npm run build -w @agent-toolkit/nextjs-fullstack-app
 npm run check -w @agent-toolkit/nextjs-dotnet-frontend

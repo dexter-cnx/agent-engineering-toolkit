@@ -25,6 +25,10 @@ try {
     "docs/fullstack/architecture.md",
     "docs/fullstack/contracts.md",
     "docs/fullstack/selection-matrix.md",
+    "docs/fullstack/ai-worker-architecture.md",
+    "docs/fullstack/async-jobs.md",
+    "docs/fullstack/observability.md",
+    "docs/fullstack/failure-recovery.md",
     "apps/nextjs-fullstack-app/README.md",
     "apps/nextjs-dotnet-app/README.md",
     "apps/nextjs-dotnet-app/frontend/README.md",
@@ -32,12 +36,18 @@ try {
     "packages/contracts/README.md",
     "packages/fullstack-client/package.json",
     "packages/fullstack-client/README.md",
+    "packages/job-contracts/package.json",
+    "packages/job-contracts/README.md",
     "apps/nextjs-fullstack-app/package.json",
     "apps/nextjs-dotnet-app/frontend/package.json",
     "tools/contract-check/package.json",
     "tools/contract-check/README.md",
     "tools/fullstack-audit/package.json",
     "tools/fullstack-audit/README.md",
+    "tools/job-contract-check/package.json",
+    "tools/job-contract-check/README.md",
+    "apps/ai-workflow-reference/README.md",
+    "apps/ai-workflow-reference/scripts/check-structure.mjs",
   ];
 
   requiredFiles.forEach(mustExist);
@@ -49,8 +59,10 @@ try {
     "apps/nextjs-dotnet-app/frontend",
     "packages/contracts",
     "packages/fullstack-client",
+    "packages/job-contracts",
     "tools/contract-check",
     "tools/fullstack-audit",
+    "tools/job-contract-check",
   ];
 
   const missingWorkspaces = expectedWorkspaces.filter((entry) => !workspaces.includes(entry));
@@ -66,6 +78,10 @@ try {
     "docs/fullstack/repo-layout.md",
     "packages/contracts/README.md",
     "packages/fullstack-client/README.md",
+    "docs/fullstack/ai-worker-architecture.md",
+    "docs/fullstack/async-jobs.md",
+    "packages/job-contracts/README.md",
+    "apps/ai-workflow-reference/README.md",
   ];
   const missingReadmeChecks = readmeChecks.filter((entry) => !readme.includes(entry));
   if (missingReadmeChecks.length > 0) {
@@ -77,6 +93,8 @@ try {
     "apps/nextjs-fullstack-app/",
     "apps/nextjs-dotnet-app/",
     "docs/fullstack/selection-matrix.md",
+    "docs/compositions/nextjs-python-worker/README.md",
+    "docs/compositions/nextjs-dotnet-python-worker/README.md",
   ];
   const missingCompositionChecks = compositionChecks.filter((entry) => !compositions.includes(entry));
   if (missingCompositionChecks.length > 0) {
@@ -86,8 +104,10 @@ try {
   const workflow = await read(".github/workflows/fullstack-ci.yml");
   const workflowChecks = [
     "packages/fullstack-client",
+    "packages/job-contracts",
     "tools/contract-check",
     "tools/fullstack-audit",
+    "tools/job-contract-check",
     "npm install",
   ];
   const missingWorkflowChecks = workflowChecks.filter((entry) => !workflow.includes(entry));

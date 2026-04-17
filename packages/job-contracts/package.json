@@ -1,0 +1,26 @@
+{
+  "name": "@agent-toolkit/job-contracts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Shared job envelopes and task schemas for async worker compositions.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "node ./scripts/check.mjs",
+    "clean": "rm -rf dist",
+    "lint": "npm run check",
+    "test": "npm run check"
+  },
+  "dependencies": {
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
