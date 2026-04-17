@@ -1,0 +1,125 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "RunReport",
+  "description": "Full report for one optimization cycle run, covering baseline, candidates, decision, and reasoning.",
+  "type": "object",
+  "required": [
+    "run_id",
+    "skill_id",
+    "skill_path",
+    "baseline",
+    "candidates",
+    "candidate_evals",
+    "decision",
+    "reasoning",
+    "token_policy_applied",
+    "regression_failures",
+    "timestamp"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "description": "Unique run identifier, e.g. run-20260417-001"
+    },
+    "skill_id": {
+      "type": "string",
+      "description": "Skill being optimized"
+    },
+    "skill_path": {
+      "type": "string",
+      "description": "Relative path to the SKILL.md being optimized"
+    },
+    "dry_run": {
+      "type": "boolean",
+      "description": "If true, no file was promoted; results are informational only."
+    },
+    "baseline": {
+      "$ref": "#/definitions/EvalResult",
+      "description": "Evaluation result for the unmodified baseline skill"
+    },
+    "candidates": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/MutationCandidate" },
+      "description": "All generated mutation candidates"
+    },
+    "candidate_evals": {
+      "type": "array",
+      "items": { "$ref": "#/definitions/EvalResult" },
+      "description": "Evaluation result for each candidate (parallel array with candidates)"
+    },
+    "regression_failures": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "candidate_ids that failed regression checks"
+    },
+    "token_policy_rejections": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "candidate_ids rejected by token policy"
+    },
+    "winner_id": {
+      "type": ["string", "null"],
+      "description": "candidate_id of the winner, or null if REJECT"
+    },
+    "winner_score_delta": {
+      "type": ["number", "null"],
+      "description": "final_score of winner minus baseline final_score"
+    },
+    "winner_token_delta_pct": {
+      "type": ["number", "null"],
+      "description": "Token count change as fraction: (winner_tokens - baseline_tokens) / baseline_tokens"
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["PROMOTE", "REJECT"],
+      "description": "Final promotion decision"
+    },
+    "reasoning": {
+      "type": "string",
+      "description": "Human-readable explanation of the decision"
+    },
+    "token_policy_applied": {
+      "type": "boolean",
+      "description": "Whether any candidate was filtered by token policy"
+    },
+    "promoted_path": {
+      "type": ["string", "null"],
+      "description": "Path where the winner was written, or null if not promoted"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "definitions": {
+    "EvalResult": {
+      "type": "object",
+      "required": ["skill_id", "candidate_id", "final_score", "token_count", "regression_passed", "timestamp"],
+      "properties": {
+        "skill_id":               { "type": "string" },
+        "candidate_id":           { "type": "string" },
+        "mutation_type":          { "type": ["string", "null"] },
+        "final_score":            { "type": "number", "minimum": 0, "maximum": 1 },
+        "token_count":            { "type": "integer" },
+        "quality_per_1k_tokens":  { "type": "number" },
+        "binary_checks_passed":   { "type": "boolean" },
+        "regression_passed":      { "type": "boolean" },
+        "token_policy_passed":    { "type": ["boolean", "null"] },
+        "timestamp":              { "type": "string" }
+      }
+    },
+    "MutationCandidate": {
+      "type": "object",
+      "required": ["candidate_id", "parent_id", "mutation_type", "mutation_description", "content", "token_count"],
+      "properties": {
+        "candidate_id":           { "type": "string" },
+        "parent_id":              { "type": "string" },
+        "mutation_type":          { "type": "string" },
+        "mutation_description":   { "type": "string" },
+        "content":                { "type": "string" },
+        "token_count":            { "type": "integer" }
+      }
+    }
+  },
+  "additionalProperties": false
+}

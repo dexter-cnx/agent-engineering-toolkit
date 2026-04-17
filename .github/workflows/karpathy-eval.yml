@@ -1,0 +1,106 @@
+name: Karpathy Skill Evaluation
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "overlays/agent-karpathy/**"
+      - "skills/**"
+      - "evals/rubrics/**"
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "overlays/agent-karpathy/**"
+      - "skills/**"
+      - "evals/rubrics/**"
+
+jobs:
+  evaluate-changed-skills:
+    name: Evaluate changed skills
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Identify changed SKILL.md files
+        id: changed-skills
+        run: |
+          # Find all SKILL.md files changed in this push/PR against the base branch
+          BASE_SHA="${{ github.event.pull_request.base.sha || github.event.before }}"
+          if [[ -z "$BASE_SHA" || "$BASE_SHA" == "0000000000000000000000000000000000000000" ]]; then
+            BASE_SHA=$(git rev-parse HEAD~1 2>/dev/null || echo "")
+          fi
+
+          if [[ -n "$BASE_SHA" ]]; then
+            CHANGED=$(git diff --name-only "$BASE_SHA" HEAD -- '*.md' | grep 'SKILL\.md$' || true)
+          else
+            CHANGED=$(find overlays/agent-karpathy/skills skills -name 'SKILL.md' 2>/dev/null || true)
+          fi
+
+          echo "changed_skills<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+          echo "Changed SKILL.md files:"
+          echo "$CHANGED"
+
+      - name: Evaluate changed skills
+        id: evaluate
+        run: |
+          FAILED_SKILLS=()
+          SKILLS="${{ steps.changed-skills.outputs.changed_skills }}"
+
+          if [[ -z "$SKILLS" ]]; then
+            echo "No SKILL.md files changed. Nothing to evaluate."
+            exit 0
+          fi
+
+          while IFS= read -r skill_path; do
+            [[ -z "$skill_path" ]] && continue
+            [[ ! -f "$skill_path" ]] && continue
+
+            echo ""
+            echo "=== Evaluating: $skill_path ==="
+            python3 -m runners.eval_runner --skill "$skill_path" --pretty || true
+
+            # Re-run to capture exit code separately
+            python3 -m runners.eval_runner --skill "$skill_path" > /dev/null 2>&1
+            EVAL_EXIT=$?
+
+            if [[ $EVAL_EXIT -eq 2 ]]; then
+              echo "FAIL: $skill_path scores below 0.60"
+              FAILED_SKILLS+=("$skill_path")
+            elif [[ $EVAL_EXIT -ne 0 ]]; then
+              echo "ERROR: Could not evaluate $skill_path (exit $EVAL_EXIT)"
+              FAILED_SKILLS+=("$skill_path")
+            else
+              echo "PASS: $skill_path"
+            fi
+          done <<< "$SKILLS"
+
+          if [[ ${#FAILED_SKILLS[@]} -gt 0 ]]; then
+            echo ""
+            echo "The following skills failed the quality gate (score < 0.60):"
+            printf '  - %s\n' "${FAILED_SKILLS[@]}"
+            exit 1
+          fi
+
+          echo ""
+          echo "All evaluated skills passed the quality gate."
+
+      - name: Upload evaluation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: karpathy-eval-results
+          path: memory/score_history.json
+          if-no-files-found: ignore
+          retention-days: 30

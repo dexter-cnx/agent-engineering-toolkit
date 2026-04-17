@@ -1,0 +1,139 @@
+# Adoption Guide
+
+## Who this is for
+
+This guide is for engineers who want to:
+- Add a new skill and run their first optimization cycle
+- Integrate the Karpathy system into an existing CI pipeline
+- Understand how to interpret optimization reports and score histories
+
+---
+
+## Prerequisites
+
+- Python 3.11 or later
+- No external Python dependencies required (the system uses only the standard library)
+- The repository checked out locally
+
+---
+
+## Step 1: Write your skill
+
+Create a new skill following the 13-section SKILL.md schema:
+
+```
+overlays/agent-karpathy/skills/<category>/<skill-name>/SKILL.md
+```
+
+Required sections in order:
+1. Purpose
+2. Use when
+3. Do NOT use when
+4. Inputs required
+5. Constraints
+6. Step-by-step workflow
+7. Output contract
+8. Validation checklist
+9. Related skills
+10. References
+11. Real example
+12. Real file output sample
+
+See `overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md`
+for a reference implementation.
+
+---
+
+## Step 2: Run your first evaluation
+
+```bash
+python -m runners.eval_runner --skill overlays/agent-karpathy/skills/<category>/<name>/SKILL.md --pretty
+```
+
+Read the output.  The two most important fields:
+- `final_score`: must be ≥ 0.60 to be promotion-eligible
+- `evaluator_notes`: names the lowest-scoring dimensions
+
+If `final_score` < 0.60, fix the identified issues before running a mutation cycle.
+
+---
+
+## Step 3: Run a dry-run optimization cycle
+
+```bash
+python -m runners.optimization_cycle \
+  --skill overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
+  --n 5 \
+  --dry-run \
+  --pretty \
+  --report-only
+```
+
+This runs all 11 steps without writing any file.  Read the output:
+- Which candidates passed regression?
+- Which candidates were rejected by token policy?
+- What is the PROMOTE/REJECT decision and why?
+
+---
+
+## Step 4: Interpret the report
+
+`reports/latest_report.md` contains:
+
+1. **Baseline score table** — per-dimension breakdown showing where quality is strong and where it is weak
+2. **Candidates table** — each mutation with its score, token count, regression result, and token policy result
+3. **Decision** — PROMOTE or REJECT with reasoning
+4. **Winner details** — if PROMOTE, the winning candidate ID, score delta, token delta, and where it would be written
+
+A REJECT decision is normal when the baseline is already high-quality.
+It means none of the 6 mutation types found an improvement this cycle.
+
+---
+
+## Step 5: Run a production cycle (with promotion)
+
+When you are satisfied with the dry-run results and want the system to actually update the skill:
+
+```bash
+python -m runners.optimization_cycle \
+  --skill overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
+  --n 5 \
+  --pretty
+```
+
+The system will back up the existing skill and write the winner.
+
+---
+
+## Adding the skill to CI
+
+To automatically gate PRs that touch your skill:
+
+1. The `karpathy-eval.yml` workflow already triggers on changes to `overlays/agent-karpathy/**`.
+   No additional configuration is needed — it will run `eval_runner` on changed skills.
+
+2. To add a weekly optimization run for your skill, update `.github/workflows/karpathy-cycle.yml`
+   and add your skill path to the `skills_to_optimize` input default.
+
+---
+
+## Adding a new rubric dimension
+
+1. Open `evals/rubrics/coding_task_rubric.v1.json`.
+2. Add the new dimension under `dimensions`.
+3. Update `weights` — they must sum to 1.0.
+4. Add a `_score_<dimension>()` method in `agents/evaluator_agent.py`.
+5. Add the dimension key to `_score_all_dimensions()`.
+6. Run the evaluator on a test skill and confirm the new dimension appears in the output.
+
+---
+
+## Troubleshooting
+
+| Symptom | Likely cause | Fix |
+|---------|-------------|-----|
+| `final_score` = 0.0 | SKILL.md is empty or has no sections | Add all 13 required sections |
+| All candidates fail regression | Mutation removed a section | Check mutation logic in `agents/mutation_agent.py` |
+| Decision always REJECT | Baseline score is already locally optimal | Manually edit the baseline to introduce variation, then re-run |
+| `FileNotFoundError` on rubric | Running from wrong directory | Run from the repo root |
+| Token count unexpectedly high | Filler phrases in content | Apply `token_budget` mutation or edit manually |

@@ -1,0 +1,41 @@
+# Karpathy Optimization Report
+
+**Run ID**: `run-20260417T102111-8ca543`  
+**Skill**: `flutter_deeplink`  
+**Path**: `/Users/dxtr_m4/develop/AI/agent-engineering-toolkit/evals/testcases/flutter_deeplink/baseline.md`  
+**Timestamp**: 2026-04-17T10:21:11.471692+00:00  
+**Dry run**: True
+
+---
+
+## Baseline
+
+| Dimension | Score |
+|-----------|-------|
+| correctness | 0.900 |
+| scope_discipline | 1.000 |
+| simplicity | 0.800 |
+| verifiability | 1.000 |
+| architecture_alignment | 0.700 |
+| token_efficiency | 1.000 |
+| docs_hygiene | 1.000 |
+
+**Final score**: 0.9100  
+**Tokens**: 757  
+**Quality/1k tokens**: 1.2021
+
+---
+
+## Candidates
+
+| Candidate | Mutation | Score | Tokens | Regression | Token Policy |
+|-----------|----------|-------|--------|------------|--------------|
+| baseline-prompt_wording | prompt_wording | 0.9100 | 757 | PASS | PASS |
+| baseline-decomposition_steps | decomposition_steps | 0.9100 | 757 | PASS | PASS |
+
+---
+
+## Decision: REJECT
+
+Best candidate (baseline-prompt_wording) scored 0.9100, which does not exceed baseline 0.9100.
+

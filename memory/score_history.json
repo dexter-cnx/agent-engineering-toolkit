@@ -1,0 +1,40 @@
+{
+  "entries": [
+    {
+      "run_id": "run-demo-flutter-deeplink",
+      "skill_id": "flutter-go-router-deeplink-wireup",
+      "final_score": 0.7234,
+      "winner_score_delta": 0.0612,
+      "token_count": 487,
+      "decision": "PROMOTE",
+      "timestamp": "2026-04-17T00:00:00Z"
+    },
+    {
+      "run_id": "run-20260417T102048-abd721",
+      "skill_id": "flutter_deeplink",
+      "final_score": 0.91,
+      "winner_score_delta": null,
+      "token_count": 757,
+      "decision": "REJECT",
+      "timestamp": "2026-04-17T10:20:48.613186+00:00"
+    },
+    {
+      "run_id": "eval-only",
+      "skill_id": "flutter_deeplink",
+      "final_score": 0.91,
+      "token_count": 757,
+      "decision": "eval_only",
+      "timestamp": "2026-04-17T10:21:07.149742+00:00"
+    },
+    {
+      "run_id": "run-20260417T102111-8ca543",
+      "skill_id": "flutter_deeplink",
+      "final_score": 0.91,
+      "winner_score_delta": null,
+      "token_count": 757,
+      "decision": "REJECT",
+      "timestamp": "2026-04-17T10:21:11.471692+00:00"
+    }
+  ],
+  "last_updated": "2026-04-17T10:21:11.476760+00:00"
+}

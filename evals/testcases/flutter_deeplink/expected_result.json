@@ -1,0 +1,28 @@
+{
+  "skill_id": "flutter-go-router-deeplink-wireup",
+  "candidate_id": "baseline",
+  "mutation_type": "baseline",
+  "scores": {
+    "correctness":            0.8,
+    "scope_discipline":       0.8,
+    "simplicity":             0.8,
+    "verifiability":          0.6,
+    "architecture_alignment": 0.7,
+    "token_efficiency":       0.85,
+    "docs_hygiene":           1.0
+  },
+  "final_score": 0.7725,
+  "final_score_tolerance": 0.05,
+  "binary_checks": {
+    "has_purpose_section":      true,
+    "has_workflow_steps":       true,
+    "no_placeholder_text":      true,
+    "has_validation_checklist": true,
+    "has_output_contract":      true,
+    "has_real_example":         true
+  },
+  "binary_checks_passed": true,
+  "note": "verifiability scores ~0.60 because two checklist items include vague language alongside the concrete adb/flutter test commands. The decomposition_steps candidate is expected to score higher on correctness and simplicity by splitting the compound step 3.",
+  "expected_winner": "baseline-decomposition_steps",
+  "expected_decision": "PROMOTE"
+}

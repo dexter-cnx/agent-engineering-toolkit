@@ -1,0 +1,61 @@
+# skill_contract.yaml — defines the optimization contract for a skill.
+#
+# Place this file alongside SKILL.md when you want to customise
+# optimization parameters for a specific skill.
+#
+# Example path: overlays/agent-karpathy/skills/evaluation/skill_contract.yaml
+
+skill_id: ""                     # Required. Must match the directory name.
+version: "1.0"                   # Schema version for this contract format.
+category: ""                     # Skill category (evaluation, mutation, regression, optimization, karpathy-guidelines).
+
+# ------------------------------------------------------------------
+# Scoring configuration
+# ------------------------------------------------------------------
+baseline_score: null             # Last known baseline score. Set by the system after eval.
+                                 # null = not yet evaluated.
+
+promotion_threshold: 0.60        # Minimum final_score required for a candidate to be eligible.
+                                 # Override the default (0.60) per skill if justified.
+
+# ------------------------------------------------------------------
+# Token budget
+# ------------------------------------------------------------------
+token_budget: null               # Target maximum token count for this skill.
+                                 # null = no limit enforced. Set to a positive integer to cap.
+max_token_increase_pct: 0.35     # Override of the default 35% token increase policy.
+min_score_improvement: 0.05      # Override of the default 5% score improvement requirement.
+
+# ------------------------------------------------------------------
+# Mutation configuration
+# ------------------------------------------------------------------
+mutation_dimensions_allowed:     # Leave empty to allow all 6 dimensions.
+  - prompt_wording
+  - decomposition_steps
+  - verification_ordering
+  - success_criteria_phrasing
+  - refusal_logic
+  - token_budget
+
+n_candidates: 5                  # Number of candidates to generate per cycle.
+
+# ------------------------------------------------------------------
+# Regression configuration
+# ------------------------------------------------------------------
+regression_checks:               # All checks are enabled by default.
+  - required_sections            # All 13 required SKILL.md sections must be present.
+  - no_architecture_violations   # No SDK/layer boundary violations.
+  - no_forbidden_file_changes    # Mutation must not target protected paths.
+  - behavior_preserved           # Purpose and Output contract must not be degraded.
+  - section_count_not_reduced    # Mutation must not remove any existing section.
+
+# ------------------------------------------------------------------
+# Scheduling (optional — used by CI/CD)
+# ------------------------------------------------------------------
+schedule: null                   # Cron expression for automated cycles, e.g. "0 3 * * 1" (weekly Monday 3am UTC).
+                                 # null = manual runs only.
+
+# ------------------------------------------------------------------
+# Notes
+# ------------------------------------------------------------------
+notes: ""                        # Free-text notes about this skill's optimization history.
