@@ -15,4 +15,5 @@ if ! command -v python3 &>/dev/null; then
 fi
 
 cd "$REPO_ROOT"
+echo "Fail-closed validation: invalid schema, missing decision fields, regression failure, token policy violation, or missing runtime artifacts exit non-zero." >&2
 "$PYTHON_CMD" -m runners.karpathy_validate "$@"

@@ -3,6 +3,7 @@
 A production-ready, domain-agnostic toolkit for structured AI-assisted software engineering.
 
 This repository is a foundation toolkit that can be reused across:
+
 - mobile projects
 - backend services
 - web frontends
@@ -46,6 +47,7 @@ Use the `agent-karpathy` overlay when you are working on AI skill quality or pro
 workflows.
 
 Karpathy quick path:
+
 - Overlay README: `overlays/agent-karpathy/README.md`
 - Eval only: `./scripts/karpathy-eval.sh <skill>`
 - Dry-run cycle: `./scripts/karpathy-run-cycle.sh <skill> true 3`
@@ -96,6 +98,5 @@ Overlay-specific worked examples live under each overlay's own documentation and
 ## License
 
 MIT
-
 
 This repository is a foundation toolkit for building reusable overlay packages and agent-ready workflows.

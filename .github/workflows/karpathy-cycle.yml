@@ -102,6 +102,30 @@ jobs:
         if: always()
         run: ./scripts/karpathy-validate.sh
 
+      - name: Prove validator fails on invalid promotion decision
+        if: always()
+        run: |
+          echo "Fail-closed proof: invalid schema, missing decision fields, regression failure, token policy violation, and missing runtime artifacts must not pass."
+          cat > /tmp/karpathy-invalid-promotion.json <<'JSON'
+          {"decision":"PROMOTE","reasoning":"invalid"}
+          JSON
+          python3 - <<'PY'
+          import json
+          import sys
+          from runners.karpathy_validate import ValidationError, validate_promotion_decision
+
+          with open("/tmp/karpathy-invalid-promotion.json", "r", encoding="utf-8") as fh:
+              payload = json.load(fh)
+
+          try:
+              validate_promotion_decision(payload)
+          except ValidationError as exc:
+              print(f"Expected validator failure: {exc}")
+              sys.exit(0)
+
+          print("Unexpected pass: invalid promotion decision did not fail", file=sys.stderr)
+          sys.exit(1)
+
       - name: Report decision
         if: always()
         run: |
