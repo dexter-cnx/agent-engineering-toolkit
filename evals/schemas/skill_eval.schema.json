@@ -1,0 +1,121 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SkillEvalResult",
+  "description": "Result of evaluating a single skill or mutation candidate against the Karpathy rubric.",
+  "type": "object",
+  "required": [
+    "skill_id",
+    "candidate_id",
+    "scores",
+    "final_score",
+    "token_count",
+    "quality_per_1k_tokens",
+    "binary_checks",
+    "binary_checks_passed",
+    "regression_passed",
+    "timestamp"
+  ],
+  "properties": {
+    "skill_id": {
+      "type": "string",
+      "description": "Stable identifier for the skill being evaluated, e.g. flutter-go-router-deeplink-wireup"
+    },
+    "candidate_id": {
+      "type": "string",
+      "description": "Unique ID for this specific candidate. Use 'baseline' for the unmodified version."
+    },
+    "mutation_type": {
+      "type": ["string", "null"],
+      "enum": [
+        "baseline",
+        "prompt_wording",
+        "decomposition_steps",
+        "verification_ordering",
+        "success_criteria_phrasing",
+        "refusal_logic",
+        "token_budget",
+        null
+      ],
+      "description": "The single mutation dimension applied. null or 'baseline' for the original."
+    },
+    "scores": {
+      "type": "object",
+      "description": "Per-dimension scores in [0.0, 1.0].",
+      "required": [
+        "correctness",
+        "scope_discipline",
+        "simplicity",
+        "verifiability",
+        "architecture_alignment",
+        "token_efficiency",
+        "docs_hygiene"
+      ],
+      "properties": {
+        "correctness":            { "type": "number", "minimum": 0, "maximum": 1 },
+        "scope_discipline":       { "type": "number", "minimum": 0, "maximum": 1 },
+        "simplicity":             { "type": "number", "minimum": 0, "maximum": 1 },
+        "verifiability":          { "type": "number", "minimum": 0, "maximum": 1 },
+        "architecture_alignment": { "type": "number", "minimum": 0, "maximum": 1 },
+        "token_efficiency":       { "type": "number", "minimum": 0, "maximum": 1 },
+        "docs_hygiene":           { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "final_score": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Weighted sum: 0.30*correctness + 0.15*scope_discipline + 0.15*simplicity + 0.15*verifiability + 0.10*architecture_alignment + 0.10*token_efficiency + 0.05*docs_hygiene"
+    },
+    "token_count": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Estimated token count of the skill content."
+    },
+    "quality_per_1k_tokens": {
+      "type": "number",
+      "minimum": 0,
+      "description": "final_score / (token_count / 1000). Higher is better."
+    },
+    "binary_checks": {
+      "type": "object",
+      "description": "Pass/fail for each binary check.",
+      "properties": {
+        "has_purpose_section":      { "type": "boolean" },
+        "has_workflow_steps":       { "type": "boolean" },
+        "no_placeholder_text":      { "type": "boolean" },
+        "has_validation_checklist": { "type": "boolean" },
+        "has_output_contract":      { "type": "boolean" },
+        "has_real_example":         { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "binary_checks_passed": {
+      "type": "boolean",
+      "description": "True only if ALL binary checks pass."
+    },
+    "regression_passed": {
+      "type": "boolean",
+      "description": "True if regression agent found no violations."
+    },
+    "regression_violations": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "List of regression violation messages, empty if none."
+    },
+    "token_policy_passed": {
+      "type": ["boolean", "null"],
+      "description": "True if token policy check passes. null for baseline (not applicable)."
+    },
+    "evaluator_notes": {
+      "type": "string",
+      "description": "Free-form reasoning from the evaluator."
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO 8601 timestamp of when this evaluation was run."
+    }
+  },
+  "additionalProperties": false
+}

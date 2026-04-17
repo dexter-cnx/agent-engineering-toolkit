@@ -1,0 +1,152 @@
+{
+  "version": "1.0",
+  "name": "coding_task_rubric",
+  "description": "Rubric for evaluating AI-generated skills and prompts in software engineering contexts.",
+  "weights": {
+    "correctness":            0.30,
+    "scope_discipline":       0.15,
+    "simplicity":             0.15,
+    "verifiability":          0.15,
+    "architecture_alignment": 0.10,
+    "token_efficiency":       0.10,
+    "docs_hygiene":           0.05
+  },
+  "dimensions": {
+    "correctness": {
+      "weight": 0.30,
+      "description": "The skill produces accurate, complete output for its stated purpose. Steps are technically correct and ordered logically.",
+      "scoring_levels": {
+        "1.0": "All steps are technically correct, ordered optimally, and the output contract matches the purpose with no gaps.",
+        "0.8": "Steps are mostly correct with at most one minor ordering issue or one gap in the output contract.",
+        "0.6": "Steps are directionally correct but missing a non-trivial sub-step or contain one technical inaccuracy.",
+        "0.4": "Multiple steps are incorrect or the output contract does not match the stated purpose.",
+        "0.2": "The skill cannot produce a correct result for its stated purpose in most cases.",
+        "0.0": "The skill is fundamentally incorrect or empty."
+      },
+      "keywords_positive": ["correct", "accurate", "complete", "exact", "verified"],
+      "keywords_negative": ["incorrect", "wrong", "missing", "incomplete", "broken"]
+    },
+    "scope_discipline": {
+      "weight": 0.15,
+      "description": "The skill does exactly what its 'Use when' section promises — no more, no less. Do-not-use cases are clearly stated.",
+      "scoring_levels": {
+        "1.0": "Skill is tightly scoped, 'Do NOT use when' section covers all obvious misapplication cases, no scope creep in steps.",
+        "0.8": "Scope is clear with at most one missing 'do not use' case.",
+        "0.6": "Some steps go beyond the stated purpose or an important 'do not use' case is absent.",
+        "0.4": "Steps regularly exceed the stated purpose, making the skill unpredictable to apply.",
+        "0.2": "Scope is undefined or contradictory.",
+        "0.0": "No scope boundary defined."
+      },
+      "keywords_positive": ["only", "specifically", "limited to", "when", "not when"],
+      "keywords_negative": ["also", "additionally handles", "and also", "plus"]
+    },
+    "simplicity": {
+      "weight": 0.15,
+      "description": "The skill achieves its goal in the fewest steps without omitting essential logic. No speculative or defensive complexity.",
+      "scoring_levels": {
+        "1.0": "Every step is necessary. No redundant checks, no defensive steps that can't happen, no speculative abstractions.",
+        "0.8": "One non-essential step present but it does not obscure the core flow.",
+        "0.6": "Two or three unnecessary steps or one significant over-abstraction.",
+        "0.4": "Workflow is noticeably bloated — multiple speculative or duplicated steps.",
+        "0.2": "More than half the steps are unnecessary or the skill is split where it should be unified.",
+        "0.0": "No coherent, simple workflow can be identified."
+      },
+      "keywords_negative": ["TODO", "future", "might need", "just in case", "could also"]
+    },
+    "verifiability": {
+      "weight": 0.15,
+      "description": "Every claim in the skill can be confirmed by running a check. Validation checklist contains executable items.",
+      "scoring_levels": {
+        "1.0": "All validation checklist items are concrete and executable (grep, run test, open file). No vague assertions.",
+        "0.8": "Mostly executable with one or two items phrased as subjective judgments.",
+        "0.6": "Half the checklist items are vague (e.g., 'ensure quality', 'looks right').",
+        "0.4": "Checklist is mostly subjective or absent.",
+        "0.2": "No validation checklist, or it contains only vague language.",
+        "0.0": "No verifiability signal at all."
+      },
+      "keywords_positive": ["run", "check", "grep", "open", "confirm", "assert", "test", "verify"],
+      "keywords_negative": ["ensure quality", "looks right", "seems correct", "should be fine"]
+    },
+    "architecture_alignment": {
+      "weight": 0.10,
+      "description": "The skill respects layer boundaries, does not mix concerns, and does not recommend anti-patterns for the overlay's stack.",
+      "scoring_levels": {
+        "1.0": "All file placements and operations respect the canonical architecture layers. No cross-layer violations.",
+        "0.8": "One minor layer boundary question that does not affect correctness.",
+        "0.6": "One clear layer violation (e.g., presentation calling SDK directly).",
+        "0.4": "Multiple layer violations or a structural recommendation that contradicts the overlay's canonical architecture.",
+        "0.2": "The skill actively recommends an anti-pattern.",
+        "0.0": "Architecture is ignored entirely."
+      },
+      "keywords_positive": ["adapter", "repository", "domain", "interface", "boundary", "contract"],
+      "keywords_negative": ["directly in widget", "import SDK in page", "bypass", "shortcut"]
+    },
+    "token_efficiency": {
+      "weight": 0.10,
+      "description": "The skill communicates its intent concisely. Every sentence earns its presence. Token count is proportional to complexity.",
+      "scoring_levels": {
+        "1.0": "Content is dense and precise. No filler, no repetition, no preamble. Token count is minimal for the complexity.",
+        "0.8": "At most one paragraph of padding or one repeated concept.",
+        "0.6": "Noticeable repetition or preamble that adds ~20% unnecessary tokens.",
+        "0.4": "Significant verbosity — important content is buried in filler.",
+        "0.2": "More than half the content is padding.",
+        "0.0": "Almost entirely filler."
+      },
+      "keywords_negative": ["as mentioned above", "it is important to note that", "please ensure", "in order to", "it should be noted"]
+    },
+    "docs_hygiene": {
+      "weight": 0.05,
+      "description": "References point to real files, no placeholder text, H1 title matches folder name, all 13 sections present.",
+      "scoring_levels": {
+        "1.0": "All 13 sections present, no TODO/TBD/FIXME/{{placeholders}}, references resolve, title matches folder.",
+        "0.8": "One minor issue (e.g., one dead reference link).",
+        "0.6": "Missing one section or one placeholder remains.",
+        "0.4": "Multiple missing sections or multiple placeholders.",
+        "0.2": "Fewer than 8 of the 13 required sections present.",
+        "0.0": "Structure is entirely absent."
+      },
+      "forbidden_patterns": ["TODO", "TBD", "FIXME", "{{", "}}", "<fill", "coming soon", "placeholder"]
+    }
+  },
+  "binary_checks": {
+    "has_purpose_section": {
+      "description": "SKILL.md has a non-empty ## Purpose section",
+      "method": "regex",
+      "pattern": "##\\s+Purpose\\s*\\n\\S"
+    },
+    "has_workflow_steps": {
+      "description": "## Step-by-step workflow has at least 2 numbered steps",
+      "method": "count_numbered_steps",
+      "min_steps": 2
+    },
+    "no_placeholder_text": {
+      "description": "Content contains none of: TODO, TBD, FIXME, {{, }}, <fill",
+      "method": "forbidden_substring",
+      "forbidden": ["TODO", "TBD", "FIXME", "{{", "<fill", "coming soon"]
+    },
+    "has_validation_checklist": {
+      "description": "## Validation checklist has at least one bullet item",
+      "method": "section_has_bullets",
+      "section": "Validation checklist"
+    },
+    "has_output_contract": {
+      "description": "## Output contract has at least one bullet item",
+      "method": "section_has_bullets",
+      "section": "Output contract"
+    },
+    "has_real_example": {
+      "description": "## Real example section has at least one sentence of prose",
+      "method": "section_has_prose",
+      "section": "Real example"
+    }
+  },
+  "token_policy": {
+    "max_token_increase_pct": 0.35,
+    "min_score_improvement_to_justify_tokens": 0.05,
+    "description": "Reject a candidate if it uses more than 35% additional tokens but achieves less than 5% score improvement over baseline."
+  },
+  "promotion_threshold": {
+    "min_final_score": 0.60,
+    "description": "A candidate must score at least 0.60 to be eligible for promotion."
+  }
+}

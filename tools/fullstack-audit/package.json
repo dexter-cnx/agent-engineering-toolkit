@@ -1,0 +1,12 @@
+{
+  "name": "@agent-toolkit/fullstack-audit",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Repository-wide audit for the full-stack toolkit layer.",
+  "type": "module",
+  "scripts": {
+    "check": "node ./scripts/audit.mjs",
+    "lint": "npm run check",
+    "test": "npm run check"
+  }
+}

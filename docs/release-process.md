@@ -2,7 +2,7 @@
 
 ## Suggested process
 1. Update docs and changelog.
-2. Run the public-repo gate locally: `bash scripts/check-public-repo.sh`.
+2. Run the public-repo gate locally: `make public-check` or `bash scripts/check-public-repo.sh`.
 3. Run CI or the same checks CI uses.
 4. Review open issues and pending repo hygiene tasks.
 5. Confirm the release notes describe the foundation/overlay impact clearly.

@@ -2,6 +2,21 @@
 
 Use this overlay when the consuming repository is a Node backend, API service, or job processor.
 
+## Use with
+- `overlays/backend-common/` for runtime-neutral backend guidance
+- `docs/compositions/README.md` for full-stack composition choices
+- `docs/compositions/nextjs-nodebackend/` for the Next.js + Node backend reference path
+- `overlays/backend-common/docs/backend-node-reuse-analysis.md` for what can be shared conceptually
+
+## Start here
+- `AGENTS.overlay.md`
+- `HOW_TO_USE.md`
+- `TUTORIAL.md`
+- `SKILLS_INDEX.md`
+- `README.th.md`
+- `HOW_TO_USE.th.md`
+- `TUTORIAL.th.md`
+
 ## Recommended structure
 ```text
 repo/
@@ -39,3 +54,9 @@ Reject changes when:
 ## Overlay rule
 This overlay extends the foundation.
 It should not redefine the foundation identity.
+
+## Karpathy integration
+
+- Governed exemplar: `skills/node-service-structure/skill.md`
+- Contract: `skills/node-service-structure/skill.contract.yaml`
+- Eval case: `skills/node-service-structure/eval/cases/governance-smoke/README.md`

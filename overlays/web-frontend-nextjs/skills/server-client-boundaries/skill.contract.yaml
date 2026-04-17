@@ -1,0 +1,16 @@
+skill_id: server-client-boundaries
+overlay: web-frontend-nextjs
+status: governance-ready
+karpathy_governed: true
+token_budget_class: standard
+promotion_threshold: 0.60
+regression_required: true
+token_policy:
+  max_token_increase_pct: 0.35
+  min_score_improvement_pct: 0.05
+eval:
+  case_dir: eval/cases/governance-smoke
+  expected_result_file: expected_result.json
+promotion:
+  owner: web-frontend-nextjs-maintainers
+  decision_schema: karpathy-runtime-trace

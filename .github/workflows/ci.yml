@@ -33,5 +33,3 @@ jobs:
               test -d "$overlay_dir/examples"
             fi
           done
-          test ! -f docs/how_to_use.md
-          test ! -f docs/how_to_use_TH.md

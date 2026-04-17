@@ -38,3 +38,19 @@ Before pushing:
 - verify that every file referenced by documentation exists
 - make sure the overlay catalog still matches the actual skills
 - keep provider-specific details out of capability skill names
+
+## Karpathy path
+
+If the overlay you are using is `agent-karpathy`, treat the work as skill optimization rather
+than ordinary feature delivery.
+
+Use:
+- `overlays/agent-karpathy/README.md`
+- `overlays/agent-karpathy/AGENTS.overlay.md`
+- `docs/karpathy-guide.md`
+
+Then follow the governed workflow:
+1. run `./scripts/karpathy-eval.sh <skill>`
+2. inspect `reports/latest_report.md`
+3. run `./scripts/karpathy-run-cycle.sh <skill> --dry-run --n 3 --pretty`
+4. review regression and token-policy outcomes before allowing promotion

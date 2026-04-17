@@ -1,0 +1,28 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextjsDotnetApp.Domain", "src\Domain\NextjsDotnetApp.Domain.csproj", "{4B2B12A0-6F43-4D35-9F5B-5F3F6A404000}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextjsDotnetApp.Application", "src\Application\NextjsDotnetApp.Application.csproj", "{4B2B12A0-6F43-4D35-9F5B-5F3F6A404001}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextjsDotnetApp.Infrastructure", "src\Infrastructure\NextjsDotnetApp.Infrastructure.csproj", "{4B2B12A0-6F43-4D35-9F5B-5F3F6A404002}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NextjsDotnetApp.Web", "src\Web\NextjsDotnetApp.Web.csproj", "{4B2B12A0-6F43-4D35-9F5B-5F3F6A404003}"
+EndProject
+Global
+  GlobalSection(SolutionConfigurationPlatforms) = preSolution
+    Debug|Any CPU = Debug|Any CPU
+    Release|Any CPU = Release|Any CPU
+  EndGlobalSection
+  GlobalSection(ProjectConfigurationPlatforms) = postSolution
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404001}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404001}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404002}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404002}.Debug|Any CPU.Build.0 = Debug|Any CPU
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+    {4B2B12A0-6F43-4D35-9F5B-5F3F6A404003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+  EndGlobalSection
+EndGlobal

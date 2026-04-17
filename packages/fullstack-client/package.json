@@ -1,0 +1,33 @@
+{
+  "name": "@agent-toolkit/fullstack-client",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Typed full-stack client helpers for the canonical starter compositions.",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "check": "node ./scripts/check.mjs",
+    "clean": "rm -rf dist",
+    "lint": "npm run check",
+    "test": "npm run check"
+  },
+  "dependencies": {
+    "@agent-toolkit/contracts": "*",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}

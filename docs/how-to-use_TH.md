@@ -17,6 +17,7 @@
 - catalog หรือ index ภายใน overlay ถ้ามี
 
 overlay ปัจจุบัน:
+- `overlays/agent-karpathy/README.md`
 - `overlays/backend-node/README.md`
 - `overlays/mobile-flutter/README.md`
 - `overlays/unity/README.md`
@@ -41,3 +42,12 @@ overlay แต่ละตัวกำหนดรูปแบบ skill catalog 
 - อัปเดต tutorial ถ้า workflow เปลี่ยน
 - หลีกเลี่ยงการอ้างถึงไฟล์ที่ไม่มีอยู่จริง
 - แยกไฟล์ภาพรวมสำหรับคนอ่านออกจากไฟล์กฎสำหรับ AI
+
+## แนวทาง Karpathy
+
+ถ้างานของคุณเกี่ยวกับ skill quality, mutation, regression-safe promotion, หรือ
+token governance ให้สลับไปใช้ Karpathy overlay แทนการมองว่าเป็น feature work ทั่วไป
+
+เริ่มจาก:
+- `overlays/agent-karpathy/README.md`
+- `docs/karpathy-guide_TH.md`

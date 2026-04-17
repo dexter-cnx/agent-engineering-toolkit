@@ -1,0 +1,164 @@
+name: Full Stack Readiness
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - "package.json"
+      - "apps/nextjs-fullstack-app/**"
+      - "apps/nextjs-dotnet-app/**"
+      - "packages/contracts/**"
+      - "packages/fullstack-client/**"
+      - "packages/job-contracts/**"
+      - "packages/mobile-contract-adapters/**"
+      - "tools/contract-check/**"
+      - "tools/fullstack-audit/**"
+      - "tools/job-contract-check/**"
+      - "apps/flutter-api-client-reference/**"
+      - "apps/ai-workflow-reference/**"
+      - "docs/fullstack/ai-worker-architecture.md"
+      - "docs/fullstack/async-jobs.md"
+      - "docs/fullstack/observability.md"
+      - "docs/fullstack/failure-recovery.md"
+      - "docs/fullstack/**"
+      - "docs/compositions/**"
+      - "README.md"
+      - "overlays/backend-dotnet/**"
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - "package.json"
+      - "apps/nextjs-fullstack-app/**"
+      - "apps/nextjs-dotnet-app/**"
+      - "packages/contracts/**"
+      - "packages/fullstack-client/**"
+      - "packages/job-contracts/**"
+      - "packages/mobile-contract-adapters/**"
+      - "tools/contract-check/**"
+      - "tools/fullstack-audit/**"
+      - "tools/job-contract-check/**"
+      - "apps/flutter-api-client-reference/**"
+      - "apps/ai-workflow-reference/**"
+      - "docs/fullstack/ai-worker-architecture.md"
+      - "docs/fullstack/async-jobs.md"
+      - "docs/fullstack/observability.md"
+      - "docs/fullstack/failure-recovery.md"
+      - "docs/fullstack/**"
+      - "docs/compositions/**"
+      - "README.md"
+      - "overlays/backend-dotnet/**"
+
+jobs:
+  validate-fullstack:
+    name: Validate full-stack readiness
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Set up .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "8.0.x"
+
+      - name: Verify required starter files exist
+        run: |
+          test -f package.json
+          test -f apps/nextjs-fullstack-app/package.json
+          test -f apps/nextjs-fullstack-app/prisma/schema.prisma
+          test -f apps/nextjs-fullstack-app/app/api/posts/route.ts
+          test -f apps/nextjs-dotnet-app/frontend/package.json
+          test -f apps/nextjs-dotnet-app/backend/src/Web/NextjsDotnetApp.Web.csproj
+          test -f packages/contracts/package.json
+          test -f packages/fullstack-client/package.json
+          test -f packages/job-contracts/package.json
+          test -f packages/mobile-contract-adapters/package.json
+          test -f tools/contract-check/package.json
+          test -f tools/fullstack-audit/package.json
+          test -f tools/job-contract-check/package.json
+          test -f apps/flutter-api-client-reference/pubspec.yaml
+          test -f apps/ai-workflow-reference/README.md
+          test -f docs/fullstack/architecture.md
+          test -f docs/fullstack/contracts.md
+          test -f docs/fullstack/selection-matrix.md
+          test -f docs/fullstack/getting-started.md
+          test -f docs/fullstack/dev-workflow.md
+          test -f docs/fullstack/repo-layout.md
+          test -f docs/fullstack/ai-worker-architecture.md
+          test -f docs/fullstack/async-jobs.md
+          test -f docs/fullstack/observability.md
+          test -f docs/fullstack/failure-recovery.md
+          test -f docs/fullstack/mobile-backend-integration.md
+          test -f docs/fullstack/auth-cross-platform.md
+
+      - name: Install workspace dependencies
+        run: npm install
+
+      - name: Build shared packages
+        run: |
+          npm run build -w @agent-toolkit/contracts
+          npm run build -w @agent-toolkit/fullstack-client
+          npx prisma generate --schema apps/nextjs-fullstack-app/prisma/schema.prisma
+
+      - name: Validate workspace checks
+        run: npm run check --workspaces --if-present
+
+      - name: Validate contracts package
+        run: npm run contracts:check
+
+      - name: Validate mobile contract adapters
+        run: npm run check -w @agent-toolkit/mobile-contract-adapters
+
+      - name: Build typed client package
+        run: npm run build -w @agent-toolkit/fullstack-client
+
+      - name: Validate contract automation
+        run: node tools/contract-check/scripts/check.mjs
+
+      - name: Validate job contract package
+        run: |
+          npm run check -w @agent-toolkit/job-contracts
+          npm run build -w @agent-toolkit/job-contracts
+
+      - name: Validate job contract automation
+        run: node tools/job-contract-check/scripts/check.mjs
+
+      - name: Audit full-stack repository layout
+        run: node tools/fullstack-audit/scripts/audit.mjs
+
+      - name: Validate Flutter API client reference
+        run: node apps/flutter-api-client-reference/scripts/check-structure.mjs
+
+      - name: Validate AI workflow reference
+        run: node apps/ai-workflow-reference/scripts/check-structure.mjs
+
+      - name: Validate Next.js full-stack starter
+        env:
+          DATABASE_URL: file:./prisma/dev.db
+        run: |
+          npm run check -w @agent-toolkit/nextjs-fullstack-app
+          npm run build -w @agent-toolkit/nextjs-fullstack-app
+
+      - name: Validate split frontend starter
+        run: |
+          npm run check -w @agent-toolkit/nextjs-dotnet-frontend
+          npm run build -w @agent-toolkit/nextjs-dotnet-frontend
+
+      - name: Restore split backend dependencies
+        working-directory: apps/nextjs-dotnet-app/backend
+        run: dotnet restore src/Web/NextjsDotnetApp.Web.csproj
+
+      - name: Build split backend starter
+        working-directory: apps/nextjs-dotnet-app/backend
+        run: dotnet build src/Web/NextjsDotnetApp.Web.csproj --no-restore
+
+      - name: Run full-stack integrity gate
+        env:
+          DATABASE_URL: file:./prisma/dev.db
+        run: npm run fullstack:verify

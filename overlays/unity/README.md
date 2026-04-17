@@ -11,6 +11,12 @@ See `skills/index.md` for the overlay catalog.
 - `SKILL_WORKFLOW.md`
 - `OVERLAY_VALIDATION_CHECKLIST.md`
 
+## Karpathy integration
+
+- Governed exemplar: `skills/unity-project-structure/skill.md`
+- Contract: `skills/unity-project-structure/skill.contract.yaml`
+- Eval case: `skills/unity-project-structure/eval/cases/governance-smoke/README.md`
+
 ## Examples
 See `examples/README.md` for worked examples.
 

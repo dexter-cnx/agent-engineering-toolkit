@@ -1,0 +1,163 @@
+name: Karpathy Optimization Cycle (agent-karpathy overlay)
+
+on:
+  schedule:
+    # Run every Monday at 03:00 UTC
+    - cron: "0 3 * * 1"
+  workflow_dispatch:
+    inputs:
+      skill_path:
+        description: "Path to the SKILL.md to optimize (leave empty to use default)"
+        required: false
+        default: "evals/testcases/flutter_deeplink/baseline.md"
+      dry_run:
+        description: "Dry run — evaluate and compare without promoting"
+        type: boolean
+        required: false
+        default: true
+      n_candidates:
+        description: "Number of mutation candidates to generate (1–6)"
+        required: false
+        default: "5"
+
+jobs:
+  optimization-cycle:
+    name: Run optimization cycle
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Resolve inputs
+        id: resolve
+        run: |
+          # Use workflow_dispatch inputs if available, otherwise use defaults
+          SKILL="${{ github.event.inputs.skill_path }}"
+          DRY_RUN="${{ github.event.inputs.dry_run }}"
+          N="${{ github.event.inputs.n_candidates }}"
+
+          SKILL="${SKILL:-evals/testcases/flutter_deeplink/baseline.md}"
+          DRY_RUN="${DRY_RUN:-true}"
+          N="${N:-5}"
+
+          echo "skill_path=$SKILL"    >> "$GITHUB_OUTPUT"
+          echo "dry_run=$DRY_RUN"     >> "$GITHUB_OUTPUT"
+          echo "n_candidates=$N"      >> "$GITHUB_OUTPUT"
+
+          echo "Skill path:   $SKILL"
+          echo "Dry run:      $DRY_RUN"
+          echo "Candidates:   $N"
+
+      - name: Validate skill file exists
+        run: |
+          SKILL="${{ steps.resolve.outputs.skill_path }}"
+          if [[ ! -f "$SKILL" ]]; then
+            echo "Error: skill file not found: $SKILL"
+            exit 1
+          fi
+
+      - name: Run optimization cycle via wrapper script
+        id: cycle
+        run: |
+          SKILL="${{ steps.resolve.outputs.skill_path }}"
+          DRY_RUN="${{ steps.resolve.outputs.dry_run }}"
+          N="${{ steps.resolve.outputs.n_candidates }}"
+
+          echo "Starting Karpathy optimization cycle..."
+          if [[ "$DRY_RUN" == "true" ]]; then
+            if bash scripts/karpathy-run-cycle.sh "$SKILL" --dry-run --n "$N" --pretty --report-only; then
+              CYCLE_EXIT=0
+            else
+              CYCLE_EXIT=$?
+            fi
+          else
+            if bash scripts/karpathy-run-cycle.sh "$SKILL" --n "$N" --pretty --report-only; then
+              CYCLE_EXIT=0
+            else
+              CYCLE_EXIT=$?
+            fi
+          fi
+          echo "cycle_exit=$CYCLE_EXIT" >> "$GITHUB_OUTPUT"
+
+          # Exit codes: 0=PROMOTE, 2=REJECT (not an error), 1=hard failure, 3=missing file
+          if [[ $CYCLE_EXIT -eq 1 ]]; then
+            echo "Hard failure: regression violation or system error."
+            exit 1
+          fi
+          if [[ $CYCLE_EXIT -eq 3 ]]; then
+            echo "Hard failure: skill file not found."
+            exit 1
+          fi
+
+          # Exit 2 (REJECT) is acceptable — just means no improvement this cycle
+          exit 0
+
+      - name: Validate overlay-level cycle artifacts
+        if: always()
+        run: ./scripts/karpathy-validate.sh
+
+      - name: Prove validator fails on invalid promotion decision
+        if: always()
+        run: |
+          echo "Fail-closed proof: invalid schema, missing decision fields, regression failure, token policy violation, and missing runtime artifacts must not pass."
+          cat > /tmp/karpathy-invalid-promotion.json <<'JSON'
+          {"decision":"PROMOTE","reasoning":"invalid"}
+          JSON
+          python3 - <<'PY'
+          import json
+          import sys
+          from runners.karpathy_validate import ValidationError, validate_promotion_decision
+
+          with open("/tmp/karpathy-invalid-promotion.json", "r", encoding="utf-8") as fh:
+              payload = json.load(fh)
+
+          try:
+              validate_promotion_decision(payload)
+          except ValidationError as exc:
+              print(f"Expected validator failure: {exc}")
+              sys.exit(0)
+
+          print("Unexpected pass: invalid promotion decision did not fail", file=sys.stderr)
+          sys.exit(1)
+
+      - name: Report decision
+        if: always()
+        run: |
+          CYCLE_EXIT="${{ steps.cycle.outputs.cycle_exit }}"
+          case "$CYCLE_EXIT" in
+            0) echo "Decision: PROMOTE" ;;
+            2) echo "Decision: REJECT (no improvement found — skill already locally optimal)" ;;
+            1) echo "Decision: HARD FAILURE (regression or system error)" ;;
+            3) echo "Decision: SKILL NOT FOUND" ;;
+            *) echo "Decision: UNKNOWN (exit $CYCLE_EXIT)" ;;
+          esac
+
+      - name: Upload optimization report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: karpathy-cycle-report
+          path: |
+            reports/latest_report.json
+            reports/latest_report.md
+            reports/history/*.json
+            reports/history/*.md
+            memory/score_history.json
+            memory/candidate_archive.json
+          if-no-files-found: ignore
+          retention-days: 90
+
+      - name: Upload promoted skill (if not dry-run and PROMOTE)
+        if: steps.resolve.outputs.dry_run == 'false' && steps.cycle.outputs.cycle_exit == '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: promoted-skill
+          path: "${{ steps.resolve.outputs.skill_path }}"
+          if-no-files-found: ignore
+          retention-days: 30

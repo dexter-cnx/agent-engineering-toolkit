@@ -1,0 +1,27 @@
+{
+  "_comment": "Template for a single eval test case. Copy to evals/testcases/<skill_id>/ and fill in all fields.",
+  "case_id": "",
+  "skill_id": "",
+  "description": "What this test case is verifying",
+  "test_input_path": "evals/testcases/<skill_id>/baseline.md",
+  "mutation_type": "baseline",
+  "expected_outputs": {
+    "final_score_min": 0.60,
+    "final_score_max": 1.00,
+    "binary_checks_passed": true,
+    "regression_passed": true,
+    "expected_decision": "PROMOTE"
+  },
+  "score_tolerances": {
+    "correctness":            0.10,
+    "scope_discipline":       0.10,
+    "simplicity":             0.10,
+    "verifiability":          0.10,
+    "architecture_alignment": 0.15,
+    "token_efficiency":       0.10,
+    "docs_hygiene":           0.10
+  },
+  "rubric_overrides": {},
+  "notes": "Add any context about expected scoring behavior here.",
+  "created_at": ""
+}

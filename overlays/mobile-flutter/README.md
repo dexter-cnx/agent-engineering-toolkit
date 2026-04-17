@@ -55,6 +55,12 @@ overlays/mobile-flutter/
 
 Use `SKILLS_INDEX.md` to select the smallest skill that can finish the task, then compose workflows when the work spans multiple execution units. Use `tools/skillgen/` to add or sync skills safely.
 
+## Karpathy integration
+
+- Governed exemplar: `skills/flutter-network-dio/SKILL.md`
+- Contract: `skills/flutter-network-dio/skill.contract.yaml`
+- Eval case: `skills/flutter-network-dio/eval/cases/governance-smoke/README.md`
+
 ## Archive assets
 
 The overlay retains older catalog material in place for reference, but only the v2 skill set is considered active and CI-validated.

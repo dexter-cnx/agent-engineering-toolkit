@@ -20,3 +20,9 @@
 - The toolkit-i18n CLI must stay safe by default: generated JSON goes to a requested output directory only, and source CSV files are never mutated implicitly.
 - Localization coverage must report real key overlap by unique set intersection, not by comparing raw counts.
 - The web frontend overlay should keep parity with mobile-flutter as a workflow shape, but not as a stack identity.
+- `docs/compositions/nextjs-fullstack/` is the reference path for single-app Next.js full-stack work; it should not be described as a separate backend service composition.
+- `docs/compositions/nextjs-prisma-postgres-nextauth-vercel/` is the reference path for the opinionated app-local Next.js stack with Prisma, Postgres, NextAuth.js, and Vercel; it should not be collapsed into the generic full-stack path.
+- Karpathy workflow detail should live in the dedicated guide files, while foundation docs stay neutral and link outward.
+- Some CI runners may reject `workspace:*` dependency specifiers; internal packages should remain installable with plain semver ranges.
+- Orchestrator payloads must treat `n` as a bounded integer and `dry_run` as a real boolean, not a truthy string.
+- Refresh token renewal must keep the authenticated user's roles and identity claims intact.

@@ -19,3 +19,15 @@ For any overlay:
 3. use each skill `README.md` for orientation
 4. use `skill.md` plus prompt files during implementation
 5. use the skill checklists during review
+
+## Karpathy overlay quick path
+
+If you are working on AI skill quality and promotion:
+1. Read `overlays/agent-karpathy/README.md`
+2. Read `overlays/agent-karpathy/AGENTS.overlay.md`
+3. Read `docs/karpathy-guide.md`
+4. Run eval only with `./scripts/karpathy-eval.sh <skill>`
+5. Run a full dry-run cycle with `./scripts/karpathy-run-cycle.sh <skill> true 3`
+6. Run a full promotion-enabled cycle with `./scripts/karpathy-run-cycle.sh <skill> false 3`
+7. Inspect runtime artifacts in `reports/latest_report.md`, `reports/history/`, `memory/score_history.json`, and `memory/candidate_archive.json`
+8. Use `docs/karpathy-ecosystem-index.md` to find governed overlays, governance-ready skills, and composition eval checkpoints

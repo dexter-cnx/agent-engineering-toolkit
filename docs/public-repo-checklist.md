@@ -8,6 +8,7 @@ The exact machine-readable source for the automation lives in `scripts/check-pub
 - `README.md`
 - `README_START_HERE.md`
 - `README_TH.md`
+- `Makefile`
 - `AGENTS.md`
 - `LICENSE`
 - `CONTRIBUTING.md`

@@ -1,0 +1,28 @@
+{
+  "skill_id": "flutter-network-dio",
+  "candidate_id": "baseline",
+  "mutation_type": "baseline",
+  "scores": {
+    "correctness": 0.82,
+    "scope_discipline": 0.84,
+    "simplicity": 0.8,
+    "verifiability": 0.78,
+    "architecture_alignment": 0.9,
+    "token_efficiency": 0.82,
+    "docs_hygiene": 0.95
+  },
+  "final_score": 0.87,
+  "final_score_tolerance": 0.05,
+  "binary_checks": {
+    "has_purpose_section": true,
+    "has_workflow_steps": true,
+    "no_placeholder_text": true,
+    "has_validation_checklist": true,
+    "has_output_contract": true,
+    "has_real_example": true
+  },
+  "binary_checks_passed": true,
+  "note": "Governance smoke fixture for the mobile-flutter exemplar. The baseline should remain promotion-eligible only if a later mutation truly improves it.",
+  "expected_winner": null,
+  "expected_decision": "REJECT"
+}

@@ -1,0 +1,149 @@
+{
+  "entries": [
+    {
+      "run_id": "run-20260417T102048-abd721",
+      "skill_id": "flutter_deeplink",
+      "final_score": 0.91,
+      "winner_score_delta": null,
+      "token_count": 757,
+      "decision": "REJECT",
+      "timestamp": "2026-04-17T10:20:48.613186+00:00",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md"
+    },
+    {
+      "run_id": "eval-only",
+      "skill_id": "flutter_deeplink",
+      "final_score": 0.91,
+      "token_count": 757,
+      "decision": "eval_only",
+      "timestamp": "2026-04-17T10:21:07.149742+00:00",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md"
+    },
+    {
+      "run_id": "run-20260417T102111-8ca543",
+      "skill_id": "flutter_deeplink",
+      "final_score": 0.91,
+      "winner_score_delta": null,
+      "token_count": 757,
+      "decision": "REJECT",
+      "timestamp": "2026-04-17T10:21:11.471692+00:00",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md"
+    },
+    {
+      "run_id": "eval-only",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "final_score": 0.91,
+      "token_count": 757,
+      "decision": "eval_only",
+      "timestamp": "2026-04-17T10:44:49.073375+00:00"
+    },
+    {
+      "run_id": "run-20260417T104449-fc614e",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T10:44:49.165505+00:00"
+    },
+    {
+      "run_id": "eval-only",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "final_score": 0.91,
+      "token_count": 757,
+      "decision": "eval_only",
+      "timestamp": "2026-04-17T11:32:28.364665+00:00"
+    },
+    {
+      "run_id": "run-20260417T113228-309241",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T11:32:28.738583+00:00"
+    },
+    {
+      "run_id": "run-20260417T113413-8e6597",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T11:34:13.198992+00:00"
+    },
+    {
+      "run_id": "eval-only",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "final_score": 0.91,
+      "token_count": 757,
+      "decision": "eval_only",
+      "timestamp": "2026-04-17T12:10:08.057260+00:00"
+    },
+    {
+      "run_id": "run-20260417T121021-62a1dc",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T12:10:21.476858+00:00"
+    },
+    {
+      "run_id": "run-20260417T121048-bd70e1",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "final_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T12:10:48.335147+00:00"
+    },
+    {
+      "run_id": "run-20260417T121543-f9bff7",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "final_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T12:15:43.286314+00:00"
+    }
+  ],
+  "last_updated": "2026-04-17T12:15:43.286404+00:00"
+}

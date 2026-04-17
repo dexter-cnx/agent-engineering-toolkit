@@ -79,3 +79,27 @@
 - Pattern: Keep tutorial language mirrors discoverable.
   When to use: when onboarding docs are published in English plus Thai or other language pairs.
   When not to use: when the file is intentionally single-language or does not have a maintained mirror.
+
+- Pattern: Give single-app Next.js work its own composition path.
+  When to use: when the frontend and backend live in the same Next.js deployment and contracts still matter.
+  When not to use: when the project has a separate backend runtime such as Node, Python, or .NET.
+
+- Pattern: Split generic single-app Next.js guidance from opinionated app-local stack guidance.
+  When to use: when one composition needs to stay broad and another needs Prisma, Postgres, NextAuth.js, and Vercel specifics.
+  When not to use: when the stack-specific composition would be redundant or would blur the generic path.
+
+- Pattern: Centralize Karpathy operator detail in a dedicated guide.
+  When to use: when the Karpathy workflow needs richer operator advice than the foundation docs should carry.
+  When not to use: when a short pointer or quick path is enough.
+
+- Pattern: Prefer semver ranges for internal workspace dependencies when runner compatibility matters.
+  When to use: when npm-based CI jobs need to install linked workspace packages without protocol issues.
+  When not to use: when a package manager feature is explicitly required and the CI runners are pinned to support it.
+
+- Pattern: Validate JSON dispatch payloads inside the guarded execution path.
+  When to use: when an API or agent wrapper must return structured errors for malformed input instead of crashing before handling begins.
+  When not to use: when the payload shape is already enforced by a schema boundary before the handler runs.
+
+- Pattern: Preserve authenticated session claims across refresh.
+  When to use: when refresh tokens are used to renew access without changing the authenticated principal.
+  When not to use: when a refresh flow intentionally re-resolves the account from a separate authoritative store.
