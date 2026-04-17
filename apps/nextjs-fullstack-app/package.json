@@ -10,10 +10,12 @@
     "typecheck": "tsc --noEmit",
     "prisma:generate": "prisma generate",
     "check:structure": "node ./scripts/check-structure.mjs",
-    "check": "npm run check:structure && npm run typecheck"
+    "check": "npm run check:structure && npm run typecheck",
+    "lint": "npm run check",
+    "test": "npm run check"
   },
   "dependencies": {
-    "@agent-toolkit/contracts": "file:../../packages/contracts",
+    "@agent-toolkit/contracts": "workspace:*",
     "@prisma/client": "^5.20.0",
     "jose": "^5.9.6",
     "next": "^14.2.24",

@@ -43,6 +43,25 @@ If you are working on AI skill quality or promotion workflows, start with
 `overlays/agent-karpathy/README.md`, then read `docs/karpathy-guide.md`, and use the
 canonical scripts shown below.
 
+## Full-stack quick path
+
+Start here when you are working on canonical runnable full-stack paths:
+
+- `docs/fullstack/getting-started.md` for path selection
+- `docs/fullstack/dev-workflow.md` for local commands
+- `docs/fullstack/repo-layout.md` for workspace mapping
+- `apps/nextjs-fullstack-app/` for the single-app starter
+- `apps/nextjs-dotnet-app/` for the split starter
+- `packages/contracts/` for shared schemas
+- `packages/fullstack-client/` for typed client helpers
+
+Run the full-stack integrity gate from the root:
+
+```bash
+npm install
+npm run fullstack:verify
+```
+
 ## When to Use Karpathy Layer
 
 Use the `agent-karpathy` overlay when you are working on AI skill quality or promotion
@@ -81,21 +100,30 @@ token-policy checks stay aligned.
 - [`apps/nextjs-fullstack-app/`](apps/nextjs-fullstack-app/README.md) - canonical single-app starter with app-local backend
 - [`apps/nextjs-dotnet-app/`](apps/nextjs-dotnet-app/README.md) - canonical split starter with Next.js frontend and ASP.NET Core backend
 - [`packages/contracts/`](packages/contracts/README.md) - shared schema-first API contract package
+- [`packages/fullstack-client/`](packages/fullstack-client/README.md) - reusable typed client helpers
 - [`docs/fullstack/architecture.md`](docs/fullstack/architecture.md) - full-stack boundary model and lifecycle
 - [`docs/fullstack/contracts.md`](docs/fullstack/contracts.md) - contract package purpose, versioning, and envelopes
+- [`docs/fullstack/getting-started.md`](docs/fullstack/getting-started.md) - path selection and kickoff guide
+- [`docs/fullstack/dev-workflow.md`](docs/fullstack/dev-workflow.md) - local development workflow
+- [`docs/fullstack/repo-layout.md`](docs/fullstack/repo-layout.md) - workspace layout and responsibility map
 - [`docs/fullstack/selection-matrix.md`](docs/fullstack/selection-matrix.md) - business-driven composition selection guide
 
 Verification commands:
 
 ```bash
-npm --prefix packages/contracts run check
-npm --prefix packages/contracts run build
-npm --prefix apps/nextjs-fullstack-app run check
-npm --prefix apps/nextjs-fullstack-app run build
-npm --prefix apps/nextjs-dotnet-app/frontend run check
-npm --prefix apps/nextjs-dotnet-app/frontend run build
-dotnet build apps/nextjs-dotnet-app/backend/src/Web/NextjsDotnetApp.Web.csproj
+npm install
+npm run contracts:check
+npm run build -w @agent-toolkit/fullstack-client
+npm run check -w @agent-toolkit/fullstack-client
+npm run check -w @agent-toolkit/nextjs-fullstack-app
+npm run build -w @agent-toolkit/nextjs-fullstack-app
+npm run check -w @agent-toolkit/nextjs-dotnet-frontend
+npm run build -w @agent-toolkit/nextjs-dotnet-frontend
+npm run fullstack:verify
 ```
+
+For the Next.js starter, set `DATABASE_URL=file:./prisma/dev.db` or copy
+`apps/nextjs-fullstack-app/.env.example` before running the build or verify path.
 
 ## Start here
 

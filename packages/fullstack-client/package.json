@@ -1,11 +1,17 @@
 {
-  "name": "@agent-toolkit/contracts",
-  "version": "1.0.0",
+  "name": "@agent-toolkit/fullstack-client",
   "private": true,
-  "description": "Schema-first shared API contracts for full-stack starter compositions.",
+  "version": "1.0.0",
+  "description": "Typed full-stack client helpers for the canonical starter compositions.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
   "files": [
     "dist",
     "src"
@@ -18,6 +24,7 @@
     "test": "npm run check"
   },
   "dependencies": {
+    "@agent-toolkit/contracts": "workspace:*",
     "zod": "^3.24.1"
   },
   "devDependencies": {

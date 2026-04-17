@@ -15,6 +15,8 @@ This section groups reusable full-stack reference paths built from the modular o
   single-app starter with app-local route handlers
 - [`apps/nextjs-dotnet-app/`](../../apps/nextjs-dotnet-app/README.md) - canonical split
   starter with Next.js frontend and ASP.NET Core backend
+- [`packages/contracts/`](../../packages/contracts/README.md) - canonical shared schema package
+- [`packages/fullstack-client/`](../../packages/fullstack-client/README.md) - canonical typed client helpers
 
 Use these when you want a runnable baseline rather than a reference-only composition doc.
 The composition docs describe how to think about the path; the starter apps show how to run it.
@@ -32,6 +34,7 @@ overlay or when you need to audit promotion ownership.
 ## Selection guide
 
 Use `docs/fullstack/selection-matrix.md` to choose a composition by business shape.
+Use `docs/fullstack/getting-started.md` when you want the shortest path from the root.
 
 ## How to choose
 - Use the .NET path when your backend target is ASP.NET Core or .NET.
@@ -70,6 +73,8 @@ repo/
 - Write the contract in `backend-common` before implementation work starts.
 - Review AI-generated code against the boundary rules in the chosen overlays.
 - Use the shared contracts package when the composition needs a common schema layer.
+- Use the shared fullstack client package when the composition needs typed fetch, auth,
+  and envelope helpers.
 
 ## Reading order
 1. Read the stack overlay READMEs.

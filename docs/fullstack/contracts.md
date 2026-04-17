@@ -19,6 +19,9 @@ The contract package is the shared schema layer for the canonical starters.
 - error envelopes
 - pagination metadata
 
+`packages/fullstack-client` wraps these schemas with fetch, auth, and parsing helpers for
+the starter apps and future consumers.
+
 ## Versioning strategy
 
 - Follow semver at the package level.
@@ -53,9 +56,10 @@ Keep schema names stable and avoid ad hoc envelope shapes in implementation code
 Frontend code should:
 
 1. import the schema and inferred type from `packages/contracts`
-2. validate request payloads before sending
-3. validate response payloads after receiving
-4. keep UI code free of raw transport shapes
+2. use `packages/fullstack-client` for fetch, auth, and parsing helpers
+3. validate request payloads before sending
+4. validate response payloads after receiving
+5. keep UI code free of raw transport shapes
 
 ## Backend mapping pattern
 

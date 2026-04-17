@@ -12,6 +12,7 @@ backend.
 
 - JWT auth and refresh token flow
 - typed client consumption of shared contracts
+- workspace-friendly use of `packages/fullstack-client`
 - posts CRUD path
 - FluentValidation and EF Core on the backend
 - health endpoint and explicit layering

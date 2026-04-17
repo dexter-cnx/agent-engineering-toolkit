@@ -20,7 +20,8 @@ TOOLKIT_I18N := tools/toolkit-i18n/bin/toolkit-i18n
 	toolkit-ci-doctor toolkit-ci-auth-status toolkit-ci-runs-list toolkit-ci-runs-read toolkit-ci-logs-download toolkit-ci-debug \
 	toolkit-design-doctor toolkit-design-validate toolkit-design-map toolkit-design-export toolkit-design-flutter-sync \
 	i18n-doctor i18n-validate i18n-diff i18n-generate i18n-keys-list i18n-keys-diff i18n-coverage \
-	karpathy-eval karpathy-dry-run karpathy-promote karpathy-validate overlay-audit composition-audit
+	karpathy-eval karpathy-dry-run karpathy-promote karpathy-validate overlay-audit composition-audit \
+	workspace-install contracts-check fullstack-audit fullstack-verify
 
 help: ## Show common repository tasks
 	@awk 'BEGIN {FS = ":.*##"} /^[A-Za-z0-9_.-]+:.*##/ {printf "  %-30s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -155,3 +156,15 @@ composition-audit: ## Audit a composition COMPOSITION=docs/compositions/nextjs-d
 		test -f "$$composition/README.md"; \
 		test -f "$$composition/KARPATHY_INTEGRATION.md"; \
 		echo "Composition audit passed: $$composition"'
+
+workspace-install: ## Install workspace dependencies at the repository root
+	npm install
+
+contracts-check: ## Run the full-stack contract integrity checks
+	npm run contracts:check
+
+fullstack-audit: ## Run the full-stack repository audit
+	npm run fullstack:audit
+
+fullstack-verify: ## Run the full-stack integrity gate
+	npm run fullstack:verify

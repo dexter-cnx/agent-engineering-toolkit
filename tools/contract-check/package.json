@@ -1,0 +1,12 @@
+{
+  "name": "@agent-toolkit/contract-check",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Integrity checks for shared contracts and their starter consumers.",
+  "type": "module",
+  "scripts": {
+    "check": "node ./scripts/check.mjs",
+    "lint": "npm run check",
+    "test": "npm run check"
+  }
+}
