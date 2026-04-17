@@ -20,3 +20,8 @@
 - You need middleware order -> `middleware-pipeline-dotnet`
 - You need observability endpoints -> `swagger-healthchecks-dotnet`
 
+## Karpathy-governed exemplar
+
+- `skills/jwt-auth-dotnet/skill.md`
+- `skills/jwt-auth-dotnet/skill.contract.yaml`
+- `skills/jwt-auth-dotnet/eval/cases/governance-smoke/expected_result.json`

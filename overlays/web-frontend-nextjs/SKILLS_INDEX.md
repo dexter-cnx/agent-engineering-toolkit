@@ -16,3 +16,8 @@
 - You need data loading behavior -> `nextjs-data-fetching`
 - You need auth-aware frontend behavior -> `nextjs-auth-integration`
 
+## Karpathy-governed exemplar
+
+- `skills/server-client-boundaries/skill.md`
+- `skills/server-client-boundaries/skill.contract.yaml`
+- `skills/server-client-boundaries/eval/cases/governance-smoke/expected_result.json`

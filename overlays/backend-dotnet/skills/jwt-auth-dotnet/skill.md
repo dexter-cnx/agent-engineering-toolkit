@@ -36,3 +36,10 @@ Define JWT issuance and verification shape for ASP.NET Core projects.
 ## References
 - `../../prompts/new_feature.md`
 
+## Karpathy governance
+
+- Contract: `skill.contract.yaml`
+- Eval case: `eval/cases/governance-smoke/README.md`
+- Expected result: `eval/cases/governance-smoke/expected_result.json`
+- Example: `examples/governance-example.md`
+- Prompt: `prompts/governance-prompt.md`

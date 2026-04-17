@@ -38,3 +38,11 @@ Use this skill when the task directly involves **http client setup with dio incl
 2. Apply the most relevant architecture and policy skills.
 3. Generate or review code with maintainability in mind.
 4. Add tests and docs where the change justifies them.
+
+## Karpathy governance
+
+- Contract: `skill.contract.yaml`
+- Eval case: `eval/cases/governance-smoke/README.md`
+- Expected result: `eval/cases/governance-smoke/expected_result.json`
+- Example: `examples/governance-example.md`
+- Prompt: `prompts/governance-prompt.md`

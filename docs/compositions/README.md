@@ -9,6 +9,16 @@ This section groups reusable full-stack reference paths built from the modular o
 - [Next.js + Python Service](nextjs-python-service/README.md)
 - [Next.js + Node Backend](nextjs-nodebackend/README.md)
 
+## Karpathy integration docs
+
+Use the per-composition `KARPATHY_INTEGRATION.md` file when the work spans more than one
+overlay or when you need to audit promotion ownership.
+
+- [Next.js Full Stack Karpathy integration](nextjs-fullstack/KARPATHY_INTEGRATION.md)
+- [Next.js + ASP.NET Core Karpathy integration](nextjs-dotnet/KARPATHY_INTEGRATION.md)
+- [Next.js + Python Service Karpathy integration](nextjs-python-service/KARPATHY_INTEGRATION.md)
+- [Next.js + Node Backend Karpathy integration](nextjs-nodebackend/KARPATHY_INTEGRATION.md)
+
 ## How to choose
 - Use the .NET path when your backend target is ASP.NET Core or .NET.
 - Use the Next.js full-stack path when the frontend and backend live in one Next.js app.

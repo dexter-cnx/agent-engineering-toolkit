@@ -60,6 +60,16 @@ Two workflows are provided:
 - Fails if the wrapper returns a hard failure, including regression failure, token policy violation, or missing skill file.
 - The generated report includes a structured decision trace and optional expected-result validation when a testcase ships `expected_result.json`.
 
+## Layered checks
+
+- Skill-level checks: `karpathy-eval.yml` and `./scripts/karpathy-eval.sh <skill>`
+- Overlay-level checks: `make overlay-audit OVERLAY=overlays/<overlay>`
+- Composition-level checks: `make composition-audit COMPOSITION=docs/compositions/<composition>`
+
+Use the skill-level path for a single governed skill, the overlay-level path when auditing
+an overlay catalog, and the composition-level path when validating a multi-overlay reference
+path.
+
 ---
 
 ## Scheduling Individual Skills

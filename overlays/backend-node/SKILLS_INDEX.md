@@ -14,3 +14,8 @@
 - Data access or persistence -> `repository-boundaries`
 - External APIs or side effects -> `adapter-boundaries`
 
+## Karpathy-governed exemplar
+
+- `skills/node-service-structure/skill.md`
+- `skills/node-service-structure/skill.contract.yaml`
+- `skills/node-service-structure/eval/cases/governance-smoke/expected_result.json`

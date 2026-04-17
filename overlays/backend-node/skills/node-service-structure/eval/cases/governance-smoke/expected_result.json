@@ -1,0 +1,28 @@
+{
+  "skill_id": "node-service-structure",
+  "candidate_id": "baseline",
+  "mutation_type": "baseline",
+  "scores": {
+    "correctness": 0.84,
+    "scope_discipline": 0.83,
+    "simplicity": 0.81,
+    "verifiability": 0.8,
+    "architecture_alignment": 0.9,
+    "token_efficiency": 0.84,
+    "docs_hygiene": 0.95
+  },
+  "final_score": 0.88,
+  "final_score_tolerance": 0.05,
+  "binary_checks": {
+    "has_purpose_section": true,
+    "has_workflow_steps": true,
+    "no_placeholder_text": true,
+    "has_validation_checklist": true,
+    "has_output_contract": true,
+    "has_real_example": true
+  },
+  "binary_checks_passed": true,
+  "note": "Governance smoke fixture for the backend-node exemplar.",
+  "expected_winner": null,
+  "expected_decision": "REJECT"
+}

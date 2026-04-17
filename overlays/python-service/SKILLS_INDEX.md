@@ -14,3 +14,8 @@
 - Data access or persistence -> `repository-boundaries`
 - External APIs or side effects -> `adapter-boundaries`
 
+## Karpathy-governed exemplar
+
+- `skills/python-service-structure/skill.md`
+- `skills/python-service-structure/skill.contract.yaml`
+- `skills/python-service-structure/eval/cases/governance-smoke/expected_result.json`

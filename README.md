@@ -88,6 +88,7 @@ Static worked examples stay in `examples/` and are not runtime output.
 - `docs/tutorials/index.md`
 - `docs/tutorials/index_EN.md`
 - `docs/overlays.md`
+- `docs/karpathy-ecosystem-index.md`
 
 ## Worked examples
 

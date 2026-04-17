@@ -27,3 +27,4 @@ If your team only reads one file, read this one.
 ## Overlay shortcut
 - `docs/overlays.md` lists the available overlays.
 - Use `overlays/agent-karpathy/README.md` for eval-driven skill optimization, mutation, regression-safe promotion, and token governance.
+- Use `docs/karpathy-ecosystem-index.md` to find governed overlays, governance-ready skills, and composition eval checkpoints.

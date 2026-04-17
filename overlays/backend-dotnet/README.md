@@ -15,3 +15,9 @@ Use this overlay when the backend is implemented with ASP.NET Core or .NET and y
 - `SKILLS_INDEX.md`
 - `prompts/README.md`
 - `examples/README.md`
+
+## Karpathy integration
+
+- Governed exemplar: `skills/jwt-auth-dotnet/skill.md`
+- Contract: `skills/jwt-auth-dotnet/skill.contract.yaml`
+- Eval case: `skills/jwt-auth-dotnet/eval/cases/governance-smoke/README.md`

@@ -17,6 +17,12 @@ Use this overlay when the frontend is built with Next.js and you need App Router
 - `prompts/README.md`
 - `examples/README.md`
 
+## Karpathy integration
+
+- Governed exemplar: `skills/server-client-boundaries/skill.md`
+- Contract: `skills/server-client-boundaries/skill.contract.yaml`
+- Eval case: `skills/server-client-boundaries/eval/cases/governance-smoke/README.md`
+
 ## What this overlay covers
 - App Router structure
 - server versus client component boundaries

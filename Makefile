@@ -19,7 +19,8 @@ TOOLKIT_I18N := tools/toolkit-i18n/bin/toolkit-i18n
 	toolkit-arch-i18n-usage toolkit-arch-i18n-layer-check toolkit-arch-i18n-coverage \
 	toolkit-ci-doctor toolkit-ci-auth-status toolkit-ci-runs-list toolkit-ci-runs-read toolkit-ci-logs-download toolkit-ci-debug \
 	toolkit-design-doctor toolkit-design-validate toolkit-design-map toolkit-design-export toolkit-design-flutter-sync \
-	i18n-doctor i18n-validate i18n-diff i18n-generate i18n-keys-list i18n-keys-diff i18n-coverage
+	i18n-doctor i18n-validate i18n-diff i18n-generate i18n-keys-list i18n-keys-diff i18n-coverage \
+	karpathy-eval karpathy-dry-run karpathy-promote karpathy-validate overlay-audit composition-audit
 
 help: ## Show common repository tasks
 	@awk 'BEGIN {FS = ":.*##"} /^[A-Za-z0-9_.-]+:.*##/ {printf "  %-30s %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -121,3 +122,36 @@ i18n-keys-diff: ## Run toolkit-i18n keys diff USED_FILE=artifacts/i18n-used-keys
 
 i18n-coverage: ## Run toolkit-i18n coverage USED_FILE=artifacts/i18n-used-keys.json CSV=assets/i18n/translations.csv
 	"$(TOOLKIT_I18N)" coverage --used-file "$${USED_FILE:?USED_FILE is required}" --translations "$${CSV:?CSV is required}" --json
+
+karpathy-eval: ## Run Karpathy eval for a skill SKILL=overlays/.../SKILL.md
+	@bash scripts/karpathy-eval.sh "$${SKILL:?SKILL is required}"
+
+karpathy-dry-run: ## Run Karpathy dry-run optimization SKILL=overlays/.../SKILL.md N=3
+	@bash scripts/karpathy-run-cycle.sh "$${SKILL:?SKILL is required}" true "$${N:-3}"
+
+karpathy-promote: ## Run Karpathy promotion-enabled optimization SKILL=overlays/.../SKILL.md N=3
+	@bash scripts/karpathy-run-cycle.sh "$${SKILL:?SKILL is required}" false "$${N:-3}"
+
+karpathy-validate: ## Validate Karpathy runtime artifacts ARGS="--eval-only"
+	@bash scripts/karpathy-validate.sh $${ARGS:-}
+
+overlay-audit: ## Audit an overlay OVERLAY=overlays/mobile-flutter
+	@bash -lc 'overlay="$${OVERLAY:?OVERLAY is required}"; \
+		test -f "$$overlay/README.md"; \
+		test -f "$$overlay/AGENTS.overlay.md"; \
+		if test -d "$$overlay/skills"; then \
+			if test -f "$$overlay/SKILLS_INDEX.md"; then \
+				echo "Skill index: $$overlay/SKILLS_INDEX.md"; \
+			elif test -f "$$overlay/skills/index.md"; then \
+				echo "Skill index: $$overlay/skills/index.md"; \
+			fi; \
+			echo "Karpathy contracts under $$overlay:"; \
+			find "$$overlay/skills" -name skill.contract.yaml | sort || true; \
+		fi; \
+		echo "Overlay audit passed: $$overlay"'
+
+composition-audit: ## Audit a composition COMPOSITION=docs/compositions/nextjs-dotnet
+	@bash -lc 'composition="$${COMPOSITION:?COMPOSITION is required}"; \
+		test -f "$$composition/README.md"; \
+		test -f "$$composition/KARPATHY_INTEGRATION.md"; \
+		echo "Composition audit passed: $$composition"'

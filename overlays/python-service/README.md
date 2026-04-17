@@ -1,6 +1,7 @@
 # Python Service Overlay
 
-Use this overlay when the consuming repository is a Python service, FastAPI application, worker, adapter layer, or automation system.
+Use this overlay when the consuming repository is a Python service, FastAPI application,
+worker, adapter layer, or automation system.
 
 ## Use with
 - `overlays/backend-common/` for runtime-neutral backend guidance
@@ -11,12 +12,14 @@ Use this overlay when the consuming repository is a Python service, FastAPI appl
 - `AGENTS.overlay.md`
 - `HOW_TO_USE.md`
 - `TUTORIAL.md`
+- `SKILLS_INDEX.md`
 - `README.th.md`
 - `HOW_TO_USE.th.md`
 - `TUTORIAL.th.md`
 
 ## Purpose
-This overlay adds practical guidance for Python service repositories, FastAPI apps, workers, and automation services while preserving the foundation identity.
+This overlay adds practical guidance for Python service repositories, FastAPI apps,
+workers, and automation services while preserving the foundation identity.
 
 ## Recommended structure
 ```text
@@ -75,3 +78,9 @@ Useful durable notes include:
 ## Overlay rule
 This overlay extends the foundation.
 It should not redefine the foundation’s identity.
+
+## Karpathy integration
+
+- Governed exemplar: `skills/python-service-structure/skill.md`
+- Contract: `skills/python-service-structure/skill.contract.yaml`
+- Eval case: `skills/python-service-structure/eval/cases/governance-smoke/README.md`

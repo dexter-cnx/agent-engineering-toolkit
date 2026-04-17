@@ -6,6 +6,12 @@
 - unity-architecture-clean-code
 - unity-dependency-injection
 
+## Karpathy-governed exemplar
+
+- `skills/unity-project-structure/skill.md`
+- `skills/unity-project-structure/skill.contract.yaml`
+- `skills/unity-project-structure/eval/cases/governance-smoke/expected_result.json`
+
 ## Assets and data
 - unity-prefab-architecture
 - unity-scriptableobject-patterns

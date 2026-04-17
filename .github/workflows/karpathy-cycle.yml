@@ -98,7 +98,7 @@ jobs:
           # Exit 2 (REJECT) is acceptable — just means no improvement this cycle
           exit 0
 
-      - name: Validate cycle artifacts
+      - name: Validate overlay-level cycle artifacts
         if: always()
         run: ./scripts/karpathy-validate.sh
 

@@ -101,7 +101,7 @@ jobs:
           echo ""
           echo "All evaluated skills passed the quality gate."
 
-      - name: Validate eval artifacts
+      - name: Validate skill-level eval artifacts
         if: always() && steps.changed-skills.outputs.has_changes == 'true'
         run: ./scripts/karpathy-validate.sh --eval-only
 

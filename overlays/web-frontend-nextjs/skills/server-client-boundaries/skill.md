@@ -39,3 +39,10 @@ Decide what runs on the server and what stays in the client.
 - `../../prompts/refactor_feature.md`
 - `../../examples/account-settings-nextjs.md`
 
+## Karpathy governance
+
+- Contract: `skill.contract.yaml`
+- Eval case: `eval/cases/governance-smoke/README.md`
+- Expected result: `eval/cases/governance-smoke/expected_result.json`
+- Example: `examples/governance-example.md`
+- Prompt: `prompts/governance-prompt.md`
