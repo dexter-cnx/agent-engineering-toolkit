@@ -59,14 +59,7 @@ Run it with the canonical scripts:
 ./scripts/karpathy-run-cycle.sh <skill> false 3
 ```
 
-These commands write Karpathy runtime artifacts to `reports/latest_report.md`,
-`reports/history/`, `memory/score_history.json`, and `memory/candidate_archive.json`.
-
-Runtime outputs go to:
-- `reports/latest_report.md`
-- `reports/history/`
-- `memory/score_history.json`
-- `memory/candidate_archive.json`
+Karpathy runtime artifacts are written to `reports/latest_report.md`, `reports/history/`, `memory/score_history.json`, and `memory/candidate_archive.json`.
 
 Static worked examples stay in `examples/` and are not runtime output.
 
