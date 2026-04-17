@@ -8,6 +8,8 @@ This section groups reusable full-stack reference paths built from the modular o
 - [Next.js + Prisma + Postgres + NextAuth.js + Vercel](nextjs-prisma-postgres-nextauth-vercel/README.md)
 - [Next.js + Python Service](nextjs-python-service/README.md)
 - [Next.js + Node Backend](nextjs-nodebackend/README.md)
+- [Flutter + .NET Backend](flutter-dotnet/README.md)
+- [Flutter + Node Backend](flutter-nodebackend/README.md)
 
 ## Canonical starter apps
 
@@ -17,6 +19,8 @@ This section groups reusable full-stack reference paths built from the modular o
   starter with Next.js frontend and ASP.NET Core backend
 - [`packages/contracts/`](../../packages/contracts/README.md) - canonical shared schema package
 - [`packages/fullstack-client/`](../../packages/fullstack-client/README.md) - canonical typed client helpers
+- [`packages/mobile-contract-adapters/`](../../packages/mobile-contract-adapters/README.md) - canonical mobile mapping guidance
+- [`apps/flutter-api-client-reference/`](../../apps/flutter-api-client-reference/README.md) - canonical Flutter API client reference
 
 Use these when you want a runnable baseline rather than a reference-only composition doc.
 The composition docs describe how to think about the path; the starter apps show how to run it.
@@ -35,6 +39,7 @@ overlay or when you need to audit promotion ownership.
 
 Use `docs/fullstack/selection-matrix.md` to choose a composition by business shape.
 Use `docs/fullstack/getting-started.md` when you want the shortest path from the root.
+Use `docs/fullstack/mobile-backend-integration.md` when you need the mobile/backend boundary model.
 
 ## How to choose
 - Use the .NET path when your backend target is ASP.NET Core or .NET.

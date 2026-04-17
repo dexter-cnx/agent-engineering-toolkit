@@ -9,8 +9,10 @@ on:
       - "apps/nextjs-dotnet-app/**"
       - "packages/contracts/**"
       - "packages/fullstack-client/**"
+      - "packages/mobile-contract-adapters/**"
       - "tools/contract-check/**"
       - "tools/fullstack-audit/**"
+      - "apps/flutter-api-client-reference/**"
       - "docs/fullstack/**"
       - "docs/compositions/**"
       - "README.md"
@@ -23,8 +25,10 @@ on:
       - "apps/nextjs-dotnet-app/**"
       - "packages/contracts/**"
       - "packages/fullstack-client/**"
+      - "packages/mobile-contract-adapters/**"
       - "tools/contract-check/**"
       - "tools/fullstack-audit/**"
+      - "apps/flutter-api-client-reference/**"
       - "docs/fullstack/**"
       - "docs/compositions/**"
       - "README.md"
@@ -60,14 +64,18 @@ jobs:
           test -f apps/nextjs-dotnet-app/backend/src/Web/NextjsDotnetApp.Web.csproj
           test -f packages/contracts/package.json
           test -f packages/fullstack-client/package.json
+          test -f packages/mobile-contract-adapters/package.json
           test -f tools/contract-check/package.json
           test -f tools/fullstack-audit/package.json
+          test -f apps/flutter-api-client-reference/pubspec.yaml
           test -f docs/fullstack/architecture.md
           test -f docs/fullstack/contracts.md
           test -f docs/fullstack/selection-matrix.md
           test -f docs/fullstack/getting-started.md
           test -f docs/fullstack/dev-workflow.md
           test -f docs/fullstack/repo-layout.md
+          test -f docs/fullstack/mobile-backend-integration.md
+          test -f docs/fullstack/auth-cross-platform.md
 
       - name: Install workspace dependencies
         run: npm install
@@ -78,6 +86,9 @@ jobs:
       - name: Validate contracts package
         run: npm run contracts:check
 
+      - name: Validate mobile contract adapters
+        run: npm run check -w @agent-toolkit/mobile-contract-adapters
+
       - name: Build typed client package
         run: npm run build -w @agent-toolkit/fullstack-client
 
@@ -86,6 +97,9 @@ jobs:
 
       - name: Audit full-stack repository layout
         run: node tools/fullstack-audit/scripts/audit.mjs
+
+      - name: Validate Flutter API client reference
+        run: node apps/flutter-api-client-reference/scripts/check-structure.mjs
 
       - name: Validate Next.js full-stack starter
         env:

@@ -55,6 +55,18 @@ Start here when you are working on canonical runnable full-stack paths:
 - `packages/contracts/` for shared schemas
 - `packages/fullstack-client/` for typed client helpers
 
+## Mobile-first quick path
+
+Start here when the mobile app is primary:
+
+- `docs/compositions/flutter-dotnet/README.md`
+- `docs/compositions/flutter-nodebackend/README.md`
+- `docs/fullstack/mobile-backend-integration.md`
+- `docs/fullstack/auth-cross-platform.md`
+- `docs/fullstack/selection-matrix.md`
+- `apps/flutter-api-client-reference/`
+- `packages/mobile-contract-adapters/`
+
 Run the full-stack integrity gate from the root:
 
 ```bash
@@ -99,13 +111,17 @@ token-policy checks stay aligned.
 
 - [`apps/nextjs-fullstack-app/`](apps/nextjs-fullstack-app/README.md) - canonical single-app starter with app-local backend
 - [`apps/nextjs-dotnet-app/`](apps/nextjs-dotnet-app/README.md) - canonical split starter with Next.js frontend and ASP.NET Core backend
+- [`apps/flutter-api-client-reference/`](apps/flutter-api-client-reference/README.md) - canonical Flutter API client reference
 - [`packages/contracts/`](packages/contracts/README.md) - shared schema-first API contract package
 - [`packages/fullstack-client/`](packages/fullstack-client/README.md) - reusable typed client helpers
+- [`packages/mobile-contract-adapters/`](packages/mobile-contract-adapters/README.md) - mobile contract mapping guidance
 - [`docs/fullstack/architecture.md`](docs/fullstack/architecture.md) - full-stack boundary model and lifecycle
 - [`docs/fullstack/contracts.md`](docs/fullstack/contracts.md) - contract package purpose, versioning, and envelopes
 - [`docs/fullstack/getting-started.md`](docs/fullstack/getting-started.md) - path selection and kickoff guide
 - [`docs/fullstack/dev-workflow.md`](docs/fullstack/dev-workflow.md) - local development workflow
 - [`docs/fullstack/repo-layout.md`](docs/fullstack/repo-layout.md) - workspace layout and responsibility map
+- [`docs/fullstack/mobile-backend-integration.md`](docs/fullstack/mobile-backend-integration.md) - mobile/backend boundary model
+- [`docs/fullstack/auth-cross-platform.md`](docs/fullstack/auth-cross-platform.md) - cross-platform auth lifecycle
 - [`docs/fullstack/selection-matrix.md`](docs/fullstack/selection-matrix.md) - business-driven composition selection guide
 
 Verification commands:
@@ -113,8 +129,10 @@ Verification commands:
 ```bash
 npm install
 npm run contracts:check
+npm run mobile:verify
 npm run build -w @agent-toolkit/fullstack-client
 npm run check -w @agent-toolkit/fullstack-client
+npm run check -w @agent-toolkit/mobile-contract-adapters
 npm run check -w @agent-toolkit/nextjs-fullstack-app
 npm run build -w @agent-toolkit/nextjs-fullstack-app
 npm run check -w @agent-toolkit/nextjs-dotnet-frontend
