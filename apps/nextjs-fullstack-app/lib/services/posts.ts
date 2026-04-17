@@ -1,4 +1,4 @@
-import { prisma } from "../db/client.js";
+import { prisma } from "../db/client";
 import type { PostCreateRequest, PostUpdateRequest, Post } from "@agent-toolkit/contracts";
 
 export async function listPosts(page: number, pageSize: number) {
