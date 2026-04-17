@@ -87,6 +87,14 @@ jobs:
               echo "ERROR: Could not evaluate $skill_path (exit $EVAL_EXIT)"
               FAILED_SKILLS+=("$skill_path")
             else
+              if bash scripts/karpathy-validate.sh --eval-only --skill-path "$skill_path"; then
+                :
+              else
+                VALIDATE_EXIT=$?
+                echo "ERROR: Could not validate eval history for $skill_path (exit $VALIDATE_EXIT)"
+                FAILED_SKILLS+=("$skill_path")
+                continue
+              fi
               echo "PASS: $skill_path"
             fi
           done <<< "$SKILLS"
@@ -100,10 +108,6 @@ jobs:
 
           echo ""
           echo "All evaluated skills passed the quality gate."
-
-      - name: Validate skill-level eval artifacts
-        if: always() && steps.changed-skills.outputs.has_changes == 'true'
-        run: ./scripts/karpathy-validate.sh --eval-only
 
       - name: Upload evaluation results
         if: always()

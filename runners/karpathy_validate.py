@@ -230,7 +230,43 @@ def validate_run_report(report: dict[str, Any]) -> None:
         raise _schema_violation("report promoted_path must match promotion_trace.promoted_path")
 
 
-def validate_eval_history(repo_root: Path | None = None) -> dict[str, Any]:
+def _normalize_skill_path(value: str, repo_root: Path) -> str:
+    path = Path(value)
+    if path.is_absolute():
+        try:
+            return str(path.relative_to(repo_root))
+        except ValueError:
+            return str(path)
+    return str(path)
+
+
+def _latest_history_entry(
+    entries: list[Any],
+    repo_root: Path,
+    skill_path: str | None = None,
+) -> dict[str, Any]:
+    target_skill_path = _normalize_skill_path(skill_path, repo_root) if skill_path else None
+    for entry in reversed(entries):
+        if not isinstance(entry, dict):
+            continue
+        if target_skill_path is not None:
+            entry_skill_path = entry.get("skill_path")
+            if entry_skill_path is None:
+                continue
+            if _normalize_skill_path(str(entry_skill_path), repo_root) != target_skill_path:
+                continue
+        return entry
+    if target_skill_path is None:
+        raise ValidationError("memory/score_history.json must contain at least one entry")
+    raise ValidationError(
+        f"memory/score_history.json does not contain an entry for {target_skill_path}"
+    )
+
+
+def validate_eval_history(
+    repo_root: Path | None = None,
+    skill_path: str | None = None,
+) -> dict[str, Any]:
     root = repo_root or _repo_root()
     history_path = root / "memory" / "score_history.json"
     errors: list[str] = []
@@ -243,7 +279,7 @@ def validate_eval_history(repo_root: Path | None = None) -> dict[str, Any]:
     if not isinstance(entries, list) or not entries:
         raise ValidationError("memory/score_history.json must contain at least one entry")
 
-    latest = entries[-1]
+    latest = _latest_history_entry(entries, root, skill_path)
     for field in ("run_id", "skill_id", "final_score", "token_count", "decision", "timestamp"):
         if field not in latest:
             raise ValidationError(f"Latest score history entry missing field: {field}")
@@ -303,11 +339,16 @@ def main(argv: list[str] | None = None) -> int:
         action="store_true",
         help="Validate the latest eval-only score history entry instead of a full cycle report.",
     )
+    parser.add_argument(
+        "--skill-path",
+        default=None,
+        help="Validate the latest eval-only entry for the given skill path.",
+    )
     args = parser.parse_args(argv)
 
     try:
         if args.eval_only:
-            validate_eval_history()
+            validate_eval_history(skill_path=args.skill_path)
         else:
             validate_cycle_artifacts()
     except ValidationError as exc:
