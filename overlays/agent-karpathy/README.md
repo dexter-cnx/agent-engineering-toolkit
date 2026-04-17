@@ -104,3 +104,19 @@ or missing required artifacts / decision fields. CI must fail closed on any bloc
 - `docs/token-optimizer.md` — Token policy formula
 - `docs/guardrails.md` — Regression checks and hard-fail conditions
 - `docs/continuous-optimization.md` — Scheduling and automation
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **agent-karpathy** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for eval-driven skill optimization, mutation, and promotion governance.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

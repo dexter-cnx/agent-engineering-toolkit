@@ -73,3 +73,19 @@ Reject changes when:
 ## Overlay rule
 This overlay extends the foundation.
 It should not redefine the foundation identity.
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **web-frontend** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for legacy/general web frontend implementation flows in this repo.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

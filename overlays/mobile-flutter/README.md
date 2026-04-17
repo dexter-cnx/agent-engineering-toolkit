@@ -92,3 +92,19 @@ The overlay retains older catalog material in place for reference, but only the 
 - `workflows/new-feature/README.md`
 - `workflows/release-app/README.md`
 - `workflows/migrate-project/README.md`
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **mobile-flutter** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for Flutter-first mobile delivery and app architecture standards.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

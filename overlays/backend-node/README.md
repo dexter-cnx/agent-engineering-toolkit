@@ -60,3 +60,19 @@ It should not redefine the foundation identity.
 - Governed exemplar: `skills/node-service-structure/skill.md`
 - Contract: `skills/node-service-structure/skill.contract.yaml`
 - Eval case: `skills/node-service-structure/eval/cases/governance-smoke/README.md`
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **backend-node** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for Node.js backend APIs, workers, and service patterns.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

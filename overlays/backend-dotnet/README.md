@@ -110,3 +110,19 @@ dotnet build apps/nextjs-dotnet-app/backend/src/Web/NextjsDotnetApp.Web.csproj
 - Governed exemplar: `skills/jwt-auth-dotnet/skill.md`
 - Contract: `skills/jwt-auth-dotnet/skill.contract.yaml`
 - Eval case: `skills/jwt-auth-dotnet/eval/cases/governance-smoke/README.md`
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **backend-dotnet** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for ASP.NET Core/.NET backend service implementation.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

@@ -73,3 +73,19 @@ A typical agent-friendly CLI will often include:
 
 This overlay is intentionally public-compatible and neutral.
 It does not assume private infrastructure or vendor-specific credentials.
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **agent-friendly-cli** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay when teams need a reusable CLI command surface for recurring agent workflows.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

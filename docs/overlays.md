@@ -1,39 +1,34 @@
 # Overlays
 
-Overlays extend the foundation toolkit with stack-specific specialization while preserving the foundation identity.
+Overlays are the specialization layer of the Agent Engineering OS.
 
-## Current overlays
+## Boundary contract
 
-- backend-node
-- backend-common
-- backend-dotnet
-- mobile-flutter
+- Root = stack-neutral foundation and governance.
+- Overlay = stack/domain specialization.
+- Overlay guidance extends root guidance; it does not replace it.
+
+## Overlay catalog
+
+- [agent-friendly-cli](../overlays/agent-friendly-cli/README.md)
 - [agent-karpathy](../overlays/agent-karpathy/README.md)
-- unity
-- python-service
-- web-frontend-common
-- web-frontend-nextjs
-- web-frontend
+- [backend-common](../overlays/backend-common/README.md)
+- [backend-dotnet](../overlays/backend-dotnet/README.md)
+- [backend-node](../overlays/backend-node/README.md)
+- [mobile-flutter](../overlays/mobile-flutter/README.md)
+- [python-service](../overlays/python-service/README.md)
+- [unity](../overlays/unity/README.md)
+- [web-frontend](../overlays/web-frontend/README.md)
+- [web-frontend-common](../overlays/web-frontend-common/README.md)
+- [web-frontend-nextjs](../overlays/web-frontend-nextjs/README.md)
 
-Each overlay keeps its own README, `AGENTS.overlay.md`, and any overlay-local catalog or workflow docs it needs.
+## Required overlay README sections
 
-Use overlay-local capability catalogs to compose feature work instead of redefining the repository around a single application stack.
+Each overlay README must define:
+1. purpose
+2. when to use
+3. relation to root guidance
+4. boundaries
+5. what it does not replace
 
-For Karpathy-governed overlays and skills, see `docs/karpathy-ecosystem-index.md` and
-`docs/karpathy-overlay-integration.md`. For a detailed operator walkthrough, see
-`docs/karpathy-guide.md`.
-
-[agent-karpathy](../overlays/agent-karpathy/README.md) is the overlay to select when you are
-working on AI skill quality, mutation, regression-safe promotion, or token governance. It is a
-specialization layer on top of the stack-neutral foundation, not a replacement for it. Use
-`scripts/karpathy-eval.sh` for eval-only runs and `scripts/karpathy-run-cycle.sh` for dry-run or
-promotion-enabled cycles. Runtime outputs live in `reports/` and `memory/`; static worked
-examples live in `examples/`.
-
-For full-stack reference usage, see `docs/compositions/nextjs-fullstack/` or `docs/compositions/nextjs-dotnet/`.
-Additional composition paths:
-
-- `docs/compositions/nextjs-prisma-postgres-nextauth-vercel/`
-- `docs/compositions/nextjs-python-service/`
-- `docs/compositions/nextjs-nodebackend/`
-See `docs/compositions/README.md` for the full index.
+Validation is enforced by `tools/ci/overlay_lint.py`.

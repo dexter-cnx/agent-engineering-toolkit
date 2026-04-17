@@ -38,3 +38,19 @@ Use this overlay for framework-agnostic frontend work: UI architecture, state an
 3. Open the skill relevant to the task
 4. Use the matching prompt from `prompts/`
 5. Check the example in `examples/`
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **web-frontend-common** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for framework-agnostic frontend architecture guidance.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

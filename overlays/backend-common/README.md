@@ -35,3 +35,19 @@ Use this overlay for backend work that should stay independent of any single run
 - ASP.NET Core project wiring
 - framework-specific middleware code
 - database-provider-specific implementation details
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **backend-common** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for backend architecture conventions that are runtime/language neutral.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

@@ -34,3 +34,19 @@ Use this overlay when the frontend is built with Next.js and you need App Router
 - framework-agnostic UI fundamentals
 - backend API contract design
 - backend authentication implementation
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **web-frontend-nextjs** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for Next.js-specific frontend implementation and conventions.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

@@ -84,3 +84,19 @@ It should not redefine the foundation’s identity.
 - Governed exemplar: `skills/python-service-structure/skill.md`
 - Contract: `skills/python-service-structure/skill.contract.yaml`
 - Eval case: `skills/python-service-structure/eval/cases/governance-smoke/README.md`
+## Overlay OS contract
+
+### Purpose
+Provide specialization for **python-service** while keeping the repository root stack-neutral.
+
+### When to use
+Use this overlay for Python services and worker-oriented backend components.
+
+### Relation to root guidance
+Root docs remain canonical for onboarding, lifecycle, policies, and governance checks; this overlay only adds stack-specific execution guidance.
+
+### Boundaries
+This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
+
+### What this overlay does not replace
+It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.
