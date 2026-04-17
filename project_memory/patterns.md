@@ -91,3 +91,7 @@
 - Pattern: Centralize Karpathy operator detail in a dedicated guide.
   When to use: when the Karpathy workflow needs richer operator advice than the foundation docs should carry.
   When not to use: when a short pointer or quick path is enough.
+
+- Pattern: Prefer semver ranges for internal workspace dependencies when runner compatibility matters.
+  When to use: when npm-based CI jobs need to install linked workspace packages without protocol issues.
+  When not to use: when a package manager feature is explicitly required and the CI runners are pinned to support it.

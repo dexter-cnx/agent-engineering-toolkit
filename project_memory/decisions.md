@@ -124,3 +124,8 @@
   Decision: Karpathy guidance now has a dedicated operator guide in `docs/karpathy-guide.md` and `docs/karpathy-guide_TH.md`.
   Why: The Karpathy workflow needed one detailed reference instead of spreading operator detail across foundation docs.
   Consequence: Foundation docs should link to the guide and keep Karpathy workflow detail out of generic how-to/tutorial pages.
+
+- Date: 2026-04-17
+  Decision: Internal workspace package dependencies should prefer semver ranges over `workspace:*` when CI compatibility matters.
+  Why: The repo's npm-based workflows can fail closed on unsupported workspace protocol resolution in some runners.
+  Consequence: New or updated workspace packages should use compatible semver ranges that still allow local workspace linking.
