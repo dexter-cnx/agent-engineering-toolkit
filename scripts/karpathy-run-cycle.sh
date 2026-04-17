@@ -10,6 +10,12 @@
 #   --report-only    Print the Markdown report after the JSON output
 #   --pretty         Pretty-print JSON to stdout
 #
+# Runtime outputs:
+#   reports/latest_report.md
+#   reports/history/<run_id>.md
+#   memory/score_history.json
+#   memory/candidate_archive.json
+#
 # Exit codes:
 #   0  — PROMOTE decision (or PROMOTE in dry-run)
 #   1  — Hard error (regression failure, Python error)

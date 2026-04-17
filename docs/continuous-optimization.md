@@ -33,13 +33,13 @@ Static worked examples live in `examples/` and are intentionally separate from r
 
 ```bash
 # Evaluate only (no mutation, no promotion)
-bash scripts/karpathy-eval.sh <path/to/SKILL.md>
+bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty
 
 # Full cycle, dry-run (evaluate + mutate + compare, no write)
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run
+bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only
 
 # Full cycle, production (promotes if winner found)
-bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md>
+bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty
 ```
 
 ---
@@ -49,7 +49,7 @@ bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md>
 Two workflows are provided:
 
 ### `karpathy-eval.yml` — Triggered on push/PR
-- Runs `eval_runner` on any SKILL.md that changed in the commit/PR.
+- Runs `scripts/karpathy-eval.sh` on any SKILL.md that changed in the commit/PR.
 - Fails the CI check if any modified skill scores below 0.60.
 - Does not mutate or promote.
 
@@ -57,7 +57,7 @@ Two workflows are provided:
 - Runs the full optimization cycle on a configurable skill or set of skills.
 - Uses `--dry-run` by default (configurable via workflow_dispatch input).
 - Uploads `reports/latest_report.md` as a workflow artifact.
-- Fails if regression or token policy violations are detected.
+- Fails if the wrapper returns a hard failure, including regression failure, token policy violation, or missing skill file.
 - The generated report includes a structured decision trace and optional expected-result validation when a testcase ships `expected_result.json`.
 
 ---

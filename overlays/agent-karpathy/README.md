@@ -7,7 +7,7 @@
 ## What this overlay does
 
 The `agent-karpathy` overlay transforms the agent-engineering-toolkit into a
-**self-optimising system**.  It provides the infrastructure to:
+**eval-driven skill optimization system**. It provides the infrastructure to:
 
 - Measure the quality of any skill against a weighted rubric
 - Generate controlled single-dimension mutations
@@ -27,6 +27,8 @@ The `agent-karpathy` overlay transforms the agent-engineering-toolkit into a
 | `docs/adoption-guide.md` | How to add a new skill and run your first cycle |
 | `docs/karpathy-architecture.md` | System architecture and data flow |
 | `examples/flutter_deeplink_full_cycle.md` | Complete static worked example |
+| `docs/continuous-optimization.md` | CI and manual run modes |
+| `docs/promotion-system.md` | Promotion gate and decision rules |
 
 ---
 
@@ -43,6 +45,27 @@ No external dependencies beyond the Python standard library are required to run 
 Runtime outputs are the committed `reports/latest_report.md`, `reports/history/<run_id>.md`,
 `memory/score_history.json`, and `memory/candidate_archive.json`. Static demos live in
 `examples/` and must not be confused with live run artifacts.
+
+## How to run
+
+```bash
+# Eval only
+bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty
+
+# Full cycle, no write
+bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only
+
+# Full cycle with promotion enabled
+bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty
+```
+
+## Audit note
+
+This overlay is safe for CI because promotion is blocked unless all binary regression checks
+pass, token policy passes, and the candidate strictly beats the baseline score. The evaluation
+model is still partly heuristic: rubric scoring and mutation selection are rule-based, while
+`expected_result.json` adds expectation-backed validation when it is present. Maintain
+promotion decisions as governance records, not as proof that a candidate is universally better.
 
 ---
 
@@ -62,7 +85,7 @@ Runtime outputs are the committed `reports/latest_report.md`, `reports/history/<
 
 1. Always run `eval_runner` on the baseline before starting a mutation cycle.
 2. Always run `regression_runner` before calling `promotion_runner`.
-3. Use `optimization_cycle.py` for end-to-end runs — it handles all steps automatically.
+3. Use `scripts/karpathy-run-cycle.sh` for end-to-end runs — it wraps the full cycle and writes the canonical runtime artifacts.
 4. Use `--dry-run` in CI unless the workflow is explicitly a promotion workflow.
 
 ---

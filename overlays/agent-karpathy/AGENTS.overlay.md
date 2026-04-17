@@ -31,14 +31,14 @@ Route to the correct skill based on the task:
 | Enforce regression guardrails before promotion | `skills/regression/` |
 | Select best candidate, apply token policy, promote | `skills/optimization/` |
 | Apply Karpathy evaluation criteria manually | `skills/karpathy-guidelines/` |
-| Run the full 11-step optimization cycle | Use `runners/optimization_cycle.py` directly |
+| Run the full 11-step optimization cycle | Use `scripts/karpathy-run-cycle.sh` |
 
 ---
 
 ## Orchestration rules
 
 - Use individual skills for isolated tasks (score one skill, generate mutations, check regression).
-- Use `runners/optimization_cycle.py` when running the full improvement loop end-to-end.
+- Use `scripts/karpathy-run-cycle.sh` when running the full improvement loop end-to-end.
 - Always run regression **before** promotion — never skip this step.
 - Always run eval on the baseline **before** generating mutations — you need a baseline score.
 - Never promote a candidate that has not passed all binary checks.
@@ -59,6 +59,24 @@ Route to the correct skill based on the task:
   - `memory/score_history.json`
   - `memory/candidate_archive.json`
 - Static worked examples belong in `examples/` and are not runtime output.
+
+## Operator reference
+
+- Eval only: `bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty`
+- Dry-run cycle: `bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only`
+- Promotion-enabled cycle: `bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty`
+
+## Audit note
+
+This overlay is CI-safe because promotion requires all of the following:
+- binary regression checks pass
+- token policy passes
+- the candidate strictly beats the baseline score
+
+Promotion decisions are still partially heuristic because rubric scoring and mutation
+selection are rule-based, but `expected_result.json` adds expectation-backed validation when
+present. Treat a PROMOTE decision as a governed output of the current rubric, not as proof of
+universal improvement.
 
 ---
 

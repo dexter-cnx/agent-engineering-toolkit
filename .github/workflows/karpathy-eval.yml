@@ -1,4 +1,4 @@
-name: Karpathy Skill Evaluation
+name: Karpathy Skill Evaluation (agent-karpathy overlay)
 
 on:
   push:
@@ -52,7 +52,7 @@ jobs:
           echo "Changed SKILL.md files:"
           echo "$CHANGED"
 
-      - name: Evaluate changed skills
+      - name: Evaluate changed skills via wrapper script
         id: evaluate
         run: |
           FAILED_SKILLS=()
@@ -69,11 +69,11 @@ jobs:
 
             echo ""
             echo "=== Evaluating: $skill_path ==="
-            python3 -m runners.eval_runner --skill "$skill_path" --pretty || true
-
-            # Re-run to capture exit code separately
-            python3 -m runners.eval_runner --skill "$skill_path" > /dev/null 2>&1
-            EVAL_EXIT=$?
+            if bash scripts/karpathy-eval.sh "$skill_path" --pretty; then
+              EVAL_EXIT=0
+            else
+              EVAL_EXIT=$?
+            fi
 
             if [[ $EVAL_EXIT -eq 2 ]]; then
               echo "FAIL: $skill_path scores below 0.60"
@@ -101,6 +101,8 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: karpathy-eval-results
-          path: memory/score_history.json
+          path: |
+            memory/score_history.json
+            reports/latest_report.md
           if-no-files-found: ignore
           retention-days: 30

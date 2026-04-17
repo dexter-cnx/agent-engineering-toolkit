@@ -34,6 +34,7 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 - [backend-dotnet](overlays/backend-dotnet/README.md) - ASP.NET Core and .NET backend guidance
 - [unity](overlays/unity/README.md) - Unity project structure, runtime, and delivery skills
 - [python-service](overlays/python-service/README.md) - Python service, worker, and adapter guidance
+- [agent-karpathy](overlays/agent-karpathy/README.md) - Eval-driven skill optimization, mutation, regression-safe promotion, and token governance
 - [web-frontend](overlays/web-frontend/README.md) - Legacy web UI and product frontend guidance
 
 ## Full-stack composition
@@ -50,6 +51,7 @@ Detailed guidance lives in each overlay's own README and `AGENTS.overlay.md`.
 - `docs/how-to-use.md`
 - `docs/tutorial.md`
 - `docs/overlays.md`
+- If you are working on AI skill quality work, start with `overlays/agent-karpathy/README.md`
 
 ## Documentation
 

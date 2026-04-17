@@ -39,6 +39,9 @@ Required sections in order:
 11. Real example
 12. Real file output sample
 
+The overlay fixtures use these 12 markdown headings; the repository's "13 required sections"
+wording counts the file title/header separately in the validator documentation.
+
 See `overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md`
 for a reference implementation.
 
@@ -50,7 +53,7 @@ the runtime outputs written to `reports/` and `memory/`.
 ## Step 2: Run your first evaluation
 
 ```bash
-python -m runners.eval_runner --skill overlays/agent-karpathy/skills/<category>/<name>/SKILL.md --pretty
+bash scripts/karpathy-eval.sh overlays/agent-karpathy/skills/<category>/<name>/SKILL.md --pretty
 ```
 
 Read the output.  The two most important fields:
@@ -64,8 +67,8 @@ If `final_score` < 0.60, fix the identified issues before running a mutation cyc
 ## Step 3: Run a dry-run optimization cycle
 
 ```bash
-python -m runners.optimization_cycle \
-  --skill overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
+bash scripts/karpathy-run-cycle.sh \
+  overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
   --n 5 \
   --dry-run \
   --pretty \
@@ -99,8 +102,8 @@ It means none of the 6 mutation types found an improvement this cycle.
 When you are satisfied with the dry-run results and want the system to actually update the skill:
 
 ```bash
-python -m runners.optimization_cycle \
-  --skill overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
+bash scripts/karpathy-run-cycle.sh \
+  overlays/agent-karpathy/skills/<category>/<name>/SKILL.md \
   --n 5 \
   --pretty
 ```

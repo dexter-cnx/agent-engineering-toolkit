@@ -4,6 +4,9 @@
 # Usage:
 #   ./scripts/karpathy-eval.sh <path/to/SKILL.md> [--rubric <rubric.json>] [--pretty]
 #
+# Runtime output:
+#   memory/score_history.json (only when --save-history is used by the workflow)
+#
 # Exit codes:
 #   0  — evaluation complete, score >= 0.60
 #   1  — usage error or file not found

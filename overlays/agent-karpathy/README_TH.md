@@ -7,7 +7,7 @@
 ## overlay นี้ทำอะไร
 
 `agent-karpathy` overlay เปลี่ยน agent-engineering-toolkit ให้กลายเป็น
-**ระบบที่ปรับปรุงตัวเองได้**  โดยมีโครงสร้างพื้นฐานสำหรับ:
+**ระบบปรับปรุง skill แบบ eval-driven**  โดยมีโครงสร้างพื้นฐานสำหรับ:
 
 - วัดคุณภาพของ skill ใดๆ โดยใช้ rubric แบบมีน้ำหนัก
 - สร้าง mutation candidates แบบควบคุม (เปลี่ยนแค่มิติเดียวต่อครั้ง)
@@ -27,6 +27,8 @@
 | `docs/adoption-guide.md` | วิธีเพิ่ม skill ใหม่และรัน cycle แรก |
 | `docs/karpathy-architecture.md` | สถาปัตยกรรมระบบและ data flow |
 | `examples/flutter_deeplink_full_cycle.md` | ตัวอย่างการทำงานแบบ static |
+| `docs/continuous-optimization.md` | โหมดรันแบบ CI และแบบ manual |
+| `docs/promotion-system.md` | กติกา promotion gate และ decision |
 
 ---
 
@@ -43,6 +45,27 @@
 output runtime ที่เป็น source of truth คือ `reports/latest_report.md`, `reports/history/<run_id>.md`,
 `memory/score_history.json`, และ `memory/candidate_archive.json` ส่วน demo แบบ static อยู่ใน
 `examples/` และไม่ใช่ output ของการรันจริง
+
+## วิธีรัน
+
+```bash
+# Eval only
+bash scripts/karpathy-eval.sh <path/to/SKILL.md> --pretty
+
+# Full cycle แบบไม่เขียนไฟล์
+bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --dry-run --pretty --report-only
+
+# Full cycle แบบเปิด promotion
+bash scripts/karpathy-run-cycle.sh <path/to/SKILL.md> --pretty
+```
+
+## หมายเหตุ audit
+
+overlay นี้เหมาะกับ CI เพราะ promotion จะถูกบล็อกถ้า regression check ไม่ผ่าน, token policy
+ไม่ผ่าน, หรือ candidate ไม่ชนะ baseline แบบชัดเจน โมเดลประเมินยังมีส่วน heuristic อยู่
+เพราะ rubric scoring และ mutation selection เป็น rule-based แต่ `expected_result.json`
+ช่วยเพิ่มการ validate แบบ expectation-backed เมื่อมีไฟล์นั้น Maintain การตัดสิน promotion
+ให้เป็น governance record ไม่ใช่หลักฐานว่าผลลัพธ์นั้นดีที่สุดเสมอ
 
 ---
 
@@ -62,7 +85,7 @@ output runtime ที่เป็น source of truth คือ `reports/latest_r
 
 1. รัน `eval_runner` บน baseline ก่อนเริ่ม mutation cycle เสมอ
 2. รัน `regression_runner` ก่อนเรียก `promotion_runner` เสมอ
-3. ใช้ `optimization_cycle.py` สำหรับการรัน end-to-end — จัดการทุกขั้นตอนอัตโนมัติ
+3. ใช้ `scripts/karpathy-run-cycle.sh` สำหรับการรัน end-to-end — ครอบคลุมทั้ง cycle และเขียน runtime artifacts มาตรฐาน
 4. ใช้ `--dry-run` ใน CI เว้นแต่ workflow จะเป็น promotion workflow โดยเฉพาะ
 
 ---

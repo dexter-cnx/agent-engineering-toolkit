@@ -23,3 +23,7 @@ If your team only reads one file, read this one.
 - Prefer capability over domain
 - Prefer generic baseline over app-specific assumptions
 - Keep docs, tooling, and CI aligned
+
+## Overlay shortcut
+- `docs/overlays.md` lists the available overlays.
+- Use `overlays/agent-karpathy/README.md` for eval-driven skill optimization, mutation, regression-safe promotion, and token governance.
