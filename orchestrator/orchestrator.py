@@ -43,10 +43,12 @@ class Orchestrator:
     ) -> dict[str, Any]:
         """Run the full 11-step optimization cycle and return a RunReport dict."""
         run_id = run_id or f"run-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%S')}-{uuid.uuid4().hex[:6]}"
+        repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 
         # Step 1: Load baseline skill
         content  = self._load_skill(skill_path)
         skill_id = self._derive_skill_id(skill_path)
+        skill_path_rel = os.path.relpath(skill_path, repo_root)
 
         # Step 2: Evaluate baseline
         from agents.evaluator_agent import EvaluatorAgent
@@ -111,16 +113,18 @@ class Orchestrator:
         )
 
         # Step 10 + 11: Assemble report, store results
+        expected_result = self._load_expected_result(skill_path)
         report = self._assemble_report(
             run_id               = run_id,
             skill_id             = skill_id,
-            skill_path           = skill_path,
+            skill_path           = skill_path_rel,
             dry_run              = dry_run,
             baseline_eval        = baseline_eval,
             candidates           = candidates,
             candidate_evals      = candidate_evals_all,
             regression_failures  = regression_failures,
             promotion            = promotion,
+            expected_result      = expected_result,
         )
 
         self._store_results(report)
@@ -178,8 +182,33 @@ class Orchestrator:
         candidate_evals:     list[dict[str, Any]],
         regression_failures: list[str],
         promotion:           dict[str, Any],
+        expected_result:     dict[str, Any] | None = None,
     ) -> dict[str, Any]:
         token_policy_rejections = promotion.get("token_policy_rejections", [])
+        promotion_trace = {
+            "baseline_score": baseline_eval.get("final_score"),
+            "baseline_token_count": baseline_eval.get("token_count"),
+            "winner_id": promotion.get("winner_id"),
+            "winner_score": None,
+            "winner_token_count": None,
+            "score_delta": promotion.get("score_delta"),
+            "token_delta_pct": promotion.get("token_delta_pct"),
+            "regression_failures": regression_failures,
+            "token_policy_rejections": token_policy_rejections,
+            "decision": promotion.get("decision", "REJECT"),
+            "reason": promotion.get("reasoning", ""),
+        }
+
+        winner_id = promotion_trace["winner_id"]
+        if winner_id:
+            winner_eval = next(
+                (e for e in candidate_evals if e.get("candidate_id") == winner_id),
+                None,
+            )
+            if winner_eval is not None:
+                promotion_trace["winner_score"] = winner_eval.get("final_score")
+                promotion_trace["winner_token_count"] = winner_eval.get("token_count")
+
         return {
             "run_id":                   run_id,
             "skill_id":                 skill_id,
@@ -197,6 +226,10 @@ class Orchestrator:
             "reasoning":                promotion.get("reasoning", ""),
             "token_policy_applied":     promotion.get("token_policy_applied", False),
             "promoted_path":            promotion.get("promoted_path"),
+            "promotion_trace":          promotion_trace,
+            "expected_result_validation": Orchestrator._validate_expected_result(
+                expected_result, baseline_eval, promotion_trace
+            ),
             "timestamp":                datetime.now(timezone.utc).isoformat(),
         }
 
@@ -209,10 +242,15 @@ class Orchestrator:
         self._append_json_list(history_path, "entries", {
             "run_id":      report["run_id"],
             "skill_id":    report["skill_id"],
-            "final_score": report["baseline"]["final_score"],
+            "skill_path":  report["skill_path"],
+            "baseline_score": report["baseline"]["final_score"],
+            "winner_score": report["promotion_trace"].get("winner_score"),
             "winner_score_delta": report.get("winner_score_delta"),
-            "token_count": report["baseline"]["token_count"],
+            "baseline_token_count": report["baseline"]["token_count"],
+            "winner_token_count": report["promotion_trace"].get("winner_token_count"),
             "decision":    report["decision"],
+            "regression_failures": report.get("regression_failures", []),
+            "token_policy_rejections": report.get("token_policy_rejections", []),
             "timestamp":   report["timestamp"],
         })
 
@@ -221,9 +259,11 @@ class Orchestrator:
         for cand, eval_r in zip(report["candidates"], report["candidate_evals"]):
             self._append_json_list(archive_path, "candidates", {
                 **cand,
+                "skill_path": report["skill_path"],
                 "eval": {k: eval_r.get(k) for k in
                          ("final_score", "token_count", "regression_passed",
-                          "binary_checks_passed", "timestamp")},
+                          "binary_checks_passed", "token_policy_passed",
+                          "timestamp")},
                 "run_id": report["run_id"],
             })
 
@@ -297,6 +337,47 @@ class Orchestrator:
             f"{report['reasoning']}",
             f"",
         ]
+        trace = report.get("promotion_trace", {})
+        def show(value: Any) -> str:
+            return "null" if value is None else str(value)
+
+        lines += [
+            f"## Decision Trace",
+            f"",
+            f"| Field | Value |",
+            f"|-------|-------|",
+            f"| baseline_score | {trace.get('baseline_score', 0):.4f} |",
+            f"| baseline_token_count | {trace.get('baseline_token_count', 0)} |",
+            f"| winner_id | {show(trace.get('winner_id'))} |",
+            f"| winner_score | {show(trace.get('winner_score'))} |",
+            f"| winner_token_count | {show(trace.get('winner_token_count'))} |",
+            f"| score_delta | {show(trace.get('score_delta'))} |",
+            f"| token_delta_pct | {show(trace.get('token_delta_pct'))} |",
+            f"| regression_failures | {', '.join(trace.get('regression_failures', [])) or 'none'} |",
+            f"| token_policy_rejections | {', '.join(trace.get('token_policy_rejections', [])) or 'none'} |",
+            f"| decision | {trace.get('decision', report['decision'])} |",
+            f"| reason | {trace.get('reason', report['reasoning'])} |",
+            f"",
+        ]
+        if report.get("expected_result_validation"):
+            expected = report["expected_result_validation"]
+            lines += [
+                f"## Expected Result Validation",
+                f"",
+                f"| Field | Value |",
+                f"|-------|-------|",
+                f"| status | {expected.get('status', 'not_applicable')} |",
+                f"| expected_decision | {show(expected.get('expected_decision'))} |",
+                f"| actual_decision | {show(expected.get('actual_decision'))} |",
+                f"| expected_winner | {show(expected.get('expected_winner'))} |",
+                f"| actual_winner | {show(expected.get('actual_winner'))} |",
+                f"| expected_score | {show(expected.get('expected_baseline_score'))} |",
+                f"| actual_score | {show(expected.get('actual_baseline_score'))} |",
+                f"| tolerance | {show(expected.get('score_tolerance'))} |",
+                f"| notes | {expected.get('notes', 'none')} |",
+                f"",
+            ]
+
         if report.get("winner_id"):
             lines += [
                 f"**Winner**: `{report['winner_id']}`  ",
@@ -312,6 +393,69 @@ class Orchestrator:
 
         lines.append("")
         return "\n".join(lines)
+
+    @staticmethod
+    def _load_expected_result(skill_path: str) -> dict[str, Any] | None:
+        skill_dir = os.path.dirname(os.path.abspath(skill_path))
+        expected_path = os.path.join(skill_dir, "expected_result.json")
+        if not os.path.exists(expected_path):
+            return None
+
+        with open(expected_path, "r", encoding="utf-8") as fh:
+            return json.load(fh)
+
+    @staticmethod
+    def _validate_expected_result(
+        expected_result: dict[str, Any] | None,
+        baseline_eval: dict[str, Any],
+        promotion_trace: dict[str, Any],
+    ) -> dict[str, Any]:
+        if not expected_result:
+            return {
+                "available": False,
+                "status": "not_applicable",
+            }
+
+        tolerance = expected_result.get("final_score_tolerance", 0.05)
+        expected_score = expected_result.get("final_score")
+        actual_score = baseline_eval.get("final_score")
+        expected_decision = expected_result.get("expected_decision")
+        actual_decision = promotion_trace.get("decision")
+        expected_winner = expected_result.get("expected_winner")
+        actual_winner = promotion_trace.get("winner_id")
+
+        within_tolerance = (
+            expected_score is None
+            or actual_score is None
+            or abs(actual_score - expected_score) <= tolerance
+        )
+        decision_matches = expected_decision is None or actual_decision == expected_decision
+        winner_matches = expected_winner is None or actual_winner == expected_winner
+
+        status = "pass" if within_tolerance and decision_matches and winner_matches else "fail"
+        notes = []
+        if not within_tolerance:
+            notes.append("baseline score outside tolerance")
+        if not decision_matches:
+            notes.append("decision mismatch")
+        if not winner_matches:
+            notes.append("winner mismatch")
+
+        return {
+            "available": True,
+            "status": status,
+            "score_tolerance": tolerance,
+            "expected_baseline_score": expected_score,
+            "actual_baseline_score": actual_score,
+            "expected_decision": expected_decision,
+            "actual_decision": actual_decision,
+            "expected_winner": expected_winner,
+            "actual_winner": actual_winner,
+            "score_within_tolerance": within_tolerance,
+            "decision_matches": decision_matches,
+            "winner_matches": winner_matches,
+            "notes": "; ".join(notes) if notes else "matches expected result",
+        }
 
     @staticmethod
     def _append_json_list(path: str, list_key: str, entry: dict[str, Any]) -> None:

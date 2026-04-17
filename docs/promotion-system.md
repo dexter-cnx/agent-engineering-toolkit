@@ -97,6 +97,10 @@ When dry_run = True: no files are written.  The RunReport records the would-be w
 | `promoted_path` | str or null | Path where winner was written |
 | `token_policy_applied` | bool | Whether any candidate was filtered by token policy |
 | `token_policy_rejections` | list[str] | candidate_ids filtered by token policy |
+| `baseline_score` | float or null | Baseline final score used in the decision |
+| `baseline_token_count` | int or null | Baseline token count used in the decision |
+| `winner_score` | float or null | Winning candidate final score, if any |
+| `winner_token_count` | int or null | Winning candidate token count, if any |
 
 ---
 

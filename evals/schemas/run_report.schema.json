@@ -57,6 +57,50 @@
       "items": { "type": "string" },
       "description": "candidate_ids rejected by token policy"
     },
+    "promotion_trace": {
+      "type": "object",
+      "description": "Structured decision trace for the selected candidate and promotion gates.",
+      "properties": {
+        "baseline_score": { "type": ["number", "null"] },
+        "baseline_token_count": { "type": ["integer", "null"] },
+        "winner_id": { "type": ["string", "null"] },
+        "winner_score": { "type": ["number", "null"] },
+        "winner_token_count": { "type": ["integer", "null"] },
+        "score_delta": { "type": ["number", "null"] },
+        "token_delta_pct": { "type": ["number", "null"] },
+        "regression_failures": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "token_policy_rejections": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "decision": { "type": "string" },
+        "reason": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "expected_result_validation": {
+      "type": "object",
+      "description": "Optional expectation-backed validation against evals/testcases/.../expected_result.json.",
+      "properties": {
+        "available": { "type": "boolean" },
+        "status": { "type": "string" },
+        "score_tolerance": { "type": ["number", "null"] },
+        "expected_baseline_score": { "type": ["number", "null"] },
+        "actual_baseline_score": { "type": ["number", "null"] },
+        "expected_decision": { "type": ["string", "null"] },
+        "actual_decision": { "type": ["string", "null"] },
+        "expected_winner": { "type": ["string", "null"] },
+        "actual_winner": { "type": ["string", "null"] },
+        "score_within_tolerance": { "type": ["boolean", "null"] },
+        "decision_matches": { "type": ["boolean", "null"] },
+        "winner_matches": { "type": ["boolean", "null"] },
+        "notes": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
     "winner_id": {
       "type": ["string", "null"],
       "description": "candidate_id of the winner, or null if REJECT"

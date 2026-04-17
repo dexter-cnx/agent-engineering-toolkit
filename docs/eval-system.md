@@ -4,6 +4,8 @@
 
 The eval system produces a numeric quality score for any SKILL.md using a deterministic
 weighted rubric.  Scores are reproducible: the same content always produces the same score.
+When a testcase includes `expected_result.json`, the orchestrator also validates the run
+against that fixture and records the result in the report.
 
 ---
 
@@ -143,6 +145,10 @@ python -m runners.eval_runner --skill <path> --save-history
 ```
 
 Exit codes: `0` = success (score ≥ 0.60), `2` = score below threshold, `1` = file error.
+
+For full-cycle runs, the report also includes:
+- a structured promotion decision trace
+- optional expectation-backed validation when `expected_result.json` is present next to the skill
 
 ---
 

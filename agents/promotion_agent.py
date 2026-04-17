@@ -80,6 +80,8 @@ class PromotionAgent:
         if not passed_policy:
             return self._reject(
                 reason="All candidates were filtered by token policy or no candidates provided.",
+                baseline_score=baseline_score,
+                baseline_tokens=baseline_tokens,
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -94,6 +96,8 @@ class PromotionAgent:
                     f"{winner_eval['final_score']:.4f}, which does not exceed "
                     f"baseline {baseline_score:.4f}."
                 ),
+                baseline_score=baseline_score,
+                baseline_tokens=baseline_tokens,
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -105,6 +109,8 @@ class PromotionAgent:
                     f"Winner score {winner_eval['final_score']:.4f} is below "
                     f"promotion minimum {PROMOTION_MIN_SCORE}."
                 ),
+                baseline_score=baseline_score,
+                baseline_tokens=baseline_tokens,
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -117,6 +123,8 @@ class PromotionAgent:
         if winner_candidate is None:
             return self._reject(
                 reason=f"Winner candidate_id {winner_id} not found in candidates list.",
+                baseline_score=baseline_score,
+                baseline_tokens=baseline_tokens,
                 token_policy_applied=token_policy_applied,
                 token_policy_rejections=rejected_ids,
             )
@@ -150,6 +158,10 @@ class PromotionAgent:
             "promoted_path":            promoted_path,
             "token_policy_applied":     token_policy_applied,
             "token_policy_rejections":  rejected_ids,
+            "baseline_score":           round(baseline_score, 4),
+            "baseline_token_count":     baseline_tokens,
+            "winner_score":             round(winner_eval["final_score"], 4),
+            "winner_token_count":       winner_eval["token_count"],
         }
 
     # ------------------------------------------------------------------
@@ -175,6 +187,8 @@ class PromotionAgent:
     @staticmethod
     def _reject(
         reason: str,
+        baseline_score: float | None = None,
+        baseline_tokens: int | None = None,
         token_policy_applied: bool = False,
         token_policy_rejections: list[str] | None = None,
     ) -> dict[str, Any]:
@@ -187,4 +201,8 @@ class PromotionAgent:
             "promoted_path":            None,
             "token_policy_applied":     token_policy_applied,
             "token_policy_rejections":  token_policy_rejections or [],
+            "baseline_score":           baseline_score,
+            "baseline_token_count":     baseline_tokens,
+            "winner_score":             None,
+            "winner_token_count":       None,
         }

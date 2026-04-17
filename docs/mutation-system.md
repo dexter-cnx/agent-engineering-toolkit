@@ -37,7 +37,7 @@ Score impact: typically improves `token_efficiency` and `correctness`.
 
 Before: *"3. Add the GoRoute and register it in the route registry."*  
 After:  *"3. Add the GoRoute with the correct path and builder."*  
-        *"4. Register the new route in `route_registry.dart`."*
+        *"4. Keep the route definition in `app_router.dart` in sync with the router configuration."*
 
 Score impact: typically improves `correctness` and `simplicity` (each step is independently executable).
 

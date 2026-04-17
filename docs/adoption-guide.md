@@ -42,6 +42,9 @@ Required sections in order:
 See `overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md`
 for a reference implementation.
 
+Worked examples live in `examples/` and are intentionally static snapshots separate from
+the runtime outputs written to `reports/` and `memory/`.
+
 ---
 
 ## Step 2: Run your first evaluation
@@ -83,7 +86,8 @@ This runs all 11 steps without writing any file.  Read the output:
 1. **Baseline score table** — per-dimension breakdown showing where quality is strong and where it is weak
 2. **Candidates table** — each mutation with its score, token count, regression result, and token policy result
 3. **Decision** — PROMOTE or REJECT with reasoning
-4. **Winner details** — if PROMOTE, the winning candidate ID, score delta, token delta, and where it would be written
+4. **Decision trace** — baseline score, winner score, token delta, regression failures, token policy rejections
+5. **Expected-result validation** — if the testcase provides `expected_result.json`, the report shows whether the run matched it
 
 A REJECT decision is normal when the baseline is already high-quality.
 It means none of the 6 mutation types found an improvement this cycle.

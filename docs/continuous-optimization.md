@@ -25,6 +25,8 @@ Every run — whether manual or scheduled — executes the same 11 steps:
 11. Generate report in reports/
 ```
 
+Static worked examples live in `examples/` and are intentionally separate from runtime outputs.
+
 ---
 
 ## Manual Runs
@@ -56,6 +58,7 @@ Two workflows are provided:
 - Uses `--dry-run` by default (configurable via workflow_dispatch input).
 - Uploads `reports/latest_report.md` as a workflow artifact.
 - Fails if regression or token policy violations are detected.
+- The generated report includes a structured decision trace and optional expected-result validation when a testcase ships `expected_result.json`.
 
 ---
 
@@ -75,8 +78,8 @@ The CI workflow reads this field and runs the cycle on the configured schedule.
 ## Memory Persistence
 
 Every run (manual or automated) appends to:
-- `memory/score_history.json` — final_score, decision, timestamp per run
-- `memory/candidate_archive.json` — all generated candidates with their eval results
+- `memory/score_history.json` — baseline score, winner score, decision, and trace data per run
+- `memory/candidate_archive.json` — all generated candidates with their eval results and run_id
 
 These files grow over time and provide a full audit trail of every optimization decision.
 

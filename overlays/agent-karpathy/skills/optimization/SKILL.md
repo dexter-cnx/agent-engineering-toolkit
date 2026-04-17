@@ -61,7 +61,7 @@ Select the best mutation candidate using token efficiency policy and score delta
 - [`../../docs/token-optimizer.md`](../../docs/token-optimizer.md)
 
 ## Real example
-Three candidates pass regression for the flutter deep link skill. Candidate `baseline-token_budget` is rejected by token policy (+40% tokens, only +2% score). Of the remaining two, `baseline-decomposition_steps` scores 0.7834 (+0.06 above baseline) and `baseline-verification_ordering` scores 0.7612 (+0.04). The optimizer promotes `baseline-decomposition_steps`, writes the backup, and returns reasoning: "Candidate baseline-decomposition_steps improved score by +0.0600 (+8.3%) with token delta +2.1%."
+Historical static snapshot: three candidates pass regression for the flutter deep link skill. Candidate `baseline-token_budget` is rejected by token policy (+40% tokens, only +2% score). Of the remaining two, `baseline-decomposition_steps` scores 0.7834 (+0.06 above baseline) and `baseline-verification_ordering` scores 0.7612 (+0.04). The optimizer promotes `baseline-decomposition_steps`, writes the backup, and returns reasoning: "Candidate baseline-decomposition_steps improved score by +0.0600 (+8.3%) with token delta +2.1%."
 
 ## Real file output sample
 ```text

@@ -11,7 +11,7 @@
     "token_efficiency":       0.85,
     "docs_hygiene":           1.0
   },
-  "final_score": 0.7725,
+  "final_score": 0.91,
   "final_score_tolerance": 0.05,
   "binary_checks": {
     "has_purpose_section":      true,
@@ -22,7 +22,7 @@
     "has_real_example":         true
   },
   "binary_checks_passed": true,
-  "note": "verifiability scores ~0.60 because two checklist items include vague language alongside the concrete adb/flutter test commands. The decomposition_steps candidate is expected to score higher on correctness and simplicity by splitting the compound step 3.",
-  "expected_winner": "baseline-decomposition_steps",
-  "expected_decision": "PROMOTE"
+  "note": "The committed baseline already evaluates high enough that no mutation improves on it. The full cycle should therefore end in REJECT with no promoted winner.",
+  "expected_winner": null,
+  "expected_decision": "REJECT"
 }

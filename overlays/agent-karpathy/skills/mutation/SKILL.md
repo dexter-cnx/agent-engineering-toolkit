@@ -60,7 +60,7 @@ Generate controlled single-dimension mutation candidates from a baseline SKILL.m
 - [`../../evals/testcases/flutter_deeplink/`](../../evals/testcases/flutter_deeplink/)
 
 ## Real example
-Given the flutter deep link baseline, the `decomposition_steps` mutation finds the compound step "Configure the route and register it in the router" and splits it into "Configure the route in `app_router.dart`" and "Register the route in `route_registry.dart`". The `simplicity` dimension improves from 0.75 to 0.88 because each step is now independently executable.
+Historical static snapshot: given the flutter deep link baseline, the `decomposition_steps` mutation finds the compound step "Configure the route and register it in the router" and splits it into "Configure the route in `app_router.dart`" and "Keep the route definition in `app_router.dart` in sync with the router configuration." The `simplicity` dimension improves because each step is now independently executable.
 
 ## Real file output sample
 ```text

@@ -53,6 +53,12 @@ Route to the correct skill based on the task:
 - Every run result must be appended to `memory/score_history.json`.
 - Dry-run mode (`--dry-run`) must be used in CI unless the workflow explicitly enables promotion.
 - Score threshold for promotion eligibility: **0.60 minimum final_score**.
+- Runtime artifacts are the committed outputs written by the current run:
+  - `reports/latest_report.md`
+  - `reports/history/<run_id>.md`
+  - `memory/score_history.json`
+  - `memory/candidate_archive.json`
+- Static worked examples belong in `examples/` and are not runtime output.
 
 ---
 

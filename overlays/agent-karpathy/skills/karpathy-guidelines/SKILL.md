@@ -61,7 +61,7 @@ Apply the Karpathy Layer V2 evaluation criteria to a skill or prompt to assess i
 - [`../../examples/flutter_deeplink_full_cycle.md`](../../examples/flutter_deeplink_full_cycle.md)
 
 ## Real example
-A reviewer applies this skill to `flutter-go-router-deeplink-wireup/SKILL.md`. The Validation checklist has three bullets, two of which say "ensure deep links work" and "make sure tests pass" — both are vague. `verifiability` scores 0.40. The improvement recommendation is: "Replace 'ensure deep links work' with 'Run `flutter test test/routing/deep_link_test.dart` and confirm exit code 0'."
+Historical static snapshot: a reviewer applies this skill to `flutter-go-router-deeplink-wireup/SKILL.md`. The Validation checklist has three bullets, two of which say "ensure deep links work" and "make sure tests pass" — both are vague. `verifiability` scores 0.40. The improvement recommendation is: "Replace 'ensure deep links work' with 'Run `flutter test test/routing/deep_link_test.dart` and confirm exit code 0'."
 
 ## Real file output sample
 ```text

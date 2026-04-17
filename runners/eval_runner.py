@@ -67,7 +67,7 @@ def run_eval_batch(
     return [run_eval(p, rubric_path) for p in skill_paths]
 
 
-def _append_to_history(eval_result: dict, history_path: str) -> None:
+def _append_to_history(eval_result: dict, history_path: str, skill_path: str | None = None) -> None:
     """Persist a summary entry to memory/score_history.json."""
     os.makedirs(os.path.dirname(history_path), exist_ok=True)
     from datetime import datetime, timezone
@@ -81,6 +81,7 @@ def _append_to_history(eval_result: dict, history_path: str) -> None:
     data["entries"].append({
         "run_id":      "eval-only",
         "skill_id":    eval_result.get("skill_id"),
+        "skill_path":  skill_path,
         "final_score": eval_result.get("final_score"),
         "token_count": eval_result.get("token_count"),
         "decision":    "eval_only",
@@ -120,7 +121,7 @@ def main() -> None:
     if args.save_history:
         repo_root    = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         history_path = os.path.join(repo_root, "memory", "score_history.json")
-        _append_to_history(result, history_path)
+        _append_to_history(result, history_path, os.path.relpath(os.path.abspath(args.skill), repo_root))
 
     # Exit 2 if score is below threshold (for CI gates)
     if result.get("final_score", 0) < PROMOTION_THRESHOLD:

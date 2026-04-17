@@ -26,7 +26,7 @@
 | `skills/` | ห้า skill ครอบคลุม core workflow |
 | `docs/adoption-guide.md` | วิธีเพิ่ม skill ใหม่และรัน cycle แรก |
 | `docs/karpathy-architecture.md` | สถาปัตยกรรมระบบและ data flow |
-| `examples/flutter_deeplink_full_cycle.md` | ตัวอย่างการทำงานแบบสมบูรณ์ |
+| `examples/flutter_deeplink_full_cycle.md` | ตัวอย่างการทำงานแบบ static |
 
 ---
 
@@ -39,6 +39,10 @@
 - **การจัดเก็บ**: JSON flat files (`memory/`) + Markdown reports (`reports/`)
 
 ไม่ต้องการ dependencies ภายนอก Python standard library ในการรันระบบหลัก
+
+output runtime ที่เป็น source of truth คือ `reports/latest_report.md`, `reports/history/<run_id>.md`,
+`memory/score_history.json`, และ `memory/candidate_archive.json` ส่วน demo แบบ static อยู่ใน
+`examples/` และไม่ใช่ output ของการรันจริง
 
 ---
 

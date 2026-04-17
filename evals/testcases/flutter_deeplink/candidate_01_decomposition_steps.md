@@ -10,10 +10,10 @@ Wire up a deep link entry point in a Flutter app that uses go_router, so that an
 - Platform-specific intent filters (Android) or URL schemes (iOS) must be registered alongside the in-app route
 
 ## Do NOT use when
-- The app does not use go_router — use the appropriate routing adapter skill for the active router — use a more specific skill instead.
-- You only need to add a regular navigation route without any external URI entry — use flutter-go-router-route-map instead — use a more specific skill instead.
-- The deep link requires custom authentication before showing the destination screen — add the guard separately after wireup — use a more specific skill instead.
-- You are migrating from a non-go_router router to go_router — use a more specific skill instead.
+- The app does not use go_router — use the appropriate routing adapter skill for the active router.
+- You only need to add a regular navigation route without any external URI entry — use flutter-go-router-route-map instead.
+- The deep link requires custom authentication before showing the destination screen — add the guard separately after wireup.
+- You are migrating from a non-go_router router to go_router.
 
 ## Inputs required
 - The URI pattern for the deep link (e.g., `/orders/:id`)
@@ -31,7 +31,7 @@ Wire up a deep link entry point in a Flutter app that uses go_router, so that an
 1. Identify the target feature screen and its widget path in `lib/features/<feature>/presentation/pages/`.
 2. Open `lib/app/router/app_router.dart` and locate the GoRouter routes list.
 3. Add a new GoRoute with the correct path and builder pointing to the feature screen.
-4. Register the new route in `lib/app/router/route_registry.dart`.
+4. Keep the route definition in `lib/app/router/app_router.dart` in sync with the router configuration.
 5. Update `android/app/src/main/AndroidManifest.xml` with an intent filter for the URI scheme and host.
 6. Update `ios/Runner/Info.plist` with the URL scheme under `CFBundleURLSchemes`.
 7. Run the app on both platforms and trigger the deep link to confirm routing.
@@ -65,7 +65,6 @@ Adding a deep link `/orders/:id` that opens `OrderDetailPage`. The GoRoute is ad
 ## Real file output sample
 ```text
 lib/app/router/app_router.dart
-lib/app/router/route_registry.dart
 android/app/src/main/AndroidManifest.xml
 ios/Runner/Info.plist
 test/routing/deep_link_orders_test.dart

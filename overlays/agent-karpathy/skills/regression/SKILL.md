@@ -58,7 +58,7 @@ Enforce structural and behavioral guardrails on mutation candidates before any p
 - [`../../evals/testcases/flutter_deeplink/`](../../evals/testcases/flutter_deeplink/)
 
 ## Real example
-The `token_budget` mutation for flutter deep link removes the Constraints section in an aggressive attempt to reduce tokens. The regression check on step 1 immediately detects the missing `## Constraints` header and raises `RegressionViolation(candidate_id='baseline-token_budget', violations=['Missing required section: ## Constraints'])`. This candidate is excluded from the promotion stage.
+Historical static snapshot: the `token_budget` mutation for flutter deep link removes the Constraints section in an aggressive attempt to reduce tokens. The regression check on step 1 immediately detects the missing `## Constraints` header and raises `RegressionViolation(candidate_id='baseline-token_budget', violations=['Missing required section: ## Constraints'])`. This candidate is excluded from the promotion stage.
 
 ## Real file output sample
 ```text

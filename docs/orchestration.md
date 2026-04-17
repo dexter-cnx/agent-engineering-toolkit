@@ -68,6 +68,15 @@ Frozen dataclass that declares the contract for each agent role:
 Agents communicate through Python dicts (JSON-serialisable).
 The canonical schemas are in `evals/schemas/`.
 
+Runtime artifacts written by a run are:
+- `reports/latest_report.md`
+- `reports/history/<run_id>.md`
+- `memory/score_history.json`
+- `memory/candidate_archive.json`
+
+Worked examples are stored in `examples/` and are explicitly marked as static snapshots,
+so they do not get confused with live run outputs.
+
 ### EvalResult (output of EvaluatorAgent)
 ```json
 {
@@ -119,6 +128,9 @@ The canonical schemas are in `evals/schemas/`.
   "token_policy_rejections": ["baseline-token_budget"]
 }
 ```
+
+The full run report also includes a `promotion_trace` object and optional
+`expected_result_validation` object when `expected_result.json` exists next to the skill.
 
 ---
 

@@ -62,7 +62,7 @@ Produce a structured EvalResult JSON for a given SKILL.md by applying the weight
 - [`../../agents/evaluator_agent.py`](../../agents/evaluator_agent.py)
 
 ## Real example
-Running the evaluator on `flutter-go-router-deeplink-wireup/SKILL.md` returns final_score 0.7234 with correctness 0.80, scope_discipline 0.70, simplicity 0.90, verifiability 0.60 (two vague checklist items), architecture_alignment 0.70, token_efficiency 0.85, docs_hygiene 1.0. The `evaluator_notes` field reads: "Low-scoring dimensions: verifiability. Failed binary checks: none."
+Historical static snapshot: running the evaluator on `flutter-go-router-deeplink-wireup/SKILL.md` returns final_score 0.7234 with correctness 0.80, scope_discipline 0.70, simplicity 0.90, verifiability 0.60 (two vague checklist items), architecture_alignment 0.70, token_efficiency 0.85, docs_hygiene 1.0. The `evaluator_notes` field reads: "Low-scoring dimensions: verifiability. Failed binary checks: none."
 
 ## Real file output sample
 ```text

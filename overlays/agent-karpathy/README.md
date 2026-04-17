@@ -26,7 +26,7 @@ The `agent-karpathy` overlay transforms the agent-engineering-toolkit into a
 | `skills/` | Five skills covering the core workflow |
 | `docs/adoption-guide.md` | How to add a new skill and run your first cycle |
 | `docs/karpathy-architecture.md` | System architecture and data flow |
-| `examples/flutter_deeplink_full_cycle.md` | Complete worked example |
+| `examples/flutter_deeplink_full_cycle.md` | Complete static worked example |
 
 ---
 
@@ -39,6 +39,10 @@ The `agent-karpathy` overlay transforms the agent-engineering-toolkit into a
 - **Storage**: JSON flat files (memory/) + Markdown reports (reports/)
 
 No external dependencies beyond the Python standard library are required to run the core system.
+
+Runtime outputs are the committed `reports/latest_report.md`, `reports/history/<run_id>.md`,
+`memory/score_history.json`, and `memory/candidate_archive.json`. Static demos live in
+`examples/` and must not be confused with live run artifacts.
 
 ---
 
