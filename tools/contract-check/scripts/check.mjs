@@ -55,13 +55,13 @@ try {
 
   const frontendPackage = JSON.parse(await read("apps/nextjs-dotnet-app/frontend/package.json"));
   const rootDeps = frontendPackage.dependencies ?? {};
-  if (rootDeps["@agent-toolkit/fullstack-client"] !== "workspace:*") {
-    throw new Error("Split frontend must depend on @agent-toolkit/fullstack-client via workspace:*");
+  if (rootDeps["@agent-toolkit/fullstack-client"] !== "*") {
+    throw new Error("Split frontend must depend on @agent-toolkit/fullstack-client via *");
   }
 
   const clientPackage = JSON.parse(await read("packages/fullstack-client/package.json"));
-  if (clientPackage.dependencies?.["@agent-toolkit/contracts"] !== "workspace:*") {
-    throw new Error("fullstack-client must depend on @agent-toolkit/contracts via workspace:*");
+  if (clientPackage.dependencies?.["@agent-toolkit/contracts"] !== "*") {
+    throw new Error("fullstack-client must depend on @agent-toolkit/contracts via *");
   }
 
   console.log("contract-check passed");
