@@ -1,6 +1,6 @@
 # agent-karpathy overlay (ภาษาไทย)
 
-**ระบบปรับปรุงคุณภาพ AI Skill ด้วยตัวเอง — การพัฒนาแบบ Eval-Driven**
+**ระบบปรับปรุง skill AI แบบ production-governed และ eval-driven พร้อม hard gates**
 
 ---
 
@@ -61,17 +61,18 @@ output runtime ที่เป็น source of truth คือ `reports/latest_r
 
 ## Audit & Production Guarantees
 
-overlay นี้เหมาะกับ CI เพราะ promotion จะถูกบล็อกถ้า regression check ไม่ผ่าน, token policy
-ไม่ผ่าน, หรือ candidate ไม่ชนะ baseline แบบชัดเจน โมเดลประเมินยังมีส่วน heuristic อยู่
-เพราะ rubric scoring และ mutation selection เป็น rule-based แต่ `expected_result.json`
-ช่วยเพิ่มการ validate แบบ expectation-backed เมื่อมีไฟล์นั้น Maintain การตัดสิน promotion
-ให้เป็น governance record ไม่ใช่หลักฐานว่าผลลัพธ์นั้นดีที่สุดเสมอ
+runtime artifacts คือ `reports/latest_report.md`, `reports/history/<run_id>.md`,
+`memory/score_history.json`, และ `memory/candidate_archive.json`; `examples/` เป็น static
+example เท่านั้น
+promotion decision ทุกครั้งต้องมี `baseline_score`, `candidate_score`, `score_delta`,
+`token_delta`, `regression_pass`, `token_policy_pass`, `final_decision`, และ `reason`
+promotion จะถูกบล็อกถ้า regression ไม่ผ่าน, token policy ไม่ผ่าน, score threshold ไม่ผ่าน,
+หรือ artifact / decision field ที่จำเป็นหายไป; CI ต้อง fail closed
 
-- Deterministic: การสร้าง report, token counting, binary checks, regression gate, และ
-  location ของ artifact
+- Deterministic: report generation, token counting, binary และ regression checks, path ของ artifact
 - Heuristic: rubric scoring และ candidate mutation selection
-- Interpretation: PROMOTE แปลว่า "candidate ที่ดีที่สุดภายใต้ rubric และ gate ปัจจุบัน"
-  ไม่ใช่ "ดีที่สุดในทุกบริบท"
+- Interpretation: `PROMOTE` คือ candidate ที่ชนะภายใต้ rubric และ gate ปัจจุบัน;
+  `REJECT` คือไม่ผ่านเงื่อนไขดังกล่าว
 
 ---
 

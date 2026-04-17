@@ -1,6 +1,6 @@
 # agent-karpathy overlay
 
-**Self-improving AI skill quality system.  Eval-driven development at scale.**
+**Production-governed AI skill optimization system. Eval-driven development with hard gates.**
 
 ---
 
@@ -61,17 +61,17 @@ Runtime outputs are the committed `reports/latest_report.md`, `reports/history/<
 
 ## Audit & Production Guarantees
 
-This overlay is safe for CI because promotion is blocked unless all binary regression checks
-pass, token policy passes, and the candidate strictly beats the baseline score. The evaluation
-model is still partly heuristic: rubric scoring and mutation selection are rule-based, while
-`expected_result.json` adds expectation-backed validation when it is present. Maintain
-promotion decisions as governance records, not as proof that a candidate is universally better.
+Runtime artifacts are `reports/latest_report.md`, `reports/history/<run_id>.md`,
+`memory/score_history.json`, and `memory/candidate_archive.json`; `examples/` is static only.
+Every promotion decision must include `baseline_score`, `candidate_score`, `score_delta`,
+`token_delta`, `regression_pass`, `token_policy_pass`, `final_decision`, and `reason`.
+Promotion is blocked by regression failure, token policy violation, score threshold failure,
+or missing required artifacts / decision fields. CI must fail closed on any blocked promotion.
 
-- Deterministic: report generation, token counting, binary checks, regression gating, and
-  artifact locations.
+- Deterministic: report generation, token counting, binary and regression checks, artifact paths.
 - Heuristic: rubric scoring and candidate mutation selection.
-- Interpretation: PROMOTE means "best candidate under the current rubric and gates", not
-  "globally better in every context".
+- Interpretation: `PROMOTE` means the candidate won under the current rubric and gates;
+  `REJECT` means it did not.
 
 ---
 

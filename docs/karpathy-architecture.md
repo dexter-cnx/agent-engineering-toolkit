@@ -2,9 +2,9 @@
 
 ## Overview
 
-The Karpathy Layer V2 is a self-improving AI skill quality system built as an overlay on the
-agent-engineering-toolkit.  It measures, mutates, evaluates, and promotes improvements to SKILL.md
-files using a deterministic, regression-safe pipeline.
+The Karpathy Layer V2 is a production-governed AI skill quality overlay built on the
+agent-engineering-toolkit. It measures, mutates, evaluates, and promotes improvements to
+SKILL.md files using a deterministic, regression-safe pipeline with explicit hard gates.
 
 Static worked examples are kept separate from runtime artifacts.  The committed `reports/`
 and `memory/` files are the source of truth for live runs; `examples/` contains illustrative
