@@ -6,6 +6,7 @@
 #
 # Options:
 #   --dry-run        Evaluate and compare but do not write promoted skill
+#   --verify-only    Evaluate and validate only; do not mutate/promote
 #   --n <int>        Number of mutation candidates (default: 5, max: 6)
 #   --report-only    Print the Markdown report after the JSON output
 #   --pretty         Pretty-print JSON to stdout
@@ -33,6 +34,7 @@ PRETTY_ARG=""
 POSITIONAL=()
 N_EXPLICIT="false"
 DRY_RUN_EXPLICIT="false"
+VERIFY_ONLY="false"
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -40,6 +42,10 @@ while [[ $# -gt 0 ]]; do
     --dry-run)
       DRY_RUN_ARG="--dry-run"
       DRY_RUN_EXPLICIT="true"
+      shift
+      ;;
+    --verify-only)
+      VERIFY_ONLY="true"
       shift
       ;;
     --n)
@@ -65,7 +71,7 @@ while [[ $# -gt 0 ]]; do
       ;;
     -*)
       echo "Unknown flag: $1" >&2
-      echo "Usage: $0 <skill_path> [true|false] [n] [--dry-run] [--n <int>] [--report-only] [--pretty]" >&2
+      echo "Usage: $0 <skill_path> [true|false] [n] [--dry-run] [--verify-only] [--n <int>] [--report-only] [--pretty]" >&2
       exit 1
       ;;
     *)
@@ -77,7 +83,7 @@ done
 
 if [[ ${#POSITIONAL[@]} -lt 1 ]]; then
   echo "Error: skill path is required." >&2
-  echo "Usage: $0 <path/to/SKILL.md> [true|false] [n] [--dry-run] [--n <int>] [--report-only] [--pretty]" >&2
+  echo "Usage: $0 <path/to/SKILL.md> [true|false] [n] [--dry-run] [--verify-only] [--n <int>] [--report-only] [--pretty]" >&2
   exit 1
 fi
 
@@ -126,6 +132,9 @@ DRY_RUN_LABEL="production"
 if [[ -n "$DRY_RUN_ARG" ]]; then
   DRY_RUN_LABEL="dry-run"
 fi
+if [[ "$VERIFY_ONLY" == "true" ]]; then
+  DRY_RUN_LABEL="verify-only"
+fi
 
 echo "Karpathy optimization cycle" >&2
 echo "  Skill:    $SKILL_PATH" >&2
@@ -135,15 +144,41 @@ echo "" >&2
 
 cd "$REPO_ROOT"
 
-# shellcheck disable=SC2086
-"$PYTHON_CMD" -m runners.optimization_cycle \
-  --skill "$SKILL_PATH" \
-  $DRY_RUN_ARG \
-  $N_ARG \
-  $REPORT_ARG \
-  $PRETTY_ARG
+if [[ "$VERIFY_ONLY" == "true" ]]; then
+  if bash scripts/karpathy-eval.sh "$SKILL_PATH"; then
+    EXIT_CODE=0
+  else
+    EXIT_CODE=$?
+  fi
 
-EXIT_CODE=$?
+  if bash scripts/karpathy-validate.sh --eval-only; then
+    :
+  else
+    VALIDATE_EXIT=$?
+    if [[ $EXIT_CODE -eq 0 || $VALIDATE_EXIT -ne 0 ]]; then
+      EXIT_CODE=$VALIDATE_EXIT
+    fi
+  fi
+else
+  if "$PYTHON_CMD" -m runners.optimization_cycle \
+    --skill "$SKILL_PATH" \
+    $DRY_RUN_ARG \
+    $N_ARG \
+    $REPORT_ARG \
+    $PRETTY_ARG; then
+    EXIT_CODE=0
+  else
+    EXIT_CODE=$?
+  fi
+
+  if [[ $EXIT_CODE -eq 0 || $EXIT_CODE -eq 2 ]]; then
+    if bash scripts/karpathy-validate.sh; then
+      :
+    else
+      EXIT_CODE=$?
+    fi
+  fi
+fi
 
 echo "" >&2
 case $EXIT_CODE in

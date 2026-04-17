@@ -48,6 +48,11 @@ jobs:
           echo "changed_skills<<EOF" >> "$GITHUB_OUTPUT"
           echo "$CHANGED" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
+          if [[ -n "$CHANGED" ]]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
 
           echo "Changed SKILL.md files:"
           echo "$CHANGED"
@@ -95,6 +100,10 @@ jobs:
 
           echo ""
           echo "All evaluated skills passed the quality gate."
+
+      - name: Validate eval artifacts
+        if: always() && steps.changed-skills.outputs.has_changes == 'true'
+        run: ./scripts/karpathy-validate.sh --eval-only
 
       - name: Upload evaluation results
         if: always()

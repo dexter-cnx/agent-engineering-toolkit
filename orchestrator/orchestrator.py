@@ -127,6 +127,7 @@ class Orchestrator:
             promotion            = promotion,
             expected_result      = expected_result,
         )
+        self._validate_run_report(report)
 
         self._store_results(report)
         self._write_report(report)
@@ -201,11 +202,14 @@ class Orchestrator:
             "token_delta": promotion.get("token_delta", promotion.get("token_delta_pct")),
             "regression_pass": regression_pass,
             "token_policy_pass": token_policy_pass,
+            "token_policy_applied": promotion.get("token_policy_applied", False),
             "regression_failures": regression_failures,
             "token_policy_rejections": token_policy_rejections,
             "decision": promotion.get("decision", "REJECT"),
             "final_decision": promotion.get("final_decision", promotion.get("decision", "REJECT")),
+            "reasoning": promotion.get("reasoning", ""),
             "reason": promotion.get("reason", promotion.get("reasoning", "")),
+            "promoted_path": promotion.get("promoted_path"),
         }
 
         winner_id = promotion_trace["winner_id"]
@@ -248,14 +252,22 @@ class Orchestrator:
 
         # score_history
         history_path = os.path.join(repo_root, "memory", "score_history.json")
+        final_score = report["promotion_trace"].get("winner_score")
+        if final_score is None:
+            final_score = report["baseline"]["final_score"]
+        token_count = report["promotion_trace"].get("winner_token_count")
+        if token_count is None:
+            token_count = report["baseline"]["token_count"]
         self._append_json_list(history_path, "entries", {
             "run_id":      report["run_id"],
             "skill_id":    report["skill_id"],
             "skill_path":  report["skill_path"],
             "baseline_score": report["baseline"]["final_score"],
+            "final_score": final_score,
             "winner_score": report["promotion_trace"].get("winner_score"),
             "winner_score_delta": report.get("winner_score_delta"),
             "baseline_token_count": report["baseline"]["token_count"],
+            "token_count": token_count,
             "winner_token_count": report["promotion_trace"].get("winner_token_count"),
             "decision":    report["decision"],
             "regression_failures": report.get("regression_failures", []),
@@ -280,18 +292,24 @@ class Orchestrator:
         """Write human-readable Markdown report to reports/latest_report.md."""
         repo_root   = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
         report_path = os.path.join(repo_root, "reports", "latest_report.md")
+        report_json_path = os.path.join(repo_root, "reports", "latest_report.json")
         history_dir = os.path.join(repo_root, "reports", "history")
         os.makedirs(history_dir, exist_ok=True)
 
         md = self._render_markdown_report(report)
+        json_report = json.dumps(report, indent=2, default=str)
 
         with open(report_path, "w", encoding="utf-8") as fh:
             fh.write(md)
+        with open(report_json_path, "w", encoding="utf-8") as fh:
+            fh.write(json_report)
 
-        ts = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S")
-        history_path = os.path.join(history_dir, f"{report['run_id']}.md")
-        with open(history_path, "w", encoding="utf-8") as fh:
+        history_md_path = os.path.join(history_dir, f"{report['run_id']}.md")
+        history_json_path = os.path.join(history_dir, f"{report['run_id']}.json")
+        with open(history_md_path, "w", encoding="utf-8") as fh:
             fh.write(md)
+        with open(history_json_path, "w", encoding="utf-8") as fh:
+            fh.write(json_report)
 
     @staticmethod
     def _render_markdown_report(report: dict[str, Any]) -> str:
@@ -434,31 +452,15 @@ class Orchestrator:
 
     @staticmethod
     def _validate_promotion_contract(promotion: dict[str, Any]) -> None:
-        required = {
-            "winner_id",
-            "decision",
-            "reasoning",
-            "final_decision",
-            "reason",
-            "candidate_score",
-            "candidate_token_count",
-            "score_delta",
-            "token_delta",
-            "regression_pass",
-            "token_policy_pass",
-            "promoted_path",
-            "token_policy_applied",
-            "token_policy_rejections",
-            "baseline_score",
-            "baseline_token_count",
-            "winner_score",
-            "winner_token_count",
-        }
-        missing = sorted(required - promotion.keys())
-        if missing:
-            raise RuntimeError(
-                "Promotion decision missing required fields: " + ", ".join(missing)
-            )
+        from runners.karpathy_validate import validate_promotion_decision
+
+        validate_promotion_decision(promotion)
+
+    @staticmethod
+    def _validate_run_report(report: dict[str, Any]) -> None:
+        from runners.karpathy_validate import validate_run_report
+
+        validate_run_report(report)
 
     @staticmethod
     def _validate_expected_result(

@@ -1,0 +1,92 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "PromotionDecision",
+  "description": "Strict promotion decision contract produced by PromotionAgent and validated by the Karpathy layer.",
+  "type": "object",
+  "required": [
+    "winner_id",
+    "decision",
+    "reasoning",
+    "final_decision",
+    "reason",
+    "candidate_score",
+    "candidate_token_count",
+    "score_delta",
+    "token_delta_pct",
+    "token_delta",
+    "regression_pass",
+    "token_policy_pass",
+    "promoted_path",
+    "token_policy_applied",
+    "token_policy_rejections",
+    "baseline_score",
+    "baseline_token_count",
+    "winner_score",
+    "winner_token_count"
+  ],
+  "properties": {
+    "winner_id": {
+      "type": ["string", "null"]
+    },
+    "decision": {
+      "type": "string",
+      "enum": ["PROMOTE", "REJECT"]
+    },
+    "reasoning": {
+      "type": "string"
+    },
+    "final_decision": {
+      "type": "string",
+      "enum": ["PROMOTE", "REJECT"]
+    },
+    "reason": {
+      "type": "string"
+    },
+    "candidate_score": {
+      "type": ["number", "null"]
+    },
+    "candidate_token_count": {
+      "type": ["integer", "null"]
+    },
+    "score_delta": {
+      "type": ["number", "null"]
+    },
+    "token_delta_pct": {
+      "type": ["number", "null"]
+    },
+    "token_delta": {
+      "type": ["number", "null"]
+    },
+    "regression_pass": {
+      "type": "boolean"
+    },
+    "token_policy_pass": {
+      "type": "boolean"
+    },
+    "promoted_path": {
+      "type": ["string", "null"]
+    },
+    "token_policy_applied": {
+      "type": "boolean"
+    },
+    "token_policy_rejections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "baseline_score": {
+      "type": ["number", "null"]
+    },
+    "baseline_token_count": {
+      "type": ["integer", "null"]
+    },
+    "winner_score": {
+      "type": ["number", "null"]
+    },
+    "winner_token_count": {
+      "type": ["integer", "null"]
+    }
+  },
+  "additionalProperties": false
+}

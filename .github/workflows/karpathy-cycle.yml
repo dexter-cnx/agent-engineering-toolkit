@@ -98,6 +98,10 @@ jobs:
           # Exit 2 (REJECT) is acceptable — just means no improvement this cycle
           exit 0
 
+      - name: Validate cycle artifacts
+        if: always()
+        run: ./scripts/karpathy-validate.sh
+
       - name: Report decision
         if: always()
         run: |
@@ -116,7 +120,9 @@ jobs:
         with:
           name: karpathy-cycle-report
           path: |
+            reports/latest_report.json
             reports/latest_report.md
+            reports/history/*.json
             reports/history/*.md
             memory/score_history.json
             memory/candidate_archive.json

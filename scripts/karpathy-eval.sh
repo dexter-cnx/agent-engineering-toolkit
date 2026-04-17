@@ -68,14 +68,15 @@ echo "Repo root:  $REPO_ROOT" >&2
 
 cd "$REPO_ROOT"
 
-# shellcheck disable=SC2086
-"$PYTHON_CMD" -m runners.eval_runner \
+if "$PYTHON_CMD" -m runners.eval_runner \
   --skill "$SKILL_PATH" \
   $RUBRIC_ARG \
   $PRETTY_ARG \
-  --save-history
-
-EXIT_CODE=$?
+  --save-history; then
+  EXIT_CODE=0
+else
+  EXIT_CODE=$?
+fi
 
 if [[ $EXIT_CODE -eq 2 ]]; then
   echo "" >&2

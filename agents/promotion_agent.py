@@ -41,6 +41,8 @@ import shutil
 from datetime import datetime, timezone
 from typing import Any
 
+from runners.karpathy_validate import validate_promotion_decision
+
 TOKEN_INCREASE_THRESHOLD = 0.35   # 35 %
 MIN_SCORE_IMPROVEMENT    = 0.05   # 5 %
 PROMOTION_MIN_SCORE      = 0.60   # absolute floor
@@ -82,7 +84,7 @@ class PromotionAgent:
         token_policy_applied = len(rejected_ids) > 0
 
         # Step 2: rank survivors by final_score
-        passed_policy.sort(key=lambda e: e["final_score"], reverse=True)
+        passed_policy.sort(key=lambda e: (-e["final_score"], e["token_count"]))
 
         if not passed_policy:
             return self._reject(
@@ -172,7 +174,7 @@ class PromotionAgent:
             f"All regression checks passed. Token policy satisfied."
         )
 
-        return {
+        decision = {
             "winner_id":                winner_id,
             "decision":                 "PROMOTE",
             "reasoning":                reasoning,
@@ -193,6 +195,8 @@ class PromotionAgent:
             "winner_score":             round(winner_eval["final_score"], 4),
             "winner_token_count":       winner_eval["token_count"],
         }
+        validate_promotion_decision(decision)
+        return decision
 
     # ------------------------------------------------------------------
     # File writing
@@ -226,7 +230,7 @@ class PromotionAgent:
         token_policy_applied: bool = False,
         token_policy_rejections: list[str] | None = None,
     ) -> dict[str, Any]:
-        return {
+        decision = {
             "winner_id":                None,
             "decision":                 "REJECT",
             "reasoning":                reason,
@@ -247,3 +251,5 @@ class PromotionAgent:
             "winner_score":             None,
             "winner_token_count":       None,
         }
+        validate_promotion_decision(decision)
+        return decision

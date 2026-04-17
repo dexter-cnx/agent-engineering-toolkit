@@ -88,7 +88,62 @@
       "regression_failures": [],
       "token_policy_rejections": [],
       "timestamp": "2026-04-17T11:34:13.198992+00:00"
+    },
+    {
+      "run_id": "eval-only",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "final_score": 0.91,
+      "token_count": 757,
+      "decision": "eval_only",
+      "timestamp": "2026-04-17T12:10:08.057260+00:00"
+    },
+    {
+      "run_id": "run-20260417T121021-62a1dc",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T12:10:21.476858+00:00"
+    },
+    {
+      "run_id": "run-20260417T121037-230618",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "final_score": null,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "token_count": null,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T12:10:37.595368+00:00"
+    },
+    {
+      "run_id": "run-20260417T121048-bd70e1",
+      "skill_id": "flutter_deeplink",
+      "skill_path": "evals/testcases/flutter_deeplink/baseline.md",
+      "baseline_score": 0.91,
+      "final_score": 0.91,
+      "winner_score": null,
+      "winner_score_delta": null,
+      "baseline_token_count": 757,
+      "token_count": 757,
+      "winner_token_count": null,
+      "decision": "REJECT",
+      "regression_failures": [],
+      "token_policy_rejections": [],
+      "timestamp": "2026-04-17T12:10:48.335147+00:00"
     }
   ],
-  "last_updated": "2026-04-17T11:34:13.199316+00:00"
+  "last_updated": "2026-04-17T12:10:48.335266+00:00"
 }
