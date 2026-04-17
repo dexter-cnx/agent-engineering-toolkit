@@ -1,17 +1,20 @@
 # Repository Surface Status Map
 
-Use this map to distinguish canonical OS surfaces from compatibility and legacy areas.
+This map classifies top-level surfaces to reduce ambiguity.
 
-## Canonical OS surfaces
+## Canonical OS surfaces (primary)
 
-- `README.md`
-- `docs/get-started.md`, `docs/adoption-paths.md`, `docs/overlays.md`
-- `docs/architecture/`, `docs/reference/`
-- `agents/`, `memory/`, `system/`, `prompts/`
-- `tools/ci`, `tools/prompts`, `tools/graph`, `tools/memory`
-- `.github/workflows/*governance*.yml`, `.github/workflows/release-readiness.yml`
+- `README.md` (front door)
+- `docs/` (canonical onboarding, architecture, reference)
+- `agents/` (canonical role/workflow runtime)
+- `memory/` (canonical decisions/state memory)
+- `system/` (canonical operating contracts)
+- `prompts/` (canonical prompt runtime)
+- `tools/` (canonical local governance tooling)
+- `overlays/` (canonical specialization layer)
+- `.github/workflows/` (canonical CI enforcement)
 
-## Compatibility redirect surfaces
+## Compatibility-only surfaces
 
 - `START_HERE.md`
 - `README_START_HERE.md`
@@ -20,17 +23,28 @@ Use this map to distinguish canonical OS surfaces from compatibility and legacy 
 - `ONBOARDING_FULL.md`
 - `INDEX_CANONICAL.md`
 
-These are retained for inbound links and are non-canonical.
+These are retained for inbound links and are not onboarding sources.
 
-## Legacy but retained surfaces (frozen or transitional)
+## Legacy / frozen surfaces (retained, non-primary)
 
-- `agent_team/` (legacy role quick refs; canonical runtime model is `agents/`)
-- `project_memory/` (legacy memory namespace; canonical memory is `memory/`)
-- `core/` (legacy quick references; canonical contracts live in `system/`, `docs/`, `agents/`)
-- `INDEX_PROMPTS.md`, `INDEX_COMPANION.md`, `INDEX_CHECKLISTS.md` (legacy root indexes)
-- `web-frontend` overlay (retained for historical compatibility; prefer common+nextjs overlays when possible)
+- `agent_team/` (legacy role quick refs; superseded by `agents/`)
+- `project_memory/` (legacy memory namespace; superseded by `memory/`)
+- `core/` (legacy quick references; superseded by `system/` + `docs/`)
+- `canonical/` (legacy baseline documents)
+- `checklists/` (legacy checklist set; canonical memory checklists live in `memory/checklists/`)
+- `skills/` (legacy skill library; retained for historical/compatibility usage)
+- `companion-pack/` (legacy Flutter-focused companion integration kit)
+- `orchestrator/` (legacy Python orchestration prototype)
+- `INDEX_PROMPTS.md`, `INDEX_COMPANION.md`, `INDEX_CHECKLISTS.md` (legacy frozen indexes)
 
-## Operational guidance
+## Reference/archive surfaces (useful but not OS runtime)
 
-If a canonical and legacy surface disagree, follow canonical surfaces.
-New work should not be started from compatibility or legacy surfaces.
+- `apps/`, `packages/`, `samples/`, `examples/` (reference implementations)
+- `evals/`, `tests/` (validation assets)
+- `reports/`, `artifacts/` (generated/report outputs)
+- `scripts/`, `runners/`, `templates/`, `assets/`, `audits/` (supporting/operational materials)
+
+## Operational rule
+
+If canonical and legacy/reference surfaces disagree, canonical surfaces win.
+New work should start from canonical OS surfaces only.

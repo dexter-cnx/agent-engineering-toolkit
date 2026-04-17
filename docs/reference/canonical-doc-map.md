@@ -24,7 +24,7 @@
 - `docs/graph/navigation-map.md`
 
 ## Compatibility redirectors (legacy links only)
-These are not onboarding sources:
+These are non-canonical and not onboarding sources:
 - `START_HERE.md`
 - `README_START_HERE.md`
 - `HOW_TO_USE.md`
@@ -32,7 +32,12 @@ These are not onboarding sources:
 - `ONBOARDING_FULL.md`
 - `INDEX_CANONICAL.md`
 
-## Legacy namespaces (non-canonical)
+## Legacy/frozen top-level namespaces (retained, non-primary)
 - `agent_team/`
 - `project_memory/`
 - `core/`
+- `canonical/`
+- `checklists/`
+- `skills/`
+- `companion-pack/`
+- `orchestrator/`

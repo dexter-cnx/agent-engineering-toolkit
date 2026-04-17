@@ -47,6 +47,14 @@ Some root files/directories are retained for compatibility or historical context
 They are explicitly labeled as **compatibility**, **legacy**, or **frozen** and are not part of the canonical onboarding path.
 Use [docs/reference/repo-surface-status.md](docs/reference/repo-surface-status.md) when unsure.
 
+
+## Top-level status snapshot
+
+- **Canonical OS**: `docs/`, `agents/`, `memory/`, `system/`, `prompts/`, `tools/`, `overlays/`
+- **Compatibility docs**: root redirect files (`START_HERE.md`, `HOW_TO_USE.md`, etc.)
+- **Legacy/frozen**: `agent_team/`, `project_memory/`, `core/`, `canonical/`, `checklists/`, `skills/`, `companion-pack/`, `orchestrator/`
+- **Reference/archive**: `apps/`, `packages/`, `samples/`, `examples/`, `evals/`, `tests/`, `reports/`, `artifacts/`
+
 ## Core OS surfaces
 
 - `system/` (kernel, runtime contracts, policies)
