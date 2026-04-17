@@ -24,7 +24,7 @@
     "test": "npm run check"
   },
   "dependencies": {
-    "@agent-toolkit/contracts": "^1.0.0",
+    "@agent-toolkit/contracts": "workspace:*",
     "zod": "^3.24.1"
   },
   "devDependencies": {
