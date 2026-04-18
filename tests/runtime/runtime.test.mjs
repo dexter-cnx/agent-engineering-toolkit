@@ -13,6 +13,13 @@ import {
 import { PromptExecutor } from "../../runtime/executor/prompt-executor.ts";
 import { AgentEngine } from "../../runtime/engine/agent-engine.ts";
 
+function makeTempManifest(payload) {
+  const dir = mkdtempSync(join(tmpdir(), "overlay-registry-test-"));
+  const manifestPath = join(dir, "manifest.json");
+  writeFileSync(manifestPath, JSON.stringify(payload), "utf8");
+  return { dir, manifestPath };
+}
+
 test("overlay registry loads from canonical manifest", () => {
   const registry = OverlayRegistry.fromManifest();
   const overlays = registry.listOverlays();
@@ -20,14 +27,23 @@ test("overlay registry loads from canonical manifest", () => {
   assert.ok(overlays.find((o) => o.name === "backend-node"));
 });
 
-test("overlay registry fails for missing readme", () => {
-  const dir = mkdtempSync(join(tmpdir(), "overlay-registry-test-"));
-  const manifestPath = join(dir, "manifest.json");
-  writeFileSync(
-    manifestPath,
-    JSON.stringify({ overlays: [{ name: "broken", path: "overlays/broken", readme: "overlays/broken/README.md" }] }),
-    "utf8",
+test("overlay registry fails for missing manifest path", () => {
+  assert.throws(
+    () => OverlayRegistry.fromManifest("/tmp/does-not-exist-manifest.json"),
+    OverlayValidationError,
   );
+});
+
+test("overlay registry fails for malformed manifest", () => {
+  const { dir, manifestPath } = makeTempManifest({ notOverlays: [] });
+  assert.throws(() => OverlayRegistry.fromManifest(manifestPath), OverlayValidationError);
+  rmSync(dir, { recursive: true, force: true });
+});
+
+test("overlay registry fails for missing readme", () => {
+  const { dir, manifestPath } = makeTempManifest({
+    overlays: [{ name: "broken", path: "overlays/broken", readme: "overlays/broken/README.md" }],
+  });
 
   assert.throws(() => OverlayRegistry.fromManifest(manifestPath), OverlayValidationError);
   rmSync(dir, { recursive: true, force: true });
@@ -38,13 +54,21 @@ test("unknown overlay lookup throws explicit error", () => {
   assert.throws(() => registry.getOverlay("does-not-exist"), OverlayNotFoundError);
 });
 
-test("prompt executor simulation returns metadata", () => {
+test("prompt executor simulation returns stable schema", () => {
   const executor = new PromptExecutor();
   const result = executor.execute({
     overlayName: "backend-node",
     promptPath: "prompts/compiled/codex-runtime.md",
   });
 
+  assert.deepEqual(Object.keys(result).sort(), [
+    "executionId",
+    "mode",
+    "output",
+    "overlayName",
+    "promptPath",
+    "timestamp",
+  ]);
   assert.equal(result.overlayName, "backend-node");
   assert.equal(result.mode, "simulation");
   assert.equal(result.promptPath, "prompts/compiled/codex-runtime.md");
@@ -62,12 +86,15 @@ test("agent engine orchestration happy path", () => {
   assert.equal(result.execution.promptPath, "prompts/compiled/codex-runtime.md");
 });
 
-function runCli(args) {
-  return spawnSync(
-    "node",
-    ["--experimental-strip-types", resolve("tools/os/cli.ts"), ...args],
-    { encoding: "utf8" },
-  );
+test("agent engine failure path for unknown overlay", () => {
+  const engine = new AgentEngine();
+  assert.throws(() => engine.runOverlay("missing-overlay"), OverlayNotFoundError);
+});
+
+function runCli(args, entry = resolve("tools/os/cli.ts")) {
+  return spawnSync("node", ["--experimental-strip-types", entry, ...args], {
+    encoding: "utf8",
+  });
 }
 
 test("cli: os overlays list", () => {
@@ -83,12 +110,32 @@ test("cli: os run <overlay>", () => {
   assert.ok(result.stdout.includes("[SIMULATED:backend-node]"));
 });
 
-test("cli: os validate", () => {
+test("cli: os validate output contract", () => {
   const result = runCli(["validate"]);
   assert.equal(result.status, 0);
 
   const payload = JSON.parse(result.stdout.trim());
+  assert.deepEqual(Object.keys(payload).sort(), ["mode", "overlays", "source", "status"]);
   assert.equal(payload.status, "pass");
   assert.ok(payload.overlays > 0);
   assert.equal(payload.source, "docs/overlays.manifest.json");
+  assert.equal(payload.mode, "machine");
+});
+
+test("cli: usage failure has exit code 1", () => {
+  const result = runCli([]);
+  assert.equal(result.status, 1);
+});
+
+test("cli: runtime failure has exit code 2", () => {
+  const result = runCli(["run", "missing-overlay"]);
+  assert.equal(result.status, 2);
+  assert.ok(result.stderr.includes("OS_CLI_FAIL"));
+});
+
+test("installable bin wrapper executes validate", () => {
+  const result = runCli(["validate"], resolve("tools/os/bin/os.js"));
+  assert.equal(result.status, 0);
+  const payload = JSON.parse(result.stdout.trim());
+  assert.equal(payload.status, "pass");
 });

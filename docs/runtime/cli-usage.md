@@ -28,3 +28,9 @@ Entrypoint: `tools/os/cli.ts`
 
 - Invalid usage returns exit code `1`.
 - Runtime errors return exit code `2` with `OS_CLI_FAIL:` stderr prefix.
+
+
+## Related docs
+
+- `docs/runtime/installable-cli.md`
+- `docs/runtime/validation-output.md`

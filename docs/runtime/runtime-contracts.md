@@ -41,3 +41,10 @@ Module: `runtime/engine/agent-engine.ts`
 
 - Real provider integration should be introduced through runtime adapters.
 - Do not bypass registry/executor contracts when adding provider execution.
+
+
+## CLI validation contract
+
+- `os validate` emits machine-readable JSON only.
+- Exit code semantics: `0` success, `1` usage error, `2` runtime error.
+- Contract details: `docs/runtime/validation-output.md`.
