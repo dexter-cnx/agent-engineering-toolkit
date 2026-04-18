@@ -1,6 +1,7 @@
 {
   "nodes": [
     "docs/get-started.md",
+    "docs/README.md",
     "docs/mutation-system.md",
     "docs/prompt-pipeline.md",
     "docs/public-repo-checklist.md",

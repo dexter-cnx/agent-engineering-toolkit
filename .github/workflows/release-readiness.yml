@@ -13,6 +13,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python3 tools/prompts/compile_prompts.py
+      - run: python3 tools/ci/os_invariant_check.py
       - run: python3 tools/ci/doc_lint.py
       - run: python3 tools/ci/overlay_lint.py
       - run: python3 tools/ci/prompt_lint.py
