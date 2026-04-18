@@ -1,72 +1,22 @@
-# agent-engineering-toolkit
+# README_TH (Thai Companion, Non-Canonical)
 
-ชุดเครื่องมือพื้นฐานสำหรับการทำวิศวกรรมซอฟต์แวร์แบบ AI-assisted อย่างเป็นระบบ โดยยังคงความเป็นกลางทางโดเมน
+เอกสารนี้เป็นฉบับภาษาไทยแบบ **companion** เท่านั้น และ **ไม่ใช่ public front door** ของ repository
 
-Repository นี้ตั้งใจให้เป็น foundation toolkit ที่นำไปใช้ต่อได้กับ:
-- mobile projects
-- backend services
-- web frontends
-- AI และ agent systems
-- monorepos
-- internal engineering platforms
+- Canonical front door: [README.md](README.md)
+- Canonical onboarding: [docs/get-started.md](docs/get-started.md) → [docs/adoption-paths.md](docs/adoption-paths.md)
+- Canonical map: [docs/reference/canonical-doc-map.md](docs/reference/canonical-doc-map.md)
 
-Repository นี้ตั้งใจให้เป็น foundation toolkit ที่เป็นกลางทาง stack ในชั้นฐาน ส่วนกฎเฉพาะทางของแต่ละ stack จะอยู่ใน overlay
+## สรุปสั้น
 
-## จุดอ้างอิงหลัก
+Repository นี้คือ **stack-neutral Agent Engineering OS**:
+- ชั้น root ยังคงความเป็นกลางทาง stack
+- specialization อยู่ใน `overlays/`
+- governance สำคัญถูกบังคับใช้ผ่าน tooling และ CI
 
-- แหล่งอ้างอิง lifecycle หลัก: `docs/prompt-pipeline.md`
-- แหล่งอ้างอิง role model หลัก: `docs/agent-team-system.md`
-- คู่มือใช้งาน: `docs/how-to-use.md`
-- บทสอน: `docs/tutorial.md`
-- คู่มือ Karpathy: `docs/karpathy-guide_TH.md`
-- แนวคิด overlay: `docs/overlays.md`
+## การเริ่มต้นที่ถูกต้อง
 
-## Overlay catalog
+1. เริ่มที่ [README.md](README.md)
+2. ไปที่ [docs/get-started.md](docs/get-started.md)
+3. เลือก path ที่ [docs/adoption-paths.md](docs/adoption-paths.md)
 
-รายละเอียดเชิงลึกอยู่ใน README และ `AGENTS.overlay.md` ของแต่ละ overlay
-
-- `overlays/backend-node/README.md`
-- `overlays/mobile-flutter/README.md`
-- `overlays/unity/README.md`
-- `overlays/python-service/README.md`
-- [overlays/agent-karpathy/README.md](overlays/agent-karpathy/README.md) - การปรับปรุง skill แบบ eval-driven, mutation, promotion ที่มี regression guardrail, และ token governance
-- `overlays/web-frontend/README.md`
-
-## เมื่อใดควรใช้ Karpathy Layer
-
-ใช้ `agent-karpathy` overlay เมื่อกำลังทำงานกับ quality หรือ promotion workflow ของ AI skill
-โดยเฉพาะ ระบบนี้เป็นชั้น eval-driven optimization ของ repository: วัด skill ด้วย rubric,
-สร้าง mutation แบบควบคุม, block regression, ใช้ token governance และ promote เฉพาะ candidate
-ที่ชนะ baseline แบบชัดเจนเท่านั้น
-
-คำสั่งหลัก:
-
-```bash
-./scripts/karpathy-eval.sh <skill>
-./scripts/karpathy-run-cycle.sh <skill> true 3
-./scripts/karpathy-run-cycle.sh <skill> false 3
-```
-
-runtime outputs ไปที่:
-- `reports/latest_report.md`
-- `reports/history/`
-- `memory/score_history.json`
-- `memory/candidate_archive.json`
-
-ตัวอย่างแบบ static อยู่ใน `examples/` และไม่ใช่ runtime output
-
-ถ้ากำลังปรับ skill ให้ดีขึ้นหรือเตรียม promotion ให้เริ่มอ่าน
-`docs/karpathy-guide_TH.md` ก่อน เพื่อให้ baseline, regression, และ token-policy
-ทำงานไปในทิศเดียวกัน
-
-## เริ่มต้นอ่าน
-
-- `README_START_HERE.md`
-- `docs/how-to-use.md`
-- `docs/how-to-use_TH.md`
-- `docs/tutorial.md`
-- `docs/tutorial_TH.md`
-- `docs/overlays.md`
-- ถ้ากำลังทำงานด้านคุณภาพของ AI skill ให้เริ่มที่
-  [overlays/agent-karpathy/README.md](overlays/agent-karpathy/README.md) แล้วอ่าน
-  `docs/karpathy-guide_TH.md` ต่อ
+หากต้องใช้แนวทางเฉพาะ stack ให้เลือก overlay จาก [docs/overlays.md](docs/overlays.md)

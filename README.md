@@ -2,9 +2,37 @@
 
 Stack-neutral **Agent Engineering OS** for governed, repeatable agent-assisted engineering.
 
-## What is this?
+## What this repo is
 
 A production-focused OSS operating system for agentic engineering workflows: canonical docs, runtime contracts, memory/ADR discipline, prompt compilation, and CI enforcement.
+
+## Start here
+
+- **[docs/get-started.md](docs/get-started.md)**
+
+## Choose path
+
+- **[docs/adoption-paths.md](docs/adoption-paths.md)**
+
+## Choose overlay
+
+- **[docs/overlays.md](docs/overlays.md)**
+
+## Secondary References
+
+## Repository identity boundaries
+
+### What this is NOT
+
+- Not a starter template
+- Not a framework
+- Not a product monorepo
+
+### What this IS
+
+- Agent Engineering OS
+- Foundation system
+- Overlay-driven architecture
 
 ## Who is this for?
 
@@ -17,13 +45,9 @@ Teams building or hardening AI-assisted engineering workflows who need stack-neu
 - Verified compiled prompt consistency
 - Clear next step into overlays and working examples
 
-## Start in 30 seconds
+## Single onboarding rule
 
-1. Open **[docs/get-started.md](docs/get-started.md)**.
-2. Choose one mode in **[docs/adoption-paths.md](docs/adoption-paths.md)**.
-3. Add specialization only if needed via **[docs/overlays.md](docs/overlays.md)**.
-
-**Single onboarding rule:** `README.md -> docs/get-started.md -> docs/adoption-paths.md`.
+Single onboarding rule: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md`
 
 ## Choose your path (concise)
 
@@ -33,16 +57,15 @@ Teams building or hardening AI-assisted engineering workflows who need stack-neu
 
 Details: [docs/adoption-paths.md](docs/adoption-paths.md).
 
-## Overlay catalog (concise)
+## Overlay authority pointer
 
-- Agent quality/governance: `agent-karpathy`, `agent-friendly-cli`
-- Backend: `backend-common`, `backend-dotnet`, `backend-node`, `python-service`
-- Frontend: `web-frontend-common`, `web-frontend-nextjs`, `web-frontend` (legacy frontend path retained)
-- Mobile/game: `mobile-flutter`, `unity`
+Overlay catalog and boundaries are maintained only in [docs/overlays.md](docs/overlays.md).
 
-Catalog + boundaries: [docs/overlays.md](docs/overlays.md).
+## Reference implementations
 
-## Runnable/reference paths (concise)
+`apps/` and `packages/` are **reference implementations** that demonstrate composition patterns and contracts, not the foundation definition itself.
+
+Runtime entrypoint: `tools/os/cli.ts` (`os overlays list`, `os run <overlay>`, `os validate`).
 
 - `apps/nextjs-fullstack-app/` (single-app full-stack reference)
 - `apps/nextjs-dotnet-app/` (split frontend/backend reference)
@@ -69,35 +92,24 @@ python3 tools/prompts/validate_prompt_pack.py
 - `WROTE: prompts/compiled/*-runtime.md`
 - `PROMPT_PACK_PASS`
 
-### Failure modes
+### Quick validation intent
 
-1. **Command fails immediately**  
-   Usually missing runtime/tooling prerequisites (Python/Node).
-2. **Prompt compilation fails**  
-   Missing or malformed source/pack manifest entries.
-3. **Validation fails after compile**  
-   Compiled prompts stale or modified manually.
-
-### Debug steps
-
-1. Confirm environment:
-   - `python3 --version`
-   - `npm --version`
-2. Re-run in order:
-   - `python3 tools/prompts/compile_prompts.py`
-   - `python3 tools/prompts/validate_prompt_pack.py`
-3. Check canonical references:
-   - `docs/reference/canonical-doc-map.md`
-   - `system/kernel/os-invariants.md`
-
-### Success criteria
-
-- `prompts/compiled/codex-runtime.md`, `prompts/compiled/claude-runtime.md`, `prompts/compiled/gemini-runtime.md` exist and validate.
-- Core governance checks pass (invariant + doc + link + prompt validation).
+- Confirms governance checks and prompt-pack integrity are passing in a fresh clone.
+- For deeper troubleshooting and walkthroughs, see `examples/working/os-5-minute-quickstart.md`.
 
 Working examples:
 - `examples/working/os-5-minute-quickstart.md`
 - `examples/working/agent-flow-demo/README.md`
+
+## Gate semantics (governance vs integration vs release)
+
+- **Governance gate (Toolkit CI)**: root-level policy and coherence checks (`os_invariant_check`, `doc_lint`, `link_check`, `overlay_lint`, `prompt_lint`, `memory_lint`).
+- **Runtime integration gate**: stack/runtime verification inside a consuming app or composition (for example `npm run fullstack:verify` in full-stack references).
+- **Release gate**: publication readiness checks (versioning/changelog/public surface checks) before tagging or shipping.
+
+Scope boundary:
+- Toolkit CI stops at repository governance and contract integrity.
+- Runtime behavior fitness starts at composition/app verification (for example `fullstack:verify`), not at root governance checks.
 
 ## Canonical references
 
@@ -106,15 +118,22 @@ Working examples:
 - Prompt catalog: [docs/reference/prompt-catalog.md](docs/reference/prompt-catalog.md)
 - Release / packaging metadata: [docs/repo-maintenance.md](docs/repo-maintenance.md)
 - Overlays: [docs/overlays.md](docs/overlays.md)
+- Runtime overview: [docs/runtime/runtime-overview.md](docs/runtime/runtime-overview.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+- CI required checks: [docs/ci/required-checks.md](docs/ci/required-checks.md)
 - Release notes: [docs/release-notes/v0.1.0.md](docs/release-notes/v0.1.0.md)
+
+## Contribution
+
+Before opening a PR, identify your change type and satisfy the required governance pipeline in [docs/ci/required-checks.md](docs/ci/required-checks.md).
+
+Merge-gate authority for branch protection checks: [docs/ci/merge-gate-authority.md](docs/ci/merge-gate-authority.md).
 
 ## Status note (compatibility and historical surfaces)
 
 Some root files/directories are retained for compatibility or historical context.
 They are explicitly labeled as **compatibility**, **legacy**, or **frozen** and are not part of the canonical onboarding path.
 Use [docs/reference/repo-surface-status.md](docs/reference/repo-surface-status.md) when unsure.
-
 
 ## License
 

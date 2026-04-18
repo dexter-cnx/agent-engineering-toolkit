@@ -76,7 +76,7 @@ try {
 
   const readme = await read("README.md");
   const readmeCheckGroups = [
-    ["## Full-stack quick path", "## Runnable/reference paths (concise)"],
+    ["## Reference implementations", "docs/fullstack/getting-started.md", "apps/nextjs-fullstack-app/"],
     ["docs/fullstack/getting-started.md"],
     ["docs/fullstack/dev-workflow.md"],
     ["docs/fullstack/repo-layout.md"],
@@ -91,7 +91,7 @@ try {
     .filter((group) => !hasAny(readme, group))
     .map((group) => group.join(" | "));
   if (missingReadmeChecks.length > 0) {
-    throw new Error(`README.md is missing full-stack links or quick path text: ${missingReadmeChecks.join(", ")}`);
+    throw new Error(`README.md is missing full-stack discoverability anchors: ${missingReadmeChecks.join(", ")}`);
   }
 
   const compositions = await read("docs/compositions/README.md");

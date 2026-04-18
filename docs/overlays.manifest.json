@@ -1,0 +1,54 @@
+{
+  "overlays": [
+    {
+      "name": "agent-karpathy",
+      "path": "overlays/agent-karpathy",
+      "readme": "overlays/agent-karpathy/README.md"
+    },
+    {
+      "name": "backend-node",
+      "path": "overlays/backend-node",
+      "readme": "overlays/backend-node/README.md"
+    },
+    {
+      "name": "backend-common",
+      "path": "overlays/backend-common",
+      "readme": "overlays/backend-common/README.md"
+    },
+    {
+      "name": "backend-dotnet",
+      "path": "overlays/backend-dotnet",
+      "readme": "overlays/backend-dotnet/README.md"
+    },
+    {
+      "name": "mobile-flutter",
+      "path": "overlays/mobile-flutter",
+      "readme": "overlays/mobile-flutter/README.md"
+    },
+    {
+      "name": "web-frontend",
+      "path": "overlays/web-frontend",
+      "readme": "overlays/web-frontend/README.md"
+    },
+    {
+      "name": "web-frontend-common",
+      "path": "overlays/web-frontend-common",
+      "readme": "overlays/web-frontend-common/README.md"
+    },
+    {
+      "name": "web-frontend-nextjs",
+      "path": "overlays/web-frontend-nextjs",
+      "readme": "overlays/web-frontend-nextjs/README.md"
+    },
+    {
+      "name": "python-service",
+      "path": "overlays/python-service",
+      "readme": "overlays/python-service/README.md"
+    },
+    {
+      "name": "unity",
+      "path": "overlays/unity",
+      "readme": "overlays/unity/README.md"
+    }
+  ]
+}

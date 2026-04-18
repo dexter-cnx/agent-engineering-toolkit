@@ -4,9 +4,11 @@
 - `README.md`
 
 ## One onboarding path
+Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md`.
 - `docs/get-started.md`
 - `docs/adoption-paths.md`
 - `docs/overlays.md`
+- `docs/overlays.manifest.json` (machine authority for overlays; `docs/overlays.md` mirrors this for humans)
 
 ## Core architecture
 - `docs/architecture/os-overview.md`
@@ -18,10 +20,21 @@
 - `memory/README.md`
 - `system/README.md`
 
+## Runtime foundation
+- `runtime/README.md`
+- `docs/runtime/runtime-overview.md`
+- `docs/runtime/overlay-runtime.md`
+
 ## Operational references
 - `docs/reference/prompt-catalog.md`
 - `docs/reference/repo-surface-status.md`
 - `docs/graph/navigation-map.md`
+- `docs/release-process.md` (release gate semantics)
+
+## Gate semantics authority
+- Governance gate (Toolkit CI): root `tools/ci/*` checks + `.github/workflows/ci.yml`
+- Runtime integration gate: composition/app verification flows (for example `docs/fullstack/dev-workflow.md` and `fullstack:verify`)
+- Release gate: `docs/release-process.md`
 
 ## Supporting references (non-authoritative for onboarding/architecture)
 - `docs/prompt-pipeline.md`
@@ -29,12 +42,12 @@
 
 ## Compatibility redirectors (legacy links only)
 These are non-canonical and not onboarding sources:
-- `START_HERE.md`
-- `README_START_HERE.md`
-- `HOW_TO_USE.md`
-- `ONBOARDING_MINIMAL.md`
-- `ONBOARDING_FULL.md`
-- `INDEX_CANONICAL.md`
+- `docs/legacy/START_HERE.md`
+- `docs/legacy/README_START_HERE.md`
+- `docs/legacy/HOW_TO_USE.md`
+- `docs/legacy/ONBOARDING_MINIMAL.md`
+- `docs/legacy/ONBOARDING_FULL.md`
+- `docs/legacy/INDEX_CANONICAL.md`
 
 ## Legacy/frozen top-level namespaces (retained, non-primary)
 - `agent_team/`

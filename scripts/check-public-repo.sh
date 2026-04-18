@@ -124,7 +124,7 @@ require_contains "docs/strict-audit-prompt.md" "Required output format"
 require_contains "prompts/index.md" "Compatibility aliases"
 require_contains "prompts/index_EN.md" "Compatibility aliases"
 
-check_markdown_links "README_START_HERE.md"
+check_markdown_links "docs/legacy/README_START_HERE.md" # legacy redirect moved under docs/legacy
 check_markdown_links "README.md"
 check_markdown_links "README_TH.md"
 check_markdown_links "docs/how-to-use.md"
