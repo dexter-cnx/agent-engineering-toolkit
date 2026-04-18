@@ -4,7 +4,9 @@ Overlays are the specialization layer of the Agent Engineering OS.
 
 ## Overlay Authority
 
-This document is the single source of truth for overlays.
+**Authority model (Option A):**
+- `docs/overlays.manifest.json` is the machine authority.
+- This document is the human-readable mirror of that manifest.
 
 ## Boundary contract
 
@@ -28,6 +30,10 @@ This document is the single source of truth for overlays.
 
 Machine-readable overlay authority is maintained in `docs/overlays.manifest.json`.
 The manifest must stay consistent with this catalog and is enforced by `tools/ci/check-canonical-consistency.ts`.
+
+## Governance update discipline
+
+When adding/removing/renaming overlays, update `docs/overlays.manifest.json` first, then update this mirror doc in the same pull request. CI will fail if either side drifts.
 
 ## Overlay product metadata (concise)
 

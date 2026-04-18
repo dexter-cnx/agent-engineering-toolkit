@@ -14,3 +14,9 @@ The Agent Engineering OS runtime layer provides a minimal execution surface with
 - Non-breaking and additive.
 - Overlay authority stays explicit and machine-verifiable.
 - Side effects remain isolated behind executor/adapter boundaries.
+
+
+## Runtime references
+
+- `docs/runtime/runtime-contracts.md`
+- `docs/runtime/cli-usage.md`

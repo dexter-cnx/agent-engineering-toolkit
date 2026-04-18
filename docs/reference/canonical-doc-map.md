@@ -8,7 +8,7 @@ Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> 
 - `docs/get-started.md`
 - `docs/adoption-paths.md`
 - `docs/overlays.md`
-- `docs/overlays.manifest.json` (machine authority for overlays)
+- `docs/overlays.manifest.json` (machine authority for overlays; `docs/overlays.md` mirrors this for humans)
 
 ## Core architecture
 - `docs/architecture/os-overview.md`

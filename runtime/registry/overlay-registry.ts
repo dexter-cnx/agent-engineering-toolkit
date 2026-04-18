@@ -15,7 +15,21 @@ type OverlayManifest = {
 
 const currentDir = dirname(fileURLToPath(import.meta.url));
 const repoRoot = resolve(currentDir, "../..");
-const manifestPath = resolve(repoRoot, "docs/overlays.manifest.json");
+const defaultManifestPath = resolve(repoRoot, "docs/overlays.manifest.json");
+
+export class OverlayValidationError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "OverlayValidationError";
+  }
+}
+
+export class OverlayNotFoundError extends Error {
+  constructor(name: string) {
+    super(`Unknown overlay: ${name}`);
+    this.name = "OverlayNotFoundError";
+  }
+}
 
 export class OverlayRegistry {
   overlays: Map<string, OverlayRecord>;
@@ -24,28 +38,54 @@ export class OverlayRegistry {
     this.overlays = new Map(records.map((record) => [record.name, record]));
   }
 
-  static fromManifest(): OverlayRegistry {
+  static fromManifest(manifestPath = defaultManifestPath): OverlayRegistry {
+    if (!existsSync(manifestPath)) {
+      throw new OverlayValidationError(`Overlay manifest file does not exist: ${manifestPath}`);
+    }
+
     const raw = readFileSync(manifestPath, "utf8");
     const parsed = JSON.parse(raw) as OverlayManifest;
 
     if (!parsed.overlays || !Array.isArray(parsed.overlays)) {
-      throw new Error("Invalid overlays manifest: missing overlays array");
+      throw new OverlayValidationError("Invalid overlays manifest: missing overlays array");
     }
+
+    if (parsed.overlays.length === 0) {
+      throw new OverlayValidationError("Invalid overlays manifest: overlays array must not be empty");
+    }
+
+    const names = new Set<string>();
 
     for (const overlay of parsed.overlays) {
       if (!overlay.name || !overlay.path || !overlay.readme) {
-        throw new Error(`Invalid overlays manifest entry: ${JSON.stringify(overlay)}`);
+        throw new OverlayValidationError(`Invalid overlays manifest entry: ${JSON.stringify(overlay)}`);
       }
+
+      if (names.has(overlay.name)) {
+        throw new OverlayValidationError(`Duplicate overlay in manifest: ${overlay.name}`);
+      }
+      names.add(overlay.name);
+
       const readmePath = resolve(repoRoot, overlay.readme);
       if (!existsSync(readmePath)) {
-        throw new Error(`Overlay README not found for '${overlay.name}': ${overlay.readme}`);
+        throw new OverlayValidationError(
+          `Overlay '${overlay.name}' README not found at path: ${overlay.readme}`,
+        );
       }
     }
 
     return new OverlayRegistry(parsed.overlays);
   }
 
-  getOverlay(name: string): OverlayRecord | undefined {
+  getOverlay(name: string): OverlayRecord {
+    const overlay = this.overlays.get(name);
+    if (!overlay) {
+      throw new OverlayNotFoundError(name);
+    }
+    return overlay;
+  }
+
+  findOverlay(name: string): OverlayRecord | undefined {
     return this.overlays.get(name);
   }
 
