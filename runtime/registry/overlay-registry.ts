@@ -57,7 +57,13 @@ export class OverlayRegistry {
     }
 
     const raw = readFileSync(manifestPath, "utf8");
-    const parsed = JSON.parse(raw) as OverlayManifest;
+    let parsed: OverlayManifest;
+    try {
+      parsed = JSON.parse(raw) as OverlayManifest;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      throw new OverlayValidationError(`Invalid overlays manifest JSON: ${message}`);
+    }
 
     if (!parsed.overlays || !Array.isArray(parsed.overlays)) {
       throw new OverlayValidationError("Invalid overlays manifest: missing overlays array");

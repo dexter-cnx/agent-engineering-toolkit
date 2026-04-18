@@ -9,9 +9,9 @@ import {
   OverlayRegistry,
   OverlayValidationError,
   OverlayNotFoundError,
-} from "../../runtime/registry/overlay-registry.ts";
-import { PromptExecutor } from "../../runtime/executor/prompt-executor.ts";
-import { AgentEngine } from "../../runtime/engine/agent-engine.ts";
+} from "../../dist/runtime/registry/overlay-registry.js";
+import { PromptExecutor, PromptExecutionError } from "../../dist/runtime/executor/prompt-executor.js";
+import { AgentEngine } from "../../dist/runtime/engine/agent-engine.js";
 
 function makeTempManifest(payload) {
   const dir = mkdtempSync(join(tmpdir(), "overlay-registry-test-"));
@@ -77,6 +77,14 @@ test("prompt executor simulation returns stable schema", () => {
   assert.ok(result.output.includes("[SIMULATED:backend-node]"));
 });
 
+test("prompt executor fails gracefully for missing prompt", () => {
+  const executor = new PromptExecutor();
+  assert.throws(
+    () => executor.execute({ overlayName: "backend-node", promptPath: "prompts/compiled/missing.md" }),
+    PromptExecutionError,
+  );
+});
+
 test("agent engine orchestration happy path", () => {
   const engine = new AgentEngine();
   const result = engine.runOverlay("backend-node");
@@ -86,13 +94,22 @@ test("agent engine orchestration happy path", () => {
   assert.equal(result.execution.promptPath, "prompts/compiled/codex-runtime.md");
 });
 
-test("agent engine failure path for unknown overlay", () => {
+test("agent engine dry-run mode", () => {
+  const engine = new AgentEngine();
+  const result = engine.runOverlay("backend-node", { mode: "dry-run" });
+
+  assert.equal(result.overlay.name, "backend-node");
+  assert.equal(result.execution.mode, "dry-run");
+  assert.ok(result.execution.output.includes("[DRY-RUN:backend-node]"));
+});
+
+test("agent engine failure path for invalid overlay", () => {
   const engine = new AgentEngine();
   assert.throws(() => engine.runOverlay("missing-overlay"), OverlayNotFoundError);
 });
 
-function runCli(args, entry = resolve("tools/os/cli.ts")) {
-  return spawnSync("node", ["--experimental-strip-types", entry, ...args], {
+function runCli(args, entry = resolve("dist/cli.js")) {
+  return spawnSync("node", [entry, ...args], {
     encoding: "utf8",
   });
 }
@@ -121,6 +138,19 @@ test("cli: os run <overlay>", () => {
   assert.equal(result.status, 0);
   assert.ok(result.stdout.includes("overlay=backend-node"));
   assert.ok(result.stdout.includes("[SIMULATED:backend-node]"));
+});
+
+test("cli: os run <overlay> --dry-run", () => {
+  const result = runCli(["run", "backend-node", "--dry-run"]);
+  assert.equal(result.status, 0);
+  assert.ok(result.stdout.includes("mode=dry-run"));
+  assert.ok(result.stdout.includes("[DRY-RUN:backend-node]"));
+});
+
+test("cli: os run <overlay> --verbose writes diagnostics", () => {
+  const result = runCli(["run", "backend-node", "--verbose"]);
+  assert.equal(result.status, 0);
+  assert.ok(result.stderr.includes("OS_CLI_VERBOSE"));
 });
 
 test("cli: os run <overlay> --json output contract", () => {
@@ -164,6 +194,34 @@ test("cli: malformed flag combination exits 2 with machine error payload", () =>
   assert.ok(payload.error.includes("--json"));
 });
 
+test("cli: json mode failure for invalid overlay returns machine payload", () => {
+  const result = runCli(["run", "missing-overlay", "--json"]);
+  assert.equal(result.status, 2);
+  const payload = JSON.parse(result.stderr.trim());
+  assert.equal(payload.status, "fail");
+  assert.equal(payload.mode, "machine");
+  assert.equal(payload.contractVersion, "1.0.0");
+  assert.ok(payload.error.includes("missing-overlay"));
+});
+
+test("cli: json mode failure for missing prompt returns machine payload", () => {
+  const script = `
+    const { AgentEngine } = require('./dist/runtime/engine/agent-engine.js');
+    try {
+      const engine = new AgentEngine();
+      engine.runOverlay('backend-node', { promptPath: 'prompts/compiled/missing.md' });
+    } catch (error) {
+      console.error(JSON.stringify({ status: 'fail', error: error.message }));
+      process.exit(2);
+    }
+  `;
+  const result = spawnSync("node", ["-e", script], { encoding: "utf8" });
+  assert.equal(result.status, 2);
+  const payload = JSON.parse(result.stderr.trim());
+  assert.equal(payload.status, "fail");
+  assert.ok(payload.error.includes("Prompt file does not exist"));
+});
+
 test("cli: usage failure has exit code 1", () => {
   const result = runCli([]);
   assert.equal(result.status, 1);
@@ -187,7 +245,7 @@ test("publishable CLI package metadata and bin path exist", () => {
   assert.ok(existsSync(pkgPath));
 
   const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
-  assert.equal(pkg.bin.os, "tools/os/bin/os.js");
+  assert.equal(pkg.bin.os, "dist/cli.js");
   assert.equal(pkg.publishConfig.access, "public");
   assert.equal(pkg.homepage, pkg.repository.url.replace(/\.git$/, ""));
   assert.equal(pkg.bugs.url, `${pkg.homepage}/issues`);
