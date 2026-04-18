@@ -26,3 +26,8 @@ Validates reference implementation contract compatibility and end-to-end integra
 
 ### `release-check`
 Validates release readiness requirements (versioning, changelog discipline, and publish-time integrity signals).
+
+
+## Merge gate authority
+
+- Branch protection check mapping authority: `docs/ci/merge-gate-authority.md`

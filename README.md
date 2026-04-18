@@ -90,31 +90,10 @@ python3 tools/prompts/validate_prompt_pack.py
 - `WROTE: prompts/compiled/*-runtime.md`
 - `PROMPT_PACK_PASS`
 
-### Failure modes
+### Quick validation intent
 
-1. **Command fails immediately**  
-   Usually missing runtime/tooling prerequisites (Python/Node).
-2. **Prompt compilation fails**  
-   Missing or malformed source/pack manifest entries.
-3. **Validation fails after compile**  
-   Compiled prompts stale or modified manually.
-
-### Debug steps
-
-1. Confirm environment:
-   - `python3 --version`
-   - `npm --version`
-2. Re-run in order:
-   - `python3 tools/prompts/compile_prompts.py`
-   - `python3 tools/prompts/validate_prompt_pack.py`
-3. Check canonical references:
-   - `docs/reference/canonical-doc-map.md`
-   - `system/kernel/os-invariants.md`
-
-### Success criteria
-
-- `prompts/compiled/codex-runtime.md`, `prompts/compiled/claude-runtime.md`, `prompts/compiled/gemini-runtime.md` exist and validate.
-- Core governance checks pass (invariant + doc + link + prompt validation).
+- Confirms governance checks and prompt-pack integrity are passing in a fresh clone.
+- For deeper troubleshooting and walkthroughs, see `examples/working/os-5-minute-quickstart.md`.
 
 Working examples:
 - `examples/working/os-5-minute-quickstart.md`
@@ -144,6 +123,8 @@ Scope boundary:
 ## Contribution
 
 Before opening a PR, identify your change type and satisfy the required governance pipeline in [docs/ci/required-checks.md](docs/ci/required-checks.md).
+
+Merge-gate authority for branch protection checks: [docs/ci/merge-gate-authority.md](docs/ci/merge-gate-authority.md).
 
 ## Status note (compatibility and historical surfaces)
 

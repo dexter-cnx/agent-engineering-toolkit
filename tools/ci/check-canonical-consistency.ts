@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const { readFileSync } = require("node:fs");
+const { existsSync, readFileSync } = require("node:fs");
 const { resolve } = require("node:path");
 
 const repoRoot = resolve(__dirname, "../..");
@@ -11,19 +11,6 @@ const REQUIRED_TOP_LINKS = new Set([
   "docs/adoption-paths.md",
   "docs/overlays.md",
 ]);
-
-const REQUIRED_OVERLAYS = [
-  "agent-karpathy",
-  "backend-node",
-  "backend-common",
-  "backend-dotnet",
-  "mobile-flutter",
-  "web-frontend",
-  "web-frontend-common",
-  "web-frontend-nextjs",
-  "python-service",
-  "unity",
-];
 
 const mdLinkRegex = /\[[^\]]+\]\(([^)]+)\)/g;
 
@@ -54,10 +41,24 @@ function extractAllLinks(markdown: string): string[] {
   return links;
 }
 
-function extractCanonicalOverlays(markdown: string): string[] {
+function extractCanonicalOverlayCatalog(markdown: string): { name: string; href: string }[] {
   const section = extractSection(markdown, "## Canonical overlay catalog");
-  const matches = [...section.matchAll(/- \[([^\]]+)\]\(\.\.\/overlays\/[^)]+\)/g)];
-  return matches.map((match) => match[1].trim());
+  const matches = [
+    ...section.matchAll(/- \[([^\]]+)\]\((\.\.\/overlays\/[^)]+)\)/g),
+  ];
+
+  return matches.map((match) => ({
+    name: match[1].trim(),
+    href: match[2].trim(),
+  }));
+}
+
+function extractOverlayNamesFromMetadataTable(markdown: string): string[] {
+  const section = extractSection(markdown, "## Overlay product metadata (concise)");
+  return section
+    .split(/\r?\n/)
+    .filter((line: string) => line.startsWith("| ") && !line.includes("---") && !line.includes(" Overlay |"))
+    .map((line: string) => line.split("|")[1].trim());
 }
 
 function fail(message: string): never {
@@ -93,20 +94,48 @@ function assertTopSectionLinks(readme: string): void {
   }
 }
 
-function assertOverlayCatalog(overlaysDoc: string): void {
-  const overlays = extractCanonicalOverlays(overlaysDoc);
+function assertOverlayAuthorityConsistency(overlaysDoc: string): void {
+  const catalog = extractCanonicalOverlayCatalog(overlaysDoc);
+  if (catalog.length === 0) {
+    fail("docs/overlays.md canonical overlay catalog is empty");
+  }
 
-  if (overlays.length !== REQUIRED_OVERLAYS.length) {
+  const metadataNames = extractOverlayNamesFromMetadataTable(overlaysDoc);
+  const catalogNames = catalog.map((entry) => entry.name);
+
+  if (metadataNames.length !== catalogNames.length) {
     fail(
-      `docs/overlays.md must list exactly ${REQUIRED_OVERLAYS.length} overlays in canonical catalog, found ${overlays.length}: ${JSON.stringify(overlays)}`,
+      `Overlay metadata table count (${metadataNames.length}) must match canonical catalog count (${catalogNames.length})`,
     );
   }
 
-  for (let i = 0; i < REQUIRED_OVERLAYS.length; i += 1) {
-    if (overlays[i] !== REQUIRED_OVERLAYS[i]) {
-      fail(
-        `Overlay catalog mismatch at index ${i}: expected '${REQUIRED_OVERLAYS[i]}', found '${overlays[i]}'`,
-      );
+  const catalogSet = new Set(catalogNames);
+  const metadataSet = new Set(metadataNames);
+
+  if (catalogSet.size !== catalogNames.length) {
+    fail(`Canonical overlay catalog contains duplicate names: ${JSON.stringify(catalogNames)}`);
+  }
+
+  if (metadataSet.size !== metadataNames.length) {
+    fail(`Overlay metadata table contains duplicate names: ${JSON.stringify(metadataNames)}`);
+  }
+
+  for (const name of catalogNames) {
+    if (!metadataSet.has(name)) {
+      fail(`Overlay metadata table missing catalog entry: ${name}`);
+    }
+  }
+
+  for (const name of metadataNames) {
+    if (!catalogSet.has(name)) {
+      fail(`Overlay metadata table contains non-catalog entry: ${name}`);
+    }
+  }
+
+  for (const entry of catalog) {
+    const overlayReadmePath = resolve(repoRoot, "docs", entry.href);
+    if (!existsSync(overlayReadmePath)) {
+      fail(`Overlay listed in docs/overlays.md is missing README: ${entry.href}`);
     }
   }
 }
@@ -116,9 +145,11 @@ function main(): void {
   const overlaysDoc = readFileSync(overlaysPath, "utf8");
 
   assertTopSectionLinks(readme);
-  assertOverlayCatalog(overlaysDoc);
+  assertOverlayAuthorityConsistency(overlaysDoc);
 
-  console.log("CANONICAL_CONSISTENCY_PASS: README canonical chain and overlays authority are in sync.");
+  console.log(
+    "CANONICAL_CONSISTENCY_PASS: README canonical chain and overlay authority consistency are validated.",
+  );
 }
 
 main();
