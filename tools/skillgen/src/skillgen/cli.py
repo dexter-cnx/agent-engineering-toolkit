@@ -462,6 +462,21 @@ def resolve_repo_reference(base: Path, reference: str) -> Path:
         return Path(reference)
     if reference.startswith("/"):
         return Path(reference)
+    overlay = overlay_root(None)
+
+    # Path literals in overlay docs are used for both root-canonical references
+    # and overlay-local references. Resolve them against the current file first,
+    # then the repo root, then the overlay root so canonical front-door links and
+    # overlay-local docs both validate without special-casing content.
+    candidates = [
+        (base.parent / reference).resolve(),
+        (repo_root() / reference).resolve(),
+        (overlay / reference).resolve(),
+    ]
+    for candidate in candidates:
+        if candidate.exists():
+            return candidate
+
     if reference.startswith(("overlays/", "tools/", ".github/")):
         return repo_root() / reference
     if reference.startswith((
@@ -483,8 +498,7 @@ def resolve_repo_reference(base: Path, reference: str) -> Path:
         "SKILL_SCHEMA.md",
         "AGENT_CONTRIBUTION_RULES.md",
     )):
-        overlay = overlay_root(None)
-        return (overlay / reference).resolve()
+        return overlay / reference
     if "#" in reference:
         reference = reference.split("#", 1)[0]
     return (base.parent / reference).resolve()
