@@ -1,9 +1,10 @@
-# Agent Team
+# Agent Team (Legacy / Frozen)
 
-This folder contains **non-canonical quick references only**.
+Status: **legacy quick-reference namespace**.
 
-Canonical source:
-- `docs/agent-team-system.md`
+Canonical runtime role model now lives in:
+- `agents/` (operational runtime roles + workflows)
+- `docs/agent-team-system.md` (role model concept)
 
-Use the files here as lightweight reminders, not as source of truth.
-If a quick reference and the canonical doc ever disagree, follow `docs/agent-team-system.md`.
+Keep this directory only for historical inbound references.
+Do not start new role modeling work here.

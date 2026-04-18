@@ -1,0 +1,51 @@
+# Canonical Document Map
+
+## Public front door
+- `README.md`
+
+## One onboarding path
+- `docs/get-started.md`
+- `docs/adoption-paths.md`
+- `docs/overlays.md`
+
+## Core architecture
+- `docs/architecture/os-overview.md`
+- `docs/architecture/task-lifecycle.md`
+
+## Runtime subsystems
+- `agents/README.md`
+- `prompts/README.md`
+- `memory/README.md`
+- `system/README.md`
+
+## Operational references
+- `docs/reference/prompt-catalog.md`
+- `docs/reference/repo-surface-status.md`
+- `docs/graph/navigation-map.md`
+
+## Supporting references (non-authoritative for onboarding/architecture)
+- `docs/prompt-pipeline.md`
+- `docs/agent-team-system.md`
+
+## Compatibility redirectors (legacy links only)
+These are non-canonical and not onboarding sources:
+- `START_HERE.md`
+- `README_START_HERE.md`
+- `HOW_TO_USE.md`
+- `ONBOARDING_MINIMAL.md`
+- `ONBOARDING_FULL.md`
+- `INDEX_CANONICAL.md`
+
+## Legacy/frozen top-level namespaces (retained, non-primary)
+- `agent_team/`
+- `project_memory/`
+- `core/`
+- `canonical/`
+- `checklists/`
+- `skills/`
+- `companion-pack/`
+- `orchestrator/`
+
+## Legacy/frozen doc aliases (retained, non-primary)
+- `docs/how-to-use.md`
+- `docs/architecture.md`

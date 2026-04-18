@@ -1,7 +1,6 @@
-# Onboarding Minimal
+# Compatibility Redirect (Legacy)
 
-1. Read `START_HERE.md`
-2. Use `generic_app`
-3. Add only required capabilities
-4. Use CLI + policy check
-5. Build features with prompts
+This file previously described a minimal onboarding checklist.
+It is now compatibility-only and not canonical.
+
+Use: [docs/get-started.md](docs/get-started.md)
