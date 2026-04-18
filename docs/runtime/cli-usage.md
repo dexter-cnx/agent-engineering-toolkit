@@ -34,3 +34,6 @@ Entrypoint: `tools/os/cli.ts`
 
 - `docs/runtime/installable-cli.md`
 - `docs/runtime/validation-output.md`
+- `docs/runtime/publishable-cli.md`
+- `docs/runtime/command-output-contracts.md`
+

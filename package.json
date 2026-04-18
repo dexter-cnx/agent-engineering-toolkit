@@ -1,6 +1,6 @@
 {
   "name": "agent-engineering-toolkit",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "workspaces": [
     "apps/nextjs-fullstack-app",
@@ -26,9 +26,35 @@
     "workspace:install": "npm install",
     "os": "node --experimental-strip-types tools/os/cli.ts",
     "os:validate": "node --experimental-strip-types tools/os/cli.ts validate",
-    "os:test": "node --experimental-strip-types --test tests/runtime/runtime.test.mjs"
+    "os:test": "node --experimental-strip-types --test tests/runtime/runtime.test.mjs",
+    "os:pack:dryrun": "npm pack --dry-run",
+    "os:link": "npm link"
   },
   "bin": {
     "os": "tools/os/bin/os.js"
+  },
+  "description": "Agent Engineering OS with installable runtime governance CLI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/example/agent-engineering-toolkit.git"
+  },
+  "homepage": "https://github.com/example/agent-engineering-toolkit",
+  "bugs": {
+    "url": "https://github.com/example/agent-engineering-toolkit/issues"
+  },
+  "keywords": [
+    "agent-engineering",
+    "os",
+    "cli",
+    "runtime",
+    "governance"
+  ],
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

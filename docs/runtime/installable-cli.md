@@ -36,7 +36,7 @@ os overlays list
 os run backend-node
 ```
 
-`package.json` maps the `os` bin to `tools/os/bin/os.js`, which dispatches into `tools/os/cli.ts` using Node strip-types mode.
+Root `package.json` maps the `os` bin to `tools/os/bin/os.js`, which dispatches into `tools/os/cli.ts` using Node strip-types mode.
 
 ## Release-readiness notes
 
@@ -46,3 +46,9 @@ Before shipping CLI changes:
 2. Run governance checks (`python3 tools/ci/*.py` and CI TypeScript checks).
 3. Confirm `os validate` output contract remains stable.
 4. Keep CLI behavior additive and non-breaking for automation users.
+
+
+## Related release-candidate docs
+
+- `docs/runtime/publishable-cli.md`
+- `docs/runtime/command-output-contracts.md`

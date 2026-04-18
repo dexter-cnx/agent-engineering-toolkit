@@ -1,6 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { mkdtempSync, rmSync, writeFileSync, existsSync, readFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
@@ -103,6 +103,18 @@ test("cli: os overlays list", () => {
   assert.ok(result.stdout.includes("backend-node"));
 });
 
+test("cli: os overlays list --json output contract", () => {
+  const result = runCli(["overlays", "list", "--json"]);
+  assert.equal(result.status, 0);
+  const payload = JSON.parse(result.stdout.trim());
+  assert.equal(payload.status, "pass");
+  assert.equal(payload.mode, "machine");
+  assert.equal(payload.command, "overlays.list");
+  assert.ok(Array.isArray(payload.overlays));
+  assert.ok(payload.overlays.length > 0);
+  assert.ok(payload.overlays[0].name);
+});
+
 test("cli: os run <overlay>", () => {
   const result = runCli(["run", "backend-node"]);
   assert.equal(result.status, 0);
@@ -110,16 +122,42 @@ test("cli: os run <overlay>", () => {
   assert.ok(result.stdout.includes("[SIMULATED:backend-node]"));
 });
 
+test("cli: os run <overlay> --json output contract", () => {
+  const result = runCli(["run", "backend-node", "--json"]);
+  assert.equal(result.status, 0);
+  const payload = JSON.parse(result.stdout.trim());
+  assert.equal(payload.status, "pass");
+  assert.equal(payload.mode, "machine");
+  assert.equal(payload.command, "run");
+  assert.equal(payload.overlay.name, "backend-node");
+  assert.equal(payload.execution.mode, "simulation");
+});
+
 test("cli: os validate output contract", () => {
   const result = runCli(["validate"]);
   assert.equal(result.status, 0);
 
   const payload = JSON.parse(result.stdout.trim());
-  assert.deepEqual(Object.keys(payload).sort(), ["mode", "overlays", "source", "status"]);
+  assert.deepEqual(Object.keys(payload).sort(), ["command", "mode", "overlays", "source", "status"]);
   assert.equal(payload.status, "pass");
   assert.ok(payload.overlays > 0);
   assert.equal(payload.source, "docs/overlays.manifest.json");
   assert.equal(payload.mode, "machine");
+  assert.equal(payload.command, "validate");
+});
+
+test("cli: malformed flag combination exits 2 with machine error payload", () => {
+  const result = runCli(["validate", "--json"]);
+  assert.equal(result.status, 2);
+  const payloadLine = result.stderr
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .find((line) => line.startsWith('{"status":"fail"'));
+  assert.ok(payloadLine, "expected machine-readable fail payload in stderr");
+  const payload = JSON.parse(payloadLine);
+  assert.equal(payload.status, "fail");
+  assert.equal(payload.mode, "machine");
+  assert.ok(payload.error.includes("--json"));
 });
 
 test("cli: usage failure has exit code 1", () => {
@@ -138,4 +176,14 @@ test("installable bin wrapper executes validate", () => {
   assert.equal(result.status, 0);
   const payload = JSON.parse(result.stdout.trim());
   assert.equal(payload.status, "pass");
+});
+
+test("publishable CLI package metadata and bin path exist", () => {
+  const pkgPath = resolve("package.json");
+  assert.ok(existsSync(pkgPath));
+
+  const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
+  assert.equal(pkg.bin.os, "tools/os/bin/os.js");
+  assert.equal(pkg.publishConfig.access, "public");
+  assert.ok(existsSync(resolve("tools/os/bin/os.js")));
 });
