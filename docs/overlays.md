@@ -24,6 +24,10 @@ This document is the single source of truth for overlays.
 - [web-frontend-nextjs](../overlays/web-frontend-nextjs/README.md)
 - [python-service](../overlays/python-service/README.md)
 - [unity](../overlays/unity/README.md)
+## Overlay manifest (machine authority)
+
+Machine-readable overlay authority is maintained in `docs/overlays.manifest.json`.
+The manifest must stay consistent with this catalog and is enforced by `tools/ci/check-canonical-consistency.ts`.
 
 ## Overlay product metadata (concise)
 

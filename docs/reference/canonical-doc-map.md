@@ -8,6 +8,7 @@ Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> 
 - `docs/get-started.md`
 - `docs/adoption-paths.md`
 - `docs/overlays.md`
+- `docs/overlays.manifest.json` (machine authority for overlays)
 
 ## Core architecture
 - `docs/architecture/os-overview.md`
@@ -18,6 +19,11 @@ Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> 
 - `prompts/README.md`
 - `memory/README.md`
 - `system/README.md`
+
+## Runtime foundation
+- `runtime/README.md`
+- `docs/runtime/runtime-overview.md`
+- `docs/runtime/overlay-runtime.md`
 
 ## Operational references
 - `docs/reference/prompt-catalog.md`

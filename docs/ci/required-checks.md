@@ -13,7 +13,7 @@ This document defines mandatory CI governance for production-grade changes.
 ## Check definitions
 
 ### `doc-governance`
-Validates canonical documentation quality, link integrity, and onboarding consistency.
+Validates canonical documentation quality, link integrity, onboarding consistency, and merge-gate mapping consistency.
 
 ### `overlay-ci`
 Validates overlay contract conformance, overlay structure, and specialization boundary safety.

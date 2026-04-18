@@ -10,7 +10,7 @@ These invariants define non-negotiable repository behavior.
 4. Every managed top-level directory must be classified and have a status README.
 5. Compatibility files are non-canonical and explicitly labeled.
 6. Legacy/frozen surfaces must be labeled and must not claim canonical status.
-7. `agents/`, `memory/`, `system/`, `prompts/`, `tools/`, `docs/`, `overlays/` are the primary OS surfaces.
+7. `agents/`, `memory/`, `system/`, `prompts/`, `tools/`, `docs/`, `overlays/`, `runtime/` are the primary OS surfaces.
 8. Memory must contain ADRs with required sections.
 9. Prompt compiled outputs must be generated and committed.
 
@@ -34,7 +34,7 @@ These invariants define non-negotiable repository behavior.
     "docs/legacy/INDEX_CANONICAL.md"
   ],
   "managed_top_level_dirs": {
-    "canonical": [".github", "agents", "memory", "system", "prompts", "tools", "docs", "overlays"],
+    "canonical": [".github", "agents", "memory", "system", "prompts", "tools", "docs", "overlays", "runtime"],
     "legacy": ["agent_team", "project_memory", "core", "canonical", "checklists", "skills", "companion-pack", "orchestrator"],
     "reference": ["apps", "packages", "samples", "examples", "evals", "tests", "reports", "artifacts", "assets", "audits", "templates", "runners", "scripts"]
   },

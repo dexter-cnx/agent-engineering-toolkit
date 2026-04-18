@@ -65,6 +65,8 @@ Overlay catalog and boundaries are maintained only in [docs/overlays.md](docs/ov
 
 `apps/` and `packages/` are **reference implementations** that demonstrate composition patterns and contracts, not the foundation definition itself.
 
+Runtime entrypoint: `tools/os/cli.ts` (`os overlays list`, `os run <overlay>`, `os validate`).
+
 - `apps/nextjs-fullstack-app/` (single-app full-stack reference)
 - `apps/nextjs-dotnet-app/` (split frontend/backend reference)
 - `apps/ai-workflow-reference/` (worker-style orchestration reference)
@@ -116,6 +118,7 @@ Scope boundary:
 - Prompt catalog: [docs/reference/prompt-catalog.md](docs/reference/prompt-catalog.md)
 - Release / packaging metadata: [docs/repo-maintenance.md](docs/repo-maintenance.md)
 - Overlays: [docs/overlays.md](docs/overlays.md)
+- Runtime overview: [docs/runtime/runtime-overview.md](docs/runtime/runtime-overview.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
 - CI required checks: [docs/ci/required-checks.md](docs/ci/required-checks.md)
 - Release notes: [docs/release-notes/v0.1.0.md](docs/release-notes/v0.1.0.md)

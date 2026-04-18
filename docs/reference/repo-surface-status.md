@@ -12,6 +12,7 @@ This map classifies top-level surfaces to reduce ambiguity.
 - `prompts/` (canonical prompt runtime)
 - `tools/` (canonical local governance tooling)
 - `overlays/` (canonical specialization layer)
+- `runtime/` (canonical runtime execution layer)
 - `.github/workflows/` (canonical CI enforcement)
 
 ## Compatibility-only surfaces

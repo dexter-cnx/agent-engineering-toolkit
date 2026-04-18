@@ -23,6 +23,7 @@ jobs:
           python3 tools/ci/coherence_lint.py
           python3 tools/ci/link_check.py
           node --experimental-strip-types tools/ci/check-canonical-consistency.ts
+          node --experimental-strip-types tools/ci/check-merge-gate-consistency.ts
       - name: Validate overlays, prompts, and memory contracts
         run: |
           python3 tools/ci/overlay_lint.py
@@ -55,3 +56,4 @@ jobs:
           test -d prompts
           test -d overlays
           test -d tools
+          test -d runtime

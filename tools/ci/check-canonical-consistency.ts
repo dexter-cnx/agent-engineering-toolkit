@@ -4,7 +4,8 @@ const { resolve } = require("node:path");
 
 const repoRoot = resolve(__dirname, "../..");
 const readmePath = resolve(repoRoot, "README.md");
-const overlaysPath = resolve(repoRoot, "docs/overlays.md");
+const overlaysDocPath = resolve(repoRoot, "docs/overlays.md");
+const overlayManifestPath = resolve(repoRoot, "docs/overlays.manifest.json");
 
 const REQUIRED_TOP_LINKS = new Set([
   "docs/get-started.md",
@@ -13,6 +14,21 @@ const REQUIRED_TOP_LINKS = new Set([
 ]);
 
 const mdLinkRegex = /\[[^\]]+\]\(([^)]+)\)/g;
+
+type OverlayManifestEntry = {
+  name: string;
+  path: string;
+  readme: string;
+};
+
+type OverlayManifest = {
+  overlays: OverlayManifestEntry[];
+};
+
+function fail(message: string): never {
+  console.error(`CANONICAL_CONSISTENCY_FAIL: ${message}`);
+  process.exit(1);
+}
 
 function extractSection(text: string, heading: string): string {
   const lines = text.split(/\r?\n/);
@@ -41,29 +57,42 @@ function extractAllLinks(markdown: string): string[] {
   return links;
 }
 
-function extractCanonicalOverlayCatalog(markdown: string): { name: string; href: string }[] {
-  const section = extractSection(markdown, "## Canonical overlay catalog");
-  const matches = [
-    ...section.matchAll(/- \[([^\]]+)\]\((\.\.\/overlays\/[^)]+)\)/g),
-  ];
+function parseManifest(): OverlayManifestEntry[] {
+  if (!existsSync(overlayManifestPath)) {
+    fail("Missing manifest: docs/overlays.manifest.json");
+  }
 
-  return matches.map((match) => ({
-    name: match[1].trim(),
-    href: match[2].trim(),
-  }));
+  const parsed = JSON.parse(readFileSync(overlayManifestPath, "utf8")) as OverlayManifest;
+  if (!parsed.overlays || !Array.isArray(parsed.overlays) || parsed.overlays.length === 0) {
+    fail("Invalid overlays manifest: overlays must be a non-empty array");
+  }
+
+  const names = new Set<string>();
+  for (const overlay of parsed.overlays) {
+    if (!overlay.name || !overlay.path || !overlay.readme) {
+      fail(`Invalid manifest overlay entry: ${JSON.stringify(overlay)}`);
+    }
+    if (names.has(overlay.name)) {
+      fail(`Duplicate overlay name in manifest: ${overlay.name}`);
+    }
+    names.add(overlay.name);
+  }
+
+  return parsed.overlays;
 }
 
-function extractOverlayNamesFromMetadataTable(markdown: string): string[] {
-  const section = extractSection(markdown, "## Overlay product metadata (concise)");
+function extractCatalogNames(overlaysDoc: string): string[] {
+  const section = extractSection(overlaysDoc, "## Canonical overlay catalog");
+  const matches = [...section.matchAll(/- \[([^\]]+)\]\(\.\.\/overlays\/[^)]+\)/g)];
+  return matches.map((match) => match[1].trim());
+}
+
+function extractMetadataNames(overlaysDoc: string): string[] {
+  const section = extractSection(overlaysDoc, "## Overlay product metadata (concise)");
   return section
     .split(/\r?\n/)
     .filter((line: string) => line.startsWith("| ") && !line.includes("---") && !line.includes(" Overlay |"))
     .map((line: string) => line.split("|")[1].trim());
-}
-
-function fail(message: string): never {
-  console.error(`CANONICAL_CONSISTENCY_FAIL: ${message}`);
-  process.exit(1);
 }
 
 function assertTopSectionLinks(readme: string): void {
@@ -94,62 +123,53 @@ function assertTopSectionLinks(readme: string): void {
   }
 }
 
-function assertOverlayAuthorityConsistency(overlaysDoc: string): void {
-  const catalog = extractCanonicalOverlayCatalog(overlaysDoc);
-  if (catalog.length === 0) {
-    fail("docs/overlays.md canonical overlay catalog is empty");
+function assertOverlayConsistency(overlaysDoc: string, manifest: OverlayManifestEntry[]): void {
+  const manifestNames = manifest.map((overlay) => overlay.name);
+  const catalogNames = extractCatalogNames(overlaysDoc);
+  const metadataNames = extractMetadataNames(overlaysDoc);
+
+  if (catalogNames.length !== manifestNames.length) {
+    fail(`Catalog overlay count (${catalogNames.length}) must match manifest count (${manifestNames.length})`);
   }
 
-  const metadataNames = extractOverlayNamesFromMetadataTable(overlaysDoc);
-  const catalogNames = catalog.map((entry) => entry.name);
-
-  if (metadataNames.length !== catalogNames.length) {
-    fail(
-      `Overlay metadata table count (${metadataNames.length}) must match canonical catalog count (${catalogNames.length})`,
-    );
+  if (metadataNames.length !== manifestNames.length) {
+    fail(`Metadata overlay count (${metadataNames.length}) must match manifest count (${manifestNames.length})`);
   }
 
   const catalogSet = new Set(catalogNames);
   const metadataSet = new Set(metadataNames);
 
-  if (catalogSet.size !== catalogNames.length) {
-    fail(`Canonical overlay catalog contains duplicate names: ${JSON.stringify(catalogNames)}`);
-  }
-
-  if (metadataSet.size !== metadataNames.length) {
-    fail(`Overlay metadata table contains duplicate names: ${JSON.stringify(metadataNames)}`);
-  }
-
-  for (const name of catalogNames) {
-    if (!metadataSet.has(name)) {
-      fail(`Overlay metadata table missing catalog entry: ${name}`);
+  for (const manifestName of manifestNames) {
+    if (!catalogSet.has(manifestName)) {
+      fail(`Manifest overlay missing from docs/overlays.md catalog: ${manifestName}`);
+    }
+    if (!metadataSet.has(manifestName)) {
+      fail(`Manifest overlay missing from docs/overlays.md metadata table: ${manifestName}`);
     }
   }
 
-  for (const name of metadataNames) {
-    if (!catalogSet.has(name)) {
-      fail(`Overlay metadata table contains non-catalog entry: ${name}`);
+  for (const overlay of manifest) {
+    const readmePath = resolve(repoRoot, overlay.readme);
+    if (!existsSync(readmePath)) {
+      fail(`Manifest overlay README path missing: ${overlay.readme}`);
     }
-  }
 
-  for (const entry of catalog) {
-    const overlayReadmePath = resolve(repoRoot, "docs", entry.href);
-    if (!existsSync(overlayReadmePath)) {
-      fail(`Overlay listed in docs/overlays.md is missing README: ${entry.href}`);
+    const overlayPath = resolve(repoRoot, overlay.path);
+    if (!existsSync(overlayPath)) {
+      fail(`Manifest overlay directory missing: ${overlay.path}`);
     }
   }
 }
 
 function main(): void {
   const readme = readFileSync(readmePath, "utf8");
-  const overlaysDoc = readFileSync(overlaysPath, "utf8");
+  const overlaysDoc = readFileSync(overlaysDocPath, "utf8");
+  const manifest = parseManifest();
 
   assertTopSectionLinks(readme);
-  assertOverlayAuthorityConsistency(overlaysDoc);
+  assertOverlayConsistency(overlaysDoc, manifest);
 
-  console.log(
-    "CANONICAL_CONSISTENCY_PASS: README canonical chain and overlay authority consistency are validated.",
-  );
+  console.log("CANONICAL_CONSISTENCY_PASS: README links, overlay manifest, and overlays docs are consistent.");
 }
 
 main();
