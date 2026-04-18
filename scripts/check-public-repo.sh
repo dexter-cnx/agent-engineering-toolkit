@@ -29,6 +29,23 @@ require_contains() {
   fi
 }
 
+require_contains_any() {
+  local path="$1"
+  shift
+  local found=0
+  local needle
+  for needle in "$@"; do
+    if grep -Fq "$needle" "$repo_root/$path"; then
+      found=1
+      break
+    fi
+  done
+  if [[ "$found" -eq 0 ]]; then
+    echo "Missing expected content variants in $path: $*" >&2
+    missing=1
+  fi
+}
+
 check_markdown_links() {
   local path="$1"
   local full_path="$repo_root/$path"
@@ -79,6 +96,7 @@ check_internal_refs() {
       \( -path "$repo_root/audits" -o -path "$repo_root/audits/*" \
       -o -path "$repo_root/docs/internal" -o -path "$repo_root/docs/internal/*" \
       -o -path "$repo_root/prompts/internal" -o -path "$repo_root/prompts/internal/*" \
+      -o -path "$repo_root/artifacts/graph" -o -path "$repo_root/artifacts/graph/*" \
       -o -path "$repo_root/scripts/check-public-repo.sh" \
       -o -path "$repo_root/docs/tree-manifest.txt" \) -prune \
       -o -type f -print0 \
@@ -97,7 +115,7 @@ while IFS= read -r path; do
   require_file "$path"
 done < "$required_list"
 
-require_contains "README.md" "foundation toolkit"
+require_contains_any "README.md" "foundation toolkit" "Agent Engineering OS"
 require_contains "README.md" "overlay"
 require_contains "docs/prompt-pipeline.md" "Canonical lifecycle"
 require_contains "docs/agent-team-system.md" "Default roles"

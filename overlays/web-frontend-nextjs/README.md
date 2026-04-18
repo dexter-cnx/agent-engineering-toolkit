@@ -49,4 +49,4 @@ Root docs remain canonical for onboarding, lifecycle, policies, and governance c
 This overlay must not redefine repository identity, canonical onboarding path, or root policy contracts.
 
 ### What this overlay does not replace
-It does not replace `README.md`, `docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.
+It does not replace `README.md`, `../../docs/get-started.md`, `system/` policies, `agents/` role model, or root CI governance workflows.

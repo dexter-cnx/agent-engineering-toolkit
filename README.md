@@ -34,6 +34,7 @@ Catalog + boundaries: [docs/overlays.md](docs/overlays.md).
 - `apps/ai-workflow-reference/` (worker-style orchestration reference)
 - `apps/flutter-api-client-reference/` (mobile API client reference)
 - `packages/contracts/`, `packages/fullstack-client/`, `packages/job-contracts/`
+- Full-stack docs: `docs/fullstack/getting-started.md`, `docs/fullstack/dev-workflow.md`, `docs/fullstack/repo-layout.md`, `docs/fullstack/ai-worker-architecture.md`, `docs/fullstack/async-jobs.md`
 
 ## Canonical references
 
