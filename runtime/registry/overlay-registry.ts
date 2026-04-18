@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { resolve } from "node:path";
 
 export type OverlayRecord = {
   name: string;
@@ -13,8 +12,22 @@ type OverlayManifest = {
   overlays: OverlayRecord[];
 };
 
-const currentDir = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(currentDir, "../..");
+function resolveRepoRoot(): string {
+  const directRoot = resolve(__dirname, "../..");
+  const compiledRoot = resolve(__dirname, "../../..");
+
+  if (existsSync(resolve(directRoot, "docs/overlays.manifest.json"))) {
+    return directRoot;
+  }
+
+  if (existsSync(resolve(compiledRoot, "docs/overlays.manifest.json"))) {
+    return compiledRoot;
+  }
+
+  return directRoot;
+}
+
+const repoRoot = resolveRepoRoot();
 const defaultManifestPath = resolve(repoRoot, "docs/overlays.manifest.json");
 
 export class OverlayValidationError extends Error {
@@ -44,7 +57,13 @@ export class OverlayRegistry {
     }
 
     const raw = readFileSync(manifestPath, "utf8");
-    const parsed = JSON.parse(raw) as OverlayManifest;
+    let parsed: OverlayManifest;
+    try {
+      parsed = JSON.parse(raw) as OverlayManifest;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      throw new OverlayValidationError(`Invalid overlays manifest JSON: ${message}`);
+    }
 
     if (!parsed.overlays || !Array.isArray(parsed.overlays)) {
       throw new OverlayValidationError("Invalid overlays manifest: missing overlays array");

@@ -2,8 +2,8 @@
 const { spawnSync } = require('node:child_process');
 const { resolve } = require('node:path');
 
-const cliPath = resolve(__dirname, '..', 'cli.ts');
-const result = spawnSync(process.execPath, ['--experimental-strip-types', cliPath, ...process.argv.slice(2)], {
+const cliPath = resolve(__dirname, '..', '..', '..', 'dist', 'cli.js');
+const result = spawnSync(process.execPath, [cliPath, ...process.argv.slice(2)], {
   stdio: 'inherit',
 });
 

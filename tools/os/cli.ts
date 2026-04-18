@@ -1,7 +1,21 @@
 #!/usr/bin/env node
-import { AgentEngine } from "../../runtime/engine/agent-engine.ts";
+import { AgentEngine } from "../../runtime/engine/agent-engine";
 
 const CLI_CONTRACT_VERSION = "1.0.0";
+
+class CliUsageError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "CliUsageError";
+  }
+}
+
+class CliContractError extends Error {
+  constructor(message: string) {
+    super(message);
+    this.name = "CliContractError";
+  }
+}
 
 export type ValidateOutput = {
   status: "pass";
@@ -29,7 +43,7 @@ export type RunOutput = {
   execution: {
     overlayName: string;
     promptPath: string;
-    mode: "simulation";
+    mode: "simulation" | "dry-run";
     timestamp: string;
     executionId: string;
     output: string;
@@ -40,21 +54,64 @@ const EXIT_SUCCESS = 0;
 const EXIT_USAGE = 1;
 const EXIT_RUNTIME_ERROR = 2;
 
+type CliFlags = {
+  json: boolean;
+  dryRun: boolean;
+  verbose: boolean;
+  commandArgs: string[];
+};
+
 function usage(): void {
   console.log("Usage:");
-  console.log("  os overlays list [--json]");
-  console.log("  os run <overlay> [--json]");
-  console.log("  os validate");
+  console.log("  os overlays list [--json] [--verbose]");
+  console.log("  os run <overlay> [--json] [--dry-run] [--verbose]");
+  console.log("  os validate [--verbose]");
 }
 
-function parseJsonFlag(args: string[]): { cleanArgs: string[]; json: boolean } {
-  const jsonArgs = args.filter((arg) => arg === "--json");
-  if (jsonArgs.length > 1) {
-    throw new Error("--json flag can only be provided once");
+function parseFlags(args: string[]): CliFlags {
+  let json = false;
+  let dryRun = false;
+  let verbose = false;
+  const commandArgs: string[] = [];
+
+  for (const arg of args) {
+    if (arg === "--json") {
+      if (json) {
+        throw new CliUsageError("--json flag can only be provided once");
+      }
+      json = true;
+      continue;
+    }
+
+    if (arg === "--dry-run") {
+      if (dryRun) {
+        throw new CliUsageError("--dry-run flag can only be provided once");
+      }
+      dryRun = true;
+      continue;
+    }
+
+    if (arg === "--verbose") {
+      if (verbose) {
+        throw new CliUsageError("--verbose flag can only be provided once");
+      }
+      verbose = true;
+      continue;
+    }
+
+    commandArgs.push(arg);
   }
 
-  const cleanArgs = args.filter((arg) => arg !== "--json");
-  return { cleanArgs, json: jsonArgs.length === 1 };
+  return { json, dryRun, verbose, commandArgs };
+}
+
+function ensureContractVersion(value: string): string {
+  if (value !== CLI_CONTRACT_VERSION) {
+    throw new CliContractError(
+      `Contract version mismatch: expected ${CLI_CONTRACT_VERSION}, received ${value}`,
+    );
+  }
+  return value;
 }
 
 function renderValidateOutput(engine: AgentEngine): ValidateOutput {
@@ -65,7 +122,7 @@ function renderValidateOutput(engine: AgentEngine): ValidateOutput {
     source: "docs/overlays.manifest.json",
     mode: "machine",
     command: "validate",
-    contractVersion: CLI_CONTRACT_VERSION,
+    contractVersion: ensureContractVersion(CLI_CONTRACT_VERSION),
   };
 }
 
@@ -74,28 +131,35 @@ function renderOverlaysListOutput(engine: AgentEngine): OverlaysListOutput {
     status: "pass",
     mode: "machine",
     command: "overlays.list",
-    contractVersion: CLI_CONTRACT_VERSION,
+    contractVersion: ensureContractVersion(CLI_CONTRACT_VERSION),
     overlays: engine.listOverlays(),
   };
 }
 
-function renderRunOutput(engine: AgentEngine, overlayName: string): RunOutput {
-  const result = engine.runOverlay(overlayName);
+function renderRunOutput(engine: AgentEngine, overlayName: string, dryRun: boolean): RunOutput {
+  const result = engine.runOverlay(overlayName, { mode: dryRun ? "dry-run" : "simulation" });
   return {
     status: "pass",
     mode: "machine",
     command: "run",
-    contractVersion: CLI_CONTRACT_VERSION,
+    contractVersion: ensureContractVersion(CLI_CONTRACT_VERSION),
     overlay: result.overlay,
     execution: result.execution,
   };
 }
 
 function run(argv: string[]): number {
-  const parsed = parseJsonFlag(argv.slice(2));
-  const args = parsed.cleanArgs;
-  const json = parsed.json;
+  const flags = parseFlags(argv.slice(2));
+  const args = flags.commandArgs;
   const engine = new AgentEngine();
+
+  if (flags.verbose) {
+    console.error(`OS_CLI_VERBOSE: args=${JSON.stringify(args)} flags=${JSON.stringify({
+      json: flags.json,
+      dryRun: flags.dryRun,
+      verbose: flags.verbose,
+    })}`);
+  }
 
   if (args.length === 0) {
     usage();
@@ -103,7 +167,11 @@ function run(argv: string[]): number {
   }
 
   if (args[0] === "overlays" && args[1] === "list" && args.length === 2) {
-    if (json) {
+    if (flags.dryRun) {
+      throw new CliUsageError("--dry-run is only supported with 'os run <overlay>'");
+    }
+
+    if (flags.json) {
       console.log(JSON.stringify(renderOverlaysListOutput(engine)));
       return EXIT_SUCCESS;
     }
@@ -115,20 +183,24 @@ function run(argv: string[]): number {
   }
 
   if (args[0] === "run" && args[1] && args.length === 2) {
-    if (json) {
-      console.log(JSON.stringify(renderRunOutput(engine, args[1])));
+    if (flags.json) {
+      console.log(JSON.stringify(renderRunOutput(engine, args[1], flags.dryRun)));
       return EXIT_SUCCESS;
     }
 
-    const result = engine.runOverlay(args[1]);
+    const result = engine.runOverlay(args[1], { mode: flags.dryRun ? "dry-run" : "simulation" });
     console.log(`overlay=${result.overlay.name} mode=${result.execution.mode} prompt=${result.execution.promptPath}`);
     console.log(result.execution.output);
     return EXIT_SUCCESS;
   }
 
   if (args[0] === "validate" && args.length === 1) {
-    if (json) {
-      throw new Error("--json is not supported for validate; validate is already machine-readable JSON");
+    if (flags.json) {
+      throw new CliUsageError("--json is not supported for validate; validate is already machine-readable JSON");
+    }
+
+    if (flags.dryRun) {
+      throw new CliUsageError("--dry-run is only supported with 'os run <overlay>'");
     }
 
     console.log(JSON.stringify(renderValidateOutput(engine)));
@@ -141,7 +213,7 @@ function run(argv: string[]): number {
 
 try {
   process.exitCode = run(process.argv);
-} catch (error) {
+} catch (error: unknown) {
   const message = error instanceof Error ? error.message : String(error);
   const machineMode = process.argv.includes("--json");
 
@@ -149,7 +221,7 @@ try {
     console.error(JSON.stringify({
       status: "fail",
       mode: "machine",
-      contractVersion: CLI_CONTRACT_VERSION,
+      contractVersion: ensureContractVersion(CLI_CONTRACT_VERSION),
       error: message,
     }));
   } else {

@@ -13,8 +13,18 @@
     "tools/fullstack-audit",
     "tools/job-contract-check"
   ],
+  "files": [
+    "tools/os/bin",
+    "dist/",
+    "runtime/",
+    "docs/overlays.manifest.json",
+    "prompts/compiled/",
+    "README.md",
+    "LICENSE"
+  ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
+    "build:cli": "tsc -p tools/os/tsconfig.json",
     "check": "npm run check --workspaces --if-present",
     "contracts:check": "npm run check -w @agent-toolkit/contracts && npm run build -w @agent-toolkit/contracts && npm run check -w @agent-toolkit/fullstack-client",
     "fullstack:audit": "node tools/fullstack-audit/scripts/audit.mjs",
@@ -24,25 +34,25 @@
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "workspace:install": "npm install",
-    "os": "node --experimental-strip-types tools/os/cli.ts",
-    "os:validate": "node --experimental-strip-types tools/os/cli.ts validate",
-    "os:test": "node --experimental-strip-types --test tests/runtime/runtime.test.mjs",
+    "os": "node dist/cli.js",
+    "os:validate": "node dist/cli.js validate",
+    "os:test": "npm run build:cli && node --test tests/runtime/runtime.test.mjs",
     "os:pack:dryrun": "npm pack --dry-run",
     "os:link": "npm link",
-    "os:metadata:check": "node --experimental-strip-types tools/ci/check-package-metadata.ts"
+    "os:metadata:check": "npm run build:cli && node tools/ci/check-package-metadata.ts"
   },
   "bin": {
-    "os": "tools/os/bin/os.js"
+    "os": "dist/cli.js"
   },
   "description": "Release-candidate Agent Engineering OS with installable governance/runtime CLI",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/agentics-org/agent-engineering-toolkit.git"
+    "url": "https://github.com/dexter-cnx/agent-engineering-toolkit.git"
   },
-  "homepage": "https://github.com/agentics-org/agent-engineering-toolkit",
+  "homepage": "https://github.com/dexter-cnx/agent-engineering-toolkit",
   "bugs": {
-    "url": "https://github.com/agentics-org/agent-engineering-toolkit/issues"
+    "url": "https://github.com/dexter-cnx/agent-engineering-toolkit/issues"
   },
   "keywords": [
     "agent-engineering",

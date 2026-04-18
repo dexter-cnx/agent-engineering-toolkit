@@ -1,10 +1,11 @@
 #!/usr/bin/env node
-import { OverlayRegistry } from "../registry/overlay-registry.ts";
-import { PromptExecutor } from "../executor/prompt-executor.ts";
+import { OverlayRegistry } from "../registry/overlay-registry";
+import { PromptExecutor, type PromptExecutionMode } from "../executor/prompt-executor";
 
 export type AgentRunRequest = {
   overlayName: string;
   promptPath?: string;
+  mode?: PromptExecutionMode;
 };
 
 export type AgentRunResult = {
@@ -12,7 +13,7 @@ export type AgentRunResult = {
   execution: {
     overlayName: string;
     promptPath: string;
-    mode: "simulation";
+    mode: PromptExecutionMode;
     timestamp: string;
     executionId: string;
     output: string;
@@ -40,7 +41,7 @@ export class AgentEngine {
     return {
       overlayName: request.overlayName,
       promptPath: request.promptPath ?? "prompts/compiled/codex-runtime.md",
-      mode: "simulation" as const,
+      mode: request.mode ?? "simulation",
     };
   }
 
@@ -52,7 +53,14 @@ export class AgentEngine {
     return { overlay, execution };
   }
 
-  runOverlay(overlayName: string, promptPath = "prompts/compiled/codex-runtime.md"): AgentRunResult {
-    return this.execute({ overlayName, promptPath });
+  runOverlay(
+    overlayName: string,
+    options?: { promptPath?: string; mode?: PromptExecutionMode },
+  ): AgentRunResult {
+    return this.execute({
+      overlayName,
+      promptPath: options?.promptPath,
+      mode: options?.mode,
+    });
   }
 }
