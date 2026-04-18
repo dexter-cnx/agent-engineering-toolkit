@@ -1,25 +1,84 @@
-# Mobile Flutter Overlay Phase 6
+# Mobile Flutter Overlay
 
-Production Flutter operating overlay for the Agent Engineering Toolkit.
+Production Flutter specialization overlay for the stack-neutral Agent Engineering OS.
 
-This overlay keeps the foundation general and pushes Flutter-specific execution into smaller atomic skills, workflows, policies, templates, examples, and generator tooling.
+## Purpose
+
+Provide Flutter-specific implementation guidance (skills, workflows, policies, templates, examples) while keeping root governance and onboarding canonical.
+
+## When to use
+
+Use this overlay when the consuming repository is Flutter-first and needs operational guidance for architecture, features, CI/CD, release, and platform integration.
+
+## When not to use
+
+- Do not use for root OS governance or onboarding authority.
+- Do not use for non-Flutter stacks.
+- Do not treat this overlay as canonical policy for backend/web/unity tracks.
+
+## Canonical links
+
+- Front door: [`README.md`](../../README.md)
+- Canonical onboarding: [`docs/get-started.md`](../../docs/get-started.md) → [`docs/adoption-paths.md`](../../docs/adoption-paths.md)
+- Overlay catalog and boundary: [`docs/overlays.md`](../../docs/overlays.md)
+- Runtime role/workflow authority: [`agents/README.md`](../../agents/README.md)
+
+## Expected consuming repository shape
+
+```text
+repo/
+├─ lib/
+│  ├─ app/
+│  ├─ features/
+│  ├─ shared/
+│  └─ core/
+├─ test/
+├─ integration_test/
+├─ android/
+├─ ios/
+├─ scripts/
+└─ project_memory/
+```
+
+## Verify commands
+
+```bash
+python3 tools/ci/overlay_lint.py
+python3 overlays/mobile-flutter/ci/verify_skill_schema.py
+python3 overlays/mobile-flutter/ci/verify_docs_sync.py
+```
+
+## Examples and templates entrypoints
+
+- Examples: `examples/README.md`, `examples/real-world/README.md`
+- Workflows: `workflows/new-project/README.md`, `workflows/new-feature/README.md`, `workflows/release-app/README.md`
+- Templates and generation: `templates/`, `tools/skillgen/`
+- Starter reference: `starter-app-template/README.md`
+
+## Memory conventions
+
+Capture reusable Flutter decisions in project memory:
+- state management choice and boundaries
+- routing/deeplink strategy
+- platform integration constraints
+- release/signing constraints
+- known regressions and rollout notes
+
+## Review checklist
+
+- Root identity stays stack-neutral and unchanged.
+- Flutter details remain inside this overlay (not root docs/contracts).
+- Skills/workflows are atomic and non-overlapping.
+- Verify commands pass without manual edits to generated artifacts.
+- Examples and templates remain aligned with active skills.
 
 ## Start here
 
-- If you are new, read `HOW_TO_USE.md` first, then `docs/tutorials/getting-started.md`.
 - `HOW_TO_USE.md`
 - `AGENTS.overlay.md`
 - `SKILLS_INDEX.md`
 - `SKILL_SCHEMA.md`
-
-## What changed in v2
-
-- The catalog is routed through a generated decision index instead of a flat list.
-- Skills are atomic execution capsules with explicit single responsibilities.
-- Generator tooling creates new skills from a standard template.
-- Policies live outside skills.
-- Workflows orchestrate multiple skills in a fixed order.
-- CI validates schema, overlap, docs sync, and index synchronization.
+- `docs/tutorials/getting-started.md`
 
 ## Active architecture
 
@@ -39,45 +98,6 @@ overlays/mobile-flutter/
   ci/
   starter-app-template/
 ```
-
-## Default stack
-
-- Flutter stable
-- Dart 3
-- Clean Architecture
-- Riverpod by default
-- GetX when explicitly selected
-- `go_router` for navigation
-- Firebase adapters behind repository boundaries
-- CSV-driven localization when localization is needed
-
-## Operating rule
-
-Use `SKILLS_INDEX.md` to select the smallest skill that can finish the task, then compose workflows when the work spans multiple execution units. Use `tools/skillgen/` to add or sync skills safely.
-
-## Karpathy integration
-
-- Governed exemplar: `skills/flutter-network-dio/SKILL.md`
-- Contract: `skills/flutter-network-dio/skill.contract.yaml`
-- Eval case: `skills/flutter-network-dio/eval/cases/governance-smoke/README.md`
-
-## Archive assets
-
-The overlay retains older catalog material in place for reference, but only the v2 skill set is considered active and CI-validated.
-
-## Related docs
-
-- `docs/tutorials/README.md`
-- `docs/tutorials/getting-started.md`
-- `docs/tutorials/how-skills-work.md`
-- `docs/tutorials/add-a-new-skill.md`
-- `examples/README.md`
-- `examples/real-world/README.md`
-- `prompts/new_project.md`
-- `prompts/new_feature.md`
-- `prompts/fix_architecture.md`
-- `prompts/integrate_firebase_auth.md`
-- `prompts/add_go_router_deeplink.md`
 - `prompts/release_android_ios.md`
 - `docs/tutorials/build-a-new-project-with-ai.md`
 - `docs/tutorials/add-a-new-feature-with-ai.md`

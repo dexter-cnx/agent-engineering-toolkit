@@ -17,6 +17,7 @@ jobs:
       - name: Validate canonical docs and links
         run: |
           python3 tools/ci/doc_lint.py
+          python3 tools/ci/coherence_lint.py
           python3 tools/ci/link_check.py
       - name: Validate overlays, prompts, and memory contracts
         run: |
