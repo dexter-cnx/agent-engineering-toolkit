@@ -1,7 +1,7 @@
 # Get Started (Canonical Onboarding)
 
 This is the **single onboarding path** for this repository.
-Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md`.
+Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md`.
 
 ## 1) Understand what this repo is
 

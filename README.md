@@ -2,9 +2,37 @@
 
 Stack-neutral **Agent Engineering OS** for governed, repeatable agent-assisted engineering.
 
-## What is this?
+## What this repo is
 
 A production-focused OSS operating system for agentic engineering workflows: canonical docs, runtime contracts, memory/ADR discipline, prompt compilation, and CI enforcement.
+
+## Start here
+
+- **[docs/get-started.md](docs/get-started.md)**
+
+## Choose path
+
+- **[docs/adoption-paths.md](docs/adoption-paths.md)**
+
+## Choose overlay
+
+- **[docs/overlays.md](docs/overlays.md)**
+
+## Secondary References
+
+## Repository identity boundaries
+
+### What this is NOT
+
+- Not a starter template
+- Not a framework
+- Not a product monorepo
+
+### What this IS
+
+- Agent Engineering OS
+- Foundation system
+- Overlay-driven architecture
 
 ## Who is this for?
 
@@ -17,13 +45,9 @@ Teams building or hardening AI-assisted engineering workflows who need stack-neu
 - Verified compiled prompt consistency
 - Clear next step into overlays and working examples
 
-## Start in 30 seconds
+## Single onboarding rule
 
-1. Open **[docs/get-started.md](docs/get-started.md)**.
-2. Choose one mode in **[docs/adoption-paths.md](docs/adoption-paths.md)**.
-3. Add specialization only if needed via **[docs/overlays.md](docs/overlays.md)**.
-
-**Single onboarding rule:** `README.md -> docs/get-started.md -> docs/adoption-paths.md`.
+Single onboarding rule: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md`
 
 ## Choose your path (concise)
 
@@ -33,16 +57,13 @@ Teams building or hardening AI-assisted engineering workflows who need stack-neu
 
 Details: [docs/adoption-paths.md](docs/adoption-paths.md).
 
-## Overlay catalog (concise)
+## Overlay authority pointer
 
-- Agent quality/governance: `agent-karpathy`, `agent-friendly-cli`
-- Backend: `backend-common`, `backend-dotnet`, `backend-node`, `python-service`
-- Frontend: `web-frontend-common`, `web-frontend-nextjs`, `web-frontend` (legacy frontend path retained)
-- Mobile/game: `mobile-flutter`, `unity`
+Overlay catalog and boundaries are maintained only in [docs/overlays.md](docs/overlays.md).
 
-Catalog + boundaries: [docs/overlays.md](docs/overlays.md).
+## Reference implementations
 
-## Runnable/reference paths (concise)
+`apps/` and `packages/` are **reference implementations** that demonstrate composition patterns and contracts, not the foundation definition itself.
 
 - `apps/nextjs-fullstack-app/` (single-app full-stack reference)
 - `apps/nextjs-dotnet-app/` (split frontend/backend reference)
@@ -117,14 +138,18 @@ Scope boundary:
 - Release / packaging metadata: [docs/repo-maintenance.md](docs/repo-maintenance.md)
 - Overlays: [docs/overlays.md](docs/overlays.md)
 - Contributing: [CONTRIBUTING.md](CONTRIBUTING.md)
+- CI required checks: [docs/ci/required-checks.md](docs/ci/required-checks.md)
 - Release notes: [docs/release-notes/v0.1.0.md](docs/release-notes/v0.1.0.md)
+
+## Contribution
+
+Before opening a PR, identify your change type and satisfy the required governance pipeline in [docs/ci/required-checks.md](docs/ci/required-checks.md).
 
 ## Status note (compatibility and historical surfaces)
 
 Some root files/directories are retained for compatibility or historical context.
 They are explicitly labeled as **compatibility**, **legacy**, or **frozen** and are not part of the canonical onboarding path.
 Use [docs/reference/repo-surface-status.md](docs/reference/repo-surface-status.md) when unsure.
-
 
 ## License
 

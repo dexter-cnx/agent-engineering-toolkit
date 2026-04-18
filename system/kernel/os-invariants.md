@@ -5,7 +5,7 @@ These invariants define non-negotiable repository behavior.
 ## Invariants
 
 1. `README.md` is the public front door.
-2. Canonical onboarding path is only: `README.md -> docs/get-started.md -> docs/adoption-paths.md`.
+2. Canonical onboarding path is only: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md`.
 3. Root must not introduce additional onboarding entrypoints.
 4. Every managed top-level directory must be classified and have a status README.
 5. Compatibility files are non-canonical and explicitly labeled.
@@ -22,15 +22,16 @@ These invariants define non-negotiable repository behavior.
   "canonical_onboarding": [
     "README.md",
     "docs/get-started.md",
-    "docs/adoption-paths.md"
+    "docs/adoption-paths.md",
+    "docs/overlays.md"
   ],
   "compatibility_root_docs": [
-    "START_HERE.md",
-    "README_START_HERE.md",
-    "HOW_TO_USE.md",
-    "ONBOARDING_MINIMAL.md",
-    "ONBOARDING_FULL.md",
-    "INDEX_CANONICAL.md"
+    "docs/legacy/START_HERE.md",
+    "docs/legacy/README_START_HERE.md",
+    "docs/legacy/HOW_TO_USE.md",
+    "docs/legacy/ONBOARDING_MINIMAL.md",
+    "docs/legacy/ONBOARDING_FULL.md",
+    "docs/legacy/INDEX_CANONICAL.md"
   ],
   "managed_top_level_dirs": {
     "canonical": [".github", "agents", "memory", "system", "prompts", "tools", "docs", "overlays"],

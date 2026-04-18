@@ -8,7 +8,7 @@ Mobile belongs in overlays, not in root assumptions.
 
 ## Canonical references
 
-- Front door + onboarding: `README.md` -> `docs/get-started.md` -> `docs/adoption-paths.md`
+- Front door + onboarding: `README.md` -> `docs/get-started.md` -> `docs/adoption-paths.md` -> `docs/overlays.md`
 - Canonical doc/status map: `docs/reference/canonical-doc-map.md` and `docs/reference/repo-surface-status.md`
 - OS invariants: `system/kernel/os-invariants.md`
 - Architecture authority: `docs/architecture/os-overview.md` and `docs/architecture/task-lifecycle.md`

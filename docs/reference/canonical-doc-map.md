@@ -4,7 +4,7 @@
 - `README.md`
 
 ## One onboarding path
-Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md`.
+Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md`.
 - `docs/get-started.md`
 - `docs/adoption-paths.md`
 - `docs/overlays.md`
@@ -36,12 +36,12 @@ Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md`.
 
 ## Compatibility redirectors (legacy links only)
 These are non-canonical and not onboarding sources:
-- `START_HERE.md`
-- `README_START_HERE.md`
-- `HOW_TO_USE.md`
-- `ONBOARDING_MINIMAL.md`
-- `ONBOARDING_FULL.md`
-- `INDEX_CANONICAL.md`
+- `docs/legacy/START_HERE.md`
+- `docs/legacy/README_START_HERE.md`
+- `docs/legacy/HOW_TO_USE.md`
+- `docs/legacy/ONBOARDING_MINIMAL.md`
+- `docs/legacy/ONBOARDING_FULL.md`
+- `docs/legacy/INDEX_CANONICAL.md`
 
 ## Legacy/frozen top-level namespaces (retained, non-primary)
 - `agent_team/`
