@@ -4,6 +4,7 @@
 - `README.md`
 
 ## One onboarding path
+Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md`.
 - `docs/get-started.md`
 - `docs/adoption-paths.md`
 - `docs/overlays.md`
@@ -22,6 +23,12 @@
 - `docs/reference/prompt-catalog.md`
 - `docs/reference/repo-surface-status.md`
 - `docs/graph/navigation-map.md`
+- `docs/release-process.md` (release gate semantics)
+
+## Gate semantics authority
+- Governance gate (Toolkit CI): root `tools/ci/*` checks + `.github/workflows/ci.yml`
+- Runtime integration gate: composition/app verification flows (for example `docs/fullstack/dev-workflow.md` and `fullstack:verify`)
+- Release gate: `docs/release-process.md`
 
 ## Supporting references (non-authoritative for onboarding/architecture)
 - `docs/prompt-pipeline.md`

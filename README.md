@@ -99,6 +99,16 @@ Working examples:
 - `examples/working/os-5-minute-quickstart.md`
 - `examples/working/agent-flow-demo/README.md`
 
+## Gate semantics (governance vs integration vs release)
+
+- **Governance gate (Toolkit CI)**: root-level policy and coherence checks (`os_invariant_check`, `doc_lint`, `link_check`, `overlay_lint`, `prompt_lint`, `memory_lint`).
+- **Runtime integration gate**: stack/runtime verification inside a consuming app or composition (for example `npm run fullstack:verify` in full-stack references).
+- **Release gate**: publication readiness checks (versioning/changelog/public surface checks) before tagging or shipping.
+
+Scope boundary:
+- Toolkit CI stops at repository governance and contract integrity.
+- Runtime behavior fitness starts at composition/app verification (for example `fullstack:verify`), not at root governance checks.
+
 ## Canonical references
 
 - Canonical document map: [docs/reference/canonical-doc-map.md](docs/reference/canonical-doc-map.md)

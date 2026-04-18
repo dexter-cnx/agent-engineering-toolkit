@@ -49,3 +49,9 @@ These are retained for inbound links and are not onboarding sources.
 
 If canonical and legacy/reference surfaces disagree, canonical surfaces win.
 New work should start from canonical OS surfaces only.
+
+## Gate boundaries
+
+- Toolkit CI (`.github/workflows/ci.yml`, `tools/ci/*`) is the **governance gate** for repository coherence.
+- Composition/app verification (for example `npm run fullstack:verify`) is the **runtime integration gate**.
+- Release workflows (`docs/release-process.md`) define the **release gate**.

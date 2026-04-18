@@ -4,6 +4,57 @@
 
 ---
 
+## Purpose
+
+Provide eval-driven skill optimization and promotion governance as an overlay without changing stack-neutral root OS authority.
+
+## When to use / when not to use
+
+- Use when optimizing skills with explicit eval, mutation, regression, and promotion controls.
+- Do not use as a replacement for root onboarding/governance documents.
+- Do not use for generic stack specialization unrelated to skill quality loops.
+
+## Canonical links
+
+- Front door: `../../README.md`
+- Onboarding: `../../docs/get-started.md` -> `../../docs/adoption-paths.md`
+- Overlay boundary: `../../docs/overlays.md`
+- Runtime role authority: `../../agents/README.md`
+
+## Expected consuming repo shape
+
+```text
+repo/
+├─ skills/
+├─ reports/
+├─ memory/
+├─ scripts/
+└─ docs/
+```
+
+## Verify commands
+
+```bash
+python3 tools/ci/overlay_lint.py
+./scripts/karpathy-eval.sh <skill>
+```
+
+## Examples/templates entrypoints
+
+- `examples/flutter_deeplink_full_cycle.md`
+- `docs/adoption-guide.md`
+- `docs/continuous-optimization.md`
+
+## Memory conventions
+
+Persist baseline/candidate histories, promotion decisions, and known regressions in structured memory artifacts to maintain auditability.
+
+## Review checklist
+
+- Promotion gates remain fail-closed.
+- Runtime artifacts and static examples are not conflated.
+- Root OS identity and onboarding authority remain unchanged.
+
 ## What this overlay does
 
 The `agent-karpathy` overlay transforms the agent-engineering-toolkit into a

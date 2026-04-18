@@ -48,3 +48,16 @@ Each overlay README must define:
 5. what it does not replace
 
 Validation is enforced by `tools/ci/overlay_lint.py`.
+
+## First-class overlay operational README contract
+
+For overlays with full operational ownership (`agent-karpathy`, `mobile-flutter`, `unity`), README must also include:
+1. when not to use
+2. canonical links to root onboarding
+3. expected consuming repository shape
+4. verify commands
+5. examples/templates entrypoints
+6. memory conventions
+7. review checklist
+
+Validation is enforced by `tools/ci/coherence_lint.py`.
