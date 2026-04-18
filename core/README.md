@@ -1,12 +1,10 @@
-# Core Quick References
+# Core Quick References (Legacy / Frozen)
 
-This folder contains **non-canonical quick-reference summaries only**.
+Status: **legacy quick-reference summaries**.
 
-Canonical sources live elsewhere:
-- lifecycle: `docs/prompt-pipeline.md`
-- role model: `docs/agent-team-system.md`
-- repository contract: `AGENTS.md`
-- review and verification templates: `templates/`
-- skill contracts: `skills/`
+Canonical operating contracts now live in:
+- `system/` (kernel, runtime, policies)
+- `docs/prompt-pipeline.md` and `docs/agent-team-system.md`
+- `agents/` for runtime role model
 
-If a quick reference and a canonical source ever disagree, follow the canonical source.
+This folder is retained for historical context and inbound references only.

@@ -1,0 +1,24 @@
+name: Release Readiness
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python3 tools/prompts/compile_prompts.py
+      - run: python3 tools/ci/os_invariant_check.py
+      - run: python3 tools/ci/doc_lint.py
+      - run: python3 tools/ci/overlay_lint.py
+      - run: python3 tools/ci/prompt_lint.py
+      - run: python3 tools/prompts/validate_prompt_pack.py
+      - run: python3 tools/ci/memory_lint.py
+      - run: python3 tools/ci/link_check.py
+      - run: python3 tools/graph/validate_obsidian_links.py
+      - run: git diff --exit-code prompts/compiled

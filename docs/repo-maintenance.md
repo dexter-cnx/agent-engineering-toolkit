@@ -1,0 +1,13 @@
+# Repository Maintenance
+
+## Recommended GitHub repository settings
+
+- Description: "Stack-neutral Agent Engineering OS toolkit with governed overlays"
+- Topics: `agent-engineering`, `prompt-engineering`, `governance`, `developer-tooling`, `overlays`
+- Website / docs URL: `docs/get-started.md` (or rendered docs entrypoint)
+
+## Maintenance cadence
+
+- Review canonical doc map and redirectors monthly.
+- Run governance scripts before releases.
+- Keep CODEOWNERS aligned with domain boundaries.

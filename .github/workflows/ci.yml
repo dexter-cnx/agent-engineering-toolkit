@@ -5,6 +5,20 @@ on:
   pull_request:
 
 jobs:
+  os-governance:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Enforce OS invariants
+        run: python3 tools/ci/os_invariant_check.py
+      - name: Validate canonical docs and links
+        run: |
+          python3 tools/ci/doc_lint.py
+          python3 tools/ci/link_check.py
+
   mobile-flutter-skill-schema:
     runs-on: ubuntu-latest
     steps:

@@ -2,12 +2,16 @@
 
 ## Repository identity
 
-This repository is a **domain-agnostic engineering toolkit**.
+This repository is a **stack-neutral Agent Engineering OS**.
 It is not a mobile-only starter.
 Mobile belongs in overlays, not in root assumptions.
 
 ## Canonical references
 
+- Front door + onboarding: `README.md` -> `docs/get-started.md` -> `docs/adoption-paths.md`
+- Canonical doc/status map: `docs/reference/canonical-doc-map.md` and `docs/reference/repo-surface-status.md`
+- OS invariants: `system/kernel/os-invariants.md`
+- Architecture authority: `docs/architecture/os-overview.md` and `docs/architecture/task-lifecycle.md`
 - Lifecycle: `docs/prompt-pipeline.md`
 - Role model: `docs/agent-team-system.md`
 
@@ -57,8 +61,9 @@ Use the role model defined in `docs/agent-team-system.md`.
 If a workflow or architecture changes, update relevant docs:
 
 - README / README_TH when the repository identity changes
-- docs/how-to-use(.md / _TH.md) when operator workflow changes
-- docs/architecture.md when system boundaries change
+- `docs/get-started.md`, `docs/adoption-paths.md`, and `docs/overlays.md` when onboarding/overlay guidance changes
+- `docs/architecture/os-overview.md` and `docs/architecture/task-lifecycle.md` when system boundaries or lifecycle changes
+- `docs/reference/canonical-doc-map.md` and `docs/reference/repo-surface-status.md` when canonical vs legacy surface status changes
 - templates and examples when recommended usage changes
 
 ## Verification expectations

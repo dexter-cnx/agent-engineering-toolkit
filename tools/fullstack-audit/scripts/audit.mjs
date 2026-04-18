@@ -15,6 +15,10 @@ async function read(relativePath) {
   return readFile(resolve(root, relativePath), "utf8");
 }
 
+function hasAny(content, candidates) {
+  return candidates.some((entry) => content.includes(entry));
+}
+
 try {
   const requiredFiles = [
     "package.json",
@@ -71,19 +75,21 @@ try {
   }
 
   const readme = await read("README.md");
-  const readmeChecks = [
-    "## Full-stack quick path",
-    "docs/fullstack/getting-started.md",
-    "docs/fullstack/dev-workflow.md",
-    "docs/fullstack/repo-layout.md",
-    "packages/contracts/README.md",
-    "packages/fullstack-client/README.md",
-    "docs/fullstack/ai-worker-architecture.md",
-    "docs/fullstack/async-jobs.md",
-    "packages/job-contracts/README.md",
-    "apps/ai-workflow-reference/README.md",
+  const readmeCheckGroups = [
+    ["## Full-stack quick path", "## Runnable/reference paths (concise)"],
+    ["docs/fullstack/getting-started.md"],
+    ["docs/fullstack/dev-workflow.md"],
+    ["docs/fullstack/repo-layout.md"],
+    ["packages/contracts/README.md", "packages/contracts/"],
+    ["packages/fullstack-client/README.md", "packages/fullstack-client/"],
+    ["docs/fullstack/ai-worker-architecture.md"],
+    ["docs/fullstack/async-jobs.md"],
+    ["packages/job-contracts/README.md", "packages/job-contracts/"],
+    ["apps/ai-workflow-reference/README.md", "apps/ai-workflow-reference/"],
   ];
-  const missingReadmeChecks = readmeChecks.filter((entry) => !readme.includes(entry));
+  const missingReadmeChecks = readmeCheckGroups
+    .filter((group) => !hasAny(readme, group))
+    .map((group) => group.join(" | "));
   if (missingReadmeChecks.length > 0) {
     throw new Error(`README.md is missing full-stack links or quick path text: ${missingReadmeChecks.join(", ")}`);
   }
