@@ -14,11 +14,18 @@ jobs:
           python-version: "3.11"
       - name: Enforce OS invariants
         run: python3 tools/ci/os_invariant_check.py
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
       - name: Validate canonical docs and links
         run: |
           python3 tools/ci/doc_lint.py
           python3 tools/ci/coherence_lint.py
           python3 tools/ci/link_check.py
+          node --experimental-strip-types tools/ci/check-canonical-consistency.ts
+          node --experimental-strip-types tools/ci/check-merge-gate-consistency.ts
+          node --experimental-strip-types tools/ci/check-package-metadata.ts
+          node --experimental-strip-types --test tests/runtime/runtime.test.mjs
       - name: Validate overlays, prompts, and memory contracts
         run: |
           python3 tools/ci/overlay_lint.py
@@ -51,3 +58,4 @@ jobs:
           test -d prompts
           test -d overlays
           test -d tools
+          test -d runtime

@@ -1,6 +1,6 @@
 {
   "name": "agent-engineering-toolkit",
-  "private": true,
+  "private": false,
   "version": "1.0.0",
   "workspaces": [
     "apps/nextjs-fullstack-app",
@@ -23,6 +23,39 @@
     "fullstack:verify": "npm run contracts:check && npm run mobile:verify && npm run job:verify && npm run build -w @agent-toolkit/fullstack-client && node tools/contract-check/scripts/check.mjs && node tools/fullstack-audit/scripts/audit.mjs && npm run check -w @agent-toolkit/nextjs-fullstack-app && npm run build -w @agent-toolkit/nextjs-fullstack-app && npm run check -w @agent-toolkit/nextjs-dotnet-frontend && npm run build -w @agent-toolkit/nextjs-dotnet-frontend && dotnet build apps/nextjs-dotnet-app/backend/src/Web/NextjsDotnetApp.Web.csproj",
     "lint": "npm run lint --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
-    "workspace:install": "npm install"
+    "workspace:install": "npm install",
+    "os": "node --experimental-strip-types tools/os/cli.ts",
+    "os:validate": "node --experimental-strip-types tools/os/cli.ts validate",
+    "os:test": "node --experimental-strip-types --test tests/runtime/runtime.test.mjs",
+    "os:pack:dryrun": "npm pack --dry-run",
+    "os:link": "npm link",
+    "os:metadata:check": "node --experimental-strip-types tools/ci/check-package-metadata.ts"
+  },
+  "bin": {
+    "os": "tools/os/bin/os.js"
+  },
+  "description": "Release-candidate Agent Engineering OS with installable governance/runtime CLI",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/agentics-org/agent-engineering-toolkit.git"
+  },
+  "homepage": "https://github.com/agentics-org/agent-engineering-toolkit",
+  "bugs": {
+    "url": "https://github.com/agentics-org/agent-engineering-toolkit/issues"
+  },
+  "keywords": [
+    "agent-engineering",
+    "os",
+    "cli",
+    "runtime",
+    "governance"
+  ],
+  "engines": {
+    "node": ">=22.0.0",
+    "npm": ">=10.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

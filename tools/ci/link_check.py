@@ -8,12 +8,12 @@ link_pattern = re.compile(r'\[[^\]]+\]\(([^)]+)\)')
 
 files = [
     ROOT / 'README.md',
-    ROOT / 'START_HERE.md',
-    ROOT / 'README_START_HERE.md',
-    ROOT / 'HOW_TO_USE.md',
-    ROOT / 'ONBOARDING_MINIMAL.md',
-    ROOT / 'ONBOARDING_FULL.md',
-    ROOT / 'INDEX_CANONICAL.md',
+    ROOT / 'docs/legacy/START_HERE.md',
+    ROOT / 'docs/legacy/README_START_HERE.md',
+    ROOT / 'docs/legacy/HOW_TO_USE.md',
+    ROOT / 'docs/legacy/ONBOARDING_MINIMAL.md',
+    ROOT / 'docs/legacy/ONBOARDING_FULL.md',
+    ROOT / 'docs/legacy/INDEX_CANONICAL.md',
     ROOT / 'docs/get-started.md',
     ROOT / 'docs/adoption-paths.md',
     ROOT / 'docs/overlays.md',

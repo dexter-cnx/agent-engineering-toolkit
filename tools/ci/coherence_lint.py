@@ -4,14 +4,14 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[2]
 
-CANONICAL_CHAIN = "README.md -> docs/get-started.md -> docs/adoption-paths.md"
+CANONICAL_CHAIN = "README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md"
 COMPAT_DOCS = [
-    "START_HERE.md",
-    "README_START_HERE.md",
-    "HOW_TO_USE.md",
-    "ONBOARDING_MINIMAL.md",
-    "ONBOARDING_FULL.md",
-    "INDEX_CANONICAL.md",
+    "docs/legacy/START_HERE.md",
+    "docs/legacy/README_START_HERE.md",
+    "docs/legacy/HOW_TO_USE.md",
+    "docs/legacy/ONBOARDING_MINIMAL.md",
+    "docs/legacy/ONBOARDING_FULL.md",
+    "docs/legacy/INDEX_CANONICAL.md",
 ]
 FIRST_CLASS_OVERLAYS = [
     "overlays/agent-karpathy/README.md",
@@ -55,9 +55,9 @@ def check_compat_redirects() -> None:
             fail(f"{rel} must begin with compatibility redirect heading")
         if "not canonical" not in lower:
             fail(f"{rel} must explicitly state non-canonical status")
-        if "[README.md](README.md)" not in text:
+        if "[README.md](../README.md)" not in text:
             fail(f"{rel} must redirect to README.md")
-        if "[docs/get-started.md](docs/get-started.md)" not in text:
+        if "[docs/get-started.md](../get-started.md)" not in text:
             fail(f"{rel} must redirect to docs/get-started.md")
         if "canonical front door" not in lower:
             fail(f"{rel} must clearly label README.md as canonical front door")
