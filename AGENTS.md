@@ -12,12 +12,16 @@ Mobile belongs in overlays, not in root assumptions.
 - Canonical doc/status map: `docs/reference/canonical-doc-map.md` and `docs/reference/repo-surface-status.md`
 - OS invariants: `system/kernel/os-invariants.md`
 - Architecture authority: `docs/architecture/os-overview.md` and `docs/architecture/task-lifecycle.md`
-- Lifecycle: `docs/prompt-pipeline.md`
-- Role model: `docs/agent-team-system.md`
+- Runtime role/workflow authority: `agents/README.md`
+
+## Supporting references (non-authoritative)
+
+- Lifecycle background: `docs/prompt-pipeline.md`
+- Team model background: `docs/agent-team-system.md`
 
 ## Mandatory execution lifecycle
 
-Use the canonical lifecycle from `docs/prompt-pipeline.md` for meaningful work.
+Use the canonical lifecycle contract from `docs/architecture/task-lifecycle.md` for meaningful work.
 
 Do not skip phases unless the task is truly trivial and non-structural.
 
@@ -36,7 +40,7 @@ When producing substantial work, prefer this output order:
 
 ## Team model
 
-Use the role model defined in `docs/agent-team-system.md`.
+Use the runtime role model defined in `agents/README.md`.
 
 ## Hard rules
 
