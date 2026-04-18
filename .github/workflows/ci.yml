@@ -17,6 +17,15 @@ jobs:
       - uses: actions/setup-node@60edb5dd545a775178f52524783378180af0d1f8
         with:
           node-version: "22"
+      - name: Install Node dependencies
+        run: npm ci
+      - name: Build compiled CLI
+        run: npm run build:cli
+      - name: Validate compiled CLI smoke
+        run: |
+          test -f dist/cli.js
+          node dist/cli.js validate
+          node dist/cli.js overlays list --json
       - name: Validate canonical docs and links
         run: |
           python3 tools/ci/doc_lint.py
@@ -24,8 +33,8 @@ jobs:
           python3 tools/ci/link_check.py
           node --experimental-strip-types tools/ci/check-canonical-consistency.ts
           node --experimental-strip-types tools/ci/check-merge-gate-consistency.ts
-          node --experimental-strip-types tools/ci/check-package-metadata.ts
-          node --experimental-strip-types --test tests/runtime/runtime.test.mjs
+          node tools/ci/check-package-metadata.ts
+          node --test tests/runtime/runtime.test.mjs
       - name: Validate overlays, prompts, and memory contracts
         run: |
           python3 tools/ci/overlay_lint.py

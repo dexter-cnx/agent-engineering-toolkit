@@ -36,10 +36,10 @@
     "workspace:install": "npm install",
     "os": "node dist/cli.js",
     "os:validate": "node dist/cli.js validate",
-    "os:test": "node --test tests/runtime/runtime.test.mjs",
+    "os:test": "npm run build:cli && node --test tests/runtime/runtime.test.mjs",
     "os:pack:dryrun": "npm pack --dry-run",
     "os:link": "npm link",
-    "os:metadata:check": "node tools/ci/check-package-metadata.ts"
+    "os:metadata:check": "npm run build:cli && node tools/ci/check-package-metadata.ts"
   },
   "bin": {
     "os": "dist/cli.js"
