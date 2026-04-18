@@ -1,7 +1,6 @@
 #!/usr/bin/env node
-import { readFileSync } from "node:fs";
-import { dirname, resolve } from "node:path";
-import { fileURLToPath } from "node:url";
+import { existsSync, readFileSync } from "node:fs";
+import { resolve } from "node:path";
 
 export type PromptExecutionMode = "simulation";
 
@@ -20,8 +19,22 @@ export type PromptExecutionResult = {
   output: string;
 };
 
-const currentDir = dirname(fileURLToPath(import.meta.url));
-const repoRoot = resolve(currentDir, "../..");
+function resolveRepoRoot(): string {
+  const directRoot = resolve(__dirname, "../..");
+  const compiledRoot = resolve(__dirname, "../../..");
+
+  if (existsSync(resolve(directRoot, "docs/overlays.manifest.json"))) {
+    return directRoot;
+  }
+
+  if (existsSync(resolve(compiledRoot, "docs/overlays.manifest.json"))) {
+    return compiledRoot;
+  }
+
+  return directRoot;
+}
+
+const repoRoot = resolveRepoRoot();
 
 export class PromptExecutor {
   execute(request: PromptExecutionRequest): PromptExecutionResult {

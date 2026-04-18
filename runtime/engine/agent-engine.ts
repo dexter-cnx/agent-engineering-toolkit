@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { OverlayRegistry } from "../registry/overlay-registry.ts";
-import { PromptExecutor } from "../executor/prompt-executor.ts";
+import { OverlayRegistry } from "../registry/overlay-registry";
+import { PromptExecutor } from "../executor/prompt-executor";
 
 export type AgentRunRequest = {
   overlayName: string;

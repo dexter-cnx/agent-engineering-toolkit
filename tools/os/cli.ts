@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-import { AgentEngine } from "../../runtime/engine/agent-engine.ts";
+import { AgentEngine } from "../../runtime/engine/agent-engine";
 
 const CLI_CONTRACT_VERSION = "1.0.0";
 

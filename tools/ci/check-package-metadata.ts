@@ -4,6 +4,7 @@ const { resolve } = require("node:path");
 
 const repoRoot = resolve(__dirname, "../..");
 const packageJsonPath = resolve(repoRoot, "package.json");
+const EXPECTED_REPO = "dexter-cnx/agent-engineering-toolkit";
 
 function fail(message: string): never {
   console.error(`PACKAGE_METADATA_FAIL: ${message}`);
@@ -46,6 +47,11 @@ function main(): void {
 
   if (`${homepageUrl}/issues` !== bugsUrl) {
     fail(`bugs.url must equal homepage + '/issues': ${bugsUrl}`);
+  }
+
+  const repoMatch = normalizedRepo.match(/github\.com\/(.+)$/);
+  if (!repoMatch || repoMatch[1] !== EXPECTED_REPO) {
+    fail(`repository must target '${EXPECTED_REPO}': ${repositoryUrl}`);
   }
 
   assertNonEmptyString(pkg.bin?.os, "bin.os");
