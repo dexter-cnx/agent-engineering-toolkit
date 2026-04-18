@@ -5,18 +5,36 @@ on:
   pull_request:
 
 jobs:
-  mobile-flutter-skill-schema:
+  os-governance:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate Mobile Flutter skill structure
-        run: bash tools/skillgen/bin/skillgen check --overlay overlays/mobile-flutter
-      - name: Sync Mobile Flutter skill index
-        run: bash tools/skillgen/bin/skillgen sync-index --overlay overlays/mobile-flutter --check
-      - name: Check Mobile Flutter skill overlap
-        run: bash tools/skillgen/bin/skillgen overlap --overlay overlays/mobile-flutter --fail-on-overlap --report overlays/mobile-flutter/docs/skill-overlap-report.md
-      - name: Check Mobile Flutter docs consistency
-        run: bash tools/skillgen/bin/skillgen docs-check --overlay overlays/mobile-flutter
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Enforce OS invariants
+        run: python3 tools/ci/os_invariant_check.py
+      - name: Validate canonical docs and links
+        run: |
+          python3 tools/ci/doc_lint.py
+          python3 tools/ci/link_check.py
+      - name: Validate overlays, prompts, and memory contracts
+        run: |
+          python3 tools/ci/overlay_lint.py
+          python3 tools/ci/prompt_lint.py
+          python3 tools/ci/memory_lint.py
+      - name: Enforce compiled prompt consistency
+        run: |
+          python3 tools/prompts/compile_prompts.py
+          python3 tools/prompts/validate_prompt_pack.py
+          git diff --exit-code prompts/compiled
+      - name: Quickstart smoke verification
+        run: |
+          python3 tools/memory/state_rollup.py
+          test -f prompts/compiled/codex-runtime.md
+          test -f prompts/compiled/claude-runtime.md
+          test -f prompts/compiled/gemini-runtime.md
+          test -f artifacts/memory-state-rollup.md
 
   structure-check:
     runs-on: ubuntu-latest
@@ -25,11 +43,10 @@ jobs:
       - name: Check public repo files
         run: |
           bash scripts/check-public-repo.sh
+          test -d docs
+          test -d agents
+          test -d memory
+          test -d system
           test -d prompts
-          test -d skills
           test -d overlays
-          for overlay_dir in overlays/*; do
-            if [ -d "$overlay_dir" ]; then
-              test -d "$overlay_dir/examples"
-            fi
-          done
+          test -d tools

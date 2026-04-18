@@ -23,6 +23,10 @@
 - `docs/reference/repo-surface-status.md`
 - `docs/graph/navigation-map.md`
 
+## Supporting references (non-authoritative for onboarding/architecture)
+- `docs/prompt-pipeline.md`
+- `docs/agent-team-system.md`
+
 ## Compatibility redirectors (legacy links only)
 These are non-canonical and not onboarding sources:
 - `START_HERE.md`
@@ -41,3 +45,7 @@ These are non-canonical and not onboarding sources:
 - `skills/`
 - `companion-pack/`
 - `orchestrator/`
+
+## Legacy/frozen doc aliases (retained, non-primary)
+- `docs/how-to-use.md`
+- `docs/architecture.md`

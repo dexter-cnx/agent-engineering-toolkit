@@ -13,5 +13,6 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - run: python3 tools/ci/os_invariant_check.py
       - run: python3 tools/ci/doc_lint.py
       - run: python3 tools/ci/link_check.py

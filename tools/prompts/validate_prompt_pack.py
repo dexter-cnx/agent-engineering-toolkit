@@ -35,22 +35,37 @@ for provider in providers:
         continue
 
     source_texts = []
+    provider_failed = False
     for src in srcs:
         src_path = ROOT / src
         if not src_path.exists():
             print(f'PROMPT_PACK_FAIL: source missing for {provider}: {src}')
             failed = True
+            provider_failed = True
             break
         source_texts.append(src_path.read_text(encoding='utf-8').strip())
-    if failed:
+    if provider_failed:
         continue
 
     joined = '\n\n---\n\n'.join(source_texts)
     expected_sha = hashlib.sha256(joined.encode('utf-8')).hexdigest()
     actual = compiled.read_text(encoding='utf-8')
+    source_list = ', '.join(srcs)
+    expected_compiled = (
+        f'# Compiled {provider.title()} Runtime Prompt\n\n'
+        '<!-- generated: tools/prompts/compile_prompts.py -->\n'
+        f'<!-- provider: {provider} -->\n'
+        f'<!-- sources: {source_list} -->\n'
+        f'<!-- content_sha256: {expected_sha} -->\n\n'
+        + joined
+        + '\n'
+    )
 
-    if joined not in actual:
-        print(f'PROMPT_PACK_FAIL: {compiled.relative_to(ROOT)} content does not match sources; run compile_prompts.py')
+    if actual != expected_compiled:
+        print(
+            f'PROMPT_PACK_FAIL: {compiled.relative_to(ROOT)} does not exactly match generated body; '
+            'run compile_prompts.py'
+        )
         failed = True
 
     m = sha_marker.search(actual)

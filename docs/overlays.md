@@ -22,6 +22,22 @@ Overlays are the specialization layer of the Agent Engineering OS.
 - [web-frontend-common](../overlays/web-frontend-common/README.md)
 - [web-frontend-nextjs](../overlays/web-frontend-nextjs/README.md)
 
+## Overlay product metadata (concise)
+
+| Overlay | Maturity | Scope | Requires | Runnable entry | When to use |
+|---|---|---|---|---|---|
+| agent-friendly-cli | stable | tooling | shell + python tooling | `overlays/agent-friendly-cli/examples/` | recurring CLI-style agent operations |
+| agent-karpathy | stable | tooling | eval/promote workflow discipline | `overlays/agent-karpathy/examples/` | skill eval/mutation/promotion governance |
+| backend-common | stable | backend | backend layering conventions | `overlays/backend-common/examples/` | runtime-neutral backend patterns |
+| backend-dotnet | production | backend | .NET toolchain | `overlays/backend-dotnet/examples/` | ASP.NET Core backend delivery |
+| backend-node | production | backend | Node.js runtime | `overlays/backend-node/examples/` | Node backend service/API work |
+| mobile-flutter | production | mobile | Flutter SDK/toolchain | `overlays/mobile-flutter/examples/` | Flutter-first mobile delivery |
+| python-service | stable | backend | Python runtime | `overlays/python-service/examples/` | Python service/worker workflows |
+| unity | experimental | frontend | Unity editor/toolchain | `overlays/unity/examples/` | Unity project architecture/delivery |
+| web-frontend | legacy | frontend | legacy web frontend context | `overlays/web-frontend/examples/` | maintain older frontend overlay paths |
+| web-frontend-common | stable | frontend | frontend architecture conventions | `overlays/web-frontend-common/examples/` | framework-neutral frontend patterns |
+| web-frontend-nextjs | production | frontend | Next.js runtime/tooling | `overlays/web-frontend-nextjs/examples/` | Next.js frontend specialization |
+
 ## Required overlay README sections
 
 Each overlay README must define:

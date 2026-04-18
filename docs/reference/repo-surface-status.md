@@ -36,6 +36,7 @@ These are retained for inbound links and are not onboarding sources.
 - `companion-pack/` (legacy Flutter-focused companion integration kit)
 - `orchestrator/` (legacy Python orchestration prototype)
 - `INDEX_PROMPTS.md`, `INDEX_COMPANION.md`, `INDEX_CHECKLISTS.md` (legacy frozen indexes)
+- `docs/how-to-use.md` and `docs/architecture.md` (legacy/frozen references retained for inbound links)
 
 ## Reference/archive surfaces (useful but not OS runtime)
 
