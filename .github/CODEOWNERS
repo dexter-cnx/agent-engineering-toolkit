@@ -1,7 +1,28 @@
+# Global default owner
 * @dexter-cnx
 
-/docs/ @dexter-cnx
+# Foundation operating system boundaries
+/README.md @dexter-cnx
+/docs/get-started.md @dexter-cnx
+/docs/adoption-paths.md @dexter-cnx
+/docs/overlays.md @dexter-cnx
+/docs/architecture/ @dexter-cnx
+/docs/reference/ @dexter-cnx
+/docs/graph/ @dexter-cnx
+
+# Runtime domains
+/agents/ @dexter-cnx
 /prompts/ @dexter-cnx
-/skills/ @dexter-cnx
+/memory/ @dexter-cnx
+/system/ @dexter-cnx
+
+# Governance tooling and enforcement
+/tools/ci/ @dexter-cnx
+/tools/graph/ @dexter-cnx
+/tools/prompts/ @dexter-cnx
+/tools/memory/ @dexter-cnx
+/tools/scaffolds/ @dexter-cnx
+/.github/workflows/ @dexter-cnx
+
+# Overlay specialization layer
 /overlays/ @dexter-cnx
-/AGENTS.md @dexter-cnx

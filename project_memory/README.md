@@ -1,19 +1,11 @@
-# Project Memory
+# Project Memory (Legacy / Transitional)
 
-This folder stores the toolkit's own durable memory.
+Status: **legacy memory namespace retained for historical continuity**.
 
-Primary files:
-- `decisions.md`
-- `known_constraints.md`
-- `patterns.md`
+Canonical memory subsystem now lives in:
+- `memory/README.md`
+- `memory/decisions/`
+- `memory/state/`
 
-Use memory to preserve:
-- durable decisions
-- constraints
-- approved patterns
-- reminders that should survive future runs
-
-Do not use memory for:
-- noisy logs
-- transient brainstorming
-- temporary scratch notes
+Use `project_memory/` only when reading older history.
+Record all new memory updates in `memory/`.

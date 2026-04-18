@@ -1,0 +1,400 @@
+{
+  "nodes": [
+    "docs/get-started.md",
+    "docs/README.md",
+    "docs/mutation-system.md",
+    "docs/prompt-pipeline.md",
+    "docs/public-repo-checklist.md",
+    "docs/tutorial_TH.md",
+    "docs/promotion-system.md",
+    "docs/adoption-guide.md",
+    "docs/karpathy-ecosystem-index.md",
+    "docs/karpathy-guide.md",
+    "docs/agent-team-system.md",
+    "docs/eval-system.md",
+    "docs/adoption-paths.md",
+    "docs/karpathy-overlay-integration.md",
+    "docs/overlays.md",
+    "docs/token-optimizer.md",
+    "docs/release-process.md",
+    "docs/how-to-use_TH.md",
+    "docs/architecture.md",
+    "docs/guardrails.md",
+    "docs/how-to-use.md",
+    "docs/repo-maintenance.md",
+    "docs/strict-audit-prompt.md",
+    "docs/karpathy-architecture.md",
+    "docs/repo-bootstrap.md",
+    "docs/obsidian-friendly.md",
+    "docs/tutorial.md",
+    "docs/real-world-integration.md",
+    "docs/orchestration.md",
+    "docs/continuous-optimization.md",
+    "docs/karpathy-guide_TH.md",
+    "docs/roadmap.md",
+    "docs/tutorials/07-multi-agent-execution.md",
+    "docs/tutorials/06-debugging-agent-runs.md",
+    "docs/tutorials/03-real-workflow_EN.md",
+    "docs/tutorials/07-multi-agent-execution_EN.md",
+    "docs/tutorials/03-real-workflow.md",
+    "docs/tutorials/01-golden-path.md",
+    "docs/tutorials/08-full-example-flutter_EN.md",
+    "docs/tutorials/01-golden-path_EN.md",
+    "docs/tutorials/06-debugging-agent-runs_EN.md",
+    "docs/tutorials/02-agent-mental-model.md",
+    "docs/tutorials/08-full-example-flutter.md",
+    "docs/tutorials/index_EN.md",
+    "docs/tutorials/agents-and-prompts.md",
+    "docs/tutorials/00-common-start_EN.md",
+    "docs/tutorials/05-reuse-toolkit_EN.md",
+    "docs/tutorials/agents-and-prompts_EN.md",
+    "docs/tutorials/04-build-production-feature_EN.md",
+    "docs/tutorials/00-common-start.md",
+    "docs/tutorials/index.md",
+    "docs/tutorials/05-reuse-toolkit.md",
+    "docs/tutorials/02-agent-mental-model_EN.md",
+    "docs/tutorials/04-build-production-feature.md",
+    "docs/tutorials/flutter/how-to-integrate-design-md-to-existing-project-and-new-project-in-flutter_EN.md",
+    "docs/tutorials/flutter/how-to-make-flutter-app-with-clean-architecture-and-bloc.md",
+    "docs/tutorials/flutter/how-to-localize-multi-languages-with-one-csv-file-in-flutter_EN.md",
+    "docs/tutorials/flutter/how-to-make-offline-first-flutter-app_EN.md",
+    "docs/tutorials/flutter/how-to-make-flutter-app-with-clean-architecture-and-riverpod.md",
+    "docs/tutorials/flutter/how-to-make-flutter-app-with-clean-architecture-and-getx.md",
+    "docs/tutorials/flutter/how-to-make-online-flutter-app_EN.md",
+    "docs/tutorials/flutter/how-to-make-flutter-app-with-clean-architecture-and-riverpod_EN.md",
+    "docs/tutorials/flutter/how-to-localize-multi-languages-with-one-csv-file-in-flutter.md",
+    "docs/tutorials/flutter/how-to-make-flutter-app-with-clean-architecture-and-getx_EN.md",
+    "docs/tutorials/flutter/how-to-integrate-design-md-to-existing-project-and-new-project-in-flutter.md",
+    "docs/tutorials/flutter/how-to-prompt-for-add-supabase-to-flutter_EN.md",
+    "docs/tutorials/flutter/how-to-prompt-for-add-supabase-to-flutter.md",
+    "docs/tutorials/flutter/how-to-make-online-flutter-app.md",
+    "docs/tutorials/flutter/how-to-make-flutter-app-with-clean-architecture-and-bloc_EN.md",
+    "docs/tutorials/flutter/how-to-prompt-for-add-firebase-services-to-flutter_EN.md",
+    "docs/tutorials/flutter/how-to-make-offline-first-flutter-app.md",
+    "docs/tutorials/flutter/how-to-make-basic-flutter-app_EN.md",
+    "docs/tutorials/flutter/how-to-make-basic-flutter-app.md",
+    "docs/tutorials/flutter/how-to-prompt-for-add-firebase-services-to-flutter.md",
+    "docs/tutorials/services/how-to-make-python-service_EN.md",
+    "docs/tutorials/services/how-to-make-python-service.md",
+    "docs/tutorials/services/how-to-make-backend-node.md",
+    "docs/tutorials/services/how-to-make-backend-node_EN.md",
+    "docs/tutorials/examples/index_EN.md",
+    "docs/tutorials/examples/index.md",
+    "docs/tutorials/examples/patterns/index_EN.md",
+    "docs/tutorials/examples/patterns/index.md",
+    "docs/tutorials/examples/patterns/prompting/index_EN.md",
+    "docs/tutorials/examples/patterns/prompting/index.md",
+    "docs/tutorials/examples/patterns/adoption/index_EN.md",
+    "docs/tutorials/examples/patterns/adoption/index.md",
+    "docs/tutorials/examples/patterns/design/index_EN.md",
+    "docs/tutorials/examples/patterns/design/index.md",
+    "docs/tutorials/examples/templates/index_EN.md",
+    "docs/tutorials/examples/templates/index.md",
+    "docs/tutorials/examples/templates/flutter/design-md-flutter-template_EN.md",
+    "docs/tutorials/examples/templates/flutter/design-md-flutter-template.md",
+    "docs/tutorials/examples/templates/web/design-md-web-frontend-template.md",
+    "docs/tutorials/examples/templates/web/design-md-web-frontend-template_EN.md",
+    "docs/tutorials/unity/index_EN.md",
+    "docs/tutorials/unity/how-to-make-tetris-in-unity_EN.md",
+    "docs/tutorials/unity/how-to-make-tetris-in-unity.md",
+    "docs/tutorials/unity/index.md",
+    "docs/tutorials/team/how-to-use-team-agents_EN.md",
+    "docs/tutorials/team/how-to-use-team-agents.md",
+    "docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend.md",
+    "docs/tutorials/web/how-to-style-web-frontend-with-tailwindcss_TH.md",
+    "docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend_TH.md",
+    "docs/tutorials/web/how-to-make-web-frontend.md",
+    "docs/tutorials/web/how-to-make-web-frontend_EN.md",
+    "docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend_EN.md",
+    "docs/tutorials/web/how-to-style-web-frontend-with-tailwindcss.md",
+    "docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend_EN.md",
+    "docs/tutorials/web/how-to-integrate-design-md-to-existing-project-and-new-project-in-web-frontend_TH.md",
+    "docs/tutorials/web/how-to-make-web-frontend_TH.md",
+    "docs/tutorials/web/how-to-localize-multi-languages-with-one-csv-file-in-web-frontend.md",
+    "docs/tutorials/web/how-to-style-web-frontend-with-tailwindcss_EN.md",
+    "docs/tutorials/web/how-to-make-web-frontend-react-vite_TH.md",
+    "docs/tutorials/web/how-to-make-web-frontend-nextjs_TH.md",
+    "docs/architecture/os-overview.md",
+    "docs/architecture/task-lifecycle.md",
+    "docs/graph/graph-index.md",
+    "docs/graph/concept-map.md",
+    "docs/graph/navigation-map.md",
+    "docs/reference/repo-surface-status.md",
+    "docs/reference/prompt-catalog.md",
+    "docs/reference/canonical-doc-map.md",
+    "docs/internal/merge-gate.md",
+    "docs/internal/AGENTS.internal.md",
+    "docs/internal/doc-map.md",
+    "docs/internal/start-here.md",
+    "docs/internal/patch-notes.md",
+    "docs/internal/operating-model.md",
+    "docs/internal/anti-patterns.md",
+    "docs/toolkit/01-Tools/toolkit-design.md",
+    "docs/toolkit/01-Tools/toolkit-ci.md",
+    "docs/toolkit/01-Tools/toolkit-i18n.md",
+    "docs/toolkit/01-Tools/toolkit-i18n-howto.md",
+    "docs/toolkit/01-Tools/toolkit-arch.md",
+    "docs/toolkit/01-Tools/toolkit-arch-howto.md",
+    "docs/toolkit/02-Prompts/prompt-toolkit-i18n.md",
+    "docs/toolkit/03-Playbooks/playbook-i18n.md",
+    "docs/toolkit/00-MOC/toolkit-index.md",
+    "docs/toolkit/how_to/README.md",
+    "docs/toolkit/how_to/docs/01-toolkit-flutter-bilingual.md",
+    "docs/toolkit/how_to/docs/02-toolkit-web-frontend-bilingual.md",
+    "docs/toolkit/how_to/docs/04-toolkit-prompts-cheatsheet-bilingual.md",
+    "docs/toolkit/how_to/docs/03-toolkit-services-bilingual.md",
+    "docs/toolkit/how_to/docs/00-toolkit-overview-bilingual.md",
+    "docs/toolkit/04-ADR/adr-001-toolkit-system.md",
+    "docs/releases/release-v1.0.1.md",
+    "docs/releases/release-v0.1.0.md",
+    "docs/releases/release-v1.0.5.md",
+    "docs/releases/release-v0.1.2.md",
+    "docs/releases/release-v0.1.3.md",
+    "docs/releases/release-v1.0.4.md",
+    "docs/releases/release-v1.0.3.md",
+    "docs/fullstack/repo-layout.md",
+    "docs/fullstack/async-jobs.md",
+    "docs/fullstack/getting-started.md",
+    "docs/fullstack/auth-cross-platform.md",
+    "docs/fullstack/selection-matrix.md",
+    "docs/fullstack/mobile-backend-integration.md",
+    "docs/fullstack/failure-recovery.md",
+    "docs/fullstack/architecture.md",
+    "docs/fullstack/dev-workflow.md",
+    "docs/fullstack/contracts.md",
+    "docs/fullstack/observability.md",
+    "docs/fullstack/ai-worker-architecture.md",
+    "docs/compositions/README.md",
+    "docs/compositions/README.th.md",
+    "docs/compositions/nextjs-python-service/FRONTEND_BACKEND_SELECTION_GUIDE.th.md",
+    "docs/compositions/nextjs-python-service/FRONTEND_BACKEND_SELECTION_GUIDE.md",
+    "docs/compositions/nextjs-python-service/README.md",
+    "docs/compositions/nextjs-python-service/CASE_STUDIES.md",
+    "docs/compositions/nextjs-python-service/HOW_TO_USE.th.md",
+    "docs/compositions/nextjs-python-service/IMPLEMENTATION_ORDER.md",
+    "docs/compositions/nextjs-python-service/IMPLEMENTATION_ORDER.th.md",
+    "docs/compositions/nextjs-python-service/CURRICULUM.th.md",
+    "docs/compositions/nextjs-python-service/README.th.md",
+    "docs/compositions/nextjs-python-service/CASE_STUDIES.th.md",
+    "docs/compositions/nextjs-python-service/HOW_TO_USE.md",
+    "docs/compositions/nextjs-python-service/CURRICULUM.md",
+    "docs/compositions/nextjs-python-service/REFERENCE_ARCHITECTURE.md",
+    "docs/compositions/nextjs-python-service/TUTORIAL.th.md",
+    "docs/compositions/nextjs-python-service/KARPATHY_INTEGRATION.md",
+    "docs/compositions/nextjs-python-service/REFERENCE_ARCHITECTURE.th.md",
+    "docs/compositions/nextjs-python-service/TUTORIAL.md",
+    "docs/compositions/nextjs-fullstack/FRONTEND_BACKEND_SELECTION_GUIDE.md",
+    "docs/compositions/nextjs-fullstack/README.md",
+    "docs/compositions/nextjs-fullstack/CASE_STUDIES.md",
+    "docs/compositions/nextjs-fullstack/IMPLEMENTATION_ORDER.md",
+    "docs/compositions/nextjs-fullstack/HOW_TO_USE.md",
+    "docs/compositions/nextjs-fullstack/CURRICULUM.md",
+    "docs/compositions/nextjs-fullstack/REFERENCE_ARCHITECTURE.md",
+    "docs/compositions/nextjs-fullstack/KARPATHY_INTEGRATION.md",
+    "docs/compositions/nextjs-fullstack/TUTORIAL.md",
+    "docs/compositions/flutter-dotnet/README.md",
+    "docs/compositions/nextjs-python-worker/README.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/FRONTEND_BACKEND_SELECTION_GUIDE.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/FRONTEND_BACKEND_SELECTION_GUIDE.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/README.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/CASE_STUDIES.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/HOW_TO_USE.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/IMPLEMENTATION_ORDER.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/IMPLEMENTATION_ORDER.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/CURRICULUM.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/README.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/CASE_STUDIES.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/HOW_TO_USE.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/CURRICULUM.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/REFERENCE_ARCHITECTURE.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/TUTORIAL.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/REFERENCE_ARCHITECTURE.th.md",
+    "docs/compositions/nextjs-prisma-postgres-nextauth-vercel/TUTORIAL.md",
+    "docs/compositions/nextjs-dotnet-python-worker/README.md",
+    "docs/compositions/nextjs-dotnet/FRONTEND_BACKEND_SELECTION_GUIDE.th.md",
+    "docs/compositions/nextjs-dotnet/FRONTEND_BACKEND_SELECTION_GUIDE.md",
+    "docs/compositions/nextjs-dotnet/README.md",
+    "docs/compositions/nextjs-dotnet/CASE_STUDIES.md",
+    "docs/compositions/nextjs-dotnet/HOW_TO_USE.th.md",
+    "docs/compositions/nextjs-dotnet/IMPLEMENTATION_ORDER.md",
+    "docs/compositions/nextjs-dotnet/IMPLEMENTATION_ORDER.th.md",
+    "docs/compositions/nextjs-dotnet/CURRICULUM.th.md",
+    "docs/compositions/nextjs-dotnet/README.th.md",
+    "docs/compositions/nextjs-dotnet/CASE_STUDIES.th.md",
+    "docs/compositions/nextjs-dotnet/HOW_TO_USE.md",
+    "docs/compositions/nextjs-dotnet/CURRICULUM.md",
+    "docs/compositions/nextjs-dotnet/REFERENCE_ARCHITECTURE.md",
+    "docs/compositions/nextjs-dotnet/TUTORIAL.th.md",
+    "docs/compositions/nextjs-dotnet/KARPATHY_INTEGRATION.md",
+    "docs/compositions/nextjs-dotnet/REFERENCE_ARCHITECTURE.th.md",
+    "docs/compositions/nextjs-dotnet/TUTORIAL.md",
+    "docs/compositions/flutter-nodebackend/README.md",
+    "docs/compositions/nextjs-nodebackend/FRONTEND_BACKEND_SELECTION_GUIDE.th.md",
+    "docs/compositions/nextjs-nodebackend/FRONTEND_BACKEND_SELECTION_GUIDE.md",
+    "docs/compositions/nextjs-nodebackend/README.md",
+    "docs/compositions/nextjs-nodebackend/CASE_STUDIES.md",
+    "docs/compositions/nextjs-nodebackend/HOW_TO_USE.th.md",
+    "docs/compositions/nextjs-nodebackend/IMPLEMENTATION_ORDER.md",
+    "docs/compositions/nextjs-nodebackend/IMPLEMENTATION_ORDER.th.md",
+    "docs/compositions/nextjs-nodebackend/CURRICULUM.th.md",
+    "docs/compositions/nextjs-nodebackend/README.th.md",
+    "docs/compositions/nextjs-nodebackend/CASE_STUDIES.th.md",
+    "docs/compositions/nextjs-nodebackend/HOW_TO_USE.md",
+    "docs/compositions/nextjs-nodebackend/CURRICULUM.md",
+    "docs/compositions/nextjs-nodebackend/REFERENCE_ARCHITECTURE.md",
+    "docs/compositions/nextjs-nodebackend/TUTORIAL.th.md",
+    "docs/compositions/nextjs-nodebackend/KARPATHY_INTEGRATION.md",
+    "docs/compositions/nextjs-nodebackend/REFERENCE_ARCHITECTURE.th.md",
+    "docs/compositions/nextjs-nodebackend/TUTORIAL.md"
+  ],
+  "edges": [
+    {
+      "from": "docs/graph/graph-index.md",
+      "to": "docs/get-started"
+    },
+    {
+      "from": "docs/graph/graph-index.md",
+      "to": "docs/adoption-paths"
+    },
+    {
+      "from": "docs/graph/graph-index.md",
+      "to": "docs/overlays"
+    },
+    {
+      "from": "docs/graph/graph-index.md",
+      "to": "docs/architecture/os-overview"
+    },
+    {
+      "from": "docs/graph/graph-index.md",
+      "to": "docs/architecture/task-lifecycle"
+    },
+    {
+      "from": "docs/graph/graph-index.md",
+      "to": "docs/reference/prompt-catalog"
+    },
+    {
+      "from": "docs/graph/graph-index.md",
+      "to": "docs/reference/canonical-doc-map"
+    },
+    {
+      "from": "docs/graph/concept-map.md",
+      "to": "docs/get-started"
+    },
+    {
+      "from": "docs/graph/concept-map.md",
+      "to": "docs/adoption-paths"
+    },
+    {
+      "from": "docs/graph/concept-map.md",
+      "to": "docs/overlays"
+    },
+    {
+      "from": "docs/graph/concept-map.md",
+      "to": "docs/architecture/os-overview"
+    },
+    {
+      "from": "docs/graph/concept-map.md",
+      "to": "docs/architecture/task-lifecycle"
+    },
+    {
+      "from": "docs/graph/concept-map.md",
+      "to": "docs/reference/prompt-catalog"
+    },
+    {
+      "from": "docs/graph/concept-map.md",
+      "to": "docs/reference/canonical-doc-map"
+    },
+    {
+      "from": "docs/graph/navigation-map.md",
+      "to": "docs/get-started"
+    },
+    {
+      "from": "docs/graph/navigation-map.md",
+      "to": "docs/adoption-paths"
+    },
+    {
+      "from": "docs/graph/navigation-map.md",
+      "to": "docs/overlays"
+    },
+    {
+      "from": "docs/graph/navigation-map.md",
+      "to": "docs/architecture/os-overview"
+    },
+    {
+      "from": "docs/graph/navigation-map.md",
+      "to": "docs/architecture/task-lifecycle"
+    },
+    {
+      "from": "docs/graph/navigation-map.md",
+      "to": "docs/reference/prompt-catalog"
+    },
+    {
+      "from": "docs/graph/navigation-map.md",
+      "to": "docs/reference/canonical-doc-map"
+    },
+    {
+      "from": "docs/toolkit/01-Tools/toolkit-design.md",
+      "to": "toolkit-design-howto"
+    },
+    {
+      "from": "docs/toolkit/01-Tools/toolkit-ci.md",
+      "to": "toolkit-ci-howto"
+    },
+    {
+      "from": "docs/toolkit/01-Tools/toolkit-i18n.md",
+      "to": "toolkit-i18n-howto"
+    },
+    {
+      "from": "docs/toolkit/01-Tools/toolkit-arch.md",
+      "to": "toolkit-arch-howto"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "toolkit-arch"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "toolkit-ci"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "toolkit-design"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "toolkit-i18n"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "playbook-architecture-enforcement"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "playbook-ci-debug"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "playbook-design-sync"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "playbook-i18n"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "prompt-toolkit-arch"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "prompt-toolkit-ci"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "prompt-toolkit-design"
+    },
+    {
+      "from": "docs/toolkit/00-MOC/toolkit-index.md",
+      "to": "prompt-toolkit-i18n"
+    }
+  ]
+}

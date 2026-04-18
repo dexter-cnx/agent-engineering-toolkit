@@ -1,3 +1,5 @@
+Status: **canonical**.
+
 # Toolkit Production Pack — Python Base
 
 Zip-ready production skeleton for three repository CLIs implemented in Python:

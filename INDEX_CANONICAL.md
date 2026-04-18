@@ -1,13 +1,6 @@
-# Canonical Index
+# Compatibility Redirect (Legacy)
 
-These are the source-of-truth baseline docs for the overlay.
+This file previously listed canonical baseline docs at root.
+It is now compatibility-only and not canonical.
 
-- `canonical/01-architecture-baseline.md`
-- `canonical/02-capability-baseline.md`
-- `canonical/03-state-management-baseline.md`
-- `canonical/04-localization-baseline.md`
-- `canonical/05-network-baseline.md`
-- `canonical/06-firebase-baseline.md`
-- `canonical/07-maps-baseline.md`
-- `canonical/08-web-loading-baseline.md`
-- `canonical/09-ci-policy-baseline.md`
+Use: [docs/reference/canonical-doc-map.md](docs/reference/canonical-doc-map.md)
