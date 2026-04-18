@@ -18,6 +18,16 @@ jobs:
         run: |
           python3 tools/ci/doc_lint.py
           python3 tools/ci/link_check.py
+      - name: Validate overlays, prompts, and memory contracts
+        run: |
+          python3 tools/ci/overlay_lint.py
+          python3 tools/ci/prompt_lint.py
+          python3 tools/ci/memory_lint.py
+      - name: Enforce compiled prompt consistency
+        run: |
+          python3 tools/prompts/compile_prompts.py
+          python3 tools/prompts/validate_prompt_pack.py
+          git diff --exit-code prompts/compiled
 
   structure-check:
     runs-on: ubuntu-latest

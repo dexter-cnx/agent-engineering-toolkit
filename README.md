@@ -2,6 +2,8 @@
 
 Stack-neutral **Agent Engineering OS** for governed, repeatable agent-assisted engineering.
 
+Public package intent: reusable OSS operating system for agentic engineering workflows and governance.
+
 ## Start in 30 seconds
 
 1. Open **[docs/get-started.md](docs/get-started.md)**.
@@ -36,11 +38,24 @@ Catalog + boundaries: [docs/overlays.md](docs/overlays.md).
 - `packages/contracts/`, `packages/fullstack-client/`, `packages/job-contracts/`
 - Full-stack docs: `docs/fullstack/getting-started.md`, `docs/fullstack/dev-workflow.md`, `docs/fullstack/repo-layout.md`, `docs/fullstack/ai-worker-architecture.md`, `docs/fullstack/async-jobs.md`
 
+## 5-minute quick start (real runnable path)
+
+```bash
+python3 tools/ci/os_invariant_check.py
+python3 tools/ci/doc_lint.py
+python3 tools/ci/link_check.py
+python3 tools/prompts/compile_prompts.py
+python3 tools/prompts/validate_prompt_pack.py
+```
+
+Working example with expected outcomes: `examples/working/os-5-minute-quickstart.md`.
+
 ## Canonical references
 
 - Canonical document map: [docs/reference/canonical-doc-map.md](docs/reference/canonical-doc-map.md)
 - Repository surface status map: [docs/reference/repo-surface-status.md](docs/reference/repo-surface-status.md)
 - Prompt catalog: [docs/reference/prompt-catalog.md](docs/reference/prompt-catalog.md)
+- Release / packaging metadata: [docs/repo-maintenance.md](docs/repo-maintenance.md)
 
 ## Status note (compatibility and historical surfaces)
 

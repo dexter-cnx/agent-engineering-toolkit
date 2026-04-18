@@ -20,3 +20,6 @@ Explain why this belongs in the foundation toolkit instead of a consuming reposi
 - [ ] Templates and examples aligned
 - [ ] Overlay used instead of polluting root
 - [ ] CI passes
+- [ ] Canonical onboarding path remains unchanged (`README.md -> docs/get-started.md -> docs/adoption-paths.md`)
+- [ ] OS invariants still pass (`python3 tools/ci/os_invariant_check.py`)
+- [ ] Prompt compiled artifacts were validated (`compile_prompts.py` + `validate_prompt_pack.py`)

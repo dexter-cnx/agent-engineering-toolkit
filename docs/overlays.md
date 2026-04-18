@@ -22,6 +22,22 @@ Overlays are the specialization layer of the Agent Engineering OS.
 - [web-frontend-common](../overlays/web-frontend-common/README.md)
 - [web-frontend-nextjs](../overlays/web-frontend-nextjs/README.md)
 
+## Overlay product metadata (concise)
+
+| Overlay | Primary use | Example entrypoint |
+|---|---|---|
+| agent-friendly-cli | Reusable CLI-based agent operations | `overlays/agent-friendly-cli/examples/` |
+| agent-karpathy | Skill eval/mutation/promotion governance | `overlays/agent-karpathy/examples/` |
+| backend-common | Runtime-neutral backend patterns | `overlays/backend-common/examples/` |
+| backend-dotnet | ASP.NET Core backend specialization | `overlays/backend-dotnet/examples/` |
+| backend-node | Node backend specialization | `overlays/backend-node/examples/` |
+| mobile-flutter | Flutter mobile specialization | `overlays/mobile-flutter/examples/` |
+| python-service | Python service/worker specialization | `overlays/python-service/examples/` |
+| unity | Unity project specialization | `overlays/unity/examples/` |
+| web-frontend | Legacy frontend overlay | `overlays/web-frontend/examples/` |
+| web-frontend-common | Framework-neutral frontend specialization | `overlays/web-frontend-common/examples/` |
+| web-frontend-nextjs | Next.js frontend specialization | `overlays/web-frontend-nextjs/examples/` |
+
 ## Required overlay README sections
 
 Each overlay README must define:
