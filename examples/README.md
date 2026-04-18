@@ -7,3 +7,4 @@ Follow canonical OS onboarding from `README.md` and `docs/get-started.md` for ne
 
 Working quickstart example:
 - `examples/working/os-5-minute-quickstart.md`
+- `examples/working/agent-flow-demo/README.md`

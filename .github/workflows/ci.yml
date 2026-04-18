@@ -28,6 +28,13 @@ jobs:
           python3 tools/prompts/compile_prompts.py
           python3 tools/prompts/validate_prompt_pack.py
           git diff --exit-code prompts/compiled
+      - name: Quickstart smoke verification
+        run: |
+          python3 tools/memory/state_rollup.py
+          test -f prompts/compiled/codex-runtime.md
+          test -f prompts/compiled/claude-runtime.md
+          test -f prompts/compiled/gemini-runtime.md
+          test -f artifacts/memory-state-rollup.md
 
   structure-check:
     runs-on: ubuntu-latest

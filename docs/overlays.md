@@ -24,19 +24,19 @@ Overlays are the specialization layer of the Agent Engineering OS.
 
 ## Overlay product metadata (concise)
 
-| Overlay | Primary use | Example entrypoint |
-|---|---|---|
-| agent-friendly-cli | Reusable CLI-based agent operations | `overlays/agent-friendly-cli/examples/` |
-| agent-karpathy | Skill eval/mutation/promotion governance | `overlays/agent-karpathy/examples/` |
-| backend-common | Runtime-neutral backend patterns | `overlays/backend-common/examples/` |
-| backend-dotnet | ASP.NET Core backend specialization | `overlays/backend-dotnet/examples/` |
-| backend-node | Node backend specialization | `overlays/backend-node/examples/` |
-| mobile-flutter | Flutter mobile specialization | `overlays/mobile-flutter/examples/` |
-| python-service | Python service/worker specialization | `overlays/python-service/examples/` |
-| unity | Unity project specialization | `overlays/unity/examples/` |
-| web-frontend | Legacy frontend overlay | `overlays/web-frontend/examples/` |
-| web-frontend-common | Framework-neutral frontend specialization | `overlays/web-frontend-common/examples/` |
-| web-frontend-nextjs | Next.js frontend specialization | `overlays/web-frontend-nextjs/examples/` |
+| Overlay | Maturity | Scope | Requires | Runnable entry | When to use |
+|---|---|---|---|---|---|
+| agent-friendly-cli | stable | tooling | shell + python tooling | `overlays/agent-friendly-cli/examples/` | recurring CLI-style agent operations |
+| agent-karpathy | stable | tooling | eval/promote workflow discipline | `overlays/agent-karpathy/examples/` | skill eval/mutation/promotion governance |
+| backend-common | stable | backend | backend layering conventions | `overlays/backend-common/examples/` | runtime-neutral backend patterns |
+| backend-dotnet | production | backend | .NET toolchain | `overlays/backend-dotnet/examples/` | ASP.NET Core backend delivery |
+| backend-node | production | backend | Node.js runtime | `overlays/backend-node/examples/` | Node backend service/API work |
+| mobile-flutter | production | mobile | Flutter SDK/toolchain | `overlays/mobile-flutter/examples/` | Flutter-first mobile delivery |
+| python-service | stable | backend | Python runtime | `overlays/python-service/examples/` | Python service/worker workflows |
+| unity | experimental | frontend | Unity editor/toolchain | `overlays/unity/examples/` | Unity project architecture/delivery |
+| web-frontend | legacy | frontend | legacy web frontend context | `overlays/web-frontend/examples/` | maintain older frontend overlay paths |
+| web-frontend-common | stable | frontend | frontend architecture conventions | `overlays/web-frontend-common/examples/` | framework-neutral frontend patterns |
+| web-frontend-nextjs | production | frontend | Next.js runtime/tooling | `overlays/web-frontend-nextjs/examples/` | Next.js frontend specialization |
 
 ## Required overlay README sections
 

@@ -18,3 +18,4 @@
 - Keep GitHub topics current: `agent-engineering`, `prompt-engineering`, `governance`, `developer-tooling`, `overlays`.
 - Publish release notes from tested changes with command evidence.
 - Tag production-ready cuts using semver (`vX.Y.Z`) and reference key governance checks executed.
+- Keep release notes under `docs/release-notes/` (starting with `v0.1.0.md`).
