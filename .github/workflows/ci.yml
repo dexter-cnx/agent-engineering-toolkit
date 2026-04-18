@@ -24,6 +24,7 @@ jobs:
           python3 tools/ci/link_check.py
           node --experimental-strip-types tools/ci/check-canonical-consistency.ts
           node --experimental-strip-types tools/ci/check-merge-gate-consistency.ts
+          node --experimental-strip-types tools/ci/check-package-metadata.ts
           node --experimental-strip-types --test tests/runtime/runtime.test.mjs
       - name: Validate overlays, prompts, and memory contracts
         run: |

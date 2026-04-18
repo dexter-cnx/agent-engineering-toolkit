@@ -28,20 +28,21 @@
     "os:validate": "node --experimental-strip-types tools/os/cli.ts validate",
     "os:test": "node --experimental-strip-types --test tests/runtime/runtime.test.mjs",
     "os:pack:dryrun": "npm pack --dry-run",
-    "os:link": "npm link"
+    "os:link": "npm link",
+    "os:metadata:check": "node --experimental-strip-types tools/ci/check-package-metadata.ts"
   },
   "bin": {
     "os": "tools/os/bin/os.js"
   },
-  "description": "Agent Engineering OS with installable runtime governance CLI",
+  "description": "Release-candidate Agent Engineering OS with installable governance/runtime CLI",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/example/agent-engineering-toolkit.git"
+    "url": "https://github.com/agentics-org/agent-engineering-toolkit.git"
   },
-  "homepage": "https://github.com/example/agent-engineering-toolkit",
+  "homepage": "https://github.com/agentics-org/agent-engineering-toolkit",
   "bugs": {
-    "url": "https://github.com/example/agent-engineering-toolkit/issues"
+    "url": "https://github.com/agentics-org/agent-engineering-toolkit/issues"
   },
   "keywords": [
     "agent-engineering",

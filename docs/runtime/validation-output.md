@@ -14,7 +14,9 @@ Command: `os validate`
   "status": "pass",
   "overlays": 10,
   "source": "docs/overlays.manifest.json",
-  "mode": "machine"
+  "mode": "machine",
+  "command": "validate",
+  "contractVersion": "1.0.0"
 }
 ```
 

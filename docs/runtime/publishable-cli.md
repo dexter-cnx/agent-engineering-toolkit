@@ -37,3 +37,9 @@ npm run os:pack:dryrun
 - `os validate` output contract must remain stable for automation users.
 - Runtime tests and governance checks must pass before release candidate tags.
 - No real provider execution is introduced in this RC phase (simulation mode only).
+
+
+## Release checklist
+
+- `docs/runtime/release-candidate-checklist.md`
+- `docs/runtime/cli-contract-governance.md`

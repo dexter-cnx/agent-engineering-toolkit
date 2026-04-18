@@ -17,6 +17,7 @@ This document defines stable output contracts for human and machine modes.
   "status": "pass",
   "mode": "machine",
   "command": "overlays.list",
+  "contractVersion": "1.0.0",
   "overlays": [
     { "name": "backend-node", "path": "overlays/backend-node", "readme": "overlays/backend-node/README.md" }
   ]
@@ -33,6 +34,7 @@ This document defines stable output contracts for human and machine modes.
   "status": "pass",
   "mode": "machine",
   "command": "run",
+  "contractVersion": "1.0.0",
   "overlay": { "name": "backend-node", "path": "overlays/backend-node", "readme": "overlays/backend-node/README.md" },
   "execution": {
     "overlayName": "backend-node",
@@ -49,6 +51,7 @@ This document defines stable output contracts for human and machine modes.
 
 - Always machine-readable JSON.
 - `--json` is rejected to avoid ambiguous mode layering.
+- Output includes `contractVersion`.
 - Contract documented in `docs/runtime/validation-output.md`.
 
 ## Exit code semantics

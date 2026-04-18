@@ -24,3 +24,5 @@ The Agent Engineering OS runtime layer provides a minimal execution surface with
 - `docs/runtime/validation-output.md`
 - `docs/runtime/publishable-cli.md`
 - `docs/runtime/command-output-contracts.md`
+- `docs/runtime/cli-contract-governance.md`
+- `docs/runtime/release-candidate-checklist.md`

@@ -1,18 +1,22 @@
 #!/usr/bin/env node
 import { AgentEngine } from "../../runtime/engine/agent-engine.ts";
 
+const CLI_CONTRACT_VERSION = "1.0.0";
+
 export type ValidateOutput = {
   status: "pass";
   overlays: number;
   source: "docs/overlays.manifest.json";
   mode: "machine";
   command: "validate";
+  contractVersion: string;
 };
 
 export type OverlaysListOutput = {
   status: "pass";
   mode: "machine";
   command: "overlays.list";
+  contractVersion: string;
   overlays: Array<{ name: string; path: string; readme: string }>;
 };
 
@@ -20,6 +24,7 @@ export type RunOutput = {
   status: "pass";
   mode: "machine";
   command: "run";
+  contractVersion: string;
   overlay: { name: string; path: string; readme: string };
   execution: {
     overlayName: string;
@@ -60,6 +65,7 @@ function renderValidateOutput(engine: AgentEngine): ValidateOutput {
     source: "docs/overlays.manifest.json",
     mode: "machine",
     command: "validate",
+    contractVersion: CLI_CONTRACT_VERSION,
   };
 }
 
@@ -68,6 +74,7 @@ function renderOverlaysListOutput(engine: AgentEngine): OverlaysListOutput {
     status: "pass",
     mode: "machine",
     command: "overlays.list",
+    contractVersion: CLI_CONTRACT_VERSION,
     overlays: engine.listOverlays(),
   };
 }
@@ -78,6 +85,7 @@ function renderRunOutput(engine: AgentEngine, overlayName: string): RunOutput {
     status: "pass",
     mode: "machine",
     command: "run",
+    contractVersion: CLI_CONTRACT_VERSION,
     overlay: result.overlay,
     execution: result.execution,
   };
@@ -138,7 +146,12 @@ try {
   const machineMode = process.argv.includes("--json");
 
   if (machineMode) {
-    console.error(JSON.stringify({ status: "fail", mode: "machine", error: message }));
+    console.error(JSON.stringify({
+      status: "fail",
+      mode: "machine",
+      contractVersion: CLI_CONTRACT_VERSION,
+      error: message,
+    }));
   } else {
     console.error(`OS_CLI_FAIL: ${message}`);
   }

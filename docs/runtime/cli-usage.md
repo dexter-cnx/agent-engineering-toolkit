@@ -21,7 +21,7 @@ Entrypoint: `tools/os/cli.ts`
 ### `os validate`
 
 - Emits machine-friendly JSON:
-  - `{"status":"pass","overlays":<n>,"source":"docs/overlays.manifest.json"}`
+  - `{"status":"pass","overlays":<n>,"source":"docs/overlays.manifest.json","mode":"machine","command":"validate","contractVersion":"1.0.0"}`
 - Exit code: `0` on success.
 
 ## Failure behavior

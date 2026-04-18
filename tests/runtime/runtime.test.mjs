@@ -110,6 +110,7 @@ test("cli: os overlays list --json output contract", () => {
   assert.equal(payload.status, "pass");
   assert.equal(payload.mode, "machine");
   assert.equal(payload.command, "overlays.list");
+  assert.equal(payload.contractVersion, "1.0.0");
   assert.ok(Array.isArray(payload.overlays));
   assert.ok(payload.overlays.length > 0);
   assert.ok(payload.overlays[0].name);
@@ -129,6 +130,7 @@ test("cli: os run <overlay> --json output contract", () => {
   assert.equal(payload.status, "pass");
   assert.equal(payload.mode, "machine");
   assert.equal(payload.command, "run");
+  assert.equal(payload.contractVersion, "1.0.0");
   assert.equal(payload.overlay.name, "backend-node");
   assert.equal(payload.execution.mode, "simulation");
 });
@@ -138,12 +140,13 @@ test("cli: os validate output contract", () => {
   assert.equal(result.status, 0);
 
   const payload = JSON.parse(result.stdout.trim());
-  assert.deepEqual(Object.keys(payload).sort(), ["command", "mode", "overlays", "source", "status"]);
+  assert.deepEqual(Object.keys(payload).sort(), ["command", "contractVersion", "mode", "overlays", "source", "status"]);
   assert.equal(payload.status, "pass");
   assert.ok(payload.overlays > 0);
   assert.equal(payload.source, "docs/overlays.manifest.json");
   assert.equal(payload.mode, "machine");
   assert.equal(payload.command, "validate");
+  assert.equal(payload.contractVersion, "1.0.0");
 });
 
 test("cli: malformed flag combination exits 2 with machine error payload", () => {
@@ -157,6 +160,7 @@ test("cli: malformed flag combination exits 2 with machine error payload", () =>
   const payload = JSON.parse(payloadLine);
   assert.equal(payload.status, "fail");
   assert.equal(payload.mode, "machine");
+  assert.equal(payload.contractVersion, "1.0.0");
   assert.ok(payload.error.includes("--json"));
 });
 
@@ -185,5 +189,7 @@ test("publishable CLI package metadata and bin path exist", () => {
   const pkg = JSON.parse(readFileSync(pkgPath, "utf8"));
   assert.equal(pkg.bin.os, "tools/os/bin/os.js");
   assert.equal(pkg.publishConfig.access, "public");
+  assert.equal(pkg.homepage, pkg.repository.url.replace(/\.git$/, ""));
+  assert.equal(pkg.bugs.url, `${pkg.homepage}/issues`);
   assert.ok(existsSync(resolve("tools/os/bin/os.js")));
 });
