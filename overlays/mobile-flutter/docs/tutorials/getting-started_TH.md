@@ -21,6 +21,7 @@
 - `overlays/mobile-flutter/examples/real-world/README.md`
 - `overlays/mobile-flutter/templates/`
 - `overlays/mobile-flutter/ci/validate_skills.sh`
+- `overlays/mobile-flutter/docs/tutorials/app-log-and-production-logging_TH.md`
 
 ## ขั้นตอน
 
@@ -38,6 +39,7 @@
 - ใช้ `SKILLS_INDEX.md` เพื่อเลือก active skill ที่เล็กที่สุด
 - ใช้ `workflows/new-project/README.md` สำหรับสร้าง app ใหม่
 - ใช้ `workflows/new-feature/README.md` สำหรับ feature module
+- ใช้ `docs/tutorials/app-log-and-production-logging_TH.md` สำหรับ app logging และ observability
 - ใช้ `workflows/release-app/README.md` สำหรับ release readiness
 - ใช้ `workflows/migrate-project/README.md` สำหรับ refactor legacy project
 

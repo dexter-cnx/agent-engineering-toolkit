@@ -27,6 +27,7 @@ main.dart
 - theme setup
 - localization setup
 - global error boundary/logging
+- app-level structured logging boundary ([`../skills/architecture/flutter-production-logging/SKILL.md`](../skills/architecture/flutter-production-logging/SKILL.md))
 - network client
 - storage abstraction
 - sample feature

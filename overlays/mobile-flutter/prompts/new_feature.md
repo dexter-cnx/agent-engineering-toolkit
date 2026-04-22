@@ -51,6 +51,7 @@ Add one Flutter feature module to an existing app without violating architecture
 - `flutter-getx-controller-skeleton`
 - `flutter-firestore-repository`
 - `flutter-firebase-auth-adapter`
+- `flutter-production-logging`
 - `flutter-go-router-route-map`
 - `flutter-go-router-redirect-guard`
 - `workflows/new-feature/README.md`

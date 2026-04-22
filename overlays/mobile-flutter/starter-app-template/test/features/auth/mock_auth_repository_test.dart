@@ -1,5 +1,5 @@
-import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter_overlay_starter/features/auth/data/repositories/mock_auth_repository.dart';
+import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   test('mock auth repository signs in and stores current user', () async {

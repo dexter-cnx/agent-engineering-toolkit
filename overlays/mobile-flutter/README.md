@@ -52,6 +52,7 @@ python3 overlays/mobile-flutter/ci/verify_docs_sync.py
 
 - Examples: `examples/README.md`, `examples/real-world/README.md`
 - Workflows: `workflows/new-project/README.md`, `workflows/new-feature/README.md`, `workflows/release-app/README.md`
+- Tutorials: `docs/tutorials/README.md`, `docs/tutorials/app-log-and-production-logging.md`
 - Templates and generation: `templates/`, `tools/skillgen/`
 - Starter reference: `starter-app-template/README.md`
 

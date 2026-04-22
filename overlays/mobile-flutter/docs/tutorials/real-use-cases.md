@@ -23,6 +23,15 @@
 6. Add repository wiring with `overlays/mobile-flutter/skills/firebase/flutter-firestore-repository/SKILL.md` or `overlays/mobile-flutter/skills/firebase/flutter-firebase-auth-adapter/SKILL.md` if needed.
 7. Add tests and verify the output tree.
 
+## Add app logging
+
+1. Start with `overlays/mobile-flutter/docs/tutorials/app-log-and-production-logging.md`.
+2. Use `overlays/mobile-flutter/skills/architecture/flutter-production-logging/SKILL.md` to define the logging boundary.
+3. Keep logger wiring in the app or core infrastructure layer, not in widgets.
+4. Add `overlays/mobile-flutter/skills/flutter-crash-reporting/SKILL.md` if logs need crash handoff.
+5. Add `overlays/mobile-flutter/skills/flutter-analytics/SKILL.md` if logs feed analytics events.
+6. Add tests for redaction, fallback behavior, and release verbosity.
+
 ## Fix an architecture violation
 
 1. Use `overlays/mobile-flutter/skills/architecture/flutter-clean-architecture-audit/SKILL.md`.
