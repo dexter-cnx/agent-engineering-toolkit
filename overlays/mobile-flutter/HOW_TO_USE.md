@@ -50,6 +50,7 @@ Read policies when you need constraints, not execution.
 |---|---|
 | Create a new project | `prompts/new_project.md` + `workflows/new-project/README.md` + `flutter-clean-architecture-audit` |
 | Add a new feature | `prompts/new_feature.md` + `workflows/new-feature/README.md` + `flutter-feature-folder-scaffold` + `flutter-feature-contract-scaffold` |
+| Add app logging | `docs/tutorials/app-log-and-production-logging.md` + `flutter-production-logging` + `flutter-crash-reporting` |
 | Integrate Firebase auth | `prompts/integrate_firebase_auth.md` + `flutter-firebase-auth-adapter` + `flutter-firebase-auth-state` + `workflows/new-feature/README.md` |
 | Add deep link routing | `prompts/add_go_router_deeplink.md` + `flutter-go-router-route-map` + `flutter-go-router-redirect-guard` + `flutter-go-router-deeplink-wireup` |
 | Prepare release | `prompts/release_android_ios.md` + `workflows/release-app/README.md` + `flutter-android-signing-config` + `flutter-ios-release-readiness` |
@@ -220,6 +221,7 @@ Deliver:
 |---|---|
 | สร้างโปรเจกต์ใหม่ | `workflows/new-project/README.md` + `flutter-clean-architecture-audit` |
 | เพิ่ม feature ใหม่ | `workflows/new-feature/README.md` + `flutter-feature-folder-scaffold` + `flutter-feature-contract-scaffold` |
+| เพิ่ม app logging | `docs/tutorials/app-log-and-production-logging.md` + `flutter-production-logging` + `flutter-crash-reporting` |
 | ใส่ Firebase auth | `flutter-firebase-auth-adapter` + `flutter-firebase-auth-state` + `workflows/new-feature/README.md` |
 | เพิ่ม deep link routing | `flutter-go-router-route-map` + `flutter-go-router-redirect-guard` + `flutter-go-router-deeplink-wireup` |
 | เตรียม release | `workflows/release-app/README.md` + `flutter-android-signing-config` + `flutter-ios-release-readiness` |

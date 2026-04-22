@@ -21,7 +21,7 @@ Use this tutorial when the app must keep working without network access and sync
 4. Choose the `mobile-flutter` overlay.
 5. Decide the offline data strategy before writing code.
 6. Build the app shell and local storage boundary.
-7. Install `isar` as the example local database.
+7. If you choose `isar`, use it only as an example local database, not as an overlay standard.
 8. Add sync or queue rules only after boundaries are clear.
 9. Verify both normal and offline behavior.
 10. Save memory for sync and conflict decisions.
@@ -82,6 +82,8 @@ This file defines the repo-wide operating rules for all Agent Teams that work in
 - <routing>
 - <offline storage>
 
+> Note: `isar` in this tutorial is only an example local database choice, not a `mobile-flutter` overlay standard. If you use it, plan for schema drift / migration drift from the start.
+
 ## 3. Architecture Rules
 
 - UI stays thin
@@ -105,6 +107,7 @@ Start from a blank folder.
 Create a short, practical repo-root AGENTS.md.
 Choose the mobile-flutter overlay.
 Use Isar as the local database and keep it behind a repository or storage adapter.
+If you choose Isar, treat schema drift / migration drift as part of the design, memory, and test plan.
 Use the prompt pipeline in order.
 Keep offline-first data flow and widget boundaries explicit.
 ```
@@ -141,6 +144,7 @@ final isar = await Isar.open(
 ```
 
 Use `isar` as the local source of truth or cache layer, then keep sync logic separate from widgets.
+If you choose `isar`, plan for schema drift / migration drift in the design, memory, and test plan from the beginning.
 
 Useful questions:
 

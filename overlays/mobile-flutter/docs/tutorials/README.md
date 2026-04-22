@@ -11,6 +11,8 @@ Use the English files first; Thai mirrors exist beside them for bilingual teams.
 - [How Skills Work TH](how-skills-work_TH.md)
 - [Add a New Skill](add-a-new-skill.md)
 - [Add a New Skill TH](add-a-new-skill_TH.md)
+- [App Log and Production Logging](app-log-and-production-logging.md)
+- [App Log and Production Logging TH](app-log-and-production-logging_TH.md)
 - [Real Use Cases](real-use-cases.md)
 
 ## Workflow Guides

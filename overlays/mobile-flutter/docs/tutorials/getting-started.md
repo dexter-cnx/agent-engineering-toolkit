@@ -21,6 +21,7 @@ Use this overlay end-to-end without prior context. Start here when you need to p
 - `overlays/mobile-flutter/examples/real-world/README.md`
 - `overlays/mobile-flutter/templates/`
 - `overlays/mobile-flutter/ci/validate_skills.sh`
+- `overlays/mobile-flutter/docs/tutorials/app-log-and-production-logging.md`
 
 ## Step-by-step instructions
 
@@ -38,6 +39,7 @@ Use this overlay end-to-end without prior context. Start here when you need to p
 - Use `SKILLS_INDEX.md` to pick the smallest active skill.
 - Use `workflows/new-project/README.md` for a new app.
 - Use `workflows/new-feature/README.md` for a feature module.
+- Use `docs/tutorials/app-log-and-production-logging.md` for app logging and observability guidance.
 - Use `workflows/release-app/README.md` for release readiness.
 - Use `workflows/migrate-project/README.md` for legacy refactors.
 

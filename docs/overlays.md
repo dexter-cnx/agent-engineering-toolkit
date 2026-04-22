@@ -2,31 +2,43 @@
 
 Overlays are the specialization layer of the Agent Engineering OS.
 
+## Overlay Authority
+
+**Authority model (Option A):**
+- `docs/overlays.manifest.json` is the machine authority.
+- This document is the human-readable mirror of that manifest.
+
 ## Boundary contract
 
 - Root = stack-neutral foundation and governance.
 - Overlay = stack/domain specialization.
 - Overlay guidance extends root guidance; it does not replace it.
 
-## Overlay catalog
+## Canonical overlay catalog
 
-- [agent-friendly-cli](../overlays/agent-friendly-cli/README.md)
 - [agent-karpathy](../overlays/agent-karpathy/README.md)
+- [backend-node](../overlays/backend-node/README.md)
 - [backend-common](../overlays/backend-common/README.md)
 - [backend-dotnet](../overlays/backend-dotnet/README.md)
-- [backend-node](../overlays/backend-node/README.md)
 - [mobile-flutter](../overlays/mobile-flutter/README.md)
-- [python-service](../overlays/python-service/README.md)
-- [unity](../overlays/unity/README.md)
 - [web-frontend](../overlays/web-frontend/README.md)
 - [web-frontend-common](../overlays/web-frontend-common/README.md)
 - [web-frontend-nextjs](../overlays/web-frontend-nextjs/README.md)
+- [python-service](../overlays/python-service/README.md)
+- [unity](../overlays/unity/README.md)
+## Overlay manifest (machine authority)
+
+Machine-readable overlay authority is maintained in `docs/overlays.manifest.json`.
+The manifest must stay consistent with this catalog and is enforced by `tools/ci/check-canonical-consistency.ts`.
+
+## Governance update discipline
+
+When adding/removing/renaming overlays, update `docs/overlays.manifest.json` first, then update this mirror doc in the same pull request. CI will fail if either side drifts.
 
 ## Overlay product metadata (concise)
 
 | Overlay | Maturity | Scope | Requires | Runnable entry | When to use |
 |---|---|---|---|---|---|
-| agent-friendly-cli | stable | tooling | shell + python tooling | `overlays/agent-friendly-cli/examples/` | recurring CLI-style agent operations |
 | agent-karpathy | stable | tooling | eval/promote workflow discipline | `overlays/agent-karpathy/examples/` | skill eval/mutation/promotion governance |
 | backend-common | stable | backend | backend layering conventions | `overlays/backend-common/examples/` | runtime-neutral backend patterns |
 | backend-dotnet | production | backend | .NET toolchain | `overlays/backend-dotnet/examples/` | ASP.NET Core backend delivery |
@@ -48,3 +60,16 @@ Each overlay README must define:
 5. what it does not replace
 
 Validation is enforced by `tools/ci/overlay_lint.py`.
+
+## First-class overlay operational README contract
+
+For overlays with full operational ownership (`agent-karpathy`, `mobile-flutter`, `unity`), README must also include:
+1. when not to use
+2. canonical links to root onboarding
+3. expected consuming repository shape
+4. verify commands
+5. examples/templates entrypoints
+6. memory conventions
+7. review checklist
+
+Validation is enforced by `tools/ci/coherence_lint.py`.

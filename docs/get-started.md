@@ -1,6 +1,7 @@
 # Get Started (Canonical Onboarding)
 
 This is the **single onboarding path** for this repository.
+Canonical chain: `README.md -> docs/get-started.md -> docs/adoption-paths.md -> docs/overlays.md`.
 
 ## 1) Understand what this repo is
 
@@ -30,6 +31,17 @@ python3 tools/ci/link_check.py
 ## 5) Execute work through lifecycle
 
 Follow [architecture/task-lifecycle.md](architecture/task-lifecycle.md) and role model in [../agents/README.md](../agents/README.md).
+
+## Gate model you should apply
+
+1. **Governance gate (Toolkit CI)**  
+   Run root contract checks (`tools/ci/*`) to verify OS invariants, docs, links, overlays, prompts, and memory.
+2. **Runtime integration gate**  
+   Run integration checks in the chosen composition/app (for example `npm run fullstack:verify`) to validate real execution wiring.
+3. **Release gate**  
+   Run release/publication checks before shipping tags or public artifacts.
+
+Toolkit CI validates governance coherence for the OS repository itself; it does not replace full-stack runtime verification.
 
 ## Compatibility-only entrypoints
 
